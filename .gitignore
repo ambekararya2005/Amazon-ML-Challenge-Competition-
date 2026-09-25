@@ -1,3 +1,20 @@
+# Data (never committed)
 student_resource/dataset/
+dataset/
+
+# Pipeline artefacts (keep the empty folders via .gitkeep)
+/cache/*
+!/cache/.gitkeep
+/output/*
+!/output/.gitkeep
+
+# Environment
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# OS junk
 __MACOSX/
 .DS_Store
+Thumbs.db
