@@ -7,3 +7,6 @@
 {"time": "2026-09-25T23:33:27", "stage": "prepare_train_ground_truth", "status": "ok", "seconds": 5.93, "start_rss_mb": 1472, "peak_rss_mb": 1519, "end_rss_mb": 669, "tsv": "C:\\Users\\Arya Ambekar\\Downloads\\Amazon Ml Challenge Competition\\student_resource\\dataset\\train\\train_ground_truth.tsv"}
 {"time": "2026-09-25T23:33:27", "stage": "prepare_all", "status": "ok", "seconds": 134.73, "start_rss_mb": 79, "peak_rss_mb": 3059, "end_rss_mb": 669}
 {"time": "2026-09-25T23:34:42", "stage": "prepare_all", "status": "ok", "seconds": 0.0, "start_rss_mb": 78, "peak_rss_mb": 80, "end_rss_mb": 80}
+{"time": "2026-09-25T23:47:04", "stage": "prepare_train_pairs", "status": "ok", "seconds": 67.14, "start_rss_mb": 80, "peak_rss_mb": 2651, "end_rss_mb": 733}
+{"time": "2026-09-25T23:47:04", "stage": "prepare_all", "status": "ok", "seconds": 67.15, "start_rss_mb": 78, "peak_rss_mb": 2645, "end_rss_mb": 733}
+{"time": "2026-09-25T23:48:23", "stage": "split", "status": "ok", "seconds": 14.39, "start_rss_mb": 147, "peak_rss_mb": 1086, "end_rss_mb": 415}

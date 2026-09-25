@@ -48,3 +48,17 @@
 2026-09-25 23:34:42 INFO [prepare_train_ground_truth] cached at C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\cache\raw\train_ground_truth.parquet (2206821 rows) - skipping (use --force to rebuild)
 2026-09-25 23:34:42 INFO [prepare_all] ok in 0.0s | peak rss 80 MB | end rss 80 MB
 2026-09-25 23:34:42 INFO summary written to C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\logs\data_summary.json
+2026-09-25 23:45:56 INFO machine: {'ram_total_gb': 15.25, 'ram_available_gb': 3.95, 'ram_used_pct': 74.1, 'cpu_physical': 8, 'cpu_logical': 16}
+2026-09-25 23:45:56 INFO [prepare_all] start (rss 78 MB)
+2026-09-25 23:45:56 INFO [prepare_train_source1] cached at C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\cache\raw\train_source1.parquet (2206821 rows) - skipping (use --force to rebuild)
+2026-09-25 23:45:56 INFO [prepare_train_source2] cached at C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\cache\raw\train_source2.parquet (5034616 rows) - skipping (use --force to rebuild)
+2026-09-25 23:45:56 INFO [prepare_train_source3] cached at C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\cache\raw\train_source3.parquet (5285603 rows) - skipping (use --force to rebuild)
+2026-09-25 23:45:56 INFO [prepare_test_source1] cached at C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\cache\raw\test_source1.parquet (1732544 rows) - skipping (use --force to rebuild)
+2026-09-25 23:45:56 INFO [prepare_test_source2] cached at C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\cache\raw\test_source2.parquet (4887273 rows) - skipping (use --force to rebuild)
+2026-09-25 23:45:56 INFO [prepare_test_source3] cached at C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\cache\raw\test_source3.parquet (5082316 rows) - skipping (use --force to rebuild)
+2026-09-25 23:45:56 INFO [prepare_train_ground_truth] cached at C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\cache\raw\train_ground_truth.parquet (2206821 rows) - skipping (use --force to rebuild)
+2026-09-25 23:45:56 INFO [prepare_train_pairs] start (rss 80 MB)
+2026-09-25 23:47:04 INFO [prepare_train_pairs] {'rows': 7638365, 's1_with_matches': 2083574, 'by_source': {'S3': 3944746, 'S2': 3693619}, 'duplicate_other_id': 0, 'missing_in_source': {'S2': 0, 'S3': 0}, 'mem_deep_mb': np.float64(364.4), 'parquet_mb': 57.8}
+2026-09-25 23:47:04 INFO [prepare_train_pairs] ok in 67.1s | peak rss 2651 MB | end rss 733 MB
+2026-09-25 23:47:04 INFO [prepare_all] ok in 67.1s | peak rss 2645 MB | end rss 733 MB
+2026-09-25 23:47:04 INFO summary written to C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\logs\data_summary.json

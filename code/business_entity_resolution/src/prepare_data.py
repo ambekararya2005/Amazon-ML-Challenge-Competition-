@@ -1,5 +1,8 @@
 """Stage 0: convert the raw TSVs to Parquet in cache/raw/ and report their size.
 
+Also derives cache/raw/train_pairs.parquet (s1_id, other_id, other_source): one
+row per positive ground-truth pair.
+
 For each table: read with the mandatory TSV settings, assert no NA / no '\\r',
 report rows, per-country counts, empty-field counts and in-memory size, write
 Parquet, read it back and assert the round-trip is identical and still NA-free.
@@ -81,6 +84,62 @@ def convert_table(split: str, name: str, tsv_path, loader, force: bool, logger) 
     return info
 
 
+def build_train_pairs(force: bool, logger) -> dict:
+    """Explode the train ground truth into one row per positive pair; return its summary.
+
+    Writes cache/raw/train_pairs.parquet with columns s1_id, other_id,
+    other_source ("S2"/"S3"). Asserts that every other_id is non-empty, has an
+    S2-/S3- prefix, appears only once (the one-to-one property) and exists in
+    its source file.
+    """
+    out = raw_parquet_path("train", "pairs")
+    stage = "prepare_train_pairs"
+    if out.exists() and not force:
+        rows = pq.ParquetFile(out).metadata.num_rows
+        logger.info("[%s] cached at %s (%d rows) - skipping (use --force to rebuild)", stage, out, rows)
+        return {"rows": rows, "cached": True}
+
+    with StageTimer(stage, logger):
+        gt = read_parquet(raw_parquet_path("train", "ground_truth"))
+        gt = gt[gt["matched_entity_ids"] != ""]
+        pairs = (gt.assign(other_id=gt["matched_entity_ids"].str.split(","))
+                   .explode("other_id", ignore_index=True)
+                   [["source1_entity_id", "other_id"]]
+                   .rename(columns={"source1_entity_id": "s1_id"}))
+        pairs["other_id"] = pairs["other_id"].astype("str")
+        pairs["other_source"] = pairs["other_id"].str[:2]
+        del gt
+        gc.collect()
+
+        if (pairs["other_id"] == "").any():
+            raise AssertionError(f"{stage}: empty id inside a matched_entity_ids list")
+        bad_src = sorted(set(pairs["other_source"].unique()) - {"S2", "S3"})
+        if bad_src:
+            raise AssertionError(f"{stage}: unexpected id prefixes {bad_src}")
+        n_dup = int(pairs["other_id"].duplicated().sum())
+        if n_dup:
+            raise AssertionError(f"{stage}: {n_dup} other_id values linked to more than one S1")
+        missing = {}
+        for k in (2, 3):
+            ids = read_parquet(raw_parquet_path("train", f"source{k}"), columns=["entity_id"])["entity_id"]
+            sub = pairs.loc[pairs["other_source"] == f"S{k}", "other_id"]
+            missing[f"S{k}"] = int((~sub.isin(ids)).sum())
+            del ids, sub
+        if any(missing.values()):
+            raise AssertionError(f"{stage}: ground-truth ids missing from source files: {missing}")
+
+        write_parquet(pairs, out)
+        info = {"rows": len(pairs), "s1_with_matches": int(pairs["s1_id"].nunique()),
+                "by_source": {k: int(v) for k, v in pairs["other_source"].value_counts().items()},
+                "duplicate_other_id": n_dup, "missing_in_source": missing,
+                "mem_deep_mb": round(pairs.memory_usage(deep=True).sum() / MB, 1),
+                "parquet_mb": round(out.stat().st_size / MB, 1)}
+        logger.info("[%s] %s", stage, info)
+        del pairs
+        gc.collect()
+    return info
+
+
 def main() -> None:
     """Parse CLI flags, log machine info, convert every table and write logs/data_summary.json."""
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -104,6 +163,9 @@ def main() -> None:
             if info.get("cached") and key in tables:
                 continue  # keep the full description from the run that built it
             tables[key] = info
+        info = build_train_pairs(args.force, logger)
+        if not (info.get("cached") and "train_pairs" in tables):
+            tables["train_pairs"] = info
 
     with open(summary_path, "w", encoding="utf-8", newline="") as f:
         json.dump(summary, f, indent=2)

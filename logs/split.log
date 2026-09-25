@@ -1,0 +1,13 @@
+2026-09-25 23:48:09 INFO [split] start (rss 147 MB)
+2026-09-25 23:48:23 INFO wrote C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\cache\split.parquet
+2026-09-25 23:48:23 INFO split sanity (per country x fold):
+                  entities  singleton_rate  mean_matches  mean_matches_nonsingleton
+country fold                                                                       
+India   train  750710.0000          0.0559        3.4644                     3.6695
+        val    132478.0000          0.0559        3.4653                     3.6704
+US      train 1125087.0000          0.0558        3.4591                     3.6636
+        val    198546.0000          0.0558        3.4588                     3.6633
+ALL     train 1875797.0000          0.0558        3.4612                     3.6660
+        val    331024.0000          0.0558        3.4614                     3.6661
+2026-09-25 23:48:23 INFO balance check passed (singleton gap <= 0.002, mean-matches gap <= 0.010)
+2026-09-25 23:48:23 INFO [split] ok in 14.4s | peak rss 1086 MB | end rss 415 MB

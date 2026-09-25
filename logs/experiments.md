@@ -15,3 +15,12 @@
 - In-memory (deep) MB: train S1/S2/S3 = 259/601/622, test S1/S2/S3 = 213/616/618, GT = 151.
   Parquet MB: 90/219/227, 72/220/223, 51. Empty addresses: train S2 168,967, S3 175,916; test S2 129,408, S3 136,098.
 - Full conversion 135 s, peak RSS 3.06 GB.
+
+## 2026-09-25 — Train pairs, validation split, official metric
+- Load stage now also writes `cache/raw/train_pairs.parquet` (s1_id, other_id, other_source): 7,638,365 rows
+  (S2 3,693,619 / S3 3,944,746), 0 duplicate other_id, 0 ids missing from S2/S3 files; 2,083,574 S1 with matches. 67 s, peak 2.65 GB.
+- `src/metric.py` (f05_entity, macro_f05 exactly as plan §8; f05_breakdown per country) + 10 unit tests, all pass (README example = 0.714).
+- `src/split.py`: 15% val, stratified country x bucket(0..6+), seed 42 -> `cache/split.parquet`.
+  train 1,875,797 (India 750,710 / US 1,125,087); val 331,024 (India 132,478 / US 198,546).
+  Singleton rate 0.0558 both folds; mean matches 3.4612 train vs 3.4614 val.
+- Reference points on val: perfect prediction F0.5 = 1.0000; all-empty F0.5 = 0.0558 (= singleton rate).

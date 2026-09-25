@@ -28,7 +28,10 @@ skips work if the cache exists; add `--force` to recompute.
 
 | # | Command | Output | Runtime / peak RSS (reference machine) |
 |---|---------|--------|----------------------------------------|
-| 0 | `python -m src.prepare_data` | `cache/raw/*.parquet`, `logs/data_summary.json` | 135 s / 3.1 GB |
+| 0 | `python -m src.prepare_data` | `cache/raw/*.parquet` (incl. `train_pairs.parquet`), `logs/data_summary.json` | 135 s + 67 s (pairs) / 3.1 GB |
+| 1 | `python -m src.split` | `cache/split.parquet` (s1_id, fold: 85% train / 15% val) | 14 s / 1.1 GB |
+
+Tests: `python -m unittest -v`
 
 _Later stages (normalise → blocking → matching → output) are added here as they are built._
 
@@ -42,7 +45,10 @@ src/
   io_utils.py       TSV/Parquet I/O; writers for matching_results.tsv / candidate_pairs.tsv
                     (enforce submission rules, '\n' line endings, assert no b'\r')
   logging_utils.py  loggers, machine info, per-stage runtime + peak memory (logs/stage_metrics.jsonl)
-  prepare_data.py   stage 0: TSV -> Parquet with NA / round-trip checks
+  prepare_data.py   stage 0: TSV -> Parquet with NA / round-trip checks; train_pairs (one row per positive pair)
+  split.py          stage 1: 15% validation hold-out, stratified by country x match-count bucket
+  metric.py         official macro F0.5 + per-country breakdown
+tests/              unit tests (stdlib unittest)
 README.md           this file
 requirements.txt    pinned dependencies
 ```
