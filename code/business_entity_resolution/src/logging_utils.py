@@ -21,6 +21,8 @@ def get_logger(name: str) -> logging.Logger:
     if logger.handlers:
         return logger
     LOG_DIR.mkdir(parents=True, exist_ok=True)
+    if hasattr(sys.stdout, "reconfigure"):  # Windows consoles default to cp1252; data has Indic scripts
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     logger.setLevel(logging.INFO)
     fmt = logging.Formatter("%(asctime)s %(levelname)s %(message)s", "%Y-%m-%d %H:%M:%S")
     for handler in (logging.StreamHandler(sys.stdout),

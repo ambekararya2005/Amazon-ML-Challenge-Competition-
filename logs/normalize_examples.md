@@ -1,0 +1,552 @@
+# Normalisation examples
+Seed 42. Random rows are drawn from a random subset of row groups of each file.
+
+## train / India: 30 random examples
+- `S1-309890588` (India)
+  - name: `Hari Tech Private Limited` -> clean `hari tech private limited` | core `hari tech` | legal `PRIVATE_LIMITED` | compact `haritech` | initials `ht`
+  - addr: `C-1/380, Sector-11 Rohini, Delhi` -> `c 1 380, sector 11 rohini, delhi` | numbers `1 380 11` | filler `` | keys `001 380 011`
+- `S1-980430538` (India)
+  - name: `Agarwal Services Private Limited` -> clean `agarwal services private limited` | core `agarwal services` | legal `PRIVATE_LIMITED` | compact `agarwalservices` | initials `as`
+  - addr: `At Khanapur Jafrabad, Maharashtra, Jalna, House No 169, Jalna` -> `at khanapur jafrabad, maharashtra, jalna, house no 169, jalna` | numbers `169` | filler `` | keys `169`
+- `S1-500148273` (India)
+  - name: `Balaji It Private Limited` -> clean `balaji it private limited` | core `balaji it` | legal `PRIVATE_LIMITED` | compact `balajiit` | initials `bi`
+  - addr: `Araji No. 928, Aidhe Lamahi (Near Satti Mata Mandir), Varanasi, Uttar Pradesh` -> `araji no 928, aidhe lamahi near satti mata mandir, varanasi, uttar pradesh` | numbers `928` | filler `` | keys `928`
+- `S3-970422440` (India)
+  - name: `Creative ಡೆವಲಪರ್ಸ್` -> clean `creative devlprs` | core `creative devlprs` | legal `` | compact `creativedevlprs` | initials `cd` | NONLATIN
+  - addr: `Indiqube Orion Khata No. 1802/55/13/55/12B, Bangalore, KA` -> `indiqube orion khata no 1802 55 13 55 12b, bangalore, ka` | numbers `1802 55 13 12` | filler `` | keys `802 055 013 012`
+- `S1-229105816` (India)
+  - name: `Srs Components Private Limited` -> clean `srs components private limited` | core `srs components` | legal `PRIVATE_LIMITED` | compact `srscomponents` | initials `sc`
+  - addr: `Kalahandi, House No-3, Junagarh, Sanjukta Enclave, Dharamgarh, Orissa` -> `kalahandi, house no 3, junagarh, sanjukta enclave, dharamgarh, orissa` | numbers `3` | filler `` | keys `003`
+- `S1-319693335` (India)
+  - name: `Joshua Academy Ltd` -> clean `joshua academy ltd` | core `joshua academy` | legal `LIMITED` | compact `joshuaacademy` | initials `ja`
+  - addr: `8-2-293/82/A/915-C, Plot No 915/C, Rd 46, Jubilee Hills, Shaikpet, Hyderabad, Telangana` -> `8 2 293 82 a 915 c, plot no 915 c, road 46, jubilee hills, shaikpet, hyderabad, telangana` | numbers `8 2 293 82 915 46` | filler `` | keys `008 002 293 082 915 046`
+- `S1-643716639` (India)
+  - name: `Lalbhai (India) Foot Pvt. Ltd.` -> clean `lalbhai foot pvt ltd` | core `lalbhai foot` | legal `PRIVATE_LIMITED` | compact `lalbhaifoot` | initials `lf`
+  - addr: `Road No 16, D.No. 21-225, Lig-65, Tsiic Colony, Hyd, Hyderabad, Telangana` -> `road no 16, d no 21 225, lig 65, tsiic colony, hyd, hyderabad, telangana` | numbers `16 21 225 65` | filler `` | keys `016 021 225 065`
+- `S1-587448674` (India)
+  - name: `Arrowline Developwell Pvt Ltd` -> clean `arrowline developwell pvt ltd` | core `arrowline developwell` | legal `PRIVATE_LIMITED` | compact `arrowlinedevelopwell` | initials `ad`
+  - addr: `H No.99, Sector -73, Noida, Gautam Buddha Nagar, Uttar Pradesh` -> `h no 99, sector 73, noida, gautam buddha nagar, uttar pradesh` | numbers `99 73` | filler `` | keys `099 073`
+- `S1-285180309` (India)
+  - name: `Nageshwar Financial Limited` -> clean `nageshwar financial limited` | core `nageshwar financial` | legal `LIMITED` | compact `nageshwarfinancial` | initials `nf`
+  - addr: `C/O Patel Chintan Narsinh, Bh Railway Crossing, Kadi, Mahesana, Gujarat` -> `c o patel chintan narsinh, bh railway crossing, kadi, mahesana, gujarat` | numbers `` | filler `` | keys ``
+- `S1-492855405` (India)
+  - name: `Balaji Systems Private Limited` -> clean `balaji systems private limited` | core `balaji systems` | legal `PRIVATE_LIMITED` | compact `balajisystems` | initials `bs`
+  - addr: `Thane, Nr Riddhi Siddhi Complex, Gala1 Opp Hdil Industrial, Vasai, Maharashtra` -> `thane, nr riddhi siddhi complex, gala1 opp hdil industrial, vasai, maharashtra` | numbers `1` | filler `` | keys `001`
+- `S1-960295289` (India)
+  - name: `Smart Jai Technologies Private Limited` -> clean `smart jai technologies private limited` | core `smart jai technologies` | legal `PRIVATE_LIMITED` | compact `smartjaitechnologies` | initials `sjt`
+  - addr: `Plot No- 573 (P), Sub-29, Aditya Enclave Kanan Vihar Phase- 2, Patia, Bhubaneswar, Khordha, Orissa` -> `plot no 573 p, sub 29, aditya enclave kanan vihar phase 2, patia, bhubaneswar, khordha, orissa` | numbers `573 29 2` | filler `` | keys `573 029 002`
+- `S2-122762067` (India)
+  - name: `Gandhinagar (India)` -> clean `gandhinagar` | core `gandhinagar` | legal `` | compact `gandhinagar` | initials `g`
+  - addr: `H.NO 601 TO 607 RADHE INFINITY, NEAR RAKSHASAKTI CIRCLE, GANDHINAGAR, Gujarat` -> `h no 601 to 607 radhe infinity, near rakshasakti circle, gandhinagar, gujarat` | numbers `601 607` | filler `` | keys `601 607`
+- `S1-605409633` (India)
+  - name: `Aster & Sons Private Limited` -> clean `aster and sons private limited` | core `aster sons` | legal `PRIVATE_LIMITED` | compact `astersons` | initials `as`
+  - addr: `Plot No.733, Road No.36, 2Nd Floor, Mohan'S Plaza Jubilee Hills, Hyderabad, Telangana` -> `plot no 733, road no 36, 2nd floor, mohans plaza jubilee hills, hyderabad, telangana` | numbers `733 36 2` | filler `` | keys `733 036 002`
+- `S3-300089269` (India)
+  - name: `HOTEL (INDIA) SOFTTECH PRIVATE LIMITED` -> clean `hotel softtech private limited` | core `hotel softtech` | legal `PRIVATE_LIMITED` | compact `hotelsofttech` | initials `hs`
+  - addr: `No 371 Subash Nagra Nawabganj, NULL, Barabanki, उत्तर प्रदेश` -> `no 371 subash nagra nawabganj, barabanki, uttr prdes` | numbers `371` | filler `` | keys `371`
+- `S1-16025524` (India)
+  - name: `Barara Bricks` -> clean `barara bricks` | core `barara bricks` | legal `` | compact `bararabricks` | initials `bb`
+  - addr: `129, Janakpuri D Iv-1145, Barara, Ambala, Haryana` -> `129, janakpuri d iv 1145, barara, ambala, haryana` | numbers `129 1145` | filler `` | keys `129 145`
+- `S3-710984423` (India)
+  - name: `Onkareshwar-Private Limited Services` -> clean `onkareshwar private limited services` | core `onkareshwar services` | legal `PRIVATE_LIMITED` | compact `onkareshwarservices` | initials `os`
+  - addr: `0103 Harishchandra Apartmentsmogal Lane Mahim, Mumbai, MH` -> `0103 harishchandra apartmentsmogal lane mahim, mumbai, mh` | numbers `103` | filler `` | keys `103`
+- `S2-920058962` (India)
+  - name: `शिवम इंटरनेशनल प्रा. लि.` -> clean `sivm imtrnesnl private limited` | core `sivm imtrnesnl` | legal `PRIVATE_LIMITED` | compact `sivmimtrnesnl` | initials `si` | NONLATIN
+  - addr: `GOPAL, NASHIK, Maharashtra` -> `gopal, nashik, maharashtra` | numbers `` | filler `` | keys ``
+- `S2-375818317` (India)
+  - name: `INDIA LR RAUDR PVT  LTD` -> clean `india lr raudr pvt ltd` | core `india lr raudr` | legal `PRIVATE_LIMITED` | compact `indialrraudr` | initials `ilr`
+  - addr: `DOOR NO 51 , 2 ND FLOOR, RISHABARCADE SANJAYNAGAR, BANGALORE NORTH, Karnataka` -> `door no 51, 2 nd floor, rishabarcade sanjaynagar, bangalore north, karnataka` | numbers `51 2` | filler `` | keys `051 002`
+- `S1-358516103` (India)
+  - name: `Mads Consultants` -> clean `mads consultants` | core `mads consultants` | legal `` | compact `madsconsultants` | initials `mc`
+  - addr: `372, Kankarbagh, Ps Kankarbagh, Po Lohiya Nagar, Kankarbagh Patna, Patna, Bihar` -> `372, kankarbagh, ps kankarbagh, po lohiya nagar, kankarbagh patna, patna, bihar` | numbers `372` | filler `` | keys `372`
+- `S1-457379676` (India)
+  - name: `Enfield Megastructures Private Limited` -> clean `enfield megastructures private limited` | core `enfield megastructures` | legal `PRIVATE_LIMITED` | compact `enfieldmegastructures` | initials `em`
+  - addr: `C/O Sri Ram Sharn Mahto R S Complex, Shankar Chowk, Near Sbi Atm, Madhubani, Bihar` -> `c o sri ram sharn mahto rs complex, shankar chowk, near sbi atm, madhubani, bihar` | numbers `` | filler `` | keys ``
+- `S1-722331724` (India)
+  - name: `Rtg Educational Society` -> clean `rtg educational society` | core `rtg educational society` | legal `` | compact `rtgeducationalsociety` | initials `res`
+  - addr: `H No.1/A, Lotus Colony, 1St Street, Nandanam S.O, Chennai City Corporation, Chennai, Tamil Nadu` -> `h no 1 a, lotus colony, 1st street, nandanam so, chennai city corporation, chennai, tamil nadu` | numbers `1` | filler `` | keys `001`
+- `S2-328438983` (India)
+  - name: `TAKSH FACTORY-LIMITED FACTORY-LIMITED` -> clean `taksh factory limited factory limited` | core `taksh factory` | legal `LIMITED` | compact `takshfactory` | initials `tf`
+  - addr: `ಕರ್ನಾಟಕ, NO.149, GROUND FLOOR SRI KRUPA 11TH MAIN, 18TH CROSS, 7TH SECTOR, HSR L, AYOUT, BANGALORE` -> `krnatk, no 149, ground floor sri krupa 11th main, 18th cross, 7th sector, hsr l, ayout, bangalore` | numbers `149 11 18 7` | filler `` | keys `149 011 018 007`
+- `S1-784306398` (India)
+  - name: `Smart Ventures Pvt Ltd` -> clean `smart ventures pvt ltd` | core `smart ventures` | legal `PRIVATE_LIMITED` | compact `smartventures` | initials `sv`
+  - addr: `Tamil Nadu, 12 A Pollachi Main Road Anaimalai Post, Coimbatore, Pollachi` -> `tamil nadu, 12 a pollachi main road anaimalai post, coimbatore, pollachi` | numbers `12` | filler `` | keys `012`
+- `S3-521320118` (India)
+  - name: `Balaji Pvt. Ltd. Center` -> clean `balaji pvt ltd center` | core `balaji center` | legal `PRIVATE_LIMITED` | compact `balajicenter` | initials `bc`
+  - addr: `802, Iris, Nahar Amrit Shakti, Chandivali, Andheri East, Mumbai City, Mumbai, MH` -> `802, iris, nahar amrit shakti, chandivali, andheri east, mumbai city, mumbai, mh` | numbers `802` | filler `` | keys `802`
+- `S2-239064941` (India)
+  - name: `Suryaendique Limited Private Joint` -> clean `suryaendique limited private joint` | core `suryaendique joint` | legal `LIMITED|PRIVATE_LIMITED` | compact `suryaendiquejoint` | initials `sj`
+  - addr: `G-28, 22, RUPAL MARKET RAMNAGERIA ROAD, JAGATPURA, JAIPUR, Rajasthan` -> `g 28, 22, rupal market ramnageria road, jagatpura, jaipur, rajasthan` | numbers `28 22` | filler `` | keys `028 022`
+- `S2-681042327` (India)
+  - name: `VLM Solutions  Pvt Ltd` -> clean `vlm solutions pvt ltd` | core `vlm solutions` | legal `PRIVATE_LIMITED` | compact `vlmsolutions` | initials `vs`
+  - addr: `DOOR NO 252 7TH C MAIN II STAGE IV BLOCK BASAVESHWARNAGAR, BANGALORE, Karnataka` -> `door no 252 7th c main ii stage iv block basaveshwarnagar, bangalore, karnataka` | numbers `252 7` | filler `` | keys `252 007`
+- `S1-477363370` (India)
+  - name: `Prajna Consultancy Private Limited` -> clean `prajna consultancy private limited` | core `prajna consultancy` | legal `PRIVATE_LIMITED` | compact `prajnaconsultancy` | initials `pc`
+  - addr: `Plot No 39 & 40, Venkateswara Colony, Uppal, Uppal, K.V.Rangareddy, Telangana` -> `plot no 39 and 40, venkateswara colony, uppal, uppal, kvrangareddy, telangana` | numbers `39 40` | filler `` | keys `039 040`
+- `S2-815624524` (India)
+  - name: `Arora Designers Prviahshte Limited` -> clean `arora designers prviahshte limited` | core `arora designers prviahshte` | legal `LIMITED` | compact `aroradesignersprviahshte` | initials `adp`
+  - addr: `53/2202, ASWATHY, NEMOM P O, THIRUVANANTHAPURAM, Kerala` -> `53 2202, aswathy, nemom po, thiruvananthapuram, kerala` | numbers `53 2202` | filler `` | keys `053 202`
+- `S1-95850836` (India)
+  - name: `Mount Service Private Limited` -> clean `mount service private limited` | core `mount service` | legal `PRIVATE_LIMITED` | compact `mountservice` | initials `ms`
+  - addr: `5/1, Kannan Street, Thampupuram, Nanguneri, Tirunelveli, Tamil Nadu` -> `5 1, kannan street, thampupuram, nanguneri, tirunelveli, tamil nadu` | numbers `5 1` | filler `` | keys `005 001`
+- `S3-673294965` (India)
+  - name: `குரு அக்ரோ லிமிடெட்` -> clean `kuru akro limited` | core `kuru akro` | legal `LIMITED` | compact `kuruakro` | initials `ka` | NONLATIN
+  - addr: `தமிழ்நாடு, 905/E, Vaniyambadi` -> `tmilnatu, 905 e, vaniyambadi` | numbers `905` | filler `` | keys `905`
+
+## train / US: 30 random examples
+- `S1-756965787` (US)
+  - name: `A Cure 6 IT` -> clean `a cure 6 it` | core `a cure 6 it` | legal `` | compact `acure6it` | initials `ac6i`
+  - addr: `166 Greystone Lane, Unit Unit 7, Brighton, NY` -> `166 greystone lane, unit 7, brighton, ny` | numbers `166 7` | filler `` | keys `166 007`
+- `S1-277507739` (US)
+  - name: `Liberty Federation LLC` -> clean `liberty federation llc` | core `liberty federation` | legal `LLC` | compact `libertyfederation` | initials `lf`
+  - addr: `315 Descanso Road, Albuquerque, NM` -> `315 descanso road, albuquerque, nm` | numbers `315` | filler `` | keys `315`
+- `S3-31459007` (US)
+  - name: `Tri-State Industries,` -> clean `tri state industries` | core `tri state industries` | legal `` | compact `tristateindustries` | initials `tsi`
+  - addr: `Pasture Ln, Swansboro, North Carolina` -> `pasture lane, swansboro, north carolina` | numbers `` | filler `` | keys ``
+- `S2-584259290` (US)
+  - name: `PATTERSON CUSTOM GRADE PARTNERS CO` -> clean `patterson custom grade partners co` | core `patterson custom grade partners` | legal `CO` | compact `pattersoncustomgradepartners` | initials `pcgp`
+  - addr: `230 TWIN COVES LN, CLOVER, SC` -> `230 twin coves lane, clover, sc` | numbers `230` | filler `` | keys `230`
+- `S3-11963139` (US)
+  - name: `Noble & Crandell Starlink Co` -> clean `noble and crandell starlink co` | core `noble crandell starlink` | legal `CO` | compact `noblecrandellstarlink` | initials `ncs`
+  - addr: `3340 38nd Place, Chicago, Illinois` -> `3340 38nd place, chicago, illinois` | numbers `3340 38` | filler `` | keys `340 038`
+- `S2-146070782` (US)
+  - name: `Nylatavo` -> clean `nylatavo` | core `nylatavo` | legal `` | compact `nylatavo` | initials `n`
+  - addr: `#2 STATON DR, N/A, UPPER MARLBORO, MD` -> `2 staton drive, upper marlboro, md` | numbers `2` | filler `` | keys `002`
+- `S1-290883499` (US)
+  - name: `Miller & Leon Invest LLC` -> clean `miller and leon invest llc` | core `miller leon invest` | legal `LLC` | compact `millerleoninvest` | initials `mli`
+  - addr: `923 Lamb Street, Milton-freewater, OR` -> `923 lamb street, milton freewater, or` | numbers `923` | filler `` | keys `923`
+- `S3-447557603` (US)
+  - name: `Clauson Lng Llc` -> clean `clauson lng llc` | core `clauson lng` | legal `LLC` | compact `clausonlng` | initials `cl`
+  - addr: `75 Royal Forest Blvd, Columbus, Ohio` -> `75 royal forest boulevard, columbus, ohio` | numbers `75` | filler `` | keys `075`
+- `S2-354887622` (US)
+  - name: `MERRIDIE'S RIDGE DETAILING [LTD.]` -> clean `merridies ridge detailing` | core `merridies ridge detailing` | legal `` | compact `merridiesridgedetailing` | initials `mrd`
+  - addr: `438 JAMES WAY WAY, JEFFERSON, WI` -> `438 james way, jefferson, wi` | numbers `438` | filler `` | keys `438`
+- `S1-905296987` (US)
+  - name: `Tapley Integrated Inc` -> clean `tapley integrated inc` | core `tapley integrated` | legal `INC` | compact `tapleyintegrated` | initials `ti`
+  - addr: `2306 Walnut Street, Tecumseh, OK` -> `2306 walnut street, tecumseh, ok` | numbers `2306` | filler `` | keys `306`
+- `S2-353808645` (US)
+  - name: `All Bíomedical Technologies Inc` -> clean `all biomedical technologies inc` | core `all biomedical technologies` | legal `INC` | compact `allbiomedicaltechnologies` | initials `abt`
+  - addr: `1510 Crystal Ave, KANSAS CITY, MO` -> `1510 crystal avenue, kansas city, mo` | numbers `1510` | filler `` | keys `510`
+- `S2-120365292` (US)
+  - name: `Caruso, Rea Construction` -> clean `caruso rea construction` | core `caruso rea construction` | legal `` | compact `carusoreaconstruction` | initials `crc`
+  - addr: `1449 PLUM ST, PMB 4972, RATON, NM` -> `1449 plum street, raton, nm` | numbers `1449` | filler `4972` | keys `449`
+- `S2-744274659` (US)
+  - name: `Milton Maintenance` -> clean `milton maintenance` | core `milton maintenance` | legal `` | compact `miltonmaintenance` | initials `mm`
+  - addr: `9520 Greencastle Ln, FAIRFAX COUNTY, VA` -> `9520 greencastle lane, fairfax county, va` | numbers `9520` | filler `` | keys `520`
+- `S3-870014295` (US)
+  - name: `Latshaw All All Pk Inc.` -> clean `latshaw all pk inc` | core `latshaw all pk` | legal `INC` | compact `latshawallpk` | initials `lap`
+  - addr: `10602 Shady River Dr, Houston, Texas` -> `10602 shady river drive, houston, texas` | numbers `10602` | filler `` | keys `602`
+- `S3-179552726` (US)
+  - name: `Summit Worldwide,` -> clean `summit worldwide` | core `summit worldwide` | legal `` | compact `summitworldwide` | initials `sw`
+  - addr: `213 Ocean St, # 135, Hyannis, Massachusetts` -> `213 ocean street, 135, hyannis, massachusetts` | numbers `213 135` | filler `` | keys `213 135`
+- `S2-766719187` (US)
+  - name: `Desert Metropolitan Skin Care Valley` -> clean `desert metropolitan skin care valley` | core `desert metropolitan skin care valley` | legal `` | compact `desertmetropolitanskincarevalley` | initials `dmscv`
+  - addr: `726 KINDRED ST, LORAINE, TX` -> `726 kindred street, loraine, tx` | numbers `726` | filler `` | keys `726`
+- `S2-161485277` (US)
+  - name: `KlAL'S BLUE-RESTAURANT` -> clean `klals blue restaurant` | core `klals blue restaurant` | legal `` | compact `klalsbluerestaurant` | initials `kbr`
+  - addr: `115 Country Way, SCITUATE CDP, MA` -> `115 country way, scituate cdp, ma` | numbers `115` | filler `` | keys `115`
+- `S2-893395343` (US)
+  - name: `2342 Center  Ave Realty` -> clean `2342 center ave realty` | core `2342 center ave realty` | legal `` | compact `2342centeraverealty` | initials `2car`
+  - addr: `326 HICKMAN AVE, KINSTON, AL` -> `326 hickman avenue, kinston, al` | numbers `326` | filler `` | keys `326`
+- `S2-768058417` (US)
+  - name: `Urban Corp Yoga` -> clean `urban corp yoga` | core `urban yoga` | legal `CORP` | compact `urbanyoga` | initials `uy`
+  - addr: `MD, MIDDLE RIVER, 26 YAWMETER DR` -> `md, middle river, 26 yawmeter drive` | numbers `26` | filler `` | keys `026`
+- `S2-385117297` (US)
+  - name: `MURDOCK & HAWKINS LMAGING P.C.` -> clean `murdock and hawkins lmaging pc` | core `murdock hawkins lmaging` | legal `PC` | compact `murdockhawkinslmaging` | initials `mhl`
+  - addr: `SANER AVE, DALLAS, TX` -> `saner avenue, dallas, tx` | numbers `` | filler `` | keys ``
+- `S3-224818213` (US)
+  - name: `Colonial Project LLC` -> clean `colonial project llc` | core `colonial project` | legal `LLC` | compact `colonialproject` | initials `cp`
+  - addr: `Norfolk, Virginia, 950 Woodrow Ave` -> `norfolk, virginia, 950 woodrow avenue` | numbers `950` | filler `` | keys `950`
+- `S2-537332724` (US)
+  - name: `Vision Care Associates Partners` -> clean `vision care associates partners` | core `vision care associates partners` | legal `` | compact `visioncareassociatespartners` | initials `vcap`
+  - addr: `1818 CALHOUN ST, SEATTLE, WA` -> `1818 calhoun street, seattle, wa` | numbers `1818` | filler `` | keys `818`
+- `S3-270057008` (US)
+  - name: `Batey & LLC Miluna Cato` -> clean `batey and llc miluna cato` | core `batey miluna cato` | legal `LLC` | compact `bateymilunacato` | initials `bmc`
+  - addr: `2828 Connecticut Ave, # 506, Washington, District of Columbia` -> `2828 connecticut avenue, 506, washington, district of columbia` | numbers `2828 506` | filler `` | keys `828 506`
+- `S3-582310654` (US)
+  - name: `KIESEL FÓREFRONT` -> clean `kiesel forefront` | core `kiesel forefront` | legal `` | compact `kieselforefront` | initials `kf`
+  - addr: `250 68th St, Sprringfield, Oregon` -> `250 68th street, sprringfield, oregon` | numbers `250 68` | filler `` | keys `250 068`
+- `S3-861745638` (US)
+  - name: `Gillspace.Com` -> clean `gillspace` | core `gillspace` | legal `` | compact `gillspace` | initials `g` | DOMAIN
+  - addr: `2173 Sheringham Road, Columbus, Ohio` -> `2173 sheringham road, columbus, ohio` | numbers `2173` | filler `` | keys `173`
+- `S1-819328424` (US)
+  - name: `Ward Premier Mfa LLC` -> clean `ward premier mfa llc` | core `ward premier mfa` | legal `LLC` | compact `wardpremiermfa` | initials `wpm`
+  - addr: `422 6th Avenue, Mount Vernon, NY` -> `422 6th avenue, mount vernon, ny` | numbers `422 6` | filler `` | keys `422 006`
+- `S3-646661407` (US)
+  - name: `Rocky Valley World  LLC` -> clean `rocky valley world llc` | core `rocky valley world` | legal `LLC` | compact `rockyvalleyworld` | initials `rvw`
+  - addr: `240 155st Avenue, Omaha, Nebraska` -> `240 155st avenue, omaha, nebraska` | numbers `240 155` | filler `` | keys `240 155`
+- `S3-902771752` (US)
+  - name: `Inc All Anchor Rail` -> clean `inc all anchor rail` | core `all anchor rail` | legal `INC` | compact `allanchorrail` | initials `aar`
+  - addr: `1436d Pine Oak Pl, Edmond, Oklahoma` -> `1436d pine oak place, edmond, oklahoma` | numbers `1436` | filler `` | keys `436`
+- `S2-147864871` (US)
+  - name: `The Brown Cambridge [LLC]` -> clean `the brown cambridge` | core `brown cambridge` | legal `` | compact `browncambridge` | initials `bc`
+  - addr: `5750B ALBEMARLE ROAD, NC, CHARLOTTE` -> `5750b albemarle road, nc, charlotte` | numbers `5750` | filler `` | keys `750`
+- `S3-491828126` (US)
+  - name: `TEQUE` -> clean `teque` | core `teque` | legal `` | compact `teque` | initials `t`
+  - addr: `Texas, 507 Seventy Third, Houston` -> `texas, 507 seventy third, houston` | numbers `507` | filler `` | keys `507`
+
+## test / France: 30 random examples
+- `S2-793856071` (France)
+  - name: `As Hopital EURL` -> clean `as hopital eurl` | core `as hopital` | legal `EURL` | compact `ashopital` | initials `ah`
+  - addr: `6 PLACE EDOUARD ROUSSEL, ROUBAIX` -> `6 place edouard roussel, roubaix` | numbers `6` | filler `` | keys `006`
+- `S2-244079512` (France)
+  - name: `omnisports sportive sasu` -> clean `omnisports sportive sasu` | core `omnisports sportive` | legal `SASU` | compact `omnisportssportive` | initials `os`
+  - addr: `N° 10 RUE DES POISSONNIERS, PESSAC, Nouvelle-Aquitaine` -> `no 10 rue des poissonniers, pessac, nouvelle aquitaine` | numbers `10` | filler `` | keys `010`
+- `S1-385032799` (France)
+  - name: `Association du Boite` -> clean `association du boite` | core `association du boite` | legal `` | compact `associationduboite` | initials `adb`
+  - addr: `91 Avenue des Sports, Saint-Nazaire, Pays de la Loire` -> `91 avenue des sports, saint nazaire, pays de la loire` | numbers `91` | filler `` | keys `091`
+- `S2-920002545` (France)
+  - name: `CROCO AMICALE SARL` -> clean `croco amicale sarl` | core `croco amicale` | legal `SARL` | compact `crocoamicale` | initials `ca`
+  - addr: `30 AVENUE DE SAINT-NAZAIRE, SAINT-NAZAIRE, Pays de la Loire` -> `30 avenue de saint nazaire, saint nazaire, pays de la loire` | numbers `30` | filler `` | keys `030`
+- `S2-947106598` (France)
+  - name: `OAC SPORT` -> clean `oac sport` | core `oac sport` | legal `` | compact `oacsport` | initials `os`
+  - addr: `9 PROMENADE DES NEFS, NANTES, Pays de la Loire` -> `9 promenade des nefs, nantes, pays de la loire` | numbers `9` | filler `` | keys `009`
+- `S1-289321605` (France)
+  - name: `International Amicale SAS` -> clean `international amicale sas` | core `international amicale` | legal `SAS` | compact `internationalamicale` | initials `ia`
+  - addr: `186 Rue du Faubourg de Roubaix, Lille, Hauts-de-France` -> `186 rue du faubourg de roubaix, lille, hauts de france` | numbers `186` | filler `` | keys `186`
+- `S1-245056778` (France)
+  - name: `It Culturel SARL` -> clean `it culturel sarl` | core `it culturel` | legal `SARL` | compact `itculturel` | initials `ic`
+  - addr: `84 Avenue des Chenes, La Teste-de-Buch, Nouvelle-Aquitaine` -> `84 avenue des chenes, la teste de buch, nouvelle aquitaine` | numbers `84` | filler `` | keys `084`
+- `S1-328832736` (France)
+  - name: `Collège du Troupe` -> clean `college du troupe` | core `college du troupe` | legal `` | compact `collegedutroupe` | initials `cdt`
+  - addr: `11 Rue du Bouillon, Nantes, Pays de la Loire` -> `11 rue du bouillon, nantes, pays de la loire` | numbers `11` | filler `` | keys `011`
+- `S1-644036873` (France)
+  - name: `Lille Amicale SA` -> clean `lille amicale sa` | core `lille amicale` | legal `SA` | compact `lilleamicale` | initials `la`
+  - addr: `16 Square de Picardie, Lille, Hauts-de-France` -> `16 square de picardie, lille, hauts de france` | numbers `16` | filler `` | keys `016`
+- `S1-221126668` (France)
+  - name: `Pharmacie Yoga` -> clean `pharmacie yoga` | core `pharmacie yoga` | legal `` | compact `pharmacieyoga` | initials `py`
+  - addr: `Tourcoing, Hauts-de-France, 2 Rue du Chevalier Bayard` -> `tourcoing, hauts de france, 2 rue du chevalier bayard` | numbers `2` | filler `` | keys `002`
+- `S2-232174693` (France)
+  - name: `EURL Destin Jêunes` -> clean `eurl destin jeunes` | core `destin jeunes` | legal `EURL` | compact `destinjeunes` | initials `dj`
+  - addr: `115 RUE DU GRADN BUT, Lille` -> `115 rue du gradn but, lille` | numbers `115` | filler `` | keys `115`
+- `S1-482132587` (France)
+  - name: `Art Club SASU` -> clean `art club sasu` | core `art club` | legal `SASU` | compact `artclub` | initials `ac`
+  - addr: `4 B Rue Conrad Gaussen, Bordeaux, Nouvelle-Aquitaine` -> `4 b rue conrad gaussen, bordeaux, nouvelle aquitaine` | numbers `4` | filler `` | keys `004`
+- `S2-353585535` (France)
+  - name: `S.A.S La Teste-de-Buch Lycee International` -> clean `sas la teste de buch lycee international` | core `la teste de buch lycee international` | legal `SAS` | compact `latestedebuchlyceeinternational` | initials `ltdbli`
+  - addr: `80 - AVE SAINT FRANCOIS XAVIER PYLA, La Teste-de-Buch, Gironde` -> `80 avenue saint francois xavier pyla, la teste de buch, gironde` | numbers `80` | filler `` | keys `080`
+- `S2-818789927` (France)
+  - name: `Conscrits Hôtel SA` -> clean `conscrits hotel sa` | core `conscrits hotel` | legal `SA` | compact `conscritshotel` | initials `ch`
+  - addr: `30 RUE LEPELLETIER, LILLE` -> `30 rue lepelletier, lille` | numbers `30` | filler `` | keys `030`
+- `S2-595983371` (France)
+  - name: `parapluie federation` -> clean `parapluie federation` | core `parapluie federation` | legal `` | compact `parapluiefederation` | initials `pf`
+  - addr: `21 R DE MAPOUCHET, LA TESTE-DE-BUCH, Gironde` -> `21 rue de mapouchet, la teste de buch, gironde` | numbers `21` | filler `` | keys `021`
+- `S2-953487198` (France)
+  - name: `GD Maison SAS` -> clean `gd maison sas` | core `gd maison` | legal `SAS` | compact `gdmaison` | initials `gm`
+  - addr: `N°33 R ÉMILE DREUX, BORDEAUX` -> `no33 r emile dreux, bordeaux` | numbers `33` | filler `` | keys `033`
+- `S2-254172173` (France)
+  - name: `Pharmacie  Sainte Linnovation` -> clean `pharmacie sainte linnovation` | core `pharmacie sainte linnovation` | legal `` | compact `pharmaciesaintelinnovation` | initials `psl`
+  - addr: `10 RUELLE REYKJAVIK, Hauts-de-France, DUNKERQUE` -> `10 ruelle reykjavik, hauts de france, dunkerque` | numbers `10` | filler `` | keys `010`
+- `S2-438676726` (France)
+  - name: `LILLE ECOLE SARL` -> clean `lille ecole sarl` | core `lille ecole` | legal `SARL` | compact `lilleecole` | initials `le`
+  - addr: `77 R. DES PLOINES, LILLE, Nord` -> `77 rue des ploines, lille, nord` | numbers `77` | filler `` | keys `077`
+- `S1-2286088` (France)
+  - name: `Lbm & Fils EURL` -> clean `lbm and fils eurl` | core `lbm` | legal `EURL|FILS` | compact `lbm` | initials `l`
+  - addr: `11 Rue Jean Moulin, Lille, Hauts-de-France` -> `11 rue jean moulin, lille, hauts de france` | numbers `11` | filler `` | keys `011`
+- `S1-927291104` (France)
+  - name: `Cercle & Fils SARL` -> clean `cercle and fils sarl` | core `cercle` | legal `FILS|SARL` | compact `cercle` | initials `c`
+  - addr: `3 Rue Fontaine des Baronnies, Pays de la Loire, Nantes` -> `3 rue fontaine des baronnies, pays de la loire, nantes` | numbers `3` | filler `` | keys `003`
+- `S2-49590336` (France)
+  - name: `Msp  Amicale SARL` -> clean `msp amicale sarl` | core `msp amicale` | legal `SARL` | compact `mspamicale` | initials `ma`
+  - addr: `96 BIS R. DE PARSI, LOFT A12, TOURCOING` -> `96 rue de parsi, loft a12, tourcoing` | numbers `96 12` | filler `` | keys `096 012`
+- `S2-363854580` (France)
+  - name: `SAS Cosy Jeunes Groupe` -> clean `sas cosy jeunes groupe` | core `cosy jeunes groupe` | legal `SAS` | compact `cosyjeunesgroupe` | initials `cjg`
+  - addr: `13 RUE LOUIS MAYDIEU, Bordeaux` -> `13 rue louis maydieu, bordeaux` | numbers `13` | filler `` | keys `013`
+- `S2-937836378` (France)
+  - name: `Pessac Établissement SARL` -> clean `pessac etablissement sarl` | core `pessac etablissement` | legal `SARL` | compact `pessacetablissement` | initials `pe`
+  - addr: `20 AVE DES CHASEURS, PESSAC` -> `20 avenue des chaseurs, pessac` | numbers `20` | filler `` | keys `020`
+- `S1-66792004` (France)
+  - name: `Classe Parents` -> clean `classe parents` | core `classe parents` | legal `` | compact `classeparents` | initials `cp`
+  - addr: `3 Rue du Docteur Yersin, Lille, Hauts-de-France` -> `3 rue du docteur yersin, lille, hauts de france` | numbers `3` | filler `` | keys `003`
+- `S2-833148860` (France)
+  - name: `CS Élémentaire Holding EI` -> clean `cs elementaire holding ei` | core `cs elementaire holding ei` | legal `` | compact `cselementaireholdingei` | initials `cehe`
+  - addr: `8 RUE CLAUDE CHAPPE, MÉRIGNAC, Gironde` -> `8 rue claude chappe, merignac, gironde` | numbers `8` | filler `` | keys `008`
+- `S2-959371760` (France)
+  - name: `NANTES  CIE SARL` -> clean `nantes cie sarl` | core `nantes` | legal `CO|SARL` | compact `nantes` | initials `n`
+  - addr: `17 RUE DU PETIT BLOTTEREAU, NANTES, Pays de la Loire` -> `17 rue du petit blottereau, nantes, pays de la loire` | numbers `17` | filler `` | keys `017`
+- `S1-485740011` (France)
+  - name: `International Mme Musique SAS` -> clean `international mme musique sas` | core `international mme musique` | legal `SAS` | compact `internationalmmemusique` | initials `imm`
+  - addr: `34 Rue Gergeres, Bordeaux, Nouvelle-Aquitaine` -> `34 rue gergeres, bordeaux, nouvelle aquitaine` | numbers `34` | filler `` | keys `034`
+- `S2-247665777` (France)
+  - name: `Amicale des Usagers International SA` -> clean `amicale des usagers international sa` | core `amicale des usagers international` | legal `SA` | compact `amicaledesusagersinternational` | initials `adui`
+  - addr: `# 5 BOULEVARD DES TRIBUNES, NANTES, Loire-Atlantique` -> `5 boulevard des tribunes, nantes, loire atlantique` | numbers `5` | filler `` | keys `005`
+- `S1-660634054` (France)
+  - name: `Amici Societe (France) SASU` -> clean `amici societe sasu` | core `amici societe` | legal `SASU` | compact `amicisociete` | initials `as`
+  - addr: `Hauts-de-France, 7 Boulevard Victor Hugo, Lille` -> `hauts de france, 7 boulevard victor hugo, lille` | numbers `7` | filler `` | keys `007`
+- `S2-411323831` (France)
+  - name: `Pharmacie dè Mam` -> clean `pharmacie de mam` | core `pharmacie de mam` | legal `` | compact `pharmaciedemam` | initials `pdm`
+  - addr: `Nord, 17 BIS RUE CHARLES DE MUYSSART, LILLE` -> `nord, 17 rue charles de muyssart, lille` | numbers `17` | filler `` | keys `017`
+
+## test / India: 30 random examples
+- `S2-337682588` (India)
+  - name: `RQFDYNAMICS.COM` -> clean `rqfdynamics` | core `rqfdynamics` | legal `` | compact `rqfdynamics` | initials `r` | DOMAIN
+  - addr: `BLOCK D-886 DOOR NO: 38/411-K5, NATIONAL PEARL STAR EDAPALLY, KOCHI, ERNAKULAM, ERNAKULAM, Kerala` -> `block d 886 door no 38 411 k5, national pearl star edapally, kochi, ernakulam, ernakulam, kerala` | numbers `886 38 411 5` | filler `` | keys `886 038 411 005`
+- `S3-211402641` (India)
+  - name: `श्याम इंजीनियरिंग एलएलपी` -> clean `syam imjiniyrimg llp` | core `syam imjiniyrimg` | legal `LLP` | compact `syamimjiniyrimg` | initials `si` | NONLATIN
+  - addr: `No B3/92 Varun Developers, Commercial Ib, 2Nd Flr Off 203Nr, Lawkim Industries, Plot No48/2, Thane, MH` -> `no b3 92 varun developers, commercial ib, 2nd flr off 203nr, lawkim industries, plot no48 2, thane, mh` | numbers `3 92 2 203 48` | filler `` | keys `003 092 002 203 048`
+- `S1-359699249` (India)
+  - name: `Shakti Hospitality` -> clean `shakti hospitality` | core `shakti hospitality` | legal `` | compact `shaktihospitality` | initials `sh`
+  - addr: `Ground Floor, Bhatt Chawl, Sane Guruji Marg, Mumbai, Maharashtra` -> `ground floor, bhatt chawl, sane guruji marg, mumbai, maharashtra` | numbers `` | filler `` | keys ``
+- `S2-773097437` (India)
+  - name: `Hotel Constructions Public Limited` -> clean `hotel constructions public limited` | core `hotel constructions public` | legal `LIMITED` | compact `hotelconstructionspublic` | initials `hcp`
+  - addr: `Maharashtra, NO 36 C/O RAMBHAU KONDHARE SNO, 04 NR BABA DHABA, HAVELI` -> `maharashtra, no 36 c o rambhau kondhare sno, 04 nr baba dhaba, haveli` | numbers `36 4` | filler `` | keys `036 004`
+- `S1-586217354` (India)
+  - name: `International Mart (India) Limited` -> clean `international mart limited` | core `international mart` | legal `LIMITED` | compact `internationalmart` | initials `im`
+  - addr: `83 Plot No 444 3Rd Flr, Chincholi Bunder Rd, Malad West, Mumbai, Maharashtra` -> `83 plot no 444 3rd flr, chincholi bunder road, malad west, mumbai, maharashtra` | numbers `83 444 3` | filler `` | keys `083 444 003`
+- `S3-818018645` (India)
+  - name: `Dr Mandira India` -> clean `dr mandira india` | core `mandira india` | legal `` | compact `mandiraindia` | initials `mi`
+  - addr: `Valsad, GJ, 129, Vapi, Mahavir Nagar Shoping Arcade Mahavir Nagar, N.h. No.8` -> `valsad, gj, 129, vapi, mahavir nagar shoping arcade mahavir nagar, nh no 8` | numbers `129 8` | filler `` | keys `129 008`
+- `S2-311757006` (India)
+  - name: `গুড ইনভেস্টমেন্ট` -> clean `gud inbhestment` | core `gud inbhestment` | legal `` | compact `gudinbhestment` | initials `gi` | NONLATIN
+  - addr: `DOOR NO 12/3/4 JAMIR LANE, BIDISHA APARTMENT IST FLOOR, KOLKATA, CALCUTTA, HOWRAH, West Bengal` -> `door no 12 3 4 jamir lane, bidisha apartment ist floor, kolkata, calcutta, howrah, west bengal` | numbers `12 3 4` | filler `` | keys `012 003 004`
+- `S3-182569214` (India)
+  - name: `Creative Energy  Limited` -> clean `creative energy limited` | core `creative energy` | legal `LIMITED` | compact `creativeenergy` | initials `ce`
+  - addr: `H.no 8551Gulshan Guest House Building Roshanara Road, DL, Delhi, North Delhi` -> `h no 8551gulshan guest house building roshanara road, dl, delhi, north delhi` | numbers `8551` | filler `` | keys `551`
+- `S3-154033670` (India)
+  - name: `Shree  Charitable Trust Ventures` -> clean `shree charitable trust ventures` | core `shree charitable trust ventures` | legal `` | compact `shreecharitabletrustventures` | initials `sctv`
+  - addr: `Sohp No. Dss.37, 1St Floor Sector-2, Bahadurgarh, Sankhol, HR` -> `sohp no dss 37, 1st floor sector 2, bahadurgarh, sankhol, hr` | numbers `37 1 2` | filler `` | keys `037 001 002`
+- `S2-815954985` (India)
+  - name: `Arihant Home Enterprises` -> clean `arihant home enterprises` | core `arihant home enterprises` | legal `` | compact `arihanthomeenterprises` | initials `ahe`
+  - addr: `PLOT NO 41/H/8/17G/F BLOCK B, MAHARANI ENCLAVE, VIKAS NAGAR, UTTAM NAGAR, NEW DELHI, NEW DELHI, Delhi` -> `plot no 41 h 8 17g f block b, maharani enclave, vikas nagar, uttam nagar, new delhi, new delhi, delhi` | numbers `41 8 17` | filler `` | keys `041 008 017`
+- `S3-313844548` (India)
+  - name: `Kanaiya Empires Enterprises Private Limited` -> clean `kanaiya empires enterprises private limited` | core `kanaiya empires enterprises` | legal `PRIVATE_LIMITED` | compact `kanaiyaempiresenterprises` | initials `kee`
+  - addr: `Flat No.- ##33, Sector- 16, Rohini, DL` -> `flat no 33, sector 16, rohini, dl` | numbers `33 16` | filler `` | keys `033 016`
+- `S1-17324581` (India)
+  - name: `Dhruti Analytix Private Limited` -> clean `dhruti analytix private limited` | core `dhruti analytix` | legal `PRIVATE_LIMITED` | compact `dhrutianalytix` | initials `da`
+  - addr: `Suncity Complex Shop No. 35, Nr. Trikon, Dhrol, Jamnagar, Gujarat` -> `suncity complex shop no 35, nr trikon, dhrol, jamnagar, gujarat` | numbers `35` | filler `` | keys `035`
+- `S1-489363735` (India)
+  - name: `Life Trading Private Limited` -> clean `life trading private limited` | core `life trading` | legal `PRIVATE_LIMITED` | compact `lifetrading` | initials `lt`
+  - addr: `C/O Sri Ghanshyam Singh, Vill-Rampur Tola-Nahsi, Panch-Bagawa, Block-Garhani, Arrah, Bhojpur, Bihar` -> `c o sri ghanshyam singh, vill rampur tola nahsi, panch bagawa, block garhani, arrah, bhojpur, bihar` | numbers `` | filler `` | keys ``
+- `S2-967411926` (India)
+  - name: `Dr Brain Enlightenment Ltd` -> clean `dr brain enlightenment ltd` | core `brain enlightenment` | legal `LIMITED` | compact `brainenlightenment` | initials `be`
+  - addr: `DOOR NO 85 OM SHAKTI CONSTRUCTIONS, SY NO 46/49, YEMLUR, BANGALORE NORTH, Karnataka` -> `door no 85 om shakti constructions, sy no 46 49, yemlur, bangalore north, karnataka` | numbers `85 46 49` | filler `` | keys `085 046 049`
+- `S3-361002148` (India)
+  - name: `Kaverin Trading [Limited]` -> clean `kaverin trading` | core `kaverin trading` | legal `` | compact `kaverintrading` | initials `kt`
+  - addr: `Dse Buildingasaf Ali Road, New Delhi, Central Delhi, DL` -> `dse buildingasaf ali road, new delhi, central delhi, dl` | numbers `` | filler `` | keys ``
+- `S1-825472179` (India)
+  - name: `Balaji Ds Limited` -> clean `balaji ds limited` | core `balaji ds` | legal `LIMITED` | compact `balajids` | initials `bd`
+  - addr: `5E, Udaipur, Girwa, Flat No. 405, 4Th Fl, Sanchi Ghar Aangan, Rajasthan` -> `5e, udaipur, girwa, flat no 405, 4th fl, sanchi ghar aangan, rajasthan` | numbers `5 405 4` | filler `` | keys `005 405 004`
+- `S3-63611406` (India)
+  - name: `ಟೆಕ್ ಸಾಫ್ಟ್‌ವೇರ್ ಎಂಟರ್‌ಪ್ರೈಸಸ್ ಲಿಮಿಟೆಡ್` -> clean `tek saphtver enterprises limited` | core `tek saphtver enterprises` | legal `LIMITED` | compact `teksaphtverenterprises` | initials `tse` | NONLATIN
+  - addr: `9-31 Standage Road, Frazer Town, Bangalore, Bengaluru, Bangalore North, KA` -> `9 31 standage road, frazer town, bangalore, bengaluru, bangalore north, ka` | numbers `9 31` | filler `` | keys `009 031`
+- `S3-57515313` (India)
+  - name: `5urya Network Industries Private Limited` -> clean `5urya network industries private limited` | core `surya network industries` | legal `PRIVATE_LIMITED` | compact `suryanetworkindustries` | initials `sni`
+  - addr: `Door No 43 Village Jahangirpur Post Ganjalpur, Bijnore, UP` -> `door no 43 village jahangirpur post ganjalpur, bijnore, up` | numbers `43` | filler `` | keys `043`
+- `S3-426186765` (India)
+  - name: `ग्रीन केयर लिमिटेड` -> clean `grin keyr limited` | core `grin keyr` | legal `LIMITED` | compact `grinkeyr` | initials `gk` | NONLATIN
+  - addr: `M-115, Greater Kailash-i, New Delhi, DL` -> `m 115, greater kailash i, new delhi, dl` | numbers `115` | filler `` | keys `115`
+- `S1-314646148` (India)
+  - name: `Kalpetta (India) Infraproject of Nilagiri Road Mysore Private Limited` -> clean `kalpetta infraproject of nilagiri road mysore private limited` | core `kalpetta infraproject nilagiri road mysore` | legal `PRIVATE_LIMITED` | compact `kalpettainfraprojectnilagiriroadmysore` | initials `kinrm`
+  - addr: `2941, Nilagiri Road Mysore, Mysore, Karnataka` -> `2941, nilagiri road mysore, mysore, karnataka` | numbers `2941` | filler `` | keys `941`
+- `S3-309506904` (India)
+  - name: `Engineering Shikhar Estate [Private] [Private]` -> clean `engineering shikhar estate` | core `engineering shikhar estate` | legal `` | compact `engineeringshikharestate` | initials `ese`
+  - addr: `DL, Delhi, East Delhi, No 840 29-D` -> `dl, delhi, east delhi, no 840 29 d` | numbers `840 29` | filler `` | keys `840 029`
+- `S2-651500994` (India)
+  - name: `Sai (lndia) Raman Private Ltd` -> clean `sai raman private ltd` | core `sai raman` | legal `PRIVATE_LIMITED` | compact `sairaman` | initials `sr`
+  - addr: `S - 3A, IRANI MARKET COMPOUND YREAWADA, महाराष्ट्र` -> `s 3a, irani market compound yreawada, mharastr` | numbers `3` | filler `` | keys `003`
+- `S2-559494830` (India)
+  - name: `அர்பன் கன்சல்டன்ட்ஸ் பிரைவேட் லிமிடெட்` -> clean `arpn kncltnts private limited` | core `arpn kncltnts` | legal `PRIVATE_LIMITED` | compact `arpnkncltnts` | initials `ak` | NONLATIN
+  - addr: `TIRUCHIRAPALLI, NO.14, Tamil Nadu` -> `tiruchirapalli, no 14, tamil nadu` | numbers `14` | filler `` | keys `014`
+- `S1-416458796` (India)
+  - name: `QX Morning Limited` -> clean `qx morning limited` | core `qx morning` | legal `LIMITED` | compact `qxmorning` | initials `qm`
+  - addr: `Plot No.122, Prabhat C.T., Ranjankhol, Shrirampur, Ahmed Nagar, Maharashtra` -> `plot no 122, prabhat ct, ranjankhol, shrirampur, ahmed nagar, maharashtra` | numbers `122` | filler `` | keys `122`
+- `S1-673843634` (India)
+  - name: `Awesome Assessment Private Limited` -> clean `awesome assessment private limited` | core `awesome assessment` | legal `PRIVATE_LIMITED` | compact `awesomeassessment` | initials `aa`
+  - addr: `Maharashtra, Thane, Tower 1, Lodha Kolshet Crown, 504, Thane` -> `maharashtra, thane, tower 1, lodha kolshet crown, 504, thane` | numbers `1 504` | filler `` | keys `001 504`
+- `S2-583913812` (India)
+  - name: `আদিত্য সলিউশনস গার্মেন্টস প্রাইভেট লিমিটেড` -> clean `adity sliusns garments private limited` | core `adity sliusns garments` | legal `PRIVATE_LIMITED` | compact `aditysliusnsgarments` | initials `asg` | NONLATIN
+  - addr: `92 STATION ROAD(EAST)24 PGS (N) NEW BARRACKPUR, KOLKATA, HOWRAH, West Bengal` -> `92 station road east 24 pgs n new barrackpur, kolkata, howrah, west bengal` | numbers `92 24` | filler `` | keys `092 024`
+- `S3-592147564` (India)
+  - name: `Varanasi Trading  Partners` -> clean `varanasi trading partners` | core `varanasi trading partners` | legal `` | compact `varanasitradingpartners` | initials `vtp`
+  - addr: `H.no 366 Om Nagar Colony Lane No.1, Varanasi, UP` -> `h no 366 om nagar colony lane no 1, varanasi, up` | numbers `366 1` | filler `` | keys `366 001`
+- `S3-794964832` (India)
+  - name: `M/s Special Indiaprivate` -> clean `m s special indiaprivate` | core `m s special indiaprivate` | legal `` | compact `msspecialindiaprivate` | initials `mssi`
+  - addr: `Unit No. 18, Mumbai, Mumbai City, MH` -> `unit no 18, mumbai, mumbai city, mh` | numbers `18` | filler `` | keys `018`
+- `S2-91707424` (India)
+  - name: `LIFE PRIVATE TRADING LIMITED` -> clean `life private trading limited` | core `life trading` | legal `LIMITED|PRIVATE_LIMITED` | compact `lifetrading` | initials `lt`
+  - addr: `1616, REHAB BLDG, BLDG NO - 3B WING, KHOT DONGAR, RANI SATI MARG, OPP LAXMI NARAYAN MANDIR, MALAD (E), MUMBAI, MALAD EAST, Maharashtra` -> `1616, rehab bldg, bldg no 3b wing, khot dongar, rani sati marg, opp laxmi narayan mandir, malad e, mumbai, malad east, maharashtra` | numbers `1616 3` | filler `` | keys `616 003`
+- `S2-241186316` (India)
+  - name: `Techno  & Co` -> clean `techno and co` | core `techno` | legal `CO` | compact `techno` | initials `t`
+  - addr: `OFFICE NO. 602, 603 AND 604, MAJESTIQUE BIZNOW, SR. NO. 16/4/2/1, OFF NIBM ROAD, PUNE CITY, Maharashtra` -> `office no 602, 603 and 604, majestique biznow, sr no 16 4 2 1, off nibm road, pune city, maharashtra` | numbers `602 603 604 16 4 2 1` | filler `` | keys `602 603 604 016 004 002 001`
+
+## test / US: 30 random examples
+- `S1-452044831` (US)
+  - name: `Peridus Fisheries LLC` -> clean `peridus fisheries llc` | core `peridus fisheries` | legal `LLC` | compact `peridusfisheries` | initials `pf`
+  - addr: `4487 Beverly Place, Fl 1, Chandler, AZ` -> `4487 beverly place, fl 1, chandler, az` | numbers `4487 1` | filler `` | keys `487 001`
+- `S1-177496737` (US)
+  - name: `Manson Atlantic Brewing` -> clean `manson atlantic brewing` | core `manson atlantic brewing` | legal `` | compact `mansonatlanticbrewing` | initials `mab`
+  - addr: `6112 Frey Dr, Louisville, KY` -> `6112 frey drive, louisville, ky` | numbers `6112` | filler `` | keys `112`
+- `S3-644465412` (US)
+  - name: `Aureus Inc Wintergreen` -> clean `aureus inc wintergreen` | core `aureus wintergreen` | legal `INC` | compact `aureuswintergreen` | initials `aw`
+  - addr: `1450 Worcester Rd, PO Box 134, Framingham, Massachusetts` -> `1450 worcester road, framingham, massachusetts` | numbers `1450` | filler `134` | keys `450`
+- `S1-623060882` (US)
+  - name: `Pearl's Staffing` -> clean `pearls staffing` | core `pearls staffing` | legal `` | compact `pearlsstaffing` | initials `ps`
+  - addr: `300 15th Street, The Dalles, OR` -> `300 15th street, the dalles, or` | numbers `300 15` | filler `` | keys `300 015`
+- `S1-491994819` (US)
+  - name: `Elinore Cline, D.O. P.C.` -> clean `elinore cline dopc` | core `elinore cline dopc` | legal `` | compact `elinoreclinedopc` | initials `ecd`
+  - addr: `1319 Futrall Drive, Unit Apt 4, Fayetteville, AR` -> `1319 futrall drive, unit apt 4, fayetteville, ar` | numbers `1319 4` | filler `` | keys `319 004`
+- `S3-77836302` (US)
+  - name: `U+ COLUMBIA INC` -> clean `u and columbia inc` | core `u columbia` | legal `INC` | compact `ucolumbia` | initials `uc`
+  - addr: `16 Willow Street, Cohoes, New York` -> `16 willow street, cohoes, new york` | numbers `16` | filler `` | keys `016`
+- `S1-609259935` (US)
+  - name: `Clean Plus LLC` -> clean `clean plus llc` | core `clean plus` | legal `LLC` | compact `cleanplus` | initials `cp`
+  - addr: `7916 Avalos Way, Citrus Heights, CA` -> `7916 avalos way, citrus heights, ca` | numbers `7916` | filler `` | keys `916`
+- `S3-84693123` (US)
+  - name: `Urban Yoga Yoga` -> clean `urban yoga` | core `urban yoga` | legal `` | compact `urbanyoga` | initials `uy`
+  - addr: `Hague, Virginia, 261 Bayview Ln` -> `hague, virginia, 261 bayview lane` | numbers `261` | filler `` | keys `261`
+- `S1-218096082` (US)
+  - name: `Reinhardt Armada LLC` -> clean `reinhardt armada llc` | core `reinhardt armada` | legal `LLC` | compact `reinhardtarmada` | initials `ra`
+  - addr: `2176 Spangenberg Road, Jackson, OH` -> `2176 spangenberg road, jackson, oh` | numbers `2176` | filler `` | keys `176`
+- `S1-879180144` (US)
+  - name: `Foot & Ankle American Physicians LLC` -> clean `foot and ankle american physicians llc` | core `foot ankle american physicians` | legal `LLC` | compact `footankleamericanphysicians` | initials `faap`
+  - addr: `19004 Raven Street, Apple Valley, CA` -> `19004 raven street, apple valley, ca` | numbers `19004` | filler `` | keys `004`
+- `S3-378762717` (US)
+  - name: `United Federation` -> clean `united federation` | core `united federation` | legal `` | compact `unitedfederation` | initials `uf`
+  - addr: `720 Main Street, # APT C, MT Crawford, Virginia` -> `720 main street, apt c, mt crawford, virginia` | numbers `720` | filler `` | keys `720`
+- `S2-32771346` (US)
+  - name: `618 union realty` -> clean `618 union realty` | core `618 union realty` | legal `` | compact `618unionrealty` | initials `6ur`
+  - addr: `CA, 1214 BELL STREET, SACRAMENTO CITY` -> `ca, 1214 bell street, sacramento city` | numbers `1214` | filler `` | keys `214`
+- `S3-550465317` (US)
+  - name: `Urgent Care Choice Physicians Co` -> clean `urgent care choice physicians co` | core `urgent care choice physicians` | legal `CO` | compact `urgentcarechoicephysicians` | initials `uccp`
+  - addr: `2336 Beckner Road, Lexington, North Carolina` -> `2336 beckner road, lexington, north carolina` | numbers `2336` | filler `` | keys `336`
+- `S1-788757899` (US)
+  - name: `Tri-State Management Corp` -> clean `tri state management corp` | core `tri state management` | legal `CORP` | compact `tristatemanagement` | initials `tsm`
+  - addr: `2913 Arrowhead Drive, Wichita Falls, TX` -> `2913 arrowhead drive, wichita falls, tx` | numbers `2913` | filler `` | keys `913`
+- `S1-850540293` (US)
+  - name: `Saloma Hempel, D.D.S.` -> clean `saloma hempel dds` | core `saloma hempel dds` | legal `` | compact `salomahempeldds` | initials `shd`
+  - addr: `134 5th Avenue, Dickinson, ND` -> `134 5th avenue, dickinson, nd` | numbers `134 5` | filler `` | keys `134 005`
+- `S3-404211128` (US)
+  - name: `Internal Medicine Care Amstsciates [LLC]` -> clean `internal medicine care amstsciates` | core `internal medicine care amstsciates` | legal `` | compact `internalmedicinecareamstsciates` | initials `imca`
+  - addr: `2212 Atlnta Pl, Tulsa, Oklahoma` -> `2212 atlnta place, tulsa, oklahoma` | numbers `2212` | filler `` | keys `212`
+- `S3-975575998` (US)
+  - name: `Katy  Anderson Biotech #65316` -> clean `katy anderson biotech` | core `katy anderson biotech` | legal `` | compact `katyandersonbiotech` | initials `kab`
+  - addr: `` -> `` | numbers `` | filler `` | keys ``
+- `S2-973929809` (US)
+  - name: `Aguilar Southern Inc` -> clean `aguilar southern inc` | core `aguilar southern` | legal `INC` | compact `aguilarsouthern` | initials `as`
+  - addr: `112368-112370 EITEL CIR, CHASKA, MN` -> `112368 112370 eitel cir, chaska, mn` | numbers `112368 112370` | filler `` | keys `368 370`
+- `S1-9430799` (US)
+  - name: `Lerner Best Ship Inc` -> clean `lerner best ship inc` | core `lerner best ship` | legal `INC` | compact `lernerbestship` | initials `lbs`
+  - addr: `8105 97th Street, Kansas City, MO` -> `8105 97th street, kansas city, mo` | numbers `8105 97` | filler `` | keys `105 097`
+- `S3-442137121` (US)
+  - name: `South Fifth` -> clean `south fifth` | core `south fifth` | legal `` | compact `southfifth` | initials `sf`
+  - addr: `112 Meadow Drive, Weatherford, Texas` -> `112 meadow drive, weatherford, texas` | numbers `112` | filler `` | keys `112`
+- `S3-315644150` (US)
+  - name: `Crystal Classic Consulting Group Highland LP` -> clean `crystal classic consulting group highland lp` | core `crystal classic consulting group highland` | legal `LP` | compact `crystalclassicconsultinggrouphighland` | initials `cccgh`
+  - addr: `1834b Le-Suer Road, Henrico, Virginia` -> `1834b le suer road, henrico, virginia` | numbers `1834` | filler `` | keys `834`
+- `S1-828296024` (US)
+  - name: `Birch` -> clean `birch` | core `birch` | legal `` | compact `birch` | initials `b`
+  - addr: `1414 Linwood Drive, Mobile, AL` -> `1414 linwood drive, mobile, al` | numbers `1414` | filler `` | keys `414`
+- `S3-770482806` (US)
+  - name: `Family Regional Physicians` -> clean `family regional physicians` | core `family regional physicians` | legal `` | compact `familyregionalphysicians` | initials `frp`
+  - addr: `W Hartford, 22 1/2 Simsbury Road, Connecticut` -> `w hartford, 22 1 2 simsbury road, connecticut` | numbers `22 1 2` | filler `` | keys `022 001 002`
+- `S2-46624430` (US)
+  - name: `Torres Payment Co` -> clean `torres payment co` | core `torres payment` | legal `CO` | compact `torrespayment` | initials `tp`
+  - addr: `1708 Reeve Street, APPLETON, WI` -> `1708 reeve street, appleton, wi` | numbers `1708` | filler `` | keys `708`
+- `S2-204213972` (US)
+  - name: `PADILLA LLC SERVICES` -> clean `padilla llc services` | core `padilla services` | legal `LLC` | compact `padillaservices` | initials `ps`
+  - addr: `WASHINGTON, 60  Galveston St, DC` -> `washington, 60 galveston street, dc` | numbers `60` | filler `` | keys `060`
+- `S3-333708116` (US)
+  - name: `Foot & Ankle Associates Inc` -> clean `foot and ankle associates inc` | core `foot ankle associates` | legal `INC` | compact `footankleassociates` | initials `faa`
+  - addr: `3920 Creekway Dr, Mobile, Alabama` -> `3920 creekway drive, mobile, alabama` | numbers `3920` | filler `` | keys `920`
+- `S3-619593480` (US)
+  - name: `Dogesher.Com` -> clean `dogesher` | core `dogesher` | legal `` | compact `dogesher` | initials `d` | DOMAIN
+  - addr: `17879 Electra Ln, Surprise, Arizona` -> `17879 electra lane, surprise, arizona` | numbers `17879` | filler `` | keys `879`
+- `S2-49816299` (US)
+  - name: `cardinal.com` -> clean `cardinal` | core `cardinal` | legal `` | compact `cardinal` | initials `c` | DOMAIN
+  - addr: `25-29 AMARANTH AVENUE, MEDFORD, MA` -> `25 29 amaranth avenue, medford, ma` | numbers `25 29` | filler `` | keys `025 029`
+- `S2-933069460` (US)
+  - name: `Compass Aura Llc` -> clean `compass aura llc` | core `compass aura` | legal `LLC` | compact `compassaura` | initials `ca`
+  - addr: `2210 FALCON BROOK DRIVE, KATY, TX` -> `2210 falcon brook drive, katy, tx` | numbers `2210` | filler `` | keys `210`
+- `S3-891525214` (US)
+  - name: `lippincott, robina k., d.d.s., pc` -> clean `lippincott robina k dds pc` | core `lippincott robina k dds` | legal `PC` | compact `lippincottrobinakdds` | initials `lrkd`
+  - addr: `Unit UNIT 204, Wyoming, Jackson, 175-179 Glenwood Street` -> `unit 204, wyoming, jackson, 175 179 glenwood street` | numbers `204 175 179` | filler `` | keys `204 175 179`
+
+## Targeted examples
+
+### Devanagari name (114825 candidates in the sample)
+- `S2-98090851` (India)
+  - name: `एसएस राम प्रॉपर्टीज प्राइवेट लिमिटेड` -> clean `eses ram proprtij private limited` | core `eses ram proprtij` | legal `PRIVATE_LIMITED` | compact `esesramproprtij` | initials `erp` | NONLATIN
+  - addr: `130 DINSHAW PETIT LANE KALALCHOWKI, MUMBAI, MUMBAI CITY, Maharashtra` -> `130 dinshaw petit lane kalalchowki, mumbai, mumbai city, maharashtra` | numbers `130` | filler `` | keys `130`
+
+### Telugu name (16614 candidates in the sample)
+- `S2-313984957` (India)
+  - name: `రాజ్ గ్లోబల్ పవర్ ప్రైవేట్ లిమిటెడ్` -> clean `raj globl pvr private limited` | core `raj globl pvr` | legal `PRIVATE_LIMITED` | compact `rajgloblpvr` | initials `rgp` | NONLATIN
+  - addr: `KRISHNA MAHALAXMINAGAR METTUKHANGUDAM, GAJULARAMARAM, Telangana, HYDERABAD, P.NO.C-29/P & 30/P` -> `krishna mahalaxminagar mettukhangudam, gajularamaram, telangana, hyderabad, p no c 29 p and 30 p` | numbers `29 30` | filler `` | keys `029 030`
+
+### Bengali name (13121 candidates in the sample)
+- `S3-201642006` (India)
+  - name: `রেড ফুড হোটেল প্রাইভেট লিমিটেড` -> clean `red phud hotel private limited` | core `red phud hotel` | legal `PRIVATE_LIMITED` | compact `redphudhotel` | initials `rph` | NONLATIN
+  - addr: `No 5-4D Canal Roadbehala, Kolkata, Calcutta, WB` -> `no 5 4d canal roadbehala, kolkata, calcutta, wb` | numbers `5 4` | filler `` | keys `005 004`
+
+### domain name (86262 candidates in the sample)
+- `S3-754067168` (India)
+  - name: `shivinfra.com` -> clean `shivinfra` | core `shivinfra` | legal `` | compact `shivinfra` | initials `s` | DOMAIN
+  - addr: `House No-d/213, Phase-2, Mohali, S.a.s.nagar (Mohali), Rupnagar, PB` -> `house no d 213, phase 2, mohali, sasnagar mohali, rupnagar, pb` | numbers `213 2` | filler `` | keys `213 002`
+- `S2-687414056` (India)
+  - name: `mcgsolutionsprivate.com` -> clean `mcgsolutionsprivate` | core `mcgsolutionsprivate` | legal `` | compact `mcgsolutionsprivate` | initials `m` | DOMAIN
+  - addr: `Uttar Pradesh, 19, DAYAL FORT, VISHNUPURI ALIGANJ, LUCKNOW` -> `uttar pradesh, 19, dayal fort, vishnupuri aliganj, lucknow` | numbers `19` | filler `` | keys `019`
+- `S3-836240433` (US)
+  - name: `visionharborcare.com` -> clean `visionharborcare` | core `visionharborcare` | legal `` | compact `visionharborcare` | initials `v` | DOMAIN
+  - addr: `90 Winslow Court, Cary, North Carolina` -> `90 winslow court, cary, north carolina` | numbers `90` | filler `` | keys `090`
+
+### leetspeak typo (53636 candidates in the sample)
+- `S2-532831067` (India)
+  - name: `5arasaksh  Packers Private Limited` -> clean `5arasaksh packers private limited` | core `sarasaksh packers` | legal `PRIVATE_LIMITED` | compact `sarasakshpackers` | initials `sp`
+  - addr: `SR NO 200/2, MULASHI, WAKAD, महाराष्ट्र` -> `sr no 200 2, mulashi, wakad, mharastr` | numbers `200 2` | filler `` | keys `200 002`
+- `S2-763523746` (US)
+  - name: `CUST0M INTELLIGENCE CORPORATION EASTGATE` -> clean `cust0m intelligence corporation eastgate` | core `custom intelligence eastgate` | legal `CORP` | compact `customintelligenceeastgate` | initials `cie`
+  - addr: `2115 ABERDEEN PLACE, RENTON, WA` -> `2115 aberdeen place, renton, wa` | numbers `2115` | filler `` | keys `115`
+- `S2-289533569` (US)
+  - name: `Qu0delta` -> clean `qu0delta` | core `quodelta` | legal `` | compact `quodelta` | initials `q`
+  - addr: `1129 JARVIS LN, LANSDALE, PA` -> `1129 jarvis lane, lansdale, pa` | numbers `1129` | filler `` | keys `129`
+
+### French address with R / AV / bis (34262 candidates in the sample)
+- `S2-271113603` (France)
+  - name: `XTN SA Amicale` -> clean `xtn sa amicale` | core `xtn amicale` | legal `SA` | compact `xtnamicale` | initials `xa`
+  - addr: `24 R. DU MARECHAL BRUNE, TOURCOING, Hauts-de-France` -> `24 rue du marechal brune, tourcoing, hauts de france` | numbers `24` | filler `` | keys `024`
+- `S2-552817032` (France)
+  - name: `SARL LK Danse Développement` -> clean `sarl lk danse developpement` | core `lk danse developpement` | legal `SARL` | compact `lkdansedeveloppement` | initials `ldd`
+  - addr: `0031 R. DE RIGOULET, Bordeaux` -> `0031 rue de rigoulet, bordeaux` | numbers `31` | filler `` | keys `031`
+- `S1-484963877` (France)
+  - name: `Jeux & Fils SARL` -> clean `jeux and fils sarl` | core `jeux` | legal `FILS|SARL` | compact `jeux` | initials `j`
+  - addr: `85 AV de la Republique, Saint-Nazaire, Pays de la Loire` -> `85 avenue de la republique, saint nazaire, pays de la loire` | numbers `85` | filler `` | keys `085`
+
+### US address with St (127615 candidates in the sample)
+- `S2-655079363` (US)
+  - name: `BIG 64 LTD (SERVICE)` -> clean `big 64 ltd` | core `big 64` | legal `LIMITED` | compact `big64` | initials `b6`
+  - addr: `606 GEMINI ST, LACEY, WA` -> `606 gemini street, lacey, wa` | numbers `606` | filler `` | keys `606`
+- `S2-74355259` (US)
+  - name: `Vizcarra, Estele Diamond Apparel Ltd` -> clean `vizcarra estele diamond apparel ltd` | core `vizcarra estele diamond apparel` | legal `LIMITED` | compact `vizcarraestelediamondapparel` | initials `veda`
+  - addr: `129 MAIN ST, OTTAWA, OH` -> `129 main street, ottawa, oh` | numbers `129` | filler `` | keys `129`
+
+### PMB / PO Box (39006 candidates in the sample)
+- `S2-286574061` (US)
+  - name: `Interstate Charities Riverside LP` -> clean `interstate charities riverside lp` | core `interstate charities riverside` | legal `LP` | compact `interstatecharitiesriverside` | initials `icr`
+  - addr: `5404. CLIFT HAVEN DRIVE, PMB 3825, HUOSTON, TX` -> `5404 clift haven drive, huoston, tx` | numbers `5404` | filler `3825` | keys `404`
+- `S3-623722706` (US)
+  - name: `Telasoft Fresh Terra Holdings` -> clean `telasoft fresh terra holdings` | core `telasoft fresh terra holdings` | legal `` | compact `telasoftfreshterraholdings` | initials `tfth`
+  - addr: `Bessemer City, North Carolina, PMB 1328, 112 Terrace Drive` -> `bessemer city, north carolina, 112 terrace drive` | numbers `112` | filler `1328` | keys `112`
+
+### dotted initials (85661 candidates in the sample)
+- `S2-951467191` (US)
+  - name: `*** RUTLEDGE COMPLETE POST VALLEY L.L.C.` -> clean `rutledge complete post valley llc` | core `rutledge complete post valley` | legal `LLC` | compact `rutledgecompletepostvalley` | initials `rcpv`
+  - addr: `10543 WHITE FAWN DRIVE, HOUSTON, TX` -> `10543 white fawn drive, houston, tx` | numbers `10543` | filler `` | keys `543`
+- `S1-626303035` (US)
+  - name: `Vision Associates L.L.C.` -> clean `vision associates llc` | core `vision associates` | legal `LLC` | compact `visionassociates` | initials `va`
+  - addr: `9532 Peterson Avenue, Mesa, AZ` -> `9532 peterson avenue, mesa, az` | numbers `9532` | filler `` | keys `532`
+
+### junk prefix *** / << (6382 candidates in the sample)
+- `S3-91926491` (US)
+  - name: `*** royaldirecthorizon.com` -> clean `royaldirecthorizon` | core `royaldirecthorizon` | legal `` | compact `royaldirecthorizon` | initials `r` | DOMAIN
+  - addr: `##92219 Youngs River Road, Astoria, Oregon` -> `92219 youngs river road, astoria, oregon` | numbers `92219` | filler `` | keys `219`
+- `S2-202811328` (India)
+  - name: `*** 5arasika  Pumps Private Limited` -> clean `5arasika pumps private limited` | core `sarasika pumps` | legal `PRIVATE_LIMITED` | compact `sarasikapumps` | initials `sp`
+  - addr: `A #69, HYDERABAD, YOUSUFGUDA, Telangana` -> `a 69, hyderabad, yousufguda, telangana` | numbers `69` | filler `` | keys `069`
+
+### '#' house number (India) (125548 candidates in the sample)
+- `S2-966786524` (India)
+  - name: `Consulting-Parhidan Surgical Pvt Ltd` -> clean `consulting parhidan surgical pvt ltd` | core `consulting parhidan surgical` | legal `PRIVATE_LIMITED` | compact `consultingparhidansurgical` | initials `cps`
+  - addr: `#606 29A, RABINDRA SARANI, 4TH FLOOR, ROOM NO.12A, KOLKATA, KOLKATA, West Bengal` -> `606 29a, rabindra sarani, 4th floor, room no 12a, kolkata, kolkata, west bengal` | numbers `606 29 4 12` | filler `` | keys `606 029 004 012`
+- `S2-211250992` (India)
+  - name: `श्री बिजनेस रेस्टोरेंट` -> clean `sri bijnes restoremt` | core `sri bijnes restoremt` | legal `` | compact `sribijnesrestoremt` | initials `sbr` | NONLATIN
+  - addr: `#27, C-4 SECTOR, TOWN CENTER CIDCO, CH.SAMBHAJI NAGAR, AURANGABAD, महाराष्ट्र` -> `27, c 4 sector, town center cidco, chemin sambhaji nagar, aurangabad, mharastr` | numbers `27 4` | filler `` | keys `027 004`

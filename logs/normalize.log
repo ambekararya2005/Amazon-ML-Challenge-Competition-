@@ -1,0 +1,253 @@
+2026-09-26 00:04:18 INFO [normalize_all] start (rss 80 MB)
+2026-09-26 00:04:18 INFO [normalize_train_s1] start (rss 80 MB)
+2026-09-26 00:04:28 INFO [normalize_train_s1] India: {'rows': 883188, 'pct_empty_name_core': 0.0, 'pct_empty_numbers': 8.978, 'pct_filler_numbers': 1.301, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 0.0, 'pct_has_legal_form': 84.291, 'pct_name_core_fallback': 0.002, 'pct_addr_empty': 0.0}
+2026-09-26 00:04:38 INFO [normalize_train_s1] US: {'rows': 1323633, 'pct_empty_name_core': 0.0, 'pct_empty_numbers': 0.0, 'pct_filler_numbers': 0.257, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 0.0, 'pct_has_legal_form': 56.903, 'pct_name_core_fallback': 0.0, 'pct_addr_empty': 0.0}
+2026-09-26 00:04:38 INFO [normalize_train_s1] 2206821 rows at 111661 rows/s
+2026-09-26 00:04:38 INFO [normalize_train_s1] ok in 19.8s | peak rss 1113 MB | end rss 588 MB
+2026-09-26 00:04:38 INFO [normalize_train_s2] start (rss 496 MB)
+2026-09-26 00:07:41 INFO [normalize_train_s2] India: {'rows': 2017799, 'pct_empty_name_core': 0.001, 'pct_empty_numbers': 12.608, 'pct_filler_numbers': 10.673, 'pct_name_nonlatin': 23.508, 'pct_is_domain': 3.395, 'pct_has_legal_form': 71.577, 'pct_name_core_fallback': 0.002, 'pct_addr_empty': 2.867}
+2026-09-26 00:08:08 INFO [normalize_train_s2] US: {'rows': 3016817, 'pct_empty_name_core': 0.003, 'pct_empty_numbers': 14.456, 'pct_filler_numbers': 8.295, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 4.395, 'pct_has_legal_form': 47.552, 'pct_name_core_fallback': 0.003, 'pct_addr_empty': 3.683}
+2026-09-26 00:08:08 INFO [normalize_train_s2] 5034616 rows at 24008 rows/s
+2026-09-26 00:08:08 INFO [normalize_train_s2] ok in 209.7s | peak rss 1916 MB | end rss 953 MB
+2026-09-26 00:08:08 INFO [normalize_train_s3] start (rss 836 MB)
+2026-09-26 00:08:40 INFO [normalize_train_s3] India: {'rows': 2115547, 'pct_empty_name_core': 0.004, 'pct_empty_numbers': 14.285, 'pct_filler_numbers': 10.021, 'pct_name_nonlatin': 13.166, 'pct_is_domain': 3.643, 'pct_has_legal_form': 71.326, 'pct_name_core_fallback': 0.01, 'pct_addr_empty': 3.07}
+2026-09-26 00:09:04 INFO [normalize_train_s3] US: {'rows': 3170056, 'pct_empty_name_core': 0.002, 'pct_empty_numbers': 12.996, 'pct_filler_numbers': 10.582, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 4.218, 'pct_has_legal_form': 46.681, 'pct_name_core_fallback': 0.005, 'pct_addr_empty': 3.501}
+2026-09-26 00:09:04 INFO [normalize_train_s3] 5285603 rows at 94533 rows/s
+2026-09-26 00:09:04 INFO [normalize_train_s3] ok in 55.9s | peak rss 1989 MB | end rss 938 MB
+2026-09-26 00:09:04 INFO [normalize_test_s1] start (rss 831 MB)
+2026-09-26 00:09:07 INFO [normalize_test_s1] France: {'rows': 259452, 'pct_empty_name_core': 0.0, 'pct_empty_numbers': 0.42, 'pct_filler_numbers': 0.001, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 0.0, 'pct_has_legal_form': 68.347, 'pct_name_core_fallback': 0.02, 'pct_addr_empty': 0.0}
+2026-09-26 00:09:16 INFO [normalize_test_s1] India: {'rows': 809986, 'pct_empty_name_core': 0.0, 'pct_empty_numbers': 9.007, 'pct_filler_numbers': 1.299, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 0.0, 'pct_has_legal_form': 84.256, 'pct_name_core_fallback': 0.001, 'pct_addr_empty': 0.0}
+2026-09-26 00:09:22 INFO [normalize_test_s1] US: {'rows': 663106, 'pct_empty_name_core': 0.0, 'pct_empty_numbers': 0.0, 'pct_filler_numbers': 0.25, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 0.0, 'pct_has_legal_form': 56.841, 'pct_name_core_fallback': 0.0, 'pct_addr_empty': 0.0}
+2026-09-26 00:09:22 INFO [normalize_test_s1] 1732544 rows at 94493 rows/s
+2026-09-26 00:09:22 INFO [normalize_test_s1] ok in 18.3s | peak rss 1110 MB | end rss 706 MB
+2026-09-26 00:09:22 INFO [normalize_test_s2] start (rss 621 MB)
+2026-09-26 00:09:29 INFO [normalize_test_s2] France: {'rows': 703378, 'pct_empty_name_core': 0.0, 'pct_empty_numbers': 10.099, 'pct_filler_numbers': 3.323, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 3.492, 'pct_has_legal_form': 60.477, 'pct_name_core_fallback': 0.071, 'pct_addr_empty': 3.062}
+2026-09-26 00:09:55 INFO [normalize_test_s2] India: {'rows': 2312565, 'pct_empty_name_core': 0.001, 'pct_empty_numbers': 11.193, 'pct_filler_numbers': 11.155, 'pct_name_nonlatin': 23.636, 'pct_is_domain': 2.747, 'pct_has_legal_form': 72.777, 'pct_name_core_fallback': 0.001, 'pct_addr_empty': 2.282}
+2026-09-26 00:10:08 INFO [normalize_test_s2] US: {'rows': 1871330, 'pct_empty_name_core': 0.003, 'pct_empty_numbers': 12.665, 'pct_filler_numbers': 8.424, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 3.624, 'pct_has_legal_form': 49.424, 'pct_name_core_fallback': 0.003, 'pct_addr_empty': 2.945}
+2026-09-26 00:10:08 INFO [normalize_test_s2] 4887273 rows at 105639 rows/s
+2026-09-26 00:10:08 INFO [normalize_test_s2] ok in 46.3s | peak rss 2129 MB | end rss 900 MB
+2026-09-26 00:10:08 INFO [normalize_test_s3] start (rss 766 MB)
+2026-09-26 00:10:16 INFO [normalize_test_s3] France: {'rows': 731615, 'pct_empty_name_core': 0.0, 'pct_empty_numbers': 9.732, 'pct_filler_numbers': 3.198, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 3.431, 'pct_has_legal_form': 59.466, 'pct_name_core_fallback': 0.084, 'pct_addr_empty': 2.944}
+2026-09-26 00:10:40 INFO [normalize_test_s3] India: {'rows': 2405000, 'pct_empty_name_core': 0.003, 'pct_empty_numbers': 12.837, 'pct_filler_numbers': 10.587, 'pct_name_nonlatin': 13.332, 'pct_is_domain': 2.954, 'pct_has_legal_form': 73.058, 'pct_name_core_fallback': 0.007, 'pct_addr_empty': 2.463}
+2026-09-26 00:10:55 INFO [normalize_test_s3] US: {'rows': 1945701, 'pct_empty_name_core': 0.002, 'pct_empty_numbers': 11.451, 'pct_filler_numbers': 10.837, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 3.48, 'pct_has_legal_form': 48.593, 'pct_name_core_fallback': 0.003, 'pct_addr_empty': 2.843}
+2026-09-26 00:10:55 INFO [normalize_test_s3] 5082316 rows at 108779 rows/s
+2026-09-26 00:10:55 INFO [normalize_test_s3] ok in 46.7s | peak rss 2122 MB | end rss 954 MB
+2026-09-26 00:10:55 INFO normalised 24229173 rows at 61065 rows/s with 6 workers
+2026-09-26 00:10:55 INFO [normalize_all] ok in 396.8s | peak rss 2132 MB | end rss 865 MB
+2026-09-26 00:10:55 INFO per-country summary:
+split|country          rows     empty_name_core       empty_numbers       name_nonlatin           is_domain      filler_numbers          addr_empty  name_core_fallback
+test|France       1,694,445               0.00%               8.46%               0.00%               2.93%               2.76%               2.54%               0.07%
+test|India        5,527,551               0.00%              11.59%              15.69%               2.44%               9.46%               2.03%               0.00%
+test|US           4,480,137               0.00%              10.26%               0.00%               3.02%               8.26%               2.46%               0.00%
+train|India       5,016,534               0.00%              12.68%              15.01%               2.90%               8.75%               2.45%               0.01%
+train|US          7,510,506               0.00%              11.29%               0.00%               3.55%               7.84%               2.96%               0.00%
+2026-09-26 00:11:15 INFO top 60 name tokens among 1620114 non-Latin names:
+  1. limited              1,073,998
+  2. praivet                784,891
+  3. pra                    134,723
+  4. li                     134,723
+  5. elelpi                  95,652
+  6. limitet                 94,540
+  7. praibhet                91,555
+  8. piraivet                81,098
+  9. limirrd                 53,534
+ 10. tek                     49,032
+ 11. praivrr                 45,739
+ 12. globl                   41,672
+ 13. phuds                   37,967
+ 14. sri                     36,147
+ 15. lksmi                   35,048
+ 16. tredimg                 34,614
+ 17. private                 34,134
+ 18. aiti                    32,596
+ 19. imtrnesnl               31,851
+ 20. eksports                31,222
+ 21. impeks                  30,899
+ 22. estet                   30,745
+ 23. enrji                   29,475
+ 24. phud                    29,282
+ 25. jy                      28,142
+ 26. prodkts                 27,483
+ 27. prodyusr                27,381
+ 28. midiya                  26,846
+ 29. imjiniyrimg             26,845
+ 30. sistms                  25,904
+ 31. bildrs                  25,765
+ 32. devlprs                 25,447
+ 33. marketimg               25,337
+ 34. al                      24,416
+ 35. imdstrij                24,308
+ 36. phaumdesn               23,936
+ 37. teknolojij              23,743
+ 38. kmstrksms               23,563
+ 39. emtrpraijej             23,559
+ 40. vemcrs                  23,467
+ 41. solyusms                23,299
+ 42. investmemts             23,278
+ 43. investmemt              23,206
+ 44. bijnes                  21,069
+ 45. teknoloji               20,662
+ 46. pavr                    20,600
+ 47. projekts                20,584
+ 48. lojistiks               20,210
+ 49. egro                    20,028
+ 50. keyr                    19,258
+ 51. proprtij                18,905
+ 52. jain                    18,801
+ 53. ram                     18,792
+ 54. raj                     18,705
+ 55. kmsltimg                18,682
+ 56. hotl                    18,671
+ 57. imphrastrkcr            18,478
+ 58. kmstrksn                18,374
+ 59. hospitailiti            18,352
+ 60. mainejmemt              18,283
+2026-09-26 00:12:31 INFO [normalize_all] start (rss 80 MB)
+2026-09-26 00:12:31 INFO [normalize_train_s1] start (rss 80 MB)
+2026-09-26 00:12:41 INFO [normalize_train_s1] India: {'rows': 883188, 'pct_empty_name_core': 0.0, 'pct_empty_numbers': 8.978, 'pct_filler_numbers': 1.301, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 0.0, 'pct_has_legal_form': 84.291, 'pct_name_core_fallback': 0.002, 'pct_addr_empty': 0.0}
+2026-09-26 00:12:52 INFO [normalize_train_s1] US: {'rows': 1323633, 'pct_empty_name_core': 0.0, 'pct_empty_numbers': 0.0, 'pct_filler_numbers': 0.257, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 0.0, 'pct_has_legal_form': 56.903, 'pct_name_core_fallback': 0.0, 'pct_addr_empty': 0.0}
+2026-09-26 00:12:52 INFO [normalize_train_s1] 2206821 rows at 106778 rows/s
+2026-09-26 00:12:52 INFO [normalize_train_s1] ok in 20.7s | peak rss 1122 MB | end rss 555 MB
+2026-09-26 00:12:52 INFO [normalize_train_s2] start (rss 484 MB)
+2026-09-26 00:13:15 INFO [normalize_train_s2] India: {'rows': 2017799, 'pct_empty_name_core': 0.001, 'pct_empty_numbers': 12.608, 'pct_filler_numbers': 10.673, 'pct_name_nonlatin': 23.508, 'pct_is_domain': 3.395, 'pct_has_legal_form': 77.324, 'pct_name_core_fallback': 0.002, 'pct_addr_empty': 2.867}
+2026-09-26 00:13:35 INFO [normalize_train_s2] US: {'rows': 3016817, 'pct_empty_name_core': 0.003, 'pct_empty_numbers': 14.456, 'pct_filler_numbers': 8.295, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 4.395, 'pct_has_legal_form': 47.552, 'pct_name_core_fallback': 0.003, 'pct_addr_empty': 3.683}
+2026-09-26 00:13:35 INFO [normalize_train_s2] 5034616 rows at 115153 rows/s
+2026-09-26 00:13:35 INFO [normalize_train_s2] ok in 43.7s | peak rss 1784 MB | end rss 941 MB
+2026-09-26 00:13:36 INFO [normalize_train_s3] start (rss 808 MB)
+2026-09-26 00:13:58 INFO [normalize_train_s3] India: {'rows': 2115547, 'pct_empty_name_core': 0.004, 'pct_empty_numbers': 14.285, 'pct_filler_numbers': 10.021, 'pct_name_nonlatin': 13.166, 'pct_is_domain': 3.643, 'pct_has_legal_form': 74.408, 'pct_name_core_fallback': 0.01, 'pct_addr_empty': 3.07}
+2026-09-26 00:14:22 INFO [normalize_train_s3] US: {'rows': 3170056, 'pct_empty_name_core': 0.002, 'pct_empty_numbers': 12.996, 'pct_filler_numbers': 10.582, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 4.218, 'pct_has_legal_form': 46.681, 'pct_name_core_fallback': 0.005, 'pct_addr_empty': 3.501}
+2026-09-26 00:14:22 INFO [normalize_train_s3] 5285603 rows at 113777 rows/s
+2026-09-26 00:14:22 INFO [normalize_train_s3] ok in 46.5s | peak rss 2029 MB | end rss 1057 MB
+2026-09-26 00:14:22 INFO [normalize_test_s1] start (rss 927 MB)
+2026-09-26 00:14:26 INFO [normalize_test_s1] France: {'rows': 259452, 'pct_empty_name_core': 0.0, 'pct_empty_numbers': 0.42, 'pct_filler_numbers': 0.001, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 0.0, 'pct_has_legal_form': 68.347, 'pct_name_core_fallback': 0.02, 'pct_addr_empty': 0.0}
+2026-09-26 00:14:35 INFO [normalize_test_s1] India: {'rows': 809986, 'pct_empty_name_core': 0.0, 'pct_empty_numbers': 9.007, 'pct_filler_numbers': 1.299, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 0.0, 'pct_has_legal_form': 84.256, 'pct_name_core_fallback': 0.001, 'pct_addr_empty': 0.0}
+2026-09-26 00:14:41 INFO [normalize_test_s1] US: {'rows': 663106, 'pct_empty_name_core': 0.0, 'pct_empty_numbers': 0.0, 'pct_filler_numbers': 0.25, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 0.0, 'pct_has_legal_form': 56.841, 'pct_name_core_fallback': 0.0, 'pct_addr_empty': 0.0}
+2026-09-26 00:14:41 INFO [normalize_test_s1] 1732544 rows at 91134 rows/s
+2026-09-26 00:14:41 INFO [normalize_test_s1] ok in 19.0s | peak rss 1389 MB | end rss 764 MB
+2026-09-26 00:14:41 INFO [normalize_test_s2] start (rss 683 MB)
+2026-09-26 00:14:49 INFO [normalize_test_s2] France: {'rows': 703378, 'pct_empty_name_core': 0.0, 'pct_empty_numbers': 10.099, 'pct_filler_numbers': 3.323, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 3.492, 'pct_has_legal_form': 60.477, 'pct_name_core_fallback': 0.071, 'pct_addr_empty': 3.062}
+2026-09-26 00:15:15 INFO [normalize_test_s2] India: {'rows': 2312565, 'pct_empty_name_core': 0.001, 'pct_empty_numbers': 11.193, 'pct_filler_numbers': 11.155, 'pct_name_nonlatin': 23.636, 'pct_is_domain': 2.747, 'pct_has_legal_form': 78.7, 'pct_name_core_fallback': 0.001, 'pct_addr_empty': 2.282}
+2026-09-26 00:15:29 INFO [normalize_test_s2] US: {'rows': 1871330, 'pct_empty_name_core': 0.003, 'pct_empty_numbers': 12.665, 'pct_filler_numbers': 8.424, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 3.624, 'pct_has_legal_form': 49.424, 'pct_name_core_fallback': 0.003, 'pct_addr_empty': 2.945}
+2026-09-26 00:15:29 INFO [normalize_test_s2] 4887273 rows at 102135 rows/s
+2026-09-26 00:15:29 INFO [normalize_test_s2] ok in 47.9s | peak rss 2209 MB | end rss 1005 MB
+2026-09-26 00:15:29 INFO [normalize_test_s3] start (rss 898 MB)
+2026-09-26 00:15:37 INFO [normalize_test_s3] France: {'rows': 731615, 'pct_empty_name_core': 0.0, 'pct_empty_numbers': 9.732, 'pct_filler_numbers': 3.198, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 3.431, 'pct_has_legal_form': 59.466, 'pct_name_core_fallback': 0.084, 'pct_addr_empty': 2.944}
+2026-09-26 00:16:01 INFO [normalize_test_s3] India: {'rows': 2405000, 'pct_empty_name_core': 0.003, 'pct_empty_numbers': 12.837, 'pct_filler_numbers': 10.587, 'pct_name_nonlatin': 13.332, 'pct_is_domain': 2.954, 'pct_has_legal_form': 76.236, 'pct_name_core_fallback': 0.007, 'pct_addr_empty': 2.463}
+2026-09-26 00:16:16 INFO [normalize_test_s3] US: {'rows': 1945701, 'pct_empty_name_core': 0.002, 'pct_empty_numbers': 11.451, 'pct_filler_numbers': 10.837, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 3.48, 'pct_has_legal_form': 48.593, 'pct_name_core_fallback': 0.003, 'pct_addr_empty': 2.843}
+2026-09-26 00:16:16 INFO [normalize_test_s3] 5082316 rows at 107694 rows/s
+2026-09-26 00:16:16 INFO [normalize_test_s3] ok in 47.2s | peak rss 2200 MB | end rss 1009 MB
+2026-09-26 00:16:16 INFO normalised 24229173 rows at 107699 rows/s with 6 workers
+2026-09-26 00:16:16 INFO [normalize_all] ok in 225.0s | peak rss 2212 MB | end rss 926 MB
+2026-09-26 00:16:16 INFO per-country summary:
+split|country          rows     empty_name_core       empty_numbers       name_nonlatin           is_domain      filler_numbers          addr_empty  name_core_fallback
+test|France       1,694,445               0.00%               8.46%               0.00%               2.93%               2.76%               2.54%               0.07%
+test|India        5,527,551               0.00%              11.59%              15.69%               2.44%               9.46%               2.03%               0.00%
+test|US           4,480,137               0.00%              10.26%               0.00%               3.02%               8.26%               2.46%               0.00%
+train|India       5,016,534               0.00%              12.68%              15.01%               2.90%               8.75%               2.45%               0.01%
+train|US          7,510,506               0.00%              11.29%               0.00%               3.55%               7.84%               2.96%               0.00%
+2026-09-26 00:17:14 INFO examples written to C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\logs\normalize_examples.md
+2026-09-26 00:17:21 INFO top 60 name tokens among 1620114 non-Latin names:
+  1. limited              1,372,894
+  2. private              1,172,140
+  3. llp                     99,097
+  4. tek                     49,032
+  5. enterprises             42,383
+  6. globl                   41,672
+  7. phuds                   37,967
+  8. sri                     36,147
+  9. lksmi                   35,048
+ 10. tredimg                 34,614
+ 11. aiti                    32,596
+ 12. imtrnesnl               31,851
+ 13. eksports                31,222
+ 14. impeks                  30,899
+ 15. estet                   30,745
+ 16. enrji                   29,475
+ 17. phud                    29,282
+ 18. jy                      28,142
+ 19. prodkts                 27,483
+ 20. prodyusr                27,381
+ 21. midiya                  26,846
+ 22. imjiniyrimg             26,845
+ 23. sistms                  25,904
+ 24. bildrs                  25,765
+ 25. devlprs                 25,447
+ 26. marketimg               25,337
+ 27. al                      24,416
+ 28. imdstrij                24,308
+ 29. phaumdesn               23,936
+ 30. teknolojij              23,743
+ 31. kmstrksms               23,563
+ 32. vemcrs                  23,467
+ 33. solyusms                23,299
+ 34. investmemts             23,278
+ 35. investmemt              23,206
+ 36. bijnes                  21,069
+ 37. teknoloji               20,662
+ 38. pavr                    20,600
+ 39. projekts                20,584
+ 40. lojistiks               20,210
+ 41. egro                    20,028
+ 42. keyr                    19,258
+ 43. proprtij                18,905
+ 44. jain                    18,801
+ 45. ram                     18,792
+ 46. raj                     18,705
+ 47. kmsltimg                18,682
+ 48. hotl                    18,671
+ 49. imphrastrkcr            18,478
+ 50. kmstrksn                18,374
+ 51. hospitailiti            18,352
+ 52. mainejmemt              18,283
+ 53. sophtveyr               18,224
+ 54. om                      18,196
+ 55. imphotek                18,148
+ 56. siv                     18,143
+ 57. phainems                18,109
+ 58. star                    18,103
+ 59. hai                     18,040
+ 60. hri                     18,030
+2026-09-26 00:18:28 INFO [normalize_all] start (rss 80 MB)
+2026-09-26 00:18:28 INFO [normalize_train_s1] start (rss 80 MB)
+2026-09-26 00:18:43 INFO [normalize_train_s1] India: {'rows': 883188, 'pct_empty_name_core': 0.0, 'pct_empty_numbers': 8.73, 'pct_filler_numbers': 0.016, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 0.0, 'pct_has_legal_form': 84.291, 'pct_name_core_fallback': 0.002, 'pct_addr_empty': 0.0}
+2026-09-26 00:19:00 INFO [normalize_train_s1] US: {'rows': 1323633, 'pct_empty_name_core': 0.0, 'pct_empty_numbers': 0.0, 'pct_filler_numbers': 0.0, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 0.0, 'pct_has_legal_form': 56.903, 'pct_name_core_fallback': 0.0, 'pct_addr_empty': 0.0}
+2026-09-26 00:19:00 INFO [normalize_train_s1] 2206821 rows at 69146 rows/s
+2026-09-26 00:19:00 INFO [normalize_train_s1] ok in 31.9s | peak rss 1138 MB | end rss 594 MB
+2026-09-26 00:19:00 INFO [normalize_train_s2] start (rss 483 MB)
+2026-09-26 00:19:39 INFO [normalize_train_s2] India: {'rows': 2017799, 'pct_empty_name_core': 0.001, 'pct_empty_numbers': 8.688, 'pct_filler_numbers': 0.015, 'pct_name_nonlatin': 23.508, 'pct_is_domain': 3.395, 'pct_has_legal_form': 77.324, 'pct_name_core_fallback': 0.002, 'pct_addr_empty': 2.867}
+2026-09-26 00:20:12 INFO [normalize_train_s2] US: {'rows': 3016817, 'pct_empty_name_core': 0.003, 'pct_empty_numbers': 9.918, 'pct_filler_numbers': 3.33, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 4.395, 'pct_has_legal_form': 47.552, 'pct_name_core_fallback': 0.003, 'pct_addr_empty': 3.683}
+2026-09-26 00:20:12 INFO [normalize_train_s2] 5034616 rows at 70159 rows/s
+2026-09-26 00:20:12 INFO [normalize_train_s2] ok in 71.8s | peak rss 1907 MB | end rss 1005 MB
+2026-09-26 00:20:12 INFO [normalize_train_s3] start (rss 884 MB)
+2026-09-26 00:20:49 INFO [normalize_train_s3] India: {'rows': 2115547, 'pct_empty_name_core': 0.004, 'pct_empty_numbers': 9.95, 'pct_filler_numbers': 0.014, 'pct_name_nonlatin': 13.166, 'pct_is_domain': 3.643, 'pct_has_legal_form': 74.408, 'pct_name_core_fallback': 0.01, 'pct_addr_empty': 3.07}
+2026-09-26 00:21:28 INFO [normalize_train_s3] US: {'rows': 3170056, 'pct_empty_name_core': 0.002, 'pct_empty_numbers': 8.809, 'pct_filler_numbers': 3.148, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 4.218, 'pct_has_legal_form': 46.681, 'pct_name_core_fallback': 0.005, 'pct_addr_empty': 3.501}
+2026-09-26 00:21:28 INFO [normalize_train_s3] 5285603 rows at 69119 rows/s
+2026-09-26 00:21:28 INFO [normalize_train_s3] ok in 76.5s | peak rss 2068 MB | end rss 1030 MB
+2026-09-26 00:21:28 INFO [normalize_test_s1] start (rss 925 MB)
+2026-09-26 00:21:34 INFO [normalize_test_s1] France: {'rows': 259452, 'pct_empty_name_core': 0.0, 'pct_empty_numbers': 0.42, 'pct_filler_numbers': 0.001, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 0.0, 'pct_has_legal_form': 68.347, 'pct_name_core_fallback': 0.02, 'pct_addr_empty': 0.0}
+2026-09-26 00:21:49 INFO [normalize_test_s1] India: {'rows': 809986, 'pct_empty_name_core': 0.0, 'pct_empty_numbers': 8.742, 'pct_filler_numbers': 0.016, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 0.0, 'pct_has_legal_form': 84.256, 'pct_name_core_fallback': 0.001, 'pct_addr_empty': 0.0}
+2026-09-26 00:21:59 INFO [normalize_test_s1] US: {'rows': 663106, 'pct_empty_name_core': 0.0, 'pct_empty_numbers': 0.0, 'pct_filler_numbers': 0.0, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 0.0, 'pct_has_legal_form': 56.841, 'pct_name_core_fallback': 0.0, 'pct_addr_empty': 0.0}
+2026-09-26 00:21:59 INFO [normalize_test_s1] 1732544 rows at 57265 rows/s
+2026-09-26 00:21:59 INFO [normalize_test_s1] ok in 30.3s | peak rss 1340 MB | end rss 774 MB
+2026-09-26 00:21:59 INFO [normalize_test_s2] start (rss 707 MB)
+2026-09-26 00:22:12 INFO [normalize_test_s2] France: {'rows': 703378, 'pct_empty_name_core': 0.0, 'pct_empty_numbers': 6.852, 'pct_filler_numbers': 0.0, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 3.492, 'pct_has_legal_form': 60.477, 'pct_name_core_fallback': 0.071, 'pct_addr_empty': 3.062}
+2026-09-26 00:22:55 INFO [normalize_test_s2] India: {'rows': 2312565, 'pct_empty_name_core': 0.001, 'pct_empty_numbers': 6.973, 'pct_filler_numbers': 0.014, 'pct_name_nonlatin': 23.636, 'pct_is_domain': 2.747, 'pct_has_legal_form': 78.7, 'pct_name_core_fallback': 0.001, 'pct_addr_empty': 2.282}
+2026-09-26 00:23:19 INFO [normalize_test_s2] US: {'rows': 1871330, 'pct_empty_name_core': 0.003, 'pct_empty_numbers': 8.035, 'pct_filler_numbers': 3.362, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 3.624, 'pct_has_legal_form': 49.424, 'pct_name_core_fallback': 0.003, 'pct_addr_empty': 2.945}
+2026-09-26 00:23:19 INFO [normalize_test_s2] 4887273 rows at 60946 rows/s
+2026-09-26 00:23:19 INFO [normalize_test_s2] ok in 80.2s | peak rss 2188 MB | end rss 988 MB
+2026-09-26 00:23:19 INFO [normalize_test_s3] start (rss 855 MB)
+2026-09-26 00:23:31 INFO [normalize_test_s3] France: {'rows': 731615, 'pct_empty_name_core': 0.0, 'pct_empty_numbers': 6.615, 'pct_filler_numbers': 0.0, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 3.431, 'pct_has_legal_form': 59.466, 'pct_name_core_fallback': 0.084, 'pct_addr_empty': 2.944}
+2026-09-26 00:24:13 INFO [normalize_test_s3] India: {'rows': 2405000, 'pct_empty_name_core': 0.003, 'pct_empty_numbers': 8.126, 'pct_filler_numbers': 0.013, 'pct_name_nonlatin': 13.332, 'pct_is_domain': 2.954, 'pct_has_legal_form': 76.236, 'pct_name_core_fallback': 0.007, 'pct_addr_empty': 2.463}
+2026-09-26 00:24:38 INFO [normalize_test_s3] US: {'rows': 1945701, 'pct_empty_name_core': 0.002, 'pct_empty_numbers': 7.168, 'pct_filler_numbers': 3.213, 'pct_name_nonlatin': 0.0, 'pct_is_domain': 3.48, 'pct_has_legal_form': 48.593, 'pct_name_core_fallback': 0.003, 'pct_addr_empty': 2.843}
+2026-09-26 00:24:38 INFO [normalize_test_s3] 5082316 rows at 64624 rows/s
+2026-09-26 00:24:38 INFO [normalize_test_s3] ok in 78.6s | peak rss 2204 MB | end rss 1022 MB
+2026-09-26 00:24:38 INFO normalised 24229173 rows at 65601 rows/s with 6 workers
+2026-09-26 00:24:38 INFO [normalize_all] ok in 369.3s | peak rss 2207 MB | end rss 846 MB
+2026-09-26 00:24:38 INFO per-country summary:
+split|country          rows     empty_name_core       empty_numbers       name_nonlatin           is_domain      filler_numbers          addr_empty  name_core_fallback
+test|France       1,694,445               0.00%               5.76%               0.00%               2.93%               0.00%               2.54%               0.07%
+test|India        5,527,551               0.00%               7.73%              15.69%               2.44%               0.01%               2.03%               0.00%
+test|US           4,480,137               0.00%               6.47%               0.00%               3.02%               2.80%               2.46%               0.00%
+train|India       5,016,534               0.00%               9.23%              15.01%               2.90%               0.01%               2.45%               0.01%
+train|US          7,510,506               0.00%               7.70%               0.00%               3.55%               2.67%               2.96%               0.00%
+2026-09-26 00:25:26 INFO examples written to C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\logs\normalize_examples.md

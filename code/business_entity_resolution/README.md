@@ -30,6 +30,10 @@ skips work if the cache exists; add `--force` to recompute.
 |---|---------|--------|----------------------------------------|
 | 0 | `python -m src.prepare_data` | `cache/raw/*.parquet` (incl. `train_pairs.parquet`), `logs/data_summary.json` | 135 s + 67 s (pairs) / 3.1 GB |
 | 1 | `python -m src.split` | `cache/split.parquet` (s1_id, fold: 85% train / 15% val) | 14 s / 1.1 GB |
+| 2 | `python -m src.normalize --stage normalize` | `cache/norm/{train,test}_s{1,2,3}.parquet` | 225–370 s (6 workers) / 2.2 GB |
+
+Optional reports: `python -m src.normalize --stage examples` (→ `logs/normalize_examples.md`),
+`python -m src.normalize --stage nonlatin_tokens`.
 
 Tests: `python -m unittest -v`
 
@@ -48,6 +52,8 @@ src/
   prepare_data.py   stage 0: TSV -> Parquet with NA / round-trip checks; train_pairs (one row per positive pair)
   split.py          stage 1: 15% validation hold-out, stratified by country x match-count bucket
   metric.py         official macro F0.5 + per-country breakdown
+  text_norm.py      pure-text normalisation rules + rule tables (legal forms, abbreviations, transliterations)
+  normalize.py      stage 2: per-country normalisation -> cache/norm/*.parquet; examples / non-Latin token reports
 tests/              unit tests (stdlib unittest)
 README.md           this file
 requirements.txt    pinned dependencies

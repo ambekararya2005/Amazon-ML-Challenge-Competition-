@@ -24,3 +24,15 @@
   train 1,875,797 (India 750,710 / US 1,125,087); val 331,024 (India 132,478 / US 198,546).
   Singleton rate 0.0558 both folds; mean matches 3.4612 train vs 3.4614 val.
 - Reference points on val: perfect prediction F0.5 = 1.0000; all-empty F0.5 = 0.0558 (= singleton rate).
+
+## 2026-09-26 — Normalisation v1
+- `src/text_norm.py` (rules + config tables) and `src/normalize.py` (stage runner, per country, 50k-row batches, spawn pool of 6).
+  Output `cache/norm/{train,test}_s{1,2,3}.parquet`, originals kept. 26 unit tests pass.
+- Speed: single process 28k rows/s; 6 workers 65k–108k rows/s depending on machine load (24.2M rows in 225–370 s), peak RSS 2.2 GB.
+- Transliterated legal words mined from the top non-Latin name tokens: praivet/praibhet/piraivet/praivrr -> private,
+  limitet/limirrd/limtid -> limited, elelpi -> llp, 'pra li' -> private limited, 8 enterprises variants. No company/trust variants in data.
+  After: 91.2% of non-Latin train_s2 names carry a legal form.
+- Deviation from spec, data-driven: '#<digits>' kept as a real number (in S1 address for 96% of US / 72% of India true pairs);
+  only PMB/PO Box/box are filler (0% in S1). Empty `numbers` fell 11.3->7.7% (train US), 12.7->9.2% (train India), 8.5->5.8% (test France).
+- Final per (split|country) %: empty name_core 0.00 everywhere; empty numbers France 5.76, test India 7.73, test US 6.47,
+  train India 9.23, train US 7.70; name_nonlatin India 15.0-15.7, US/France 0.
