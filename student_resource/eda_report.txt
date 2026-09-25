@@ -1,0 +1,197 @@
+======================================================================
+EDA REPORT
+======================================================================
+
+[train S1] dataset/train/train_source1.tsv  size=210.1MB  rows=2,206,821  cols=['entity_id', 'business_name', 'business_address', 'country']
+  country: {'US': 1323633, 'India': 883188}
+  business_name: empty=0.00%  len mean=24.0 p50=24 p95=37 max=105
+  business_address: empty=0.00%  len mean=52.1 p50=41 p95=103 max=256
+  duplicate entity_id: 0 | exact duplicate (name,address) rows: 0
+  sample rows:
+    S1-214435868 | Meek Principal | Fort Recovery, OH, 2620 Sawmill Road | US
+    S1-522572257 | Family Charities II | 2819 Sanctuary Cove, Katy, TX | US
+    S1-998727651 | Global Complete Vendome LLC | 3106 London Lane, Missouri City, TX | US
+
+[train S2] dataset/train/train_source2.tsv  size=489.3MB  rows=5,034,616  cols=['entity_id', 'business_name', 'business_address', 'country']
+  country: {'US': 3016817, 'India': 2017799}
+  business_name: empty=0.00%  len mean=25.1 p50=25 p95=40 max=104
+  business_address: empty=3.36%  len mean=46.2 p50=37 p95=96 max=249
+  duplicate entity_id: 0 | exact duplicate (name,address) rows: 25891
+  sample rows:
+    S2-153809211 | Royal Safe Paceline Inc | HOMELAND AVE, NULL, NORMAN, OK | US
+    S2-860628396 | Heritage Éducation Products | 7582 EAST POINT DOUGLAS RD, COTTAGE GROVE, MN | US
+    S2-214575246 | Knight Educational Society Private Limited | Karnataka, 50 , KNO 499/499, BCMC HBCS, RAGHUVANAHALLI, BANGALORE SOUTH | India
+
+[train S3] dataset/train/train_source3.tsv  size=503.7MB  rows=5,285,603  cols=['entity_id', 'business_name', 'business_address', 'country']
+  country: {'US': 3170056, 'India': 2115547}
+  business_name: empty=0.00%  len mean=25.2 p50=25 p95=42 max=123
+  business_address: empty=3.33%  len mean=46.7 p50=42 p95=91 max=240
+  duplicate entity_id: 0 | exact duplicate (name,address) rows: 18881
+  sample rows:
+    S3-353598503 | Prairie  Futurecorp Inc | 5402 Alexander Hill Road, Washington, Indiana | US
+    S3-113330256 | Associates + Co Care Ltd | Plot No. 23, S.v .Co.Operative Industrial Estates, Balanagar, Hyderabad, TG | India
+    S3-518854530 | Pediatric Dentistry Group Of  Pittsburg | 2254, Pittsburg, Texas | US
+
+[test S1] dataset/test/test_source1.tsv  size=175.0MB  rows=1,732,544  cols=['entity_id', 'business_name', 'business_address', 'country']
+  country: {'India': 809986, 'US': 663106, 'France': 259452}
+  business_name: empty=0.00%  len mean=23.8 p50=24 p95=36 max=92
+  business_address: empty=0.00%  len mean=57.2 p50=50 p95=105 max=268
+  duplicate entity_id: 0 | exact duplicate (name,address) rows: 0
+  sample rows:
+    S1-516069816 | Collège Cathare | 20 Rue de Chateaudun, Tourcoing, Hauts-de-France | France
+    S1-630580376 | High Impex Private Limited | Opp. Goyal House, Near Petrol Pump, Ajmer Road, Jaipur, Rajasthan | India
+    S1-529868590 | WFR Multitrade Private Limited | 8-B, F.Floor, Pkt-1, Sukhdev Vihar, New Delhi, South Delhi, Delhi | India
+
+[test S2] dataset/test/test_source2.tsv  size=509.5MB  rows=4,887,273  cols=['entity_id', 'business_name', 'business_address', 'country']
+  country: {'India': 2312565, 'US': 1871330, 'France': 703378}
+  business_name: empty=0.00%  len mean=25.7 p50=25 p95=42 max=102
+  business_address: empty=2.65%  len mean=50.4 p50=43 p95=99 max=269
+  duplicate entity_id: 0 | exact duplicate (name,address) rows: 22642
+  sample rows:
+    S2-786196841 | Maddox, Thomas & Parker Markets Summit | 4306 31RD LN, YUMA, AZ | US
+    S2-457058927 | Ratnagiri Public School Limited Services | OFFICE 227-228, 2ND FLR, VARDHAMAN COMPLEX, THANE, महाराष्ट्र | India
+    S2-56996144 | diraenterprise.com | 2/2-D, EAST AZAD NAGAR, DELHI, दिल्ली | India
+
+[test S3] dataset/test/test_source3.tsv  size=506.0MB  rows=5,082,316  cols=['entity_id', 'business_name', 'business_address', 'country']
+  country: {'India': 2405000, 'US': 1945701, 'France': 731615}
+  business_name: empty=0.00%  len mean=25.7 p50=25 p95=42 max=103
+  business_address: empty=2.68%  len mean=48.7 p50=43 p95=94 max=267
+  duplicate entity_id: 0 | exact duplicate (name,address) rows: 16305
+  sample rows:
+    S3-35552501 | Heritage Heritage Semiconductor Union (Holdings) | 41 Chert Street, PMB 7452, Stephens, Arkansas | US
+    S3-172385158 | Hari Krishna Tech Traders Private Limited | 0979 Level 14, Shaikpet, Hyderabad, తెలంగాణ | India
+    S3-796255769 | Etowah Heart Council Co | 200 9th Street, Etowah, Tennessee | US
+
+[GROUND TRUTH] rows=2,206,821 cols=['source1_entity_id', 'matched_entity_ids']
+  GT rows covering train S1: 100.00% | duplicate S1 rows in GT: 0
+  SINGLETON RATE (no matches): 5.58%
+  matches per S1 distribution: {0: 123247, 1: 119157, 2: 375212, 3: 530841, 4: 484115, 5: 321957, 6: 164868, 7: 63968, 8: 18680, 9: 4205, 10: 571} (10 = 10+)
+  mean matches (non-singletons): 3.666 | max: 11
+  S2 matches per S1: {0: 287745, 1: 789108, 2: 652779, 3: 333957, 4: 119078, 5: 24154}
+  S3 matches per S1: {0: 266276, 1: 716417, 2: 668375, 3: 372443, 4: 145116, 5: 35378, 6: 2816}
+  total positive pairs: 7,638,365
+  S2/S3 IDs linked to >1 S1 entity: 0 (0 => one-to-one constraint holds)
+  S2: 73.36% of records are matched to some S1 (rest are unmatched noise/distractors); GT ids missing from file: 0
+  S3: 74.63% of records are matched to some S1 (rest are unmatched noise/distractors); GT ids missing from file: 0
+
+[POSITIVE PAIRS, sample of 200000 ]
+  same country label: 100.00%
+  exact normalized name equal: 25.74%
+  name token-Jaccard quantiles p10/p25/p50/p75: [0.    0.5   0.667 1.   ]
+  addr token-Jaccard quantiles p10/p25/p50/p75: [0.25  0.429 0.667 0.818]
+  name Jaccard == 0 (no shared name token): 14.49%
+  addr both have numbers: 87.15% | share >=1 number: 79.78% | both have numbers but share none: 7.37%
+  [India] n=80275 name-J p50=0.600 addr-J p50=0.769
+  [US] n=119725 name-J p50=0.750 addr-J p50=0.556
+
+[S1 NAME REPETITION] S1 records whose normalized name appears >1 times in S1: 39.28% | top: [('primary care group', 253), ('ear nose throat group', 251), ('pediatric group', 222), ('womens health group', 220), ('physical therapy group', 218), ('pediatric dental group', 216), ('behavioral health group', 215), ('chiropractic group', 209)]
+
+[TOP ADDRESS TOKENS S2] [('no', 44535), ('road', 27054), ('delhi', 19387), ('street', 13332), ('st', 13309), ('rd', 13027), ('maharashtra', 12853), ('floor', 12843), ('nagar', 12125), ('1', 12055), ('city', 11968), ('tx', 11567), ('dr', 11202), ('a', 11109), ('c', 10485), ('2', 9567), ('ny', 9031), ('ave', 8883), ('pradesh', 8676), ('drive', 8595), ('new', 8584), ('nc', 8259), ('west', 8203), ('avenue', 7685), ('b', 7629), ('h', 7617), ('mumbai', 7556), ('oh', 7438), ('plot', 7100), ('il', 6540), ('o', 6461), ('va', 5326), ('null', 5155), ('ma', 5138), ('bangalore', 5086), ('3', 5080), ('uttar', 5059), ('tn', 5020), ('s', 4973), ('az', 4951)]
+[TOP NAME TOKENS S1] [('limited', 47307), ('private', 39075), ('llc', 32115), ('inc', 21581), ('ltd', 13533), ('pvt', 11052), ('india', 5524), ('and', 5241), ('c', 5065), ('s', 5017), ('care', 4817), ('l', 4566), ('of', 4014), ('associates', 3854), ('group', 3633), ('llp', 3625), ('center', 3250), ('corp', 3226), ('partners', 3135), ('services', 2822), ('p', 2708), ('health', 2632), ('d', 2530), ('clinic', 2514), ('solutions', 2456), ('pc', 2433), ('co', 2417), ('global', 2353), ('trading', 2061), ('technologies', 1956), ('pllc', 1910), ('brothers', 1899), ('international', 1772), ('industries', 1694), ('foundation', 1637), ('medicine', 1625), ('enterprises', 1615), ('ventures', 1549), ('lp', 1524), ('consultants', 1491)]
+
+[EXAMPLE MATCH GROUPS]
+
+--- India ---
+  S1-213588106: Secunderabad Easy Private Limited | Flat 203, Block 2, Sri Sai Heights, Habsiguda, S S Nagar, St No 8, Secunderabad, Hyderabad, Telangana
+     -> S2-42985262: Secunderabad Easy Private Ltd | FLAT 203, BLOCK 2, SRI SAI HEIGHTS, HABSIGUDA, S S NAGAR, ST NO 8, SECUNDERABAD, Andhra Pradesh
+     -> S2-705264530: Secunderabad-Easy  Private Limited | 
+     -> S3-800063136: Secunderabad Easy Private Limited | Flat 203, Secunderabad, Hyderabad, TG
+     -> S3-516767223: Secunderabad Easy Pdrlvate Limited | Flat 203, Block 2, Sri Sai Heights, Habsiguda, S S Nagar, St No 8, Hyderabad, Secunderabad, తెలంగాణ
+  S1-310120840: Bangalore Farmer Private Limited | Nandanam, 741, 12Th Main, 7Th Cross, B T M 2Nd Stage, Bangalore, Karnataka
+     -> S2-333584505: Bangalore Farmer Private | NANDANAM, 741, 12TH MAIN, 7TH CROSS, B T M 2ND STAGE, BANGALORE, ಕರ್ನಾಟಕ
+     -> S2-257142822: bfprivate.com | BANGALORE, Karnataka, NANDANAM, BANGALORE
+  S1-531869239: Dombivli One Limited | Plot No. A-19, A-19 (Part) & C-10/1, Midc, Phase-I, Dombivli East, Dombivli, Thane, Maharashtra
+     -> S2-699577602: Dombivli One  Limited | PLOT NO. A-G-19, A-19 (PART) & C-10/1, MIDC, PHASE-I, DOMBIVLI EAST, DOMBIVLI, Maharashtra
+     -> S3-141201997: D0mbivli One Ltd | Plot No. A-19, A-19 (Part) & C-10/1, Midc, Phase-i, Dombivli East, Dombivli, Jalna, MH
+     -> S3-110368561: Dombivli Limited Service | Plot No. A-19, Thane, Dombivli East, महाराष्ट्र
+  S1-246750841: Al Tech Private Limited | The Ambidence Court Plot No. 2, Sector 19D, Navi Mumbai, Thane, 1605/ 1606, Vashi, Maharashtra
+     -> S2-244613172: अल टेक प्राइवेट लिमिटेड | 1605/ 1606, THE AMBIDENCE COURT PLOT NO. 2, SECTOR 19D, NAVI MUMBAI, THANE, VASHI, Maharashtra
+     -> S2-532728281: Al Tech प्राइवेट लिमिटेड | 1605/ 1606, THE AMBIDENCE COURT PLOT NO. 2, SECTOR 19D, NAVI MUMBAI, VASHI, Maharashtra
+     -> S2-848837388: Dr Al  Tech | 1605/ 1606, THE AMBIDENCE COURT PLOT NO. 2, SECTOR 19D, NAVI MUMBAI, VASHI, महाराष्ट्र
+     -> S3-193131612: अल टेक प्राइवेट लिमिटेड | 1605/ 1606, Vashi, MH, Thane
+     -> S3-273474000: अल टेक प्राइवेट लिमिटेड | MH, Vashi, Thane, 1605/ 1606
+  S1-216071082: India Charitable Trust | Khata No. 124, Khewat No. 117/100, Makaan No. 89 Bus Stand Near Pnb Bank, Machhrauli, Jhajjar, Haryana
+     -> S2-65980125: INDIA CHARITABLE TRUST | KHATA NO. A-124, KHEWAT NO. 117/100, MAKAAN NO. 89 BUS STAND NEAR PNB BANK, MACHHRAULI, JHAJJAR, Haryana
+     -> S3-615297130: India Trust Charitable | Khaea No. 124, Khewat No. 117/100, Makaan No. 89 Bus Stand Near Pnb Bank, Machhrauli, Jhajjar, हरियाणा
+  S1-887253248: Innovative Shiv Healthcare Limited | Telangana, Serilingampally, K.V.Rangareddy, Pt5And6 Sy12 Hno2-91, 5And, 6 Mtp 5F B, 501 5Th Floor
+     -> S2-691452035: ఇన్నోవేటివ్ శివ్ హెల్త్‌కేర్ లిమిటెడ్ | PT5AND6 SY12 HNO2-91, SERILINGAMPALLY, K.V.RANGAREDDY, Telangana
+     -> S2-812628802: ఇన్నోవేటివ్ శివ్ హెల్త్‌కేర్ లిమిటెడ్ | PT5AD6 SY12 HNO2-91, SERILINGAMPALLY, K.V.RANGAREDDY, తెలంగాణ
+  S1-700203247: Guru Producer Private Limited | Sr.No 93/2 93/5 Manjari Bk 164 Kalpataru Serenity Flno 1202/4A, Pune, Maharashtra
+     -> S3-18982519: गुरु प्रोड्यूसर प्राइवेट लिमिटेड | Sr.no 93/2 93/5 Manjari Bk 164 Kalpataru Serenity Flno 1202/4A, Pune, MH
+     -> S3-765366373: गुरु प्रोड्यूसर प्राइवेट लिमिटेड | Sr.no 93/2 93/5 Manjari Bk 164 Kalpataru Serenity Flno 1202/4A, Pune, MH
+  S1-199203434: Pranaksh Infosoft Associates | Post Office-Bagan, Police Station-Bagnan., Howrah, West Bengal, Village-Khajutimore, Howrah
+     -> S2-209971287: PRANAKSH INFOSOFT ASSOCIATES LIMITED | VILLAGE-KHAJUTIMORE, POST OFFICE-BAGAN, POLICE STATION-BAGNAN., HOWRAH, null, West Bengal
+     -> S2-715701809: Pranaksh Associates Services | null, West Bengal, VILLAGE-KHAJUTIMORE, POST OFFICE-BAGAN, POLICE STATION-BAGNAN., HOWRAH
+     -> S2-282170054: PRANAKSH INFOSOFT ASSOCIATES LLP | VILLAGE-KHAJUITMORE, POST OFFICE-BAGAN, POLICE STATION-BAGNAN., HOWRAH, null, West Bengal
+     -> S3-507148878: pranakshinfosoftassociates.com | Village-khajutimore, Haora, Howrah, WB
+     -> S3-34820785: Pranaksh Infosoft-Associates Corporation | Howrah, পশ্চিমবঙ্গ, Village-khajutimore, Haora
+
+--- US ---
+  S1-506784599: Kimble, Olva S., L.C.S.W., PC | 607 Virginia Street, Terrell, TX
+     -> S2-546817492: kimb1eolvas.com | TX, TERRELL, VIRGINIA ST
+     -> S2-20108742: Kimble, Olva S., L.C.S.W., | 607 VIRGINIA STREET, TERRELL, TX
+     -> S2-574381144: Kimble, Olva S., L.C.S.W., | 607 VIRGINIA ST, PO BOX 2342, TERRELL, TX
+     -> S3-401863450: Kimble, Olva S., L.C.S.W., (PC) | 60 Virginia Street, N/A, Terrell, Texas
+     -> S3-25723166: Kimble, Olva S., | 60 Virginia St, N/A, Terrell, Texas
+  S1-358480929: Cardiology Safe Care Inc | 617 Firehouse Road, VA, Floyd County
+     -> S2-475728585: cardiologysafecare.com | 617 FIREHOUSE RD, WILLIS, VA
+     -> S2-562583657: Cardiology Safe Cáre Inc | 617 FIREHOUSE RD, FLOYD COUNTY, VA
+     -> S2-621948857: Iriecto | 617 FIREHOUSE ROAD, FLOYD COUNTY, VA
+     -> S2-392350374: Cardiology 5afe Care Inc | 617 FIREHOUSE ROAD, FLOYD COUNTY, VA
+     -> S3-326425573: CARDIOLOGY SAFE CARE INC [INC] | 617 Firehouse Rd, Floyd County, Virginia
+  S1-319338660: Brown and Warfield LLC | 390 Plainfield Road, Griswold, CT
+     -> S2-53207941: Brown and Warfield Llc | 390 PLAINFIELD ROAD, N/A, GRISWOLD, CT
+     -> S2-875908789: *** THE BROWN & WARFIELD LLC | N/A, CT, GRISWOLD, PLAINFIELD RD
+     -> S3-309353713: Brown and Warfield | 
+  S1-133607324: Cardiology Specialists LLC | 3634 Park Vista Drive, Missouri City, TX
+     -> S2-115588127: Cardi0logy Specialists LLC | 3634 PARK VISTA DRIVE, MISSOURI CITY, TX
+     -> S2-796710982: Cardiology Sepciialsist LLC | 3634 PARK VISTA DR, PMB 8044, MISSOURI CITY, TX
+     -> S2-565029670: CARDIOLOGY SPECIALISTS SPECIALISTS LLC | 3634 PARK VISTA DRIVE, MISSOURI CITY, TX
+     -> S3-861839305: Center Cardiology LLC | 3634 Park Vista Dr, Missouri City, Texas
+     -> S3-876993725: Cardiology  Specialists LLC | 3634 Park Vista Dr, Missouri City, Texas
+  S1-6136602: Family Bright Health, LLC | 126 The Green, Lancaster County, VA
+     -> S2-376589689: Family Family Bright Health, | 
+     -> S3-575295956: Familybrighthealth.Com | 126 The Green, Weems, Virginia
+     -> S3-64010674: Family Bright Health, LLC | 126 The Green, Lancaster County, Virginia
+     -> S3-530769919: Evohalovio | 126 The Green, Virginia, Weems
+  S1-445131567: Acevedo Tinto | 405 Calvin Road, Raleigh, NC
+     -> S2-930297649: ACEVEDO SERVICES | 405 CALVIN RD, RALEIH, NC
+     -> S2-621251129: ACEVEDO TINTO CO | 405 Calvin Rd, RALEIH, NC
+     -> S3-175121523: Acevedo Tinto Inc | 05 Calvin Rd, Raleigh, North Carolina
+     -> S3-640262412: Acevedo Taneio | Calvin Rd, Raleigh, North Carolina
+     -> S3-114943520: Acevedo Tinto | 05 Calvin Road, North Carolina, Raleigh
+  S1-322499659: B+ Grupo Inc. | 1317 Yuma Palms Parkway, Unit A3, Yuma, AZ
+     -> S2-126195836: B+ Grupo Incorporated | AZ, 1317 YUMA PALMS PARKWAY, YUMA
+     -> S3-563191037: B+ Inc. Center | 1317 Yuma Palms Pkwy, PO Box 3245, Yuma, Arizona
+  S1-476594619: Springdale, City Of | 2007 Robyn Road, Springdale, AR
+     -> S2-479020268: Springdale, City Of Co | 007 ROBYN RD, SPRINGDALE, AR
+     -> S2-255256603: Springdale, Cigy Of | SPRINGDALE, 007 ROBYN RD, AR
+     -> S3-201384059: Springdale, Of City | 02007 Robyn Road, Springdale, Arkansas
+     -> S3-527092767: *** Springda1e City Of | Robyn Rd, Springdale, Arkansas
+     -> S3-615280866: springdalecity.com #39256 | 02007 Robyn Road, Springdale, Arkansas
+
+[EXAMPLE SINGLETONS]
+  S1-145201656: Children's Council Inc. | 10330 Brazee Street, Portland, OR | US
+  S1-487734822: Delta Project Inc | 121 Hayward Street, Circleville, OH | US
+  S1-619201291: Better Ares Inc | 1943 Main Street, Unit Apartment A, Rochester, NY | US
+  S1-351416583: Foot & Ankle Associates, Inc | 808 Robindale Road, Blytheville, AR | US
+  S1-221541587: Ceciley's Iron Works | 104 Harrison Avenue, Moreau, NY | US
+
+[TEST] S1/S2/S3 sizes: [1732544, 4887273, 5082316] | train sizes: [2206821, 5034616, 5285603]
+  test S1 non-US/India rows: 259,452
+    S1-156285671 | << Team Ecole | 175 Boulevard du Président Franklin Roosevelt, Bordeaux, Nouvelle-Aquitaine | France
+    S1-921369899 | ZNB Club SARL | Nouvelle-Aquitaine, La Teste-de-Buch, 5 bis Rue Pierre Dignac | France
+    S1-913506265 | Thermal & Fils SASU | 20 Rue Parmentier, Dunkerque, Hauts-de-France | France
+    S1-628750886 | Grain & Fils | Lille, 329 Avenue de Dunkerque, Hauts-de-France | France
+  test S2 non-US/India rows: 703,378
+    S2-566025912 | Marina Ecole France Sarl | 63 R. DE DIEPPE, LILLE, Hauts-de-France | France
+    S2-158121477 | SCI Ptit Àmicale | 18 RUE JEN ZAY, Dunkerque, Nord | France
+    S2-770341988 | sci ligue ici parents | NO. 5 ALLÉE DES HÊTRES, Pornic, Loire-Atlantique | France
+    S2-647447093 | Tunisie Inter Cie International SARL | 77 AV LEON JOUHAUX, LILLE | France
+  test S3 non-US/India rows: 731,615
+    S3-198586129 | Fractales Amis Groupe S.A.S | 23 Rue Icmre, La Teste-de-buch, Gironde | France
+    S3-934627663 | Dunkerque Club | 13 Rue Jules Andrieu, Dunkerque | France
+    S3-92755938 | Engages Àrt Pharmacie SCI | 250 R De Lille, Roubaix, Hauts-de-France | France
+    S3-712130770 | Europ & Frères Distribution S.A. | (41) Rue Des Thuyas, Lège-cap-ferret, Gironde | France
+
+Done in 200s
