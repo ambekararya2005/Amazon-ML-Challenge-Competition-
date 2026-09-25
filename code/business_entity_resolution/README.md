@@ -23,14 +23,28 @@ APIs or downloaded dictionaries are used.
 
 ## Reproduce (end to end)
 
-_To be filled in: data → normalise → blocking → matching → output, with the runtime of each stage._
+Run all commands from `code/business_entity_resolution/`. Every stage caches its output in `cache/` and
+skips work if the cache exists; add `--force` to recompute.
+
+| # | Command | Output | Runtime / peak RSS (reference machine) |
+|---|---------|--------|----------------------------------------|
+| 0 | `python -m src.prepare_data` | `cache/raw/*.parquet`, `logs/data_summary.json` | 135 s / 3.1 GB |
+
+_Later stages (normalise → blocking → matching → output) are added here as they are built._
+
+Directory overrides: `BER_DATA_DIR`, `BER_CACHE_DIR`, `BER_OUTPUT_DIR`, `BER_LOG_DIR`.
 
 ## Layout
 
 ```
-src/            all source code
-README.md       this file
-requirements.txt pinned dependencies
+src/
+  config.py         paths, seeds, shared constants
+  io_utils.py       TSV/Parquet I/O; writers for matching_results.tsv / candidate_pairs.tsv
+                    (enforce submission rules, '\n' line endings, assert no b'\r')
+  logging_utils.py  loggers, machine info, per-stage runtime + peak memory (logs/stage_metrics.jsonl)
+  prepare_data.py   stage 0: TSV -> Parquet with NA / round-trip checks
+README.md           this file
+requirements.txt    pinned dependencies
 ```
 
 Stage outputs are cached as Parquet in `cache/` (pass `--force` to recompute); runtimes and peak memory

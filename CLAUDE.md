@@ -36,6 +36,14 @@ Deadline: **Sunday 27 Sep 2026, 23:59 IST**. Design doc: `docs/Amazon_ML_Challen
 ### I/O
 - Read all TSVs with `sep="\t", dtype=str, keep_default_na=False, quoting=csv.QUOTE_NONE`.
 - Write submissions tab-separated, UTF-8; validate with `student_resource/utils/validate_submission.py`.
+- **Line endings: `\n` only, never `\r\n`** (we are on Windows). Use `open(path, "w", encoding="utf-8", newline="")`
+  with `csv.writer(..., lineterminator="\n")`, or `df.to_csv(..., lineterminator="\n")`. After writing any output
+  file, read it back in binary and assert `b"\r"` is absent. The writers in `src/io_utils.py` do this permanently — use them.
+
+### Parallelism (Windows)
+- Windows has no `fork`: any multiprocessing code must sit under `if __name__ == "__main__":` and must not rely on fork semantics.
+- Prefer libraries' own threading over hand-written multiprocessing: `sparse_dot_topn` `n_threads`,
+  `rapidfuzz` `workers=-1`, `lightgbm` `num_threads`.
 
 ### Memory & caching
 - Process **one country at a time** to keep memory low (machine: 16 GB RAM, 8 cores, RTX 4050 laptop GPU, Windows).

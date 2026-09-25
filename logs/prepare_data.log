@@ -1,0 +1,50 @@
+2026-09-25 23:31:12 INFO machine: {'ram_total_gb': 15.25, 'ram_available_gb': 2.06, 'ram_used_pct': 86.5, 'cpu_physical': 8, 'cpu_logical': 16}
+2026-09-25 23:31:12 INFO [prepare_all] start (rss 79 MB)
+2026-09-25 23:31:12 INFO [prepare_train_source1] start (rss 79 MB)
+2026-09-25 23:31:16 INFO [prepare_train_source1] rows=2206821 mem_deep=259.3 MB dtypes={'entity_id': 'str', 'business_name': 'str', 'business_address': 'str', 'country': 'str'}
+2026-09-25 23:31:16 INFO [prepare_train_source1] empty fields={'entity_id': 0, 'business_name': 0, 'business_address': 0, 'country': 0} countries={'US': 1323633, 'India': 883188}
+2026-09-25 23:31:27 INFO [prepare_train_source1] parquet 89.6 MB, round-trip identical and NA-free
+2026-09-25 23:31:27 INFO [prepare_train_source1] ok in 14.6s | peak rss 1366 MB | end rss 841 MB
+2026-09-25 23:31:27 INFO [prepare_train_source2] start (rss 841 MB)
+2026-09-25 23:31:38 INFO [prepare_train_source2] rows=5034616 mem_deep=601.1 MB dtypes={'entity_id': 'str', 'business_name': 'str', 'business_address': 'str', 'country': 'str'}
+2026-09-25 23:31:38 INFO [prepare_train_source2] empty fields={'entity_id': 0, 'business_name': 0, 'business_address': 168967, 'country': 0} countries={'US': 3016817, 'India': 2017799}
+2026-09-25 23:31:51 INFO [prepare_train_source2] parquet 219.4 MB, round-trip identical and NA-free
+2026-09-25 23:31:51 INFO [prepare_train_source2] ok in 24.1s | peak rss 2328 MB | end rss 1045 MB
+2026-09-25 23:31:51 INFO [prepare_train_source3] start (rss 1045 MB)
+2026-09-25 23:32:08 INFO [prepare_train_source3] rows=5285603 mem_deep=621.5 MB dtypes={'entity_id': 'str', 'business_name': 'str', 'business_address': 'str', 'country': 'str'}
+2026-09-25 23:32:08 INFO [prepare_train_source3] empty fields={'entity_id': 0, 'business_name': 0, 'business_address': 175916, 'country': 0} countries={'US': 3170056, 'India': 2115547}
+2026-09-25 23:32:18 INFO [prepare_train_source3] parquet 226.6 MB, round-trip identical and NA-free
+2026-09-25 23:32:18 INFO [prepare_train_source3] ok in 26.9s | peak rss 3036 MB | end rss 1443 MB
+2026-09-25 23:32:18 INFO [prepare_test_source1] start (rss 1443 MB)
+2026-09-25 23:32:23 INFO [prepare_test_source1] rows=1732544 mem_deep=213.2 MB dtypes={'entity_id': 'str', 'business_name': 'str', 'business_address': 'str', 'country': 'str'}
+2026-09-25 23:32:23 INFO [prepare_test_source1] empty fields={'entity_id': 0, 'business_name': 0, 'business_address': 0, 'country': 0} countries={'India': 809986, 'US': 663106, 'France': 259452}
+2026-09-25 23:32:27 INFO [prepare_test_source1] parquet 71.8 MB, round-trip identical and NA-free
+2026-09-25 23:32:27 INFO [prepare_test_source1] ok in 8.7s | peak rss 1473 MB | end rss 691 MB
+2026-09-25 23:32:27 INFO [prepare_test_source2] start (rss 691 MB)
+2026-09-25 23:32:42 INFO [prepare_test_source2] rows=4887273 mem_deep=616.4 MB dtypes={'entity_id': 'str', 'business_name': 'str', 'business_address': 'str', 'country': 'str'}
+2026-09-25 23:32:42 INFO [prepare_test_source2] empty fields={'entity_id': 0, 'business_name': 0, 'business_address': 129408, 'country': 0} countries={'India': 2312565, 'US': 1871330, 'France': 703378}
+2026-09-25 23:32:54 INFO [prepare_test_source2] parquet 220.1 MB, round-trip identical and NA-free
+2026-09-25 23:32:54 INFO [prepare_test_source2] ok in 27.1s | peak rss 3046 MB | end rss 1486 MB
+2026-09-25 23:32:54 INFO [prepare_test_source3] start (rss 1486 MB)
+2026-09-25 23:33:09 INFO [prepare_test_source3] rows=5082316 mem_deep=618.3 MB dtypes={'entity_id': 'str', 'business_name': 'str', 'business_address': 'str', 'country': 'str'}
+2026-09-25 23:33:09 INFO [prepare_test_source3] empty fields={'entity_id': 0, 'business_name': 0, 'business_address': 136098, 'country': 0} countries={'India': 2405000, 'US': 1945701, 'France': 731615}
+2026-09-25 23:33:21 INFO [prepare_test_source3] parquet 222.7 MB, round-trip identical and NA-free
+2026-09-25 23:33:21 INFO [prepare_test_source3] ok in 27.4s | peak rss 3059 MB | end rss 1472 MB
+2026-09-25 23:33:21 INFO [prepare_train_ground_truth] start (rss 1472 MB)
+2026-09-25 23:33:25 INFO [prepare_train_ground_truth] rows=2206821 mem_deep=150.6 MB dtypes={'source1_entity_id': 'str', 'matched_entity_ids': 'str'}
+2026-09-25 23:33:25 INFO [prepare_train_ground_truth] empty fields={'source1_entity_id': 0, 'matched_entity_ids': 123247} countries=None
+2026-09-25 23:33:27 INFO [prepare_train_ground_truth] parquet 50.8 MB, round-trip identical and NA-free
+2026-09-25 23:33:27 INFO [prepare_train_ground_truth] ok in 5.9s | peak rss 1519 MB | end rss 669 MB
+2026-09-25 23:33:27 INFO [prepare_all] ok in 134.7s | peak rss 3059 MB | end rss 669 MB
+2026-09-25 23:33:27 INFO summary written to C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\logs\data_summary.json
+2026-09-25 23:34:42 INFO machine: {'ram_total_gb': 15.25, 'ram_available_gb': 4.11, 'ram_used_pct': 73.1, 'cpu_physical': 8, 'cpu_logical': 16}
+2026-09-25 23:34:42 INFO [prepare_all] start (rss 78 MB)
+2026-09-25 23:34:42 INFO [prepare_train_source1] cached at C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\cache\raw\train_source1.parquet (2206821 rows) - skipping (use --force to rebuild)
+2026-09-25 23:34:42 INFO [prepare_train_source2] cached at C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\cache\raw\train_source2.parquet (5034616 rows) - skipping (use --force to rebuild)
+2026-09-25 23:34:42 INFO [prepare_train_source3] cached at C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\cache\raw\train_source3.parquet (5285603 rows) - skipping (use --force to rebuild)
+2026-09-25 23:34:42 INFO [prepare_test_source1] cached at C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\cache\raw\test_source1.parquet (1732544 rows) - skipping (use --force to rebuild)
+2026-09-25 23:34:42 INFO [prepare_test_source2] cached at C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\cache\raw\test_source2.parquet (4887273 rows) - skipping (use --force to rebuild)
+2026-09-25 23:34:42 INFO [prepare_test_source3] cached at C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\cache\raw\test_source3.parquet (5082316 rows) - skipping (use --force to rebuild)
+2026-09-25 23:34:42 INFO [prepare_train_ground_truth] cached at C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\cache\raw\train_ground_truth.parquet (2206821 rows) - skipping (use --force to rebuild)
+2026-09-25 23:34:42 INFO [prepare_all] ok in 0.0s | peak rss 80 MB | end rss 80 MB
+2026-09-25 23:34:42 INFO summary written to C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\logs\data_summary.json

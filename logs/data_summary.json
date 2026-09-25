@@ -1,0 +1,174 @@
+{
+  "machine_at_last_run": {
+    "ram_total_gb": 15.25,
+    "ram_available_gb": 4.11,
+    "ram_used_pct": 73.1,
+    "cpu_physical": 8,
+    "cpu_logical": 16
+  },
+  "tables": {
+    "train_source1": {
+      "rows": 2206821,
+      "dtypes": {
+        "entity_id": "str",
+        "business_name": "str",
+        "business_address": "str",
+        "country": "str"
+      },
+      "mem_deep_mb": 259.3,
+      "na_values": 0,
+      "empty_values": {
+        "entity_id": 0,
+        "business_name": 0,
+        "business_address": 0,
+        "country": 0
+      },
+      "countries": {
+        "US": 1323633,
+        "India": 883188
+      },
+      "tsv_mb": 200.3,
+      "parquet_mb": 89.6,
+      "parquet_roundtrip": "identical, NA-free"
+    },
+    "train_source2": {
+      "rows": 5034616,
+      "dtypes": {
+        "entity_id": "str",
+        "business_name": "str",
+        "business_address": "str",
+        "country": "str"
+      },
+      "mem_deep_mb": 601.1,
+      "na_values": 0,
+      "empty_values": {
+        "entity_id": 0,
+        "business_name": 0,
+        "business_address": 168967,
+        "country": 0
+      },
+      "countries": {
+        "US": 3016817,
+        "India": 2017799
+      },
+      "tsv_mb": 466.6,
+      "parquet_mb": 219.4,
+      "parquet_roundtrip": "identical, NA-free"
+    },
+    "train_source3": {
+      "rows": 5285603,
+      "dtypes": {
+        "entity_id": "str",
+        "business_name": "str",
+        "business_address": "str",
+        "country": "str"
+      },
+      "mem_deep_mb": 621.5,
+      "na_values": 0,
+      "empty_values": {
+        "entity_id": 0,
+        "business_name": 0,
+        "business_address": 175916,
+        "country": 0
+      },
+      "countries": {
+        "US": 3170056,
+        "India": 2115547
+      },
+      "tsv_mb": 480.4,
+      "parquet_mb": 226.6,
+      "parquet_roundtrip": "identical, NA-free"
+    },
+    "test_source1": {
+      "rows": 1732544,
+      "dtypes": {
+        "entity_id": "str",
+        "business_name": "str",
+        "business_address": "str",
+        "country": "str"
+      },
+      "mem_deep_mb": 213.2,
+      "na_values": 0,
+      "empty_values": {
+        "entity_id": 0,
+        "business_name": 0,
+        "business_address": 0,
+        "country": 0
+      },
+      "countries": {
+        "India": 809986,
+        "US": 663106,
+        "France": 259452
+      },
+      "tsv_mb": 166.9,
+      "parquet_mb": 71.8,
+      "parquet_roundtrip": "identical, NA-free"
+    },
+    "test_source2": {
+      "rows": 4887273,
+      "dtypes": {
+        "entity_id": "str",
+        "business_name": "str",
+        "business_address": "str",
+        "country": "str"
+      },
+      "mem_deep_mb": 616.4,
+      "na_values": 0,
+      "empty_values": {
+        "entity_id": 0,
+        "business_name": 0,
+        "business_address": 129408,
+        "country": 0
+      },
+      "countries": {
+        "India": 2312565,
+        "US": 1871330,
+        "France": 703378
+      },
+      "tsv_mb": 485.9,
+      "parquet_mb": 220.1,
+      "parquet_roundtrip": "identical, NA-free"
+    },
+    "test_source3": {
+      "rows": 5082316,
+      "dtypes": {
+        "entity_id": "str",
+        "business_name": "str",
+        "business_address": "str",
+        "country": "str"
+      },
+      "mem_deep_mb": 618.3,
+      "na_values": 0,
+      "empty_values": {
+        "entity_id": 0,
+        "business_name": 0,
+        "business_address": 136098,
+        "country": 0
+      },
+      "countries": {
+        "India": 2405000,
+        "US": 1945701,
+        "France": 731615
+      },
+      "tsv_mb": 482.6,
+      "parquet_mb": 222.7,
+      "parquet_roundtrip": "identical, NA-free"
+    },
+    "train_ground_truth": {
+      "rows": 2206821,
+      "dtypes": {
+        "source1_entity_id": "str",
+        "matched_entity_ids": "str"
+      },
+      "mem_deep_mb": 150.6,
+      "na_values": 0,
+      "empty_values": {
+        "source1_entity_id": 0,
+        "matched_entity_ids": 123247
+      },
+      "tsv_mb": 121.1,
+      "parquet_mb": 50.8,
+      "parquet_roundtrip": "identical, NA-free"
+    }
+  }
+}
