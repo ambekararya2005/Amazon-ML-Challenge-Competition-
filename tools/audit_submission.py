@@ -31,7 +31,8 @@ def log(*a):
 
 
 def raw(split, name, cols=None):
-    return pd.read_parquet(f"{RAW}\\{split}_{name}.parquet", columns=cols)
+    """Read a raw cached table (cache/raw/<split>_<name>.parquet)."""
+    return pd.read_parquet(RAW / f"{split}_{name}.parquet", columns=cols)
 
 
 def sims(a_name, b_name, a_addr, b_addr):
@@ -155,9 +156,9 @@ for c in ("France", "India", "US"):
             ns = fuzz.token_set_ratio(r["business_name"], q["business_name"], processor=utils.default_process)
             ad = fuzz.token_set_ratio(r["business_address"], q["business_address"], processor=utils.default_process)
             lines.append(f"    -> {p} [name {ns:.0f} / addr {ad:.0f}]: {q['business_name']} | {q['business_address']}\n")
-with open(OUT + r"\audit_sub1_examples.txt", "w", encoding="utf-8", newline="") as f:
+with open(OUT / "audit_sub1_examples.txt", "w", encoding="utf-8", newline="") as f:
     f.writelines(lines)
-with open(OUT + r"\audit_sub1.json", "w", encoding="utf-8", newline="") as f:
+with open(OUT / "audit_sub1.json", "w", encoding="utf-8", newline="") as f:
     json.dump(rep, f, indent=2, default=float)
     f.write("\n")
 log("done")
