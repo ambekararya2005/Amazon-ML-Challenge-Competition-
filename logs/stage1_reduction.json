@@ -1,0 +1,39 @@
+{
+  "val_pairs": 1145795,
+  "recall_before_reduction": 0.9744,
+  "cands_per_query_before": 15.92,
+  "grid": {
+    "0.0": 0.96275,
+    "0.01": 0.96401,
+    "0.02": 0.96434,
+    "0.05": 0.96459,
+    "0.1": 0.96495,
+    "0.2": 0.96555,
+    "0.3": 0.96433,
+    "0.5": 0.95829,
+    "1.0": 0.9209
+  },
+  "w_A": 0.2,
+  "recall_at_k": 0.96555,
+  "k": 5,
+  "cands_per_query_after": 5.0,
+  "recall_at_rank": {
+    "1": 0.9437,
+    "2": 0.95526,
+    "3": 0.96034,
+    "4": 0.9634,
+    "5": 0.96555
+  },
+  "by_country": {
+    "India": {
+      "val_pairs": 459071,
+      "recall_before_reduction": 0.9543,
+      "recall_at_k": 0.9409
+    },
+    "US": {
+      "val_pairs": 686724,
+      "recall_before_reduction": 0.9879,
+      "recall_at_k": 0.982
+    }
+  }
+}

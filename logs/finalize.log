@@ -1,0 +1,70 @@
+2026-09-26 11:09:37 INFO threads 4, cache /tmp/amlc_cache, output /kaggle/working/output
+2026-09-26 11:09:37 INFO [finalize_combine_check] start (rss 189 MB)
+2026-09-26 11:13:50 INFO combine check: {'combined_rows': 152961279, 'combined_rows_match_parts': True, 'combined_duplicate_pairs': 0, 'total_queries': 9969589, 'queries_with_candidates': 9969303, 'duplicate_query_ids_across_parts': 0, 'problems': [], 'ok': True}
+2026-09-26 11:13:50 INFO [finalize_combine_check] ok in 252.8s | peak rss 14737 MB | end rss 9709 MB
+2026-09-26 11:13:50 INFO [finalize_stage1] start (rss 9709 MB)
+2026-09-26 11:14:00 INFO validation: 331024 S1 entities, 1145795 true pairs, singleton rate 0.0558
+2026-09-26 11:14:39 INFO stage-1 w_A=0.0: recall@5 0.96275
+2026-09-26 11:15:12 INFO stage-1 w_A=0.01: recall@5 0.96401
+2026-09-26 11:15:45 INFO stage-1 w_A=0.02: recall@5 0.96434
+2026-09-26 11:16:17 INFO stage-1 w_A=0.05: recall@5 0.96459
+2026-09-26 11:16:51 INFO stage-1 w_A=0.1: recall@5 0.96495
+2026-09-26 11:17:24 INFO stage-1 w_A=0.2: recall@5 0.96555
+2026-09-26 11:17:58 INFO stage-1 w_A=0.3: recall@5 0.96433
+2026-09-26 11:18:32 INFO stage-1 w_A=0.5: recall@5 0.95829
+2026-09-26 11:19:06 INFO stage-1 w_A=1.0: recall@5 0.92090
+2026-09-26 11:20:56 INFO [train] features done for source 2 (5177282 pairs)
+2026-09-26 11:21:28 INFO [train] features done for source 3 (5513557 pairs)
+2026-09-26 11:21:32 INFO [finalize_stage1] ok in 462.0s | peak rss 9715 MB | end rss 7654 MB
+2026-09-26 11:21:32 INFO [finalize_grid] start (rss 7654 MB)
+2026-09-26 11:32:18 INFO best o2o: F0.5 0.96414 at {'weights': (0.3, 0.6, 0.1), 'threshold': 0.64}
+2026-09-26 11:32:19 INFO best all: F0.5 0.94876 at {'weights': (0.4, 0.5, 0.1), 'threshold': 0.75}
+2026-09-26 11:33:02 INFO best (o2o) with one-to-one: {'macro_f05': 0.9641, 'mean_precision': 0.9862, 'mean_recall': 0.9329, 'singleton_rate': 0.0558, 'empty_pred_rate_singletons': 0.9341, 'empty_pred_rate_non_singletons': 0.0065, 'mean_pred_size': 3.2602}
+2026-09-26 11:33:02 INFO best (o2o) with one-to-one | India: {'macro_f05': 0.9529, 'mean_precision': 0.9843, 'mean_recall': 0.9122, 'singleton_rate': 0.0559, 'empty_pred_rate_singletons': 0.9281, 'empty_pred_rate_non_singletons': 0.0105, 'mean_pred_size': 3.1973}
+2026-09-26 11:33:02 INFO best (o2o) with one-to-one | US: {'macro_f05': 0.9716, 'mean_precision': 0.9875, 'mean_recall': 0.9467, 'singleton_rate': 0.0558, 'empty_pred_rate_singletons': 0.9381, 'empty_pred_rate_non_singletons': 0.0039, 'mean_pred_size': 3.3022}
+2026-09-26 11:33:02 INFO best (o2o) without one-to-one: {'macro_f05': 0.9119, 'mean_precision': 0.9244, 'mean_recall': 0.9343, 'singleton_rate': 0.0558, 'empty_pred_rate_singletons': 0.7965, 'empty_pred_rate_non_singletons': 0.005, 'mean_pred_size': 3.6231}
+2026-09-26 11:33:02 INFO best (o2o) without one-to-one | India: {'macro_f05': 0.8762, 'mean_precision': 0.8925, 'mean_recall': 0.9142, 'singleton_rate': 0.0559, 'empty_pred_rate_singletons': 0.7306, 'empty_pred_rate_non_singletons': 0.0076, 'mean_pred_size': 3.7663}
+2026-09-26 11:33:02 INFO best (o2o) without one-to-one | US: {'macro_f05': 0.9357, 'mean_precision': 0.9457, 'mean_recall': 0.9477, 'singleton_rate': 0.0558, 'empty_pred_rate_singletons': 0.8404, 'empty_pred_rate_non_singletons': 0.0033, 'mean_pred_size': 3.5276}
+2026-09-26 11:33:02 INFO best no-one-to-one config: {'macro_f05': 0.9488, 'mean_precision': 0.982, 'mean_recall': 0.9027, 'singleton_rate': 0.0558, 'empty_pred_rate_singletons': 0.9285, 'empty_pred_rate_non_singletons': 0.0102, 'mean_pred_size': 3.1702}
+2026-09-26 11:33:02 INFO best no-one-to-one config | India: {'macro_f05': 0.9318, 'mean_precision': 0.9785, 'mean_recall': 0.873, 'singleton_rate': 0.0559, 'empty_pred_rate_singletons': 0.9212, 'empty_pred_rate_non_singletons': 0.0162, 'mean_pred_size': 3.0823}
+2026-09-26 11:33:02 INFO best no-one-to-one config | US: {'macro_f05': 0.9601, 'mean_precision': 0.9843, 'mean_recall': 0.9225, 'singleton_rate': 0.0558, 'empty_pred_rate_singletons': 0.9334, 'empty_pred_rate_non_singletons': 0.0062, 'mean_pred_size': 3.2289}
+2026-09-26 11:33:03 INFO [finalize_grid] ok in 690.4s | peak rss 7654 MB | end rss 5035 MB
+2026-09-26 11:33:03 INFO [finalize_test] start (rss 5035 MB)
+2026-09-26 11:37:58 INFO [test] features done for source 2 (24435613 pairs)
+2026-09-26 11:40:19 INFO [test] features done for source 3 (25410705 pairs)
+2026-09-26 11:46:56 INFO validator (rc 0):
+ML Challenge 2026 — submission validator
+  test dir: /kaggle/input/datasets/aryaambekar/amlc2026-data/student_resource/dataset/test
+  required S1 entities: 1732544
+  valid S2/S3 match IDs: 9969589
+  matching_results.tsv: 1732544 rows (4120 empty, 1728424 non-empty).
+  candidate_pairs.tsv: 1732544 rows (243 empty, 1732301 non-empty).
+
+PASS — no blocking issues found. Safe to submit.
+
+2026-09-26 11:47:01 INFO [finalize_test] ok in 838.1s | peak rss 17450 MB | end rss 11357 MB
+2026-09-26 11:47:01 INFO report:
+# Baseline report
+
+Stage 1: top-5 per query by cosine_C + 0.2 x shared_keys_A; validation recall 0.9744 -> 0.96555 (@5).
+
+Best config: mode=o2o, weights (name, addr, num) = (0.3, 0.6, 0.1), threshold = 0.64
+
+| validation | macro F0.5 | mean precision | mean recall | singleton acc | mean pred size |
+|---|---|---|---|---|---|
+| best (o2o) with one-to-one | 0.9641 | 0.9862 | 0.9329 | 0.9341 | 3.260 |
+| best (o2o) with one-to-one | India | 0.9529 | 0.9843 | 0.9122 | 0.9281 | 3.197 |
+| best (o2o) with one-to-one | US | 0.9716 | 0.9875 | 0.9467 | 0.9381 | 3.302 |
+| best (o2o) without one-to-one | 0.9119 | 0.9244 | 0.9343 | 0.7965 | 3.623 |
+| best (o2o) without one-to-one | India | 0.8762 | 0.8925 | 0.9142 | 0.7306 | 3.766 |
+| best (o2o) without one-to-one | US | 0.9357 | 0.9457 | 0.9477 | 0.8404 | 3.528 |
+| best no-one-to-one config | 0.9488 | 0.9820 | 0.9027 | 0.9285 | 3.170 |
+| best no-one-to-one config | India | 0.9318 | 0.9785 | 0.8730 | 0.9212 | 3.082 |
+| best no-one-to-one config | US | 0.9601 | 0.9843 | 0.9225 | 0.9334 | 3.229 |
+
+| test country | S1 | % empty predictions | mean predicted per S1 | mean candidates per S1 |
+|---|---|---|---|---|
+| France | 259,452 | 0.52 | 4.979 | 27.650 |
+| India | 809,986 | 0.31 | 5.182 | 29.121 |
+| US | 663,106 | 0.04 | 5.288 | 28.781 |
+

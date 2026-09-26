@@ -74,3 +74,21 @@
   Candidate: L2 full ng44 max_df=3%, run as 3 parallel country kernels (max 145 min wall clock). Awaiting decision.
 - Also: `blocking.py --country` + `--stage combine`; kernel runner `stage@Country` + REUSE_CACHE_SUBDIRS;
   `kaggle/make_country_kernels.py`, `kaggle/download_results.ps1` (sets PYTHONUTF8=1); README_kaggle.md updated.
+
+## 2026-09-26 — Blocking v1 on Kaggle (5 parallel kernels) + rule baseline (submission #1)
+- pass C set to char_wb (4,4), max_df 3% (sklearn absolute cap floored at min_df). Test blocking as 4 kernels:
+  France 5.0 min, India shard 1/2 113 min, shard 2/2 142 min, US 106 min (peak RSS <= 2.3 GB each). All 9,969,589 test
+  queries processed exactly once (105 union parts, 0 duplicates); 286 queries (0.003%) have no candidate; 152,961,279 pairs.
+- Train/validation candidates (K5, 113 min): 1,145,795 val-matched + 692,421 train-matched (200k train-fold S1, stratified)
+  + 300,000 distractors. Validation union recall: US 0.9879 / India 0.9543 / all 0.9744 (A 0.7549, C 0.9700, C@5 0.9627);
+  15.9 cands/query. 30 missed pairs per country in logs/blocking_misses.txt (non-Latin names, corrupted addresses).
+- Stage 1: top-5 per query by cosine_C + 0.2 x shared_keys_A -> validation recall@5 0.9656 (US 0.9820 / India 0.9409).
+- Rule baseline (src/finalize.py): name_sim = max(token_set_ratio(core), ratio(compact)); addr_sim = token_set_ratio(addr);
+  num_match = shared/min keys. Best: weights (0.3, 0.6, 0.1), threshold 0.64, one-to-one.
+  Validation macro F0.5 0.9641 (US 0.9716 / India 0.9529); without one-to-one at that config 0.9119; best no-o2o 0.9488.
+  Mean precision 0.9862, mean recall 0.9329, singleton accuracy 0.9341.
+- CAVEAT: the validation query set holds ~1M non-val records vs all 10M on test, so FPs are under-represented. On test the
+  scorer predicts 8,995,975 pairs (5.2 per S1) vs ~7.38M true pairs expected (74% of 9.97M records), and only 0.04-0.52%
+  empty predictions vs a 5.6% singleton rate -> expect test F0.5 well below 0.964.
+- Test: France 0.52% empty / 4.98 predicted / 27.7 candidates per S1; India 0.31% / 5.18 / 29.1; US 0.04% / 5.29 / 28.8.
+- Files: output/matching_results.tsv (131 MB), output/candidate_pairs.tsv (633 MB); validator PASS (Kaggle with --check-ids, local).

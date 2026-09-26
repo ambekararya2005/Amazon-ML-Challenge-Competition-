@@ -1,0 +1,33 @@
+{
+  "countries": {
+    "France": {
+      "queries": 1434993,
+      "shards": 1,
+      "parts": 16,
+      "queries_with_candidates": 1434822,
+      "pct_zero_candidates": 0.012
+    },
+    "India": {
+      "queries": 4717565,
+      "shards": 2,
+      "parts": 50,
+      "queries_with_candidates": 4717467,
+      "pct_zero_candidates": 0.002
+    },
+    "US": {
+      "queries": 3817031,
+      "shards": 1,
+      "parts": 39,
+      "queries_with_candidates": 3817014,
+      "pct_zero_candidates": 0.0
+    }
+  },
+  "combined_rows": 152961279,
+  "combined_rows_match_parts": true,
+  "combined_duplicate_pairs": 0,
+  "total_queries": 9969589,
+  "queries_with_candidates": 9969303,
+  "duplicate_query_ids_across_parts": 0,
+  "problems": [],
+  "ok": true
+}

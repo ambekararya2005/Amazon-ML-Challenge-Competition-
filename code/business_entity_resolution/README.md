@@ -31,13 +31,16 @@ skips work if the cache exists; add `--force` to recompute.
 | 0 | `python -m src.prepare_data` | `cache/raw/*.parquet` (incl. `train_pairs.parquet`), `logs/data_summary.json` | 135 s + 67 s (pairs) / 3.1 GB |
 | 1 | `python -m src.split` | `cache/split.parquet` (s1_id, fold: 85% train / 15% val) | 14 s / 1.1 GB |
 | 2 | `python -m src.normalize --stage normalize` | `cache/norm/{train,test}_s{1,2,3}.parquet` | 225–370 s (6 workers) / 2.2 GB |
+| 3a | `python -m src.blocking --stage block --split test` (or per country: `--country France`, `--country India --shard 1/2`, ...; then `--stage combine --split test`) | `cache/cand/test/<country>/*_part_*.parquet`, `cache/cand/test_{passA,passC,union}.parquet` | Kaggle 4 CPU: France 5 min, India 2 x 113-142 min, US 106 min / 2.3 GB |
+| 3b | `python -m src.blocking --stage block --split train` then `--stage recall` | `cache/cand/train_*.parquet`, `logs/blocking_recall.json`, `logs/blocking_misses.txt` | Kaggle 113 min / 2.3 GB |
+| 4 | `python -m src.finalize` | `output/candidate_pairs.tsv`, `output/matching_results.tsv`, `logs/baseline_report.{md,json}`, `logs/stage1_reduction.json`, `logs/combine_check.json` | Kaggle 38 min / 20 GB |
 
 Optional reports: `python -m src.normalize --stage examples` (→ `logs/normalize_examples.md`),
 `python -m src.normalize --stage nonlatin_tokens`.
 
 Tests: `python -m unittest -v`
 
-_Later stages (normalise → blocking → matching → output) are added here as they are built._
+Heavy stages (3a, 3b, 4) run on Kaggle: see `kaggle/README_kaggle.md` (`python kaggle/make_kernels.py blocking|finalize`).
 
 Directory overrides (every stage): CLI `--data-root/--cache-root/--output-root/--log-root`, else env
 `DATA_ROOT/CACHE_ROOT/OUTPUT_ROOT/LOG_ROOT` (legacy `BER_*_DIR` still accepted), else the local defaults above.

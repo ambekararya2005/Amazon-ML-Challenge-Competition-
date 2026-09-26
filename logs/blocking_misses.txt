@@ -1,0 +1,302 @@
+===== India: 30 sampled missed validation pairs =====
+  S1 S1-819624813: Dynamic Properties | 7, Chandanwadi, Circuit House, Shahibaug, Ahmedabad, Ahmedabad, Gujarat
+       core='dynamic properties' addr='7, chandanwadi, circuit house, shahibaug, ahmedabad, ahmedabad, gujarat' keys='007'
+  S3 S3-323218006: ડાયનેમિક પ્રોપર્ટીઝ | Block B-699 7, Ahmedabad, GJ
+       core='daynemik proprtijh' addr='block b 699 7, ahmedabad, gj' keys='699 007'
+
+  S1 S1-924169839: Speciality Advisors Private Limited | No35, Kokarya, Business Synergy Centre, Nagananda Commercial Complex, No 7/3, 15/1, 185/A, 185/2 Second Floor, 18Th Main, Jayanagar 9Th Bock, Bangalore South, Bangalore, Karnataka
+       core='speciality advisors' addr='no35, kokarya, business synergy centre, nagananda commercial complex, no 7 3, 15 1, 185 a, 185 2 second floor, 18th main, jayanagar 9th bock, bangalore south, bangalore, karnataka' keys='035 007 003 015 001 185 002 018 009'
+  S3 S3-415474884: Speciality Acdtivsos Private Limited | No##35, Bangalore Metro, ಕರ್ನಾಟಕ
+       core='speciality acdtivsos' addr='no 35, bangalore metro, krnatk' keys='035'
+
+  S1 S1-198745958: Sree Hospitality Private Limited | Plot No. 109, Shakthi Nagar, East Gayatri Nagar, Karmanghat, Hyderabad, Telangana
+       core='sree hospitality' addr='plot no 109, shakthi nagar, east gayatri nagar, karmanghat, hyderabad, telangana' keys='109'
+  S2 S2-159181737: శ్రీ హాస్పిటాలిటీ ప్రైవేట్ లిమిటెడ్ | PLOT NO. D/109, HYDERABAD, Telangana
+       core='sri haspitaliti' addr='plot no d 109, hyderabad, telangana' keys='109'
+
+  S1 S1-857526208: Kdk & Co Company | Shop No.1, Jaggi Complex Opp. Fisheries Department, Kajli Road, Kapurthala, Punjab
+       core='kdk' addr='shop no 1, jaggi complex opp fisheries department, kajli road, kapurthala, punjab' keys='001'
+  S3 S3-893756415: M/s Kdk Co Company Partners | 
+       core='kdk partners' addr='' keys=''
+
+  S1 S1-464931972: Baba Infotech Pvt Ltd | 323, Kirti Shikhar Building District Centre, Janakpuri, New Delhi, West Delhi, Delhi
+       core='baba infotech' addr='323, kirti shikhar building district centre, janakpuri, new delhi, west delhi, delhi' keys='323'
+  S2 S2-550096032: -- @BABAINFOTECH | 32, NEW DELHI, WEST DELHI, Delhi
+       core='babainfotech' addr='32, new delhi, west delhi, delhi' keys='032'
+
+  S1 S1-252009633: South Projects | 19-A, Tamil Nadu, Chennai, Rukmini Lakshmipathy Road Egmore
+       core='south projects' addr='19 a, tamil nadu, chennai, rukmini lakshmipathy road egmore' keys='019'
+  S2 S2-688337865: சவுத் புராஜெக்ட்ஸ் | 19-A, CHENNAI, Tamil Nadu
+       core='cvut purajekts' addr='19 a, chennai, tamil nadu' keys='019'
+
+  S1 S1-218843963: Modern International Private Limited | 2A/12, Rustomjee Regency, Jaywant Sawant Road, Behind Rustomjee Business School, Dahisa, R West, Mumbai, Mumbai City, Maharashtra
+       core='modern international' addr='2a 12, rustomjee regency, jaywant sawant road, behind rustomjee business school, dahisa, r west, mumbai, mumbai city, maharashtra' keys='002 012'
+  S2 S2-733645068: मॉडर्न इंटरनेशनल प्राइवेट लिमिटेड | #2A/12, <NULL>, MUMBAI CITY, MUMBAI, महाराष्ट्र
+       core='modrn imtrnesnl' addr='2a 12, mumbai city, mumbai, mharastr' keys='002 012'
+
+  S1 S1-655061371: Ambey Brothers Private Limited | C/O.- M/S. Narendranath Agency Hatudewan, Pirtala, P.O.- Bajepratappur, Burdwan, Bardhaman, West Bengal
+       core='ambey brothers' addr='c o m s narendranath agency hatudewan, pirtala, po bajepratappur, burdwan, bardhaman, west bengal' keys=''
+  S3 S3-470198847: Ambey Private Limited Center | 
+       core='ambey center' addr='' keys=''
+
+  S1 S1-63443117: Sharda & Co | Opp.Pasco Body Shop Sector 17-18 Dividing Road, Near Iffco Chowk, Haryana, Gurgaon, Plot No.10
+       core='sharda' addr='opp pasco body shop sector 17 18 dividing road, near iffco chowk, haryana, gurgaon, plot no 10' keys='017 018 010'
+  S3 S3-594086915: Sharda Co Center | 
+       core='sharda center' addr='' keys=''
+
+  S1 S1-889674978: One Tech Private Limited | Plot No. 24, Second Floor, Blockabhagwatigardenextn, New Delhi, West Delhi, Delhi
+       core='one tech' addr='plot no 24, second floor, blockabhagwatigardenextn, new delhi, west delhi, delhi' keys='024'
+  S3 S3-141802658: One Tech (Private) | A-24, West Delhi, DL
+       core='one tech' addr='a 24, west delhi, dl' keys='024'
+
+  S1 S1-285505045: Hotel Hospitality Limited | 2Nd Floor, 203, Mathura Vihar Chs Ltd, Mandpeshwar Rd, Svp Rd, Borivali (W), Mumbai, Mumbai City, Maharashtra
+       core='hotel hospitality' addr='2nd floor, 203, mathura vihar chs ltd, mandpeshwar road, svp road, borivali w, mumbai, mumbai city, maharashtra' keys='002 203'
+  S2 S2-909018796: होटल हॉस्पिटैलिटी लिमिटेड | 2ND/2 FLOOR, MUMBAI CITY, MUMBAI, महाराष्ट्र
+       core='hotl hospitailiti' addr='2nd 2 floor, mumbai city, mumbai, mharastr' keys='002'
+
+  S1 S1-728590757: Shakti Construction Private Limited | House No 299, Ground Floor, Block - F, Gandhi Vihar, New Delhi, North West, Delhi
+       core='shakti construction' addr='house no 299, ground floor, block f, gandhi vihar, new delhi, north west, delhi' keys='299'
+  S2 S2-255493006: शक्ति कंस्ट्रक्शन प्राइवेट लिमिटेड | दिल्ली, NEW DELHI, NORTH WEST, HOUSE NO D/299
+       core='skti kmstrksn' addr='dilli, new delhi, north west, house no d 299' keys='299'
+
+  S1 S1-252744934: North Industries Private Limited | H.No.350 B, Shewala B, Shewala, Nanded, Maharashtra
+       core='north industries' addr='h no 350 b, shewala b, shewala, nanded, maharashtra' keys='350'
+  S3 S3-124074175: North Industries Private | 
+       core='north industries' addr='' keys=''
+
+  S1 S1-144284851: Classic Developers Private Limited | 26, Parsarampuria Street Vijay Wadi Path No. 7, Sikar Road, Dehar Ka Baliji, Vidhyadhar Nagar, Jaipur, Jaipur, Rajasthan
+       core='classic developers' addr='26, parsarampuria street vijay wadi path no 7, sikar road, dehar ka baliji, vidhyadhar nagar, jaipur, jaipur, rajasthan' keys='026 007'
+  S3 S3-109098748: क्लासिक डेवलपर्स प्राइवेट लिमिटेड | 26, Ambabari, राजस्थान
+       core='klasik devlprs' addr='26, ambabari, rajsthan' keys='026'
+
+  S1 S1-724762388: Portal Hospital Ltd | 15, Shivaji Marg Moti Nagar, New Delhi, West Delhi, Delhi
+       core='portal hospital' addr='15, shivaji marg moti nagar, new delhi, west delhi, delhi' keys='015'
+  S3 S3-775367539: Brixorbi | 15., West Delhi, New Delhi, दिल्ली
+       core='brixorbi' addr='15, west delhi, new delhi, dilli' keys='015'
+
+  S1 S1-139773490: Krishna Industries Private Limited | No.3, Vivekananda Layout, Marathahalli Post, Bangalore North, Bangalore, Karnataka
+       core='krishna industries' addr='no 3, vivekananda layout, marathahalli post, bangalore north, bangalore, karnataka' keys='003'
+  S3 S3-702843265: krishna industries private limited | No.3., Bangalore, ಕರ್ನಾಟಕ
+       core='krishna industries' addr='no 3, bangalore, krnatk' keys='003'
+
+  S1 S1-620684270: White Logistics Limited | 432, Sewa Nagar, Meerut, Road, Ghaziabad, Ghaziabad, Uttar Pradesh
+       core='white logistics' addr='432, sewa nagar, meerut, road, ghaziabad, ghaziabad, uttar pradesh' keys='432'
+  S2 S2-500184580: WHITE LOGISTICS LIMITED | 
+       core='white logistics' addr='' keys=''
+
+  S1 S1-822702639: Superb & Co | Shop-213, Kalp Business Park, Ahmedabad, Gujarat
+       core='superb' addr='shop 213, kalp business park, ahmedabad, gujarat' keys='213'
+  S3 S3-663444518: Supgbe  & Co | Shop-21, Ahmedabad, ગુજરાત
+       core='supgbe' addr='shop 21, ahmedabad, gujrat' keys='021'
+
+  S1 S1-49407187: Sunrise Blue Power Private Limited | C-1210, Vasant Kunj, New Delhi, Delhi
+       core='sunrise blue power' addr='c 1210, vasant kunj, new delhi, delhi' keys='210'
+  S2 S2-373836961: सनराइज ब्लू पावर प्राइवेट लिमिटेड | C-1210, NEW DELHI, Delhi
+       core='snraij blu pavr' addr='c 1210, new delhi, delhi' keys='210'
+
+  S1 S1-918789800: Creative Hospitality Private Limited | 1, Simran, Ground Floor, Vbp Deshpande Marg Off Tejpal Scheme Road No. 4, Vile Parle, East, Mumbai, Maharashtra
+       core='creative hospitality' addr='1, simran, ground floor, vbp deshpande marg off tejpal scheme road no 4, vile parle, east, mumbai, maharashtra' keys='001 004'
+  S2 S2-272483836: क्रिएटिव हॉस्पिटैलिटी प्राइवेट लिमिटेड | NO. 279 1, MUMBAI SUBURBAN, MUMBAI, Maharashtra
+       core='krietiv hospitailiti' addr='no 279 1, mumbai suburban, mumbai, maharashtra' keys='279 001'
+
+  S1 S1-636504237: White Exports | H No 3-4-63/12/348, Flat No 348, 3Rd Floor, 12Th Block, Jp Apartments, T V Colony, R, Amanthapur, Hyderabad, Telangana
+       core='white exports' addr='h no 3 4 63 12 348, flat no 348, 3rd floor, 12th block, jp apartments, tv colony, r, amanthapur, hyderabad, telangana' keys='003 004 063 012 348'
+  S2 S2-340605087: White (Exports) | 
+       core='white' addr='' keys=''
+
+  S1 S1-742288535: Lotus Healthcare Private Limited | F No-301, Jascon Residency Apt. Judge Coloney, Danapur, Khagul, Patna, Bihar
+       core='lotus healthcare' addr='f no 301, jascon residency apt judge coloney, danapur, khagul, patna, bihar' keys='301'
+  S3 S3-11968713: ... LOTUS HEALTHCARE PRIVATE LIMITED | F No-301, Patna, BR
+       core='lotus healthcare' addr='f no 301, patna, br' keys='301'
+
+  S1 S1-647493846: All Technologies Private Limited | A-270, Shiva Nand Marg, Malviya Nagar, Jaipur, Rajasthan
+       core='all technologies' addr='a 270, shiva nand marg, malviya nagar, jaipur, rajasthan' keys='270'
+  S2 S2-271183393: ऑल टेक्नोलॉजीज प्राइवेट लिमिटेड | DOR NO 257 A-270, JAIPUR, Rajasthan
+       core='ol teknolojij' addr='dor no 257 a 270, jaipur, rajasthan' keys='257 270'
+
+  S1 S1-49871558: Fortune Care Private Limited | Ahmedabad, 2613, Near Dodia Wad Masjid, Shahpur, Gujarat, Ahmedabad
+       core='fortune care' addr='ahmedabad, 2613, near dodia wad masjid, shahpur, gujarat, ahmedabad' keys='613'
+  S3 S3-816565485: ફોર્ચ્યુન કેર પ્રાઇવેટ લિમિટેડ | GJ, Ahmedabad, G-2613
+       core='phorcyun ker' addr='gj, ahmedabad, g 2613' keys='613'
+
+  S1 S1-567302896: Future Estate Private Limited | Shop No.1, Ground Floor, Bldg. -1, Plot -330, Gomata Janata Chs Ltd, G. K. Marg, Lower, Parel, Mumbai, Mumbai City, Maharashtra
+       core='future estate' addr='shop no 1, ground floor, bldg 1, plot 330, gomata janata chs ltd, gk marg, lower, parel, mumbai, mumbai city, maharashtra' keys='001 330'
+  S3 S3-402246950: फ्यूचर एस्टेट प्राइवेट लिमिटेड | Shop No.1, Mumbai, Mumbai City, MH
+       core='phyucr estet' addr='shop no 1, mumbai, mumbai city, mh' keys='001'
+
+  S1 S1-638958264: Dream Constructions Private Limited | A-2, 1St Floor, Tabacco House, Golden Tabacco Limited, S.V. Road, Vile-Parle West, Mumbai, Mumbai, Maharashtra
+       core='dream constructions' addr='a 2, 1st floor, tabacco house, golden tabacco limited, sv road, vile parle west, mumbai, mumbai, maharashtra' keys='002 001'
+  S3 S3-953179855: ड्रीम कंस्ट्रक्शंस प्राइवेट लिमिटेड | A-d/2, Mumbai, MH
+       core='drim kmstrksms' addr='a d 2, mumbai, mh' keys='002'
+
+  S1 S1-188650726: Eastern Finance Private Limited | Ground Floor, Shop No 34, Heera Panna Shopping Center, Hiranandani Garden Powai, Mumbai, Maharashtra
+       core='eastern finance' addr='ground floor, shop no 34, heera panna shopping center, hiranandani garden powai, mumbai, maharashtra' keys='034'
+  S3 S3-102999785: Eastern Finance-Private Limited | 
+       core='eastern finance' addr='' keys=''
+
+  S1 S1-923768252: Pune Properties Limited | S No 26/02, Flat No 403, Laxmi Plaza Lonkar Wasti, Keshavnagar Tal-Haveli, Pune, Maharashtra
+       core='pune properties' addr='s no 26 02, flat no 403, laxmi plaza lonkar wasti, keshavnagar tal haveli, pune, maharashtra' keys='026 002 403'
+  S3 S3-212820913: PUNE PROPERTIES LIMITED | S No 6/02, Poona, Pune, महाराष्ट्र
+       core='pune properties' addr='s no 6 02, poona, pune, mharastr' keys='006 002'
+
+  S1 S1-989537375: New Developers Private Limited | Hyderabad, Bandamaisamma Nagar Near Indira Park, H.No. 1-2-606/138, Telangana, Hyderabad
+       core='new developers' addr='hyderabad, bandamaisamma nagar near indira park, h no 1 2 606 138, telangana, hyderabad' keys='001 002 606 138'
+  S2 S2-176403123: న్యూ డెవలపర్స్ ప్రైవేట్ లిమిటెడ్ | NO 1-2-606/138, HYDERABAD, Telangana
+       core='nyu devlprs' addr='no 1 2 606 138, hyderabad, telangana' keys='001 002 606 138'
+
+  S1 S1-267752083: South Construction Limited | 503, Mumbai City, Mumbai, Maharashtra, Atlant Estate, Off. Western Express Highway Goregaon (East)
+       core='south construction' addr='503, mumbai city, mumbai, maharashtra, atlant estate, off western express highway goregaon east' keys='503'
+  S3 S3-194249079: South Construction | Door No 679 503, Bombay, Mumbai City, MH
+       core='south construction' addr='door no 679 503, bombay, mumbai city, mh' keys='679 503'
+
+===== US: 30 sampled missed validation pairs =====
+  S1 S1-179917969: Pediatric Dental Specialists Corporation | 2525 Lockertsville Road, Ashland City, TN
+       core='pediatric dental specialists' addr='2525 lockertsville road, ashland city, tn' keys='525'
+  S3 S3-532798349: Pediatric Dental Specialists Corp | 
+       core='pediatric dental specialists' addr='' keys=''
+
+  S1 S1-459998938: A & M Eureka LLC | 410 Lake Street, Minneapolis, MN
+       core='a m eureka' addr='410 lake street, minneapolis, mn' keys='410'
+  S3 S3-635033174: A + M | 
+       core='a m' addr='' keys=''
+
+  S1 S1-752639129: Maid Tattoo L.L.C. | 4278 Twin Silo Drive, Whitpain Township, PA
+       core='maid tattoo' addr='4278 twin silo drive, whitpain township, pa' keys='278'
+  S2 S2-395153973: Maid Táttoo Enterprises | 
+       core='maid tattoo enterprises' addr='' keys=''
+
+  S1 S1-112392163: Big Bistro | 28 Pleasant Avenue, Hempstead, NY
+       core='big bistro' addr='28 pleasant avenue, hempstead, ny' keys='028'
+  S3 S3-836441602: Noviumbraveo | 28 Pleasant Ave, Roosevelt, New York
+       core='noviumbraveo' addr='28 pleasant avenue, roosevelt, new york' keys='028'
+
+  S1 S1-474042218: Optimal Highland Lithium | 2089 Willamette Drive, Mcminnville, OR
+       core='optimal highland lithium' addr='2089 willamette drive, mcminnville, or' keys='089'
+  S2 S2-722806675: Optimal Highland | 
+       core='optimal highland' addr='' keys=''
+
+  S1 S1-313068710: Maid Seafood Clinic | City Of Kenosha, WI, 7320 41st Avenue
+       core='maid seafood clinic' addr='city of kenosha, wi, 7320 41st avenue' keys='320 041'
+  S2 S2-255648985: Maid Seafood Services | 
+       core='maid seafood services' addr='' keys=''
+
+  S1 S1-935013841: Downtown Bakery! | 305 Mellwood Drive, Charlotte, NC
+       core='downtown bakery' addr='305 mellwood drive, charlotte, nc' keys='305'
+  S2 S2-365283218: Downtown Bakery! | 
+       core='downtown bakery' addr='' keys=''
+
+  S1 S1-327184914: Summit Animal Hospital | 5611 Wilvan Avenue, Baltimore, MD
+       core='summit animal hospital' addr='5611 wilvan avenue, baltimore, md' keys='611'
+  S3 S3-231778457: Summit Animal Hosprbtal | 
+       core='summit animal hosprbtal' addr='' keys=''
+
+  S1 S1-312967214: Community Committee | 5150 3rd Avenue, Unit UNIT A1, San Bernardino, CA
+       core='community committee' addr='5150 3rd avenue, unit a1, san bernardino, ca' keys='150 003 001'
+  S3 S3-737448898: Community-Committee | 
+       core='community committee' addr='' keys=''
+
+  S1 S1-557067944: Surgical Center Inc | 12946 Meghan Lane, Farmersville, TX
+       core='surgical center' addr='12946 meghan lane, farmersville, tx' keys='946'
+  S3 S3-276407537: Surgical  Center Inc Enterprises | 
+       core='surgical center enterprises' addr='' keys=''
+
+  S1 S1-991301894: Urology First Partners | 2008 Goldenrod Court, Thousand Oaks, CA
+       core='urology first partners' addr='2008 goldenrod court, thousand oaks, ca' keys='008'
+  S2 S2-299394948: Onyxfaye | GOLDENROD CT, WSTLAKE VILLAGE, CA
+       core='onyxfaye' addr='goldenrod ct, wstlake village, ca' keys=''
+
+  S1 S1-788572252: Eye Custom Partners | Fontana, CA, 17215 Marygold Avenue, Unit UNIT 79
+       core='eye custom partners' addr='fontana, ca, 17215 marygold avenue, unit 79' keys='215 079'
+  S2 S2-173253920: Eye Custom  [Partners] | 
+       core='eye custom' addr='' keys=''
+
+  S1 S1-1601774: Wildlife Ministries III LLC | Clarke County, VA, 692 Pine Grove Road
+       core='wildlife ministries iii' addr='clarke county, va, 692 pine grove road' keys='692'
+  S3 S3-678173834: Wildlife (Ministries) | 692 Pie Grove Rd, Bluemont, Virginia
+       core='wildlife' addr='692 pie grove road, bluemont, virginia' keys='692'
+
+  S1 S1-907983560: Youth Institute Inc | 305 Frederick Avenue, Gaithersburg, MD
+       core='youth institute' addr='305 frederick avenue, gaithersburg, md' keys='305'
+  S3 S3-167317411: Youth  Institute Enterprises | 
+       core='youth institute enterprises' addr='' keys=''
+
+  S1 S1-583303467: Primary Care Specialists | 1738 Jackson Avenue, Portsmouth, OH
+       core='primary care specialists' addr='1738 jackson avenue, portsmouth, oh' keys='738'
+  S3 S3-523664156: Primary Care  Specialists Trading | 
+       core='primary care specialists trading' addr='' keys=''
+
+  S1 S1-620573770: Horizon LLC | Cincinnati, OH, 753 Ridgeway Avenue
+       core='horizon' addr='cincinnati, oh, 753 ridgeway avenue' keys='753'
+  S3 S3-650190215: Horizon LLC Industries | 
+       core='horizon industries' addr='' keys=''
+
+  S1 S1-250880739: Spencer Resorts Inc. | 318 Albany Street, Spotsylvania County, VA
+       core='spencer resorts' addr='318 albany street, spotsylvania county, va' keys='318'
+  S2 S2-507198748: SPENCER INC. CENTER | 
+       core='spencer center' addr='' keys=''
+
+  S1 S1-451845733: Noo Inc | 2165 Arnold Palmer Drive, Shallotte, NC
+       core='noo' addr='2165 arnold palmer drive, shallotte, nc' keys='165'
+  S3 S3-85402511: Noo Incorporated | 
+       core='noo' addr='' keys=''
+
+  S1 S1-760543505: Pacific Realty Advisors LLC | 5142 Duet Drive, Bldg 6020, Herriman Town, UT
+       core='pacific realty advisors' addr='5142 duet drive, bldg 6020, herriman town, ut' keys='142 020'
+  S2 S2-772092225: Pacific Realty | 
+       core='pacific realty' addr='' keys=''
+
+  S1 S1-522094546: Blue Pub Inc | 1303 Whitebark Road, Chesapeake City, VA
+       core='blue pub' addr='1303 whitebark road, chesapeake city, va' keys='303'
+  S2 S2-906571413: blue pub inc | 
+       core='blue pub' addr='' keys=''
+
+  S1 S1-190449741: Unified Bay Universal LLC | 2901 Aldersgate Road, Unit Apt 270, Little Rock, AR
+       core='unified bay universal' addr='2901 aldersgate road, unit apt 270, little rock, ar' keys='901 270'
+  S2 S2-583931038: UNIFIED BAY LLC SERVICE | 
+       core='unified bay service' addr='' keys=''
+
+  S1 S1-516226793: Surgical Clinic Inc | 602 550, Unit 12, Springville, UT
+       core='surgical clinic' addr='602 550, unit 12, springville, ut' keys='602 550 012'
+  S3 S3-921372574: surgical clinic inc Ventures | 
+       core='surgical clinic ventures' addr='' keys=''
+
+  S1 S1-687790010: Holy Synagogue | 5296 Scottsdale Avenue, Memphis, TN
+       core='holy synagogue' addr='5296 scottsdale avenue, memphis, tn' keys='296'
+  S2 S2-233979294: Holy  Synagogue Inc. | 
+       core='holy synagogue' addr='' keys=''
+
+  S1 S1-111896382: Maix LLC | 1429 George Avenue, OK, Norman
+       core='maix' addr='1429 george avenue, ok, norman' keys='429'
+  S3 S3-969279797: Mlrox LLC | George Ave, Norman, Oklahoma
+       core='mlrox' addr='george avenue, norman, oklahoma' keys=''
+
+  S1 S1-537983751: Midwest Good LLC | 1730 Helen Lane, Centerton, AR
+       core='midwest good' addr='1730 helen lane, centerton, ar' keys='730'
+  S3 S3-964529086: Midwest LLC [Good] | 
+       core='midwest' addr='' keys=''
+
+  S1 S1-579054633: Legacy Education Digital | 14 Priscilla Lane, Rouses Point, NY
+       core='legacy education digital' addr='14 priscilla lane, rouses point, ny' keys='014'
+  S3 S3-526674252: Legacy Education Center | 
+       core='legacy education center' addr='' keys=''
+
+  S1 S1-657784002: Green Piedmont Semiconductor LLC | 728 Rathbun Street, Blackstone, MA
+       core='green piedmont semiconductor' addr='728 rathbun street, blackstone, ma' keys='728'
+  S3 S3-432998725: Noviiri #54184 | Rathbun St, Blackstone, Massachusetts
+       core='noviiri' addr='rathbun street, blackstone, massachusetts' keys=''
+
+  S1 S1-338688741: Valley Inpoint Inc. | 5356 Beaverton Drive, Memphis, TN
+       core='valley inpoint' addr='5356 beaverton drive, memphis, tn' keys='356'
+  S3 S3-996936360: Valley Inc. Services | Beaverton Dr, Memphhis CITY, Tennessee
+       core='valley services' addr='beaverton drive, memphhis city, tennessee' keys=''
+
+  S1 S1-523753372: Williams and Williams Inc | Dayton, OH, 4647 Owens Drive
+       core='williams' addr='dayton, oh, 4647 owens drive' keys='647'
+  S2 S2-12714425: WILLIAMS AND WILLIAMS | www.williamsa.com | 
+       core='williamsa' addr='' keys=''
+
+  S1 S1-577502130: Office of Buildings | 13329 Prosperity Ridge Road, Fl 0, Dillsboro, IN
+       core='office buildings' addr='13329 prosperity ridge road, fl 0, dillsboro, in' keys='329 000'
+  S3 S3-431237775: Office óf Enterprises | 
+       core='office enterprises' addr='' keys=''
+

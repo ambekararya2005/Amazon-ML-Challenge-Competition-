@@ -1,0 +1,53 @@
+{
+  "India": {
+    "val_pairs": 459071,
+    "queries": 856444,
+    "recall_A": 0.6986,
+    "recall_C": 0.9497,
+    "recall_union": 0.9543,
+    "recall_C@1": 0.9,
+    "recall_C@3": 0.9292,
+    "recall_C@5": 0.9388,
+    "recall_C@10": 0.9497,
+    "cands_per_query_A": 8.27,
+    "cands_per_query_C": 10.0,
+    "cands_per_query_union": 17.19,
+    "pct_zero_cands_A": 17.29,
+    "pct_zero_cands_C": 0.0,
+    "pct_zero_cands_union": 0.0
+  },
+  "US": {
+    "val_pairs": 686724,
+    "queries": 1281772,
+    "recall_A": 0.7925,
+    "recall_C": 0.9835,
+    "recall_union": 0.9879,
+    "recall_C@1": 0.9596,
+    "recall_C@3": 0.9743,
+    "recall_C@5": 0.9787,
+    "recall_C@10": 0.9835,
+    "cands_per_query_A": 5.89,
+    "cands_per_query_C": 10.0,
+    "cands_per_query_union": 15.07,
+    "pct_zero_cands_A": 15.31,
+    "pct_zero_cands_C": 0.0,
+    "pct_zero_cands_union": 0.0
+  },
+  "ALL": {
+    "val_pairs": 1145795,
+    "queries": 2138216,
+    "recall_A": 0.7549,
+    "recall_C": 0.97,
+    "recall_union": 0.9744,
+    "recall_C@1": 0.9357,
+    "recall_C@3": 0.9562,
+    "recall_C@5": 0.9627,
+    "recall_C@10": 0.97,
+    "cands_per_query_A": 6.84,
+    "cands_per_query_C": 10.0,
+    "cands_per_query_union": 15.92,
+    "pct_zero_cands_A": 16.1,
+    "pct_zero_cands_C": 0.0,
+    "pct_zero_cands_union": 0.0
+  }
+}

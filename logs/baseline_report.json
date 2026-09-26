@@ -1,0 +1,206 @@
+{
+  "combine_check": {
+    "combined_rows": 152961279,
+    "combined_rows_match_parts": true,
+    "combined_duplicate_pairs": 0,
+    "total_queries": 9969589,
+    "queries_with_candidates": 9969303,
+    "duplicate_query_ids_across_parts": 0,
+    "problems": [],
+    "ok": true
+  },
+  "stage1": {
+    "val_pairs": 1145795,
+    "recall_before_reduction": 0.9744,
+    "cands_per_query_before": 15.92,
+    "grid": {
+      "0.0": 0.96275,
+      "0.01": 0.96401,
+      "0.02": 0.96434,
+      "0.05": 0.96459,
+      "0.1": 0.96495,
+      "0.2": 0.96555,
+      "0.3": 0.96433,
+      "0.5": 0.95829,
+      "1.0": 0.9209
+    },
+    "w_A": 0.2,
+    "recall_at_k": 0.96555,
+    "k": 5,
+    "cands_per_query_after": 5.0,
+    "recall_at_rank": {
+      "1": 0.9437,
+      "2": 0.95526,
+      "3": 0.96034,
+      "4": 0.9634,
+      "5": 0.96555
+    },
+    "by_country": {
+      "India": {
+        "val_pairs": 459071,
+        "recall_before_reduction": 0.9543,
+        "recall_at_k": 0.9409
+      },
+      "US": {
+        "val_pairs": 686724,
+        "recall_before_reduction": 0.9879,
+        "recall_at_k": 0.982
+      }
+    }
+  },
+  "grid": {
+    "o2o": {
+      "macro_f05": 0.96414,
+      "weights": [
+        0.3,
+        0.6,
+        0.1
+      ],
+      "threshold": 0.64
+    },
+    "all": {
+      "macro_f05": 0.94876,
+      "weights": [
+        0.4,
+        0.5,
+        0.1
+      ],
+      "threshold": 0.75
+    }
+  },
+  "best": {
+    "mode": "o2o",
+    "macro_f05": 0.96414,
+    "weights": [
+      0.3,
+      0.6,
+      0.1
+    ],
+    "threshold": 0.64,
+    "w_A": 0.2,
+    "top_k": 5
+  },
+  "validation_rows": {
+    "best (o2o) with one-to-one": {
+      "n_entities": 331024,
+      "macro_f05": 0.9641417269823123,
+      "mean_precision": 0.9862420458966171,
+      "mean_recall": 0.9328956361403403,
+      "singleton_rate": 0.0558479143506211,
+      "empty_pred_rate_singletons": 0.9341158652025748,
+      "empty_pred_rate_non_singletons": 0.0065080294493132015,
+      "mean_pred_size": 3.2601986562907825
+    },
+    "best (o2o) with one-to-one | India": {
+      "n_entities": 132478,
+      "macro_f05": 0.9529447198709429,
+      "mean_precision": 0.9843230913606358,
+      "mean_recall": 0.9121814382989823,
+      "singleton_rate": 0.055880976464016664,
+      "empty_pred_rate_singletons": 0.928137241658787,
+      "empty_pred_rate_non_singletons": 0.010473715770537677,
+      "mean_pred_size": 3.1972931354640015
+    },
+    "best (o2o) with one-to-one | US": {
+      "n_entities": 198546,
+      "macro_f05": 0.9716128274230161,
+      "mean_precision": 0.9875224507348801,
+      "mean_recall": 0.9467169949268556,
+      "singleton_rate": 0.05582585395827667,
+      "empty_pred_rate_singletons": 0.9381089859256586,
+      "empty_pred_rate_non_singletons": 0.0038621160555205856,
+      "mean_pred_size": 3.302171788905342
+    },
+    "best (o2o) without one-to-one": {
+      "n_entities": 331024,
+      "macro_f05": 0.9119178224160045,
+      "mean_precision": 0.9243875595303493,
+      "mean_recall": 0.9343316072756386,
+      "singleton_rate": 0.0558479143506211,
+      "empty_pred_rate_singletons": 0.7964515605560665,
+      "empty_pred_rate_non_singletons": 0.0050138063653263456,
+      "mean_pred_size": 3.6231330658804195
+    },
+    "best (o2o) without one-to-one | India": {
+      "n_entities": 132478,
+      "macro_f05": 0.8762467170030318,
+      "mean_precision": 0.8925016879719739,
+      "mean_recall": 0.9142398603382691,
+      "singleton_rate": 0.055880976464016664,
+      "empty_pred_rate_singletons": 0.730649736593273,
+      "empty_pred_rate_non_singletons": 0.007579452328602838,
+      "mean_pred_size": 3.7662555292199458
+    },
+    "best (o2o) without one-to-one | US": {
+      "n_entities": 198546,
+      "macro_f05": 0.9357190407880683,
+      "mean_precision": 0.9456631152822177,
+      "mean_recall": 0.9477376413975489,
+      "singleton_rate": 0.05582585395827667,
+      "empty_pred_rate_singletons": 0.8404005774088776,
+      "empty_pred_rate_non_singletons": 0.003302002539181274,
+      "mean_pred_size": 3.527635913088151
+    },
+    "best no-one-to-one config": {
+      "n_entities": 331024,
+      "macro_f05": 0.9487591747890803,
+      "mean_precision": 0.981961762648998,
+      "mean_recall": 0.9026966352108183,
+      "singleton_rate": 0.0558479143506211,
+      "empty_pred_rate_singletons": 0.9285443825390816,
+      "empty_pred_rate_non_singletons": 0.010206791515884519,
+      "mean_pred_size": 3.17020820242641
+    },
+    "best no-one-to-one config | India": {
+      "n_entities": 132478,
+      "macro_f05": 0.9318161542073623,
+      "mean_precision": 0.9785082325988089,
+      "mean_recall": 0.8730255239417138,
+      "singleton_rate": 0.055880976464016664,
+      "empty_pred_rate_singletons": 0.9212481426448736,
+      "empty_pred_rate_non_singletons": 0.016190285828502897,
+      "mean_pred_size": 3.08226271531877
+    },
+    "best no-one-to-one config | US": {
+      "n_entities": 198546,
+      "macro_f05": 0.9600642500896395,
+      "mean_precision": 0.9842660989438059,
+      "mean_recall": 0.9224944124448521,
+      "singleton_rate": 0.05582585395827667,
+      "empty_pred_rate_singletons": 0.9334175387946589,
+      "empty_pred_rate_non_singletons": 0.006214592824145693,
+      "mean_pred_size": 3.2288890231986542
+    }
+  },
+  "validator": [
+    "  candidate_pairs.tsv: 1732544 rows (243 empty, 1732301 non-empty).",
+    "",
+    "PASS \u2014 no blocking issues found. Safe to submit."
+  ],
+  "test_by_country": {
+    "France": {
+      "s1": 259452,
+      "pct_empty": 0.5157023264418853,
+      "mean_pred": 4.979194610178376,
+      "mean_cands": 27.650436304210412
+    },
+    "India": {
+      "s1": 809986,
+      "pct_empty": 0.30963498134535655,
+      "mean_pred": 5.182105616640287,
+      "mean_cands": 29.120631714622228
+    },
+    "US": {
+      "s1": 663106,
+      "pct_empty": 0.04132069382572319,
+      "mean_pred": 5.288264621342591,
+      "mean_cands": 28.781300425572987
+    }
+  },
+  "test_rows": {
+    "matching": 1732544,
+    "candidate": 1732544,
+    "pairs_scored": 49846318,
+    "pairs_matched": 8995975
+  }
+}

@@ -9,7 +9,9 @@ param(
     [switch]$All
 )
 $env:PYTHONUTF8 = '1'
-if (-not $env:KAGGLE_API_TOKEN) { $env:KAGGLE_API_TOKEN = [Environment]::GetEnvironmentVariable('KAGGLE_API_TOKEN', 'User') }
+# prefer the current user-level value (a shell started earlier may hold a stale copy)
+$userToken = [Environment]::GetEnvironmentVariable('KAGGLE_API_TOKEN', 'User')
+if ($userToken) { $env:KAGGLE_API_TOKEN = $userToken }
 $root = Split-Path -Parent $PSScriptRoot
 $out = Join-Path $root "kaggle\runs\$Name"
 New-Item -ItemType Directory -Force $out | Out-Null
