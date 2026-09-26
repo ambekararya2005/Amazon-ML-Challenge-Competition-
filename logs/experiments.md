@@ -59,3 +59,18 @@
   pass C fit 100-108 s (vocab ~190-200k, nnz ~123M), **1661 s (India) / 1922 s (US) per 100k queries** = 99.8% of query time.
 - Projection: train recall run 442 min (India 163, US 280), peak 4.9 GB; test 2996 min (~50 h: France 461, India 1310,
   US 1225), peak 3.1 GB. Test exceeds the 90-min gate and the 12 h Kaggle limit -> pass C must be sped up before blocking.
+
+## 2026-09-26 — Pass-C speed/recall tuning (local, validation sample)
+- `src/tune_pass_c.py` + `src/tune_pass_c_report.py`. Per country: index = all train S1; queries = 20k S2/S3 matched to val
+  entities + 20k random others (seed 42); 4 threads. Local->Kaggle factor from the India base (query x0.575, fit x1.67).
+  US base scored on an 8k subset. Some runs overlapped (India full-text vs US base) -> timings +-30% noisy; recalls exact.
+- Pass A alone: union-free recall US 0.790 / India 0.702; gate (L3) sends 59% of queries to pass C.
+- Base (current pass C): union recall US 0.9890 / India 0.9663; projected test 4,066 min (Kaggle v1 own projection 2,996).
+- L1 (name-only): union US 0.940-0.951 / India 0.856-0.873 -> ruled out (addresses matter for pass C).
+- L2 full text, ng44: max_df 0.5% -> US 0.9819 / IN 0.9303, 46 min; 1% -> 0.9862 / 0.9386, 118 min;
+  2% -> 0.9877 / 0.9481, 310 min; 3% -> 0.9881 / 0.9516, 310 min sum (max country 145 min). ng44 >= ng34 at equal cost.
+- L3 gating: -0.05 pp US, -0.7 to -0.8 pp India, ~40% less pass-C time.
+- Rule (mean union within 1 pp of best 0.9777 AND <= 180 min sum): no configuration qualifies. L4 not run (time box).
+  Candidate: L2 full ng44 max_df=3%, run as 3 parallel country kernels (max 145 min wall clock). Awaiting decision.
+- Also: `blocking.py --country` + `--stage combine`; kernel runner `stage@Country` + REUSE_CACHE_SUBDIRS;
+  `kaggle/make_country_kernels.py`, `kaggle/download_results.ps1` (sets PYTHONUTF8=1); README_kaggle.md updated.

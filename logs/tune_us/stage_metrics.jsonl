@@ -1,0 +1,3 @@
+{"time": "2026-09-26T12:55:20", "stage": "tune_pass_c_US", "status": "ok", "seconds": 1515.06, "start_rss_mb": 632, "peak_rss_mb": 4133, "end_rss_mb": 1048, "country": "US", "threads": 4}
+{"time": "2026-09-26T13:04:00", "stage": "tune_pass_c_US", "status": "ok", "seconds": 515.92, "start_rss_mb": 640, "peak_rss_mb": 4032, "end_rss_mb": 1072, "country": "US", "threads": 4}
+{"time": "2026-09-26T13:20:39", "stage": "tune_pass_c_US", "status": "ok", "seconds": 987.79, "start_rss_mb": 651, "peak_rss_mb": 3584, "end_rss_mb": 1092, "country": "US", "threads": 4}

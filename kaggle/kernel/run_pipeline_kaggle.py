@@ -3,7 +3,7 @@
 Inputs (attached via kernel-metadata.json):
     <USERNAME>/amlc2026-data   the organiser TSVs (found by searching /kaggle/input for train_source1.tsv)
     <USERNAME>/amlc2026-code   kaggle/code_bundle/amlc2026_code.zip (zip, or the folder Kaggle unpacked it to)
-    optional: a previous run of this kernel (kernel_sources) -> its cache/ and logs/ are reused
+    optional: previous runs (kernel_sources) -> their cache/ and logs/ are merged in (all of them)
 
 What it does:
     a) prints RAM, CPU, disk and Python versions;
@@ -28,7 +28,12 @@ from pathlib import Path
 
 # ============================== edit per run ==============================
 STAGES = ["load", "normalize", "split", "block_benchmark"]
-REUSE_PREVIOUS_CACHE = True     # start from an attached previous run's cache/ + logs/ if one is found
+# "<stage>@<country>" runs a blocking stage for one country only, e.g. "block_test@France";
+# "<stage>@<country>@k/n" also restricts it to query shard k of n, e.g. "block_test@India@1/2"
+REUSE_PREVIOUS_CACHE = True     # merge every attached previous run's cache/ + logs/ (existing files kept)
+REUSE_CACHE_SUBDIRS = None      # None = the whole previous cache; e.g. ["norm"] = only cache/norm
+REUSE_MODE = "copy"             # "copy" (output is self-contained) or "symlink" (fast, no disk; not reusable)
+CACHE_IN_TMP = False            # True: cache in /tmp (not saved as kernel output; avoids the 20 GB limit)
 MIN_FREE_GB = 7.0               # blocking RAM gate (free GB required before blocking starts)
 # ==========================================================================
 
@@ -40,13 +45,17 @@ STAGE_COMMANDS = {
     "block_train": ["-m", "src.blocking", "--stage", "block", "--split", "train"],
     "recall": ["-m", "src.blocking", "--stage", "recall", "--split", "train"],
     "block_test": ["-m", "src.blocking", "--stage", "block", "--split", "test"],
+    "combine_train": ["-m", "src.blocking", "--stage", "combine", "--split", "train"],
+    "combine_test": ["-m", "src.blocking", "--stage", "combine", "--split", "test"],
+    "finalize": ["-m", "src.finalize"],
     "tests": ["-m", "unittest"],
 }
+COUNTRY_STAGES = ("block_train", "block_test")
 
 INPUT = Path("/kaggle/input")
 WORK = Path("/kaggle/working")
 CODE_DIR = WORK / "code"
-CACHE_DIR = WORK / "cache"
+CACHE_DIR = Path("/tmp/amlc_cache") if CACHE_IN_TMP else WORK / "cache"
 LOG_DIR = WORK / "logs"
 OUTPUT_DIR = WORK / "output"
 RESULTS_DIR = WORK / "results"
@@ -57,7 +66,8 @@ RUN_MARKER = "RUN_INFO.json"
 DATA_MARKER = "train_source1.tsv"
 RESULT_FILES = ["blocking_bench.json", "blocking_recall.json", "blocking_misses.txt", "stage_metrics.jsonl",
                 "data_summary.json", "normalize_summary.json", "prepare_data.log", "normalize.log",
-                "split.log", "blocking.log"]
+                "split.log", "blocking.log", "combine_check.json", "stage1_reduction.json",
+                "baseline_report.json", "baseline_report.md", "validate_submission.txt", "finalize.log"]
 GB = 1024 ** 3
 
 
@@ -160,14 +170,14 @@ def install_requirements(req: Path) -> dict:
     return {"installed": todo, "versions": report}
 
 
-def find_previous_run() -> "Path | None":
-    """Return the newest attached previous-run output folder (holds RUN_INFO.json and cache/), or None."""
+def find_previous_runs() -> list:
+    """Return every attached previous-run output folder (holds RUN_INFO.json and cache/), newest first."""
     runs = []
     for dirpath, _, files in os.walk(INPUT, followlinks=True):
         if RUN_MARKER in files and (Path(dirpath) / "cache").is_dir():
             info = json.loads((Path(dirpath) / RUN_MARKER).read_text(encoding="utf-8"))
             runs.append((info.get("finished_utc", ""), Path(dirpath)))
-    return max(runs)[1] if runs else None
+    return [p for _, p in sorted(runs, reverse=True)]
 
 
 def reuse_previous(prev: Path) -> dict:
@@ -178,10 +188,16 @@ def reuse_previous(prev: Path) -> dict:
         if not src.is_dir():
             continue
         for f in src.rglob("*"):
-            target = dst / f.relative_to(src)
+            rel = f.relative_to(src)
+            if name == "cache" and REUSE_CACHE_SUBDIRS is not None and rel.parts[0] not in REUSE_CACHE_SUBDIRS:
+                continue
+            target = dst / rel
             if f.is_file() and not target.exists() and not f.name.endswith(".tmp"):
                 target.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(f, target)
+                if REUSE_MODE == "symlink" and name == "cache":
+                    target.symlink_to(f)
+                else:
+                    shutil.copy2(f, target)
                 n, size = n + 1, size + f.stat().st_size
         copied[name] = {"files": n, "gb": round(size / GB, 2)}
     print(f"reused previous run {prev}: {copied}", flush=True)
@@ -235,9 +251,20 @@ def stage_env(data_root: Path) -> dict:
     return env
 
 
+def stage_command(name: str) -> list:
+    """Return the module arguments for a stage; "<stage>@<country>[@k/n]" adds --country [and --shard]."""
+    base, *rest = name.split("@")
+    if rest and base not in COUNTRY_STAGES:
+        raise SystemExit(f"'@country' is only valid for {COUNTRY_STAGES}, got {name!r}")
+    extra = ["--country", rest[0]] if rest else []
+    if len(rest) > 1:
+        extra += ["--shard", rest[1]]
+    return STAGE_COMMANDS[base] + extra
+
+
 def run_stage(name: str, env: dict) -> dict:
     """Run one stage as a subprocess; return its status, seconds and peak RAM."""
-    cmd = [sys.executable, *STAGE_COMMANDS[name]]
+    cmd = [sys.executable, *stage_command(name)]
     print(f"\n{'=' * 70}\nSTAGE {name}: {' '.join(cmd[1:])}   (ram {mem_gb()})\n{'=' * 70}", flush=True)
     t0 = time.perf_counter()
     proc = subprocess.Popen(cmd, cwd=CODE_DIR / PROJECT_NAME, env=env)
@@ -291,7 +318,7 @@ def collect_results(env: dict, bundle: dict, records: list, reused: dict, reqs: 
 
 def main() -> None:
     """Set up code and inputs, run STAGES, and always collect results."""
-    unknown = [s for s in STAGES if s not in STAGE_COMMANDS]
+    unknown = [s for s in STAGES if s.split("@")[0] not in STAGE_COMMANDS]
     if unknown:
         raise SystemExit(f"unknown stages {unknown}; choose from {list(STAGE_COMMANDS)}")
     for d in (CACHE_DIR, LOG_DIR, OUTPUT_DIR):
@@ -303,9 +330,8 @@ def main() -> None:
         print(f"data root: {data_root}", flush=True)
         bundle = install_code()
         reqs = install_requirements(CODE_DIR / PROJECT_NAME / "requirements.txt")
-        prev = find_previous_run() if REUSE_PREVIOUS_CACHE else None
-        if prev is not None:
-            reused = reuse_previous(prev)
+        for prev in (find_previous_runs() if REUSE_PREVIOUS_CACHE else []):
+            reused[str(prev)] = reuse_previous(prev)
         senv = stage_env(data_root)
         for name in STAGES:
             rec = run_stage(name, senv)

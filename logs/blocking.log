@@ -11,3 +11,11 @@
 2026-09-26 01:06:13 INFO machine: {'ram_total_gb': 15.25, 'ram_available_gb': 6.79, 'ram_used_pct': 55.5, 'cpu_physical': 8, 'cpu_logical': 16}
 2026-09-26 01:06:13 WARNING ONLY 6.79 GB RAM FREE (< 7 GB). Close other programs, or re-run with --allow-low-ram to proceed anyway.
 2026-09-26 01:06:14 INFO [bench_India] start (rss 318 MB)
+2026-09-26 13:38:58 INFO query set: 1145795 val-matched + 692421 train-matched (200000 train S1) + 300000 distractors = 2138216
+2026-09-26 13:40:18 INFO wrote C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\cache\cand\test\lookup_s1.parquet (1732544 rows)
+2026-09-26 13:40:25 INFO [blockA_test_France] start (rss 1021 MB)
+2026-09-26 13:40:26 INFO [A France] S1 key table 436209 rows
+2026-09-26 13:40:27 INFO [blockA_test_France] ok in 1.8s | peak rss 1180 MB | end rss 1126 MB
+2026-09-26 13:40:27 INFO [blockC_test_France] start (rss 1126 MB)
+2026-09-26 13:40:37 INFO [C France] fit on 259452 S1 in 10.4s: vocab 60100, nnz 5467215, rss 1188 MB
+2026-09-26 13:40:38 INFO [blockC_test_France] ok in 11.3s | peak rss 1414 MB | end rss 1245 MB

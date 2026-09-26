@@ -38,3 +38,8 @@
 {"time": "2026-09-26T00:42:06", "stage": "normalize_test_s2", "status": "ok", "seconds": 48.27, "start_rss_mb": 667, "peak_rss_mb": 2214, "end_rss_mb": 1002, "rows": 4887273, "rows_per_s": 101244}
 {"time": "2026-09-26T00:42:53", "stage": "normalize_test_s3", "status": "ok", "seconds": 47.41, "start_rss_mb": 890, "peak_rss_mb": 2249, "end_rss_mb": 1068, "rows": 5082316, "rows_per_s": 107199}
 {"time": "2026-09-26T00:42:53", "stage": "normalize_all", "status": "ok", "seconds": 217.56, "start_rss_mb": 79, "peak_rss_mb": 2249, "end_rss_mb": 899, "workers": 6, "rows": 24229173, "rows_per_s": 111369}
+{"time": "2026-09-26T12:31:41", "stage": "tune_pass_c_India", "status": "ok", "seconds": 1379.08, "start_rss_mb": 622, "peak_rss_mb": 4062, "end_rss_mb": 998, "country": "India", "threads": 4}
+{"time": "2026-09-26T12:43:37", "stage": "tune_pass_c_India", "status": "ok", "seconds": 711.42, "start_rss_mb": 642, "peak_rss_mb": 3916, "end_rss_mb": 1052, "country": "India", "threads": 4}
+{"time": "2026-09-26T12:56:38", "stage": "tune_pass_c_India", "status": "ok", "seconds": 714.68, "start_rss_mb": 641, "peak_rss_mb": 3072, "end_rss_mb": 1030, "country": "India", "threads": 4}
+{"time": "2026-09-26T13:40:27", "stage": "blockA_test_France", "status": "ok", "seconds": 1.83, "start_rss_mb": 1021, "peak_rss_mb": 1180, "end_rss_mb": 1126, "split": "test", "country": "France", "passname": "A", "queries": 3000, "n_chunks": 2}
+{"time": "2026-09-26T13:40:38", "stage": "blockC_test_France", "status": "ok", "seconds": 11.34, "start_rss_mb": 1126, "peak_rss_mb": 1414, "end_rss_mb": 1245, "split": "test", "country": "France", "passname": "C", "queries": 3000, "n_chunks": 2, "fit_s": 10.4}

@@ -1,0 +1,819 @@
+{
+  "factors": {
+    "query": 0.575,
+    "fit": 1.668
+  },
+  "rows": [
+    {
+      "config": "base full ng34",
+      "test_min": 4065.7,
+      "test_min_max_country": 2356.7,
+      "by_country": {
+        "France": 398.6,
+        "India": 1310.4,
+        "US": 2356.7
+      },
+      "US": {
+        "qps_kaggle": 27,
+        "pct_gated": 20.0,
+        "recall_C": 0.9857,
+        "recall_union": 0.989,
+        "cpq": 15.02,
+        "base_sample": 8000
+      },
+      "India": {
+        "qps_kaggle": 60,
+        "pct_gated": 100.0,
+        "recall_C": 0.9637,
+        "recall_union": 0.9663,
+        "cpq": 17.15,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.9777
+    },
+    {
+      "config": "L1 name ng34",
+      "test_min": 666.8,
+      "test_min_max_country": 539.6,
+      "by_country": {
+        "France": 29.7,
+        "India": 97.5,
+        "US": 539.6
+      },
+      "US": {
+        "qps_kaggle": 118,
+        "pct_gated": 100.0,
+        "recall_C": 0.7619,
+        "recall_union": 0.9514,
+        "cpq": 15.25,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 835,
+        "pct_gated": 100.0,
+        "recall_C": 0.6098,
+        "recall_union": 0.8726,
+        "cpq": 17.84,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.912
+    },
+    {
+      "config": "L1+L2 name ng34 max_df=0.2%",
+      "test_min": 13.9,
+      "test_min_max_country": 6.5,
+      "by_country": {
+        "France": 1.7,
+        "India": 5.7,
+        "US": 6.5
+      },
+      "US": {
+        "qps_kaggle": 14407,
+        "pct_gated": 100.0,
+        "recall_C": 0.7089,
+        "recall_union": 0.9405,
+        "cpq": 15.09,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 34448,
+        "pct_gated": 100.0,
+        "recall_C": 0.573,
+        "recall_union": 0.8615,
+        "cpq": 17.77,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.901
+    },
+    {
+      "config": "L1+L2+L3 name ng34 max_df=0.2%",
+      "test_min": 11.0,
+      "test_min_max_country": 4.8,
+      "by_country": {
+        "France": 1.5,
+        "India": 4.8,
+        "US": 4.6
+      },
+      "US": {
+        "qps_kaggle": 24676,
+        "pct_gated": 59.2,
+        "recall_C": 0.369,
+        "recall_union": 0.9402,
+        "cpq": 11.38,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 53527,
+        "pct_gated": 58.7,
+        "recall_C": 0.2907,
+        "recall_union": 0.8561,
+        "cpq": 13.94,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.8982
+    },
+    {
+      "config": "L1+L2 name ng34 max_df=0.5%",
+      "test_min": 31.8,
+      "test_min_max_country": 21.1,
+      "by_country": {
+        "France": 2.5,
+        "India": 8.2,
+        "US": 21.1
+      },
+      "US": {
+        "qps_kaggle": 3345,
+        "pct_gated": 100.0,
+        "recall_C": 0.7363,
+        "recall_union": 0.9458,
+        "cpq": 15.21,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 16145,
+        "pct_gated": 100.0,
+        "recall_C": 0.5828,
+        "recall_union": 0.8639,
+        "cpq": 17.81,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.9048
+    },
+    {
+      "config": "L1+L2+L3 name ng34 max_df=0.5%",
+      "test_min": 24.2,
+      "test_min_max_country": 16.0,
+      "by_country": {
+        "France": 1.9,
+        "India": 6.3,
+        "US": 16.0
+      },
+      "US": {
+        "qps_kaggle": 4566,
+        "pct_gated": 59.2,
+        "recall_C": 0.3844,
+        "recall_union": 0.9455,
+        "cpq": 11.45,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 27076,
+        "pct_gated": 58.7,
+        "recall_C": 0.2956,
+        "recall_union": 0.8583,
+        "cpq": 13.96,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.9019
+    },
+    {
+      "config": "L1+L2 name ng34 max_df=1.0%",
+      "test_min": 91.0,
+      "test_min_max_country": 71.7,
+      "by_country": {
+        "France": 4.5,
+        "India": 14.8,
+        "US": 71.7
+      },
+      "US": {
+        "qps_kaggle": 914,
+        "pct_gated": 100.0,
+        "recall_C": 0.755,
+        "recall_union": 0.9496,
+        "cpq": 15.25,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 6903,
+        "pct_gated": 100.0,
+        "recall_C": 0.5924,
+        "recall_union": 0.8669,
+        "cpq": 17.84,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.9083
+    },
+    {
+      "config": "L1+L2+L3 name ng34 max_df=1.0%",
+      "test_min": 51.5,
+      "test_min_max_country": 37.9,
+      "by_country": {
+        "France": 3.2,
+        "India": 10.4,
+        "US": 37.9
+      },
+      "US": {
+        "qps_kaggle": 1777,
+        "pct_gated": 59.2,
+        "recall_C": 0.3947,
+        "recall_union": 0.9492,
+        "cpq": 11.48,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 11134,
+        "pct_gated": 58.7,
+        "recall_C": 0.3013,
+        "recall_union": 0.8613,
+        "cpq": 13.98,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.9052
+    },
+    {
+      "config": "L1+L2 name ng44 max_df=0.2%",
+      "test_min": 10.3,
+      "test_min_max_country": 4.5,
+      "by_country": {
+        "France": 1.4,
+        "India": 4.5,
+        "US": 4.4
+      },
+      "US": {
+        "qps_kaggle": 23995,
+        "pct_gated": 100.0,
+        "recall_C": 0.7129,
+        "recall_union": 0.9412,
+        "cpq": 15.07,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 59987,
+        "pct_gated": 100.0,
+        "recall_C": 0.5775,
+        "recall_union": 0.8623,
+        "cpq": 17.76,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.9018
+    },
+    {
+      "config": "L1+L2+L3 name ng44 max_df=0.2%",
+      "test_min": 8.8,
+      "test_min_max_country": 4.1,
+      "by_country": {
+        "France": 1.2,
+        "India": 4.1,
+        "US": 3.5
+      },
+      "US": {
+        "qps_kaggle": 36242,
+        "pct_gated": 59.2,
+        "recall_C": 0.371,
+        "recall_union": 0.9408,
+        "cpq": 11.37,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 89212,
+        "pct_gated": 58.7,
+        "recall_C": 0.2925,
+        "recall_union": 0.8569,
+        "cpq": 13.93,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.8988
+    },
+    {
+      "config": "L1+L2 name ng44 max_df=0.5%",
+      "test_min": 17.9,
+      "test_min_max_country": 10.7,
+      "by_country": {
+        "France": 1.7,
+        "India": 5.5,
+        "US": 10.7
+      },
+      "US": {
+        "qps_kaggle": 7152,
+        "pct_gated": 100.0,
+        "recall_C": 0.7397,
+        "recall_union": 0.9466,
+        "cpq": 15.2,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 33294,
+        "pct_gated": 100.0,
+        "recall_C": 0.5855,
+        "recall_union": 0.8644,
+        "cpq": 17.8,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.9055
+    },
+    {
+      "config": "L1+L2+L3 name ng44 max_df=0.5%",
+      "test_min": 13.5,
+      "test_min_max_country": 7.3,
+      "by_country": {
+        "France": 1.4,
+        "India": 4.7,
+        "US": 7.3
+      },
+      "US": {
+        "qps_kaggle": 11559,
+        "pct_gated": 59.2,
+        "recall_C": 0.3865,
+        "recall_union": 0.9463,
+        "cpq": 11.45,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 50792,
+        "pct_gated": 58.7,
+        "recall_C": 0.2967,
+        "recall_union": 0.8589,
+        "cpq": 13.96,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.9026
+    },
+    {
+      "config": "L1+L2 name ng44 max_df=1.0%",
+      "test_min": 37.8,
+      "test_min_max_country": 27.4,
+      "by_country": {
+        "France": 2.4,
+        "India": 7.9,
+        "US": 27.4
+      },
+      "US": {
+        "qps_kaggle": 2479,
+        "pct_gated": 100.0,
+        "recall_C": 0.756,
+        "recall_union": 0.9497,
+        "cpq": 15.24,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 16607,
+        "pct_gated": 100.0,
+        "recall_C": 0.5919,
+        "recall_union": 0.8661,
+        "cpq": 17.83,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.9079
+    },
+    {
+      "config": "L1+L2+L3 name ng44 max_df=1.0%",
+      "test_min": 25.5,
+      "test_min_max_country": 17.6,
+      "by_country": {
+        "France": 1.8,
+        "India": 6.0,
+        "US": 17.6
+      },
+      "US": {
+        "qps_kaggle": 4015,
+        "pct_gated": 59.2,
+        "recall_C": 0.3951,
+        "recall_union": 0.9494,
+        "cpq": 11.48,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 27834,
+        "pct_gated": 58.7,
+        "recall_C": 0.3004,
+        "recall_union": 0.8605,
+        "cpq": 13.98,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.905
+    },
+    {
+      "config": "L2 full ng34 max_df=0.2%",
+      "test_min": 41.5,
+      "test_min_max_country": 24.2,
+      "by_country": {
+        "France": 7.5,
+        "India": 24.2,
+        "US": 9.7
+      },
+      "US": {
+        "qps_kaggle": 8853,
+        "pct_gated": 100.0,
+        "recall_C": 0.9378,
+        "recall_union": 0.9696,
+        "cpq": 15.0,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 7458,
+        "pct_gated": 100.0,
+        "recall_C": 0.8633,
+        "recall_union": 0.9047,
+        "cpq": 17.33,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.9371
+    },
+    {
+      "config": "L2+L3 full ng34 max_df=0.2%",
+      "test_min": 33.4,
+      "test_min_max_country": 20.3,
+      "by_country": {
+        "France": 6.4,
+        "India": 20.3,
+        "US": 6.8
+      },
+      "US": {
+        "qps_kaggle": 14932,
+        "pct_gated": 59.2,
+        "recall_C": 0.4944,
+        "recall_union": 0.969,
+        "cpq": 11.39,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 11875,
+        "pct_gated": 58.7,
+        "recall_C": 0.4454,
+        "recall_union": 0.899,
+        "cpq": 13.82,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.934
+    },
+    {
+      "config": "L2 full ng34 max_df=0.5%",
+      "test_min": 91.3,
+      "test_min_max_country": 46.9,
+      "by_country": {
+        "France": 14.5,
+        "India": 46.9,
+        "US": 30.0
+      },
+      "US": {
+        "qps_kaggle": 2317,
+        "pct_gated": 100.0,
+        "recall_C": 0.9684,
+        "recall_union": 0.9805,
+        "cpq": 14.99,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 2365,
+        "pct_gated": 100.0,
+        "recall_C": 0.91,
+        "recall_union": 0.9263,
+        "cpq": 17.21,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.9534
+    },
+    {
+      "config": "L2+L3 full ng34 max_df=0.5%",
+      "test_min": 62.9,
+      "test_min_max_country": 33.9,
+      "by_country": {
+        "France": 10.5,
+        "India": 33.9,
+        "US": 18.5
+      },
+      "US": {
+        "qps_kaggle": 3972,
+        "pct_gated": 59.2,
+        "recall_C": 0.5148,
+        "recall_union": 0.9799,
+        "cpq": 11.39,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 3896,
+        "pct_gated": 58.7,
+        "recall_C": 0.477,
+        "recall_union": 0.9195,
+        "cpq": 13.79,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.9497
+    },
+    {
+      "config": "L2 full ng34 max_df=1.0%",
+      "test_min": 249.7,
+      "test_min_max_country": 147.8,
+      "by_country": {
+        "France": 23.9,
+        "India": 78.0,
+        "US": 147.8
+      },
+      "US": {
+        "qps_kaggle": 438,
+        "pct_gated": 100.0,
+        "recall_C": 0.9787,
+        "recall_union": 0.986,
+        "cpq": 15.01,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 1223,
+        "pct_gated": 100.0,
+        "recall_C": 0.9277,
+        "recall_union": 0.9372,
+        "cpq": 17.19,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.9616
+    },
+    {
+      "config": "L2+L3 full ng34 max_df=1.0%",
+      "test_min": 102.9,
+      "test_min_max_country": 50.1,
+      "by_country": {
+        "France": 12.4,
+        "India": 40.3,
+        "US": 50.1
+      },
+      "US": {
+        "qps_kaggle": 1336,
+        "pct_gated": 59.2,
+        "recall_C": 0.5228,
+        "recall_union": 0.9855,
+        "cpq": 11.39,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 2957,
+        "pct_gated": 58.7,
+        "recall_C": 0.4904,
+        "recall_union": 0.9298,
+        "cpq": 13.78,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.9577
+    },
+    {
+      "config": "L2 full ng44 max_df=0.2%",
+      "test_min": 18.8,
+      "test_min_max_country": 9.5,
+      "by_country": {
+        "France": 2.9,
+        "India": 9.5,
+        "US": 6.4
+      },
+      "US": {
+        "qps_kaggle": 13917,
+        "pct_gated": 100.0,
+        "recall_C": 0.9453,
+        "recall_union": 0.9721,
+        "cpq": 14.99,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 14467,
+        "pct_gated": 100.0,
+        "recall_C": 0.8788,
+        "recall_union": 0.9114,
+        "cpq": 17.29,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.9417
+    },
+    {
+      "config": "L2+L3 full ng44 max_df=0.2%",
+      "test_min": 14.6,
+      "test_min_max_country": 7.5,
+      "by_country": {
+        "France": 2.3,
+        "India": 7.5,
+        "US": 4.9
+      },
+      "US": {
+        "qps_kaggle": 21345,
+        "pct_gated": 59.2,
+        "recall_C": 0.4991,
+        "recall_union": 0.9716,
+        "cpq": 11.39,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 22890,
+        "pct_gated": 58.7,
+        "recall_C": 0.4561,
+        "recall_union": 0.9056,
+        "cpq": 13.81,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.9386
+    },
+    {
+      "config": "L2 full ng44 max_df=0.5%",
+      "test_min": 45.7,
+      "test_min_max_country": 20.5,
+      "by_country": {
+        "France": 6.3,
+        "India": 20.5,
+        "US": 19.0
+      },
+      "US": {
+        "qps_kaggle": 3713,
+        "pct_gated": 100.0,
+        "recall_C": 0.9718,
+        "recall_union": 0.9819,
+        "cpq": 14.99,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 4779,
+        "pct_gated": 100.0,
+        "recall_C": 0.9174,
+        "recall_union": 0.9303,
+        "cpq": 17.2,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.9561
+    },
+    {
+      "config": "L2+L3 full ng44 max_df=0.5%",
+      "test_min": 29.9,
+      "test_min_max_country": 13.7,
+      "by_country": {
+        "France": 4.2,
+        "India": 13.7,
+        "US": 12.0
+      },
+      "US": {
+        "qps_kaggle": 6263,
+        "pct_gated": 59.2,
+        "recall_C": 0.5179,
+        "recall_union": 0.9813,
+        "cpq": 11.39,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 8139,
+        "pct_gated": 58.7,
+        "recall_C": 0.4828,
+        "recall_union": 0.9232,
+        "cpq": 13.79,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.9523
+    },
+    {
+      "config": "L2 full ng44 max_df=1.0%",
+      "test_min": 117.5,
+      "test_min_max_country": 53.7,
+      "by_country": {
+        "France": 16.4,
+        "India": 53.7,
+        "US": 47.5
+      },
+      "US": {
+        "qps_kaggle": 1395,
+        "pct_gated": 100.0,
+        "recall_C": 0.9793,
+        "recall_union": 0.9862,
+        "cpq": 15.01,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 1584,
+        "pct_gated": 100.0,
+        "recall_C": 0.9303,
+        "recall_union": 0.9386,
+        "cpq": 17.19,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.9624
+    },
+    {
+      "config": "L2+L3 full ng44 max_df=1.0%",
+      "test_min": 71.1,
+      "test_min_max_country": 32.5,
+      "by_country": {
+        "France": 9.9,
+        "India": 32.5,
+        "US": 28.7
+      },
+      "US": {
+        "qps_kaggle": 2375,
+        "pct_gated": 59.2,
+        "recall_C": 0.5237,
+        "recall_union": 0.9857,
+        "cpq": 11.39,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 2762,
+        "pct_gated": 58.7,
+        "recall_C": 0.493,
+        "recall_union": 0.9312,
+        "cpq": 13.78,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.9585
+    },
+    {
+      "config": "L2 full ng44 max_df=2.0%",
+      "test_min": 310.2,
+      "test_min_max_country": 165.9,
+      "by_country": {
+        "France": 50.6,
+        "India": 165.9,
+        "US": 93.6
+      },
+      "US": {
+        "qps_kaggle": 693,
+        "pct_gated": 100.0,
+        "recall_C": 0.982,
+        "recall_union": 0.9877,
+        "cpq": 15.02,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 510,
+        "pct_gated": 100.0,
+        "recall_C": 0.9427,
+        "recall_union": 0.9481,
+        "cpq": 17.2,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.9679
+    },
+    {
+      "config": "L2+L3 full ng44 max_df=2.0%",
+      "test_min": 671.9,
+      "test_min_max_country": 581.5,
+      "by_country": {
+        "France": 21.2,
+        "India": 69.2,
+        "US": 581.5
+      },
+      "US": {
+        "qps_kaggle": 110,
+        "pct_gated": 59.2,
+        "recall_C": 0.5261,
+        "recall_union": 0.9871,
+        "cpq": 11.39,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 1368,
+        "pct_gated": 58.7,
+        "recall_C": 0.5033,
+        "recall_union": 0.9402,
+        "cpq": 13.78,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.9637
+    },
+    {
+      "config": "L2 full ng44 max_df=3.0%",
+      "test_min": 310.4,
+      "test_min_max_country": 144.5,
+      "by_country": {
+        "France": 44.1,
+        "India": 144.5,
+        "US": 121.8
+      },
+      "US": {
+        "qps_kaggle": 530,
+        "pct_gated": 100.0,
+        "recall_C": 0.9832,
+        "recall_union": 0.9881,
+        "cpq": 15.02,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 592,
+        "pct_gated": 100.0,
+        "recall_C": 0.9474,
+        "recall_union": 0.9516,
+        "cpq": 17.2,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.9698
+    },
+    {
+      "config": "L2+L3 full ng44 max_df=3.0%",
+      "test_min": 148.4,
+      "test_min_max_country": 70.6,
+      "by_country": {
+        "France": 18.3,
+        "India": 59.6,
+        "US": 70.6
+      },
+      "US": {
+        "qps_kaggle": 925,
+        "pct_gated": 59.2,
+        "recall_C": 0.5272,
+        "recall_union": 0.9876,
+        "cpq": 11.39,
+        "base_sample": 0
+      },
+      "India": {
+        "qps_kaggle": 1644,
+        "pct_gated": 58.7,
+        "recall_C": 0.5072,
+        "recall_union": 0.9436,
+        "cpq": 13.78,
+        "base_sample": 0
+      },
+      "recall_union_mean": 0.9656
+    }
+  ],
+  "pick": null
+}

@@ -87,3 +87,25 @@ class TestUnion(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestShardAndPassCParams(unittest.TestCase):
+    """Query sharding and the pruned pass-C vectoriser."""
+
+    def test_shards_partition_and_are_stable(self):
+        """Every query lands in exactly one shard, the split is roughly even and deterministic."""
+        q = np.arange(200_000_000, 200_100_000, dtype=np.int64)
+        s = bl.shard_of(q, 2)
+        self.assertTrue(set(np.unique(s)) <= {0, 1})
+        self.assertLess(abs(s.mean() - 0.5), 0.01)
+        np.testing.assert_array_equal(s, bl.shard_of(q, 2))
+        self.assertEqual(bl.parse_shard("2/2"), (2, 2))
+        self.assertEqual(bl.parse_shard(None), (1, 1))
+        with self.assertRaises(ValueError):
+            bl.parse_shard("3/2")
+
+    def test_fit_c_index_small_index(self):
+        """max_df as a fraction must not break a tiny index (floored at min_df)."""
+        vec, b = bl.fit_c_index(["acme corp main street", "acme corp main street", "zeta ltd high road"])
+        self.assertEqual(b.shape[1], 3)
+        self.assertEqual(vec.ngram_range, (4, 4))

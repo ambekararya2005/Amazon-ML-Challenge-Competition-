@@ -7,6 +7,9 @@ the same country label (the index). Country is only used to partition work.
     python -m src.blocking --stage block  --split train   # recall query set (see build_query_set)
     python -m src.blocking --stage block  --split test    # every S2/S3 record
     python -m src.blocking --stage recall --split train   # recall report + logs/blocking_misses.txt
+    python -m src.blocking --stage block --split test --country France   # one country only (no combine)
+    python -m src.blocking --stage block --split test --country India --shard 1/2   # half of India's queries
+    python -m src.blocking --stage combine --split test   # combine all part files (e.g. after per-country runs)
 
 IDs are integers, never repeated strings:
     s1_id    = row index in cache/norm/<split>_s1.parquet                     (int32)
@@ -36,6 +39,7 @@ import pyarrow as pa
 import pyarrow.compute as pc
 import pyarrow.parquet as pq
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.model_selection import train_test_split
 from sparse_dot_topn import sp_matmul_topn
 
 from .config import CACHE_DIR, LOG_DIR, N_THREADS, SEED, add_path_args, env_float, set_seeds
@@ -56,13 +60,17 @@ A_MAX_BLOCK = 50
 A_MAX_OWNERS = 20
 
 C_TOP_N = 10
-C_PARAMS = dict(analyzer="char_wb", ngram_range=(3, 4), min_df=2, sublinear_tf=True,
+# Tuned 2026-09-26 (logs/pass_c_tuning_table.md): char_wb 4-grams, drop fragments in > 3% of the
+# country's S1 (max_df). Union recall US 0.9881 / India 0.9516 vs 0.9890 / 0.9663 for the old
+# (3,4)-gram unpruned setting, at ~10x less pass-C time.
+C_PARAMS = dict(analyzer="char_wb", ngram_range=(4, 4), min_df=2, max_df=0.03, sublinear_tf=True,
                 dtype=np.float32, max_features=600_000)
 
-RECALL_RANDOM_QUERIES = 300_000
+RECALL_RANDOM_QUERIES = 300_000      # train query set: distractors (S2/S3 not matched to a sampled S1)
+TRAIN_MATCH_ENTITIES = 200_000       # train query set: train-fold S1 whose matched S2/S3 are added
 BENCH_QUERIES = 100_000
 TEST_PROJECTION_LIMIT_MIN = 90
-MISSES_PER_COUNTRY = 20
+MISSES_PER_COUNTRY = 30
 
 
 # ------------------------------------------------------------------ helpers
@@ -101,9 +109,25 @@ def chunk_slices(n: int, size: int = CHUNK_ROWS):
         yield i, slice(start, min(start + size, n))
 
 
-def part_path(split: str, country: str, kind: str, source: int, i: int) -> Path:
-    """Return the part-file path for one pass/union chunk."""
-    return CAND_DIR / split / country_slug(country) / f"{kind}_s{source}_part_{i:04d}.parquet"
+def part_path(split: str, country: str, kind: str, source: int, i: int, tag: str = "") -> Path:
+    """Return the part-file path for one pass/union chunk (``tag`` marks a query shard, e.g. '_sh1of2')."""
+    return CAND_DIR / split / country_slug(country) / f"{kind}_s{source}{tag}_part_{i:04d}.parquet"
+
+
+def shard_of(query_id: np.ndarray, n: int) -> np.ndarray:
+    """Return the 0-based shard (of ``n``) of each query id via a fixed multiplicative hash (deterministic)."""
+    h = (np.asarray(query_id, dtype=np.uint64) * np.uint64(0x9E3779B97F4A7C15)) >> np.uint64(32)
+    return (h % np.uint64(n)).astype(np.int64)
+
+
+def parse_shard(spec: str) -> tuple:
+    """Parse 'k/n' (1-based k) into (k, n); None -> (1, 1)."""
+    if not spec:
+        return 1, 1
+    k, n = (int(x) for x in spec.split("/"))
+    if not 1 <= k <= n:
+        raise ValueError(f"bad shard {spec!r}")
+    return k, n
 
 
 def pair_keys(query_id: np.ndarray, s1_id: np.ndarray) -> np.ndarray:
@@ -129,9 +153,11 @@ def build_lookups(split: str, logger) -> None:
 def build_query_set(split: str, logger) -> pd.DataFrame:
     """Build (or load) the query set: query_id, source, row, country, entity_id, is_val_match.
 
-    test: every S2/S3 record. train: every S2/S3 record matched to a validation S1
-    entity, plus RECALL_RANDOM_QUERIES other random S2/S3 records (seed 42) so the
-    candidate counts are realistic. The index is always all S1 of the country.
+    test: every S2/S3 record. train: every S2/S3 record matched to a validation S1 entity
+    (role "val"), plus every S2/S3 record matched to TRAIN_MATCH_ENTITIES train-fold S1
+    entities sampled stratified by country (role "train", for training the scorer), plus
+    RECALL_RANDOM_QUERIES other random S2/S3 records (role "distractor"); seed 42. The index
+    is always all S1 of the country.
     """
     out = CAND_DIR / split / "queries.parquet"
     if out.exists():
@@ -147,21 +173,33 @@ def build_query_set(split: str, logger) -> pd.DataFrame:
     if split == "train":
         split_df = load_split()
         val_s1 = set(split_df.loc[split_df["fold"] == "val", "s1_id"])
+        tr = split_df[split_df["fold"] == "train"].merge(
+            pq.read_table(norm_path("train", 1), columns=["entity_id", "country"]).to_pandas()
+            .rename(columns={"entity_id": "s1_id"}), on="s1_id", how="left", validate="1:1")
+        n_tr = min(TRAIN_MATCH_ENTITIES, len(tr))
+        tr_s1 = set(tr["s1_id"]) if n_tr == len(tr) else set(train_test_split(
+            tr["s1_id"].to_numpy(), train_size=n_tr, stratify=tr["country"].to_numpy(), random_state=SEED)[0])
         pairs = read_parquet(raw_parquet_path("train", "pairs"), columns=["s1_id", "other_id"])
         val_other = pairs.loc[pairs["s1_id"].isin(val_s1), "other_id"]
+        tr_other = pairs.loc[pairs["s1_id"].isin(tr_s1), "other_id"]
         allq["is_val_match"] = allq["entity_id"].isin(val_other).to_numpy()
-        others = np.flatnonzero(~allq["is_val_match"].to_numpy())
+        is_tr = allq["entity_id"].isin(tr_other).to_numpy()
+        others = np.flatnonzero(~allq["is_val_match"].to_numpy() & ~is_tr)
         rng = np.random.default_rng(SEED)
         extra = rng.choice(others, size=min(RECALL_RANDOM_QUERIES, len(others)), replace=False)
-        keep = np.zeros(len(allq), dtype=bool)
-        keep[extra] = True
-        keep |= allq["is_val_match"].to_numpy()
-        allq = allq[keep]
-        logger.info("query set: %d val-matched + %d random = %d", int(allq["is_val_match"].sum()),
+        role = np.full(len(allq), "", dtype=object)
+        role[extra] = "distractor"
+        role[is_tr] = "train"
+        role[allq["is_val_match"].to_numpy()] = "val"
+        allq["role"] = role
+        allq = allq[role != ""]
+        logger.info("query set: %d val-matched + %d train-matched (%d train S1) + %d distractors = %d",
+                    int((allq["role"] == "val").sum()), int((allq["role"] == "train").sum()), len(tr_s1),
                     len(extra), len(allq))
-        del pairs, val_other, split_df
+        del pairs, val_other, tr_other, split_df, tr
     else:
         allq["is_val_match"] = False
+        allq["role"] = "test"
     allq.insert(0, "query_id", allq["source"].astype(np.int64) * QUERY_ID_MULT + allq["row"])
     allq = allq.sort_values(["country", "source", "row"], kind="stable").reset_index(drop=True)
     write_parquet(allq, out)
@@ -236,7 +274,11 @@ def c_texts(t: pa.Table) -> list:
 
 def fit_c_index(s1_texts: list) -> tuple:
     """Fit the char TF-IDF on one country's S1; return (vectorizer, S1 matrix transposed as CSR)."""
-    vec = TfidfVectorizer(**C_PARAMS)
+    params = dict(C_PARAMS)
+    if isinstance(params.get("max_df"), float) and params["max_df"] < 1.0:
+        # same cut as the fraction (keep df <= floor(max_df * n)), but never below min_df (tiny indexes)
+        params["max_df"] = max(params["min_df"], int(params["max_df"] * len(s1_texts)))
+    vec = TfidfVectorizer(**params)
     x = vec.fit_transform(s1_texts)
     b = x.T.tocsr()
     del x
@@ -284,7 +326,7 @@ C_COLS = ["name_compact", "name_core", "addr_clean"]
 
 
 def block_country(split: str, country: str, queries: pd.DataFrame, s1_pos: np.ndarray,
-                  src_pos: dict, logger) -> None:
+                  src_pos: dict, logger, tag: str = "") -> None:
     """Run passes A and C and the union for one country's queries, writing part files."""
     plan = []  # (source, chunk index, local row indices into the country slice, query ids)
     for source in QUERY_SOURCES:
@@ -297,7 +339,7 @@ def block_country(split: str, country: str, queries: pd.DataFrame, s1_pos: np.nd
         return
 
     # ---- pass A
-    todo = [p for p in plan if not part_path(split, country, "passA", p[0], p[1]).exists()]
+    todo = [p for p in plan if not part_path(split, country, "passA", p[0], p[1], tag).exists()]
     if todo:
         with StageTimer(f"blockA_{split}_{country}", logger, split=split, country=country,
                         passname="A", queries=n_queries) as timer:
@@ -316,7 +358,7 @@ def block_country(split: str, country: str, queries: pd.DataFrame, s1_pos: np.nd
                     sub = t.take(pa.array(local))
                     res = pass_a_chunk(qids, sub["num_keys"].to_pylist(), sub["addr_tokens"].to_pylist(),
                                        s1_keys, df)
-                    write_parquet(res, part_path(split, country, "passA", source, i))
+                    write_parquet(res, part_path(split, country, "passA", source, i, tag))
                 del t
                 gc.collect()
             timer.extra["n_chunks"] = len(todo)
@@ -324,7 +366,7 @@ def block_country(split: str, country: str, queries: pd.DataFrame, s1_pos: np.nd
             gc.collect()
 
     # ---- pass C
-    todo = [p for p in plan if not part_path(split, country, "passC", p[0], p[1]).exists()]
+    todo = [p for p in plan if not part_path(split, country, "passC", p[0], p[1], tag).exists()]
     if todo:
         with StageTimer(f"blockC_{split}_{country}", logger, split=split, country=country,
                         passname="C", queries=n_queries) as timer:
@@ -343,7 +385,7 @@ def block_country(split: str, country: str, queries: pd.DataFrame, s1_pos: np.nd
                 t = read_country(norm_path(split, source), country, C_COLS)
                 for _, i, local, qids in src_todo:
                     res = pass_c_chunk(vec, b, qids, c_texts(t.take(pa.array(local))), s1_pos)
-                    write_parquet(res, part_path(split, country, "passC", source, i))
+                    write_parquet(res, part_path(split, country, "passC", source, i, tag))
                 del t
                 gc.collect()
             timer.extra.update(n_chunks=len(todo), fit_s=round(fit_s, 1))
@@ -352,10 +394,10 @@ def block_country(split: str, country: str, queries: pd.DataFrame, s1_pos: np.nd
 
     # ---- union
     for source, i, _, _ in plan:
-        out = part_path(split, country, "union", source, i)
+        out = part_path(split, country, "union", source, i, tag)
         if not out.exists():
-            a = pd.read_parquet(part_path(split, country, "passA", source, i))
-            c = pd.read_parquet(part_path(split, country, "passC", source, i))
+            a = pd.read_parquet(part_path(split, country, "passA", source, i, tag))
+            c = pd.read_parquet(part_path(split, country, "passC", source, i, tag))
             write_parquet(union_frame(a, c), out)
 
 
@@ -377,28 +419,55 @@ def combine_parts(split: str, kind: str, out_name: str, logger) -> None:
     logger.info("combined %d %s parts -> %s (%d rows)", len(parts), kind, out, rows)
 
 
-def run_block(split: str, logger, allow_low_ram: bool, force: bool, min_free_gb: float = MIN_FREE_GB) -> None:
-    """Run blocking for every country of ``split`` and write the combined candidate tables."""
+def run_block(split: str, logger, allow_low_ram: bool, force: bool, min_free_gb: float = MIN_FREE_GB,
+              countries: list = None, shard: str = None) -> None:
+    """Run blocking for every country of ``split`` (or only ``countries``) and write the candidate tables.
+
+    With ``countries`` given, only those countries' part files are written and the combine step is
+    skipped (run --stage combine once all countries are done).
+    """
     check_free_ram(logger, allow_low_ram, min_free_gb)
-    if force and (CAND_DIR / split).exists():
+    if force and countries:
+        for c in countries:
+            shutil.rmtree(CAND_DIR / split / country_slug(c), ignore_errors=True)
+    elif force and (CAND_DIR / split).exists():
         shutil.rmtree(CAND_DIR / split)
     (CAND_DIR / split).mkdir(parents=True, exist_ok=True)
     build_lookups(split, logger)
     queries = build_query_set(split, logger)
     s1_pos_all = country_positions(norm_path(split, 1))
     src_pos_all = {s: country_positions(norm_path(split, s)) for s in QUERY_SOURCES}
-    with StageTimer(f"block_{split}", logger, split=split, queries=len(queries)):
+    k, n = parse_shard(shard)
+    tag = "" if n == 1 else f"_sh{k}of{n}"
+    if n > 1:
+        queries = queries[shard_of(queries["query_id"].to_numpy(), n) == k - 1]
+        logger.info("shard %d/%d: %d queries", k, n, len(queries))
+    with StageTimer(f"block_{split}{tag}", logger, split=split, queries=len(queries)):
+        missing = sorted(set(countries or []) - set(queries["country"]))
+        if missing:
+            raise SystemExit(f"--country {missing} not in the {split} query set")
         for country, q in queries.groupby("country", sort=True):
+            if countries and country not in countries:
+                continue
             if country not in s1_pos_all:
                 logger.warning("country %r has queries but no S1 records - no candidates", country)
                 continue
             logger.info("country %s: %d queries, %d S1", country, len(q), len(s1_pos_all[country]))
             block_country(split, country, q, s1_pos_all[country],
-                          {s: src_pos_all[s].get(country, np.empty(0, np.int64)) for s in QUERY_SOURCES}, logger)
+                          {s: src_pos_all[s].get(country, np.empty(0, np.int64)) for s in QUERY_SOURCES}, logger, tag)
             gc.collect()
-        for kind, name in (("passA", f"{split}_passA.parquet"), ("passC", f"{split}_passC.parquet"),
-                           ("union", f"{split}_union.parquet")):
-            combine_parts(split, kind, name, logger)
+        if countries or n > 1:
+            logger.info("partial run (countries %s, shard %d/%d): skipping combine; run --stage combine "
+                        "when all parts are done", countries, k, n)
+        else:
+            run_combine(split, logger)
+
+
+def run_combine(split: str, logger) -> None:
+    """Combine every pass-A, pass-C and union part file of ``split`` into the three candidate tables."""
+    for kind, name in (("passA", f"{split}_passA.parquet"), ("passC", f"{split}_passC.parquet"),
+                       ("union", f"{split}_union.parquet")):
+        combine_parts(split, kind, name, logger)
 
 
 # ------------------------------------------------------------------ benchmark
@@ -613,9 +682,11 @@ def _read_row(path: Path, row: int, cols: list) -> dict:
 def main() -> None:
     """Parse CLI flags and run the requested stage."""
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--stage", choices=["bench", "block", "recall"], required=True)
+    ap.add_argument("--stage", choices=["bench", "block", "recall", "combine"], required=True)
     ap.add_argument("--split", choices=["train", "test"], default="train")
     ap.add_argument("--force", action="store_true", help="delete this split's candidate parts and rebuild")
+    ap.add_argument("--country", action="append", help="block only this country label (repeatable)")
+    ap.add_argument("--shard", help="k/n: block only query shard k of n (hash of query_id)")
     ap.add_argument("--allow-low-ram", action="store_true", help="run even with less free RAM than --min-free-gb")
     ap.add_argument("--min-free-gb", type=float, default=MIN_FREE_GB,
                     help=f"free-RAM gate in GB (env MIN_FREE_GB; default {MIN_FREE_GB:g})")
@@ -627,7 +698,9 @@ def main() -> None:
     if args.stage == "bench":
         run_bench(logger, args.allow_low_ram, args.min_free_gb)
     elif args.stage == "block":
-        run_block(args.split, logger, args.allow_low_ram, args.force, args.min_free_gb)
+        run_block(args.split, logger, args.allow_low_ram, args.force, args.min_free_gb, args.country, args.shard)
+    elif args.stage == "combine":
+        run_combine(args.split, logger)
     else:
         if args.split != "train":
             raise SystemExit("recall needs ground truth: use --split train")

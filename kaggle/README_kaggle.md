@@ -36,7 +36,12 @@ $env:KAGGLE_API_TOKEN = [Environment]::GetEnvironmentVariable('KAGGLE_API_TOKEN'
 .\.venv\Scripts\kaggle.exe datasets list --mine          # auth check
 ```
 
-All commands below assume `$K = ".\.venv\Scripts\kaggle.exe"`.
+All commands below assume:
+
+```powershell
+$K = ".\.venv\Scripts\kaggle.exe"
+$env:PYTHONUTF8 = '1'      # required: without it `kaggle kernels output` crashes writing the log (cp1252)
+```
 
 ## 1. Code dataset: build, create, update
 
@@ -55,7 +60,8 @@ Edit the block at the top of `kaggle/kernel/run_pipeline_kaggle.py`:
 
 ```python
 STAGES = ["load", "normalize", "split", "block_benchmark"]
-# available: load, normalize, split, block_benchmark, block_train, recall, block_test, tests
+# available: load, normalize, split, block_benchmark, block_train, recall, block_test,
+#            combine_train, combine_test, tests; "block_test@France" = one country only
 ```
 
 then push (a push creates a new version and starts the run immediately):
@@ -79,6 +85,21 @@ The script finds any attached folder containing `RUN_INFO.json` + `cache/` (the 
 to ignore attached runs. (If Kaggle refuses a kernel attaching its own output, push the follow-up under a second
 slug, e.g. change `id`/`title` to `aryaambekar/amlc2026-pipeline-2`, and keep `kernel_sources` pointing at the first.)
 
+### One kernel per country (parallel)
+
+Kaggle allows several concurrent batch CPU sessions per account (5 at the time of writing), so a blocking
+stage can run as one kernel per country, each reusing the v1 cache (`kernel_sources`), copying only the
+cache folders it needs:
+
+```powershell
+.\.venv\Scripts\python.exe kaggle\make_country_kernels.py                        # -> kaggle\kernelsmlc2026-block-test-{france,india,us}
+foreach ($c in 'france','india','us') { & $K kernels push -p "kaggle\kernelsmlc2026-block-test-$c" }
+```
+
+Each writes only its own `cache/cand/test/<country>/` part files (the combine step is skipped). Afterwards
+attach all three as `kernel_sources` of one kernel with `STAGES = ["combine_test"]`, or combine locally
+(`python -m src.blocking --stage combine --split test`) after downloading the parts.
+
 ## 3. Status
 
 ```powershell
@@ -87,7 +108,14 @@ slug, e.g. change `id`/`title` to `aryaambekar/amlc2026-pipeline-2`, and keep `k
 
 ## 4. Download outputs
 
-Small results only (result files, run marker and the kernel log):
+Easiest (sets `PYTHONUTF8` and the token itself):
+
+```powershell
+.\kaggle\download_results.ps1 -Kernel aryaambekar/amlc2026-pipeline -Name 20260926-v1          # small results
+.\kaggle\download_results.ps1 -Kernel aryaambekar/amlc2026-pipeline -Name 20260926-v1 -All     # everything
+```
+
+Or by hand. Small results only (result files, run marker and the kernel log):
 
 ```powershell
 $run = "kaggle\runs\$(Get-Date -Format yyyyMMdd-HHmm)"; New-Item -ItemType Directory -Force $run | Out-Null

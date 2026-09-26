@@ -22,3 +22,4 @@ Thumbs.db
 # Kaggle: built code bundle and downloaded kernel outputs
 /kaggle/code_bundle/*.zip
 /kaggle/runs/
+/kaggle/kernels/
