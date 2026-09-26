@@ -1,0 +1,13 @@
+2026-09-26 00:43:13 INFO machine: {'ram_total_gb': 15.25, 'ram_available_gb': 5.03, 'ram_used_pct': 67.0, 'cpu_physical': 8, 'cpu_logical': 16}
+2026-09-26 00:43:13 WARNING ONLY 5.03 GB RAM FREE (< 7 GB). Close other programs, or re-run with --allow-low-ram to proceed anyway.
+2026-09-26 01:00:39 INFO machine: {'ram_total_gb': 15.25, 'ram_available_gb': 5.31, 'ram_used_pct': 65.2, 'cpu_physical': 8, 'cpu_logical': 16}
+2026-09-26 01:00:39 WARNING ONLY 5.31 GB RAM FREE (< 7 GB). Close other programs, or re-run with --allow-low-ram to proceed anyway.
+2026-09-26 01:01:25 INFO machine: {'ram_total_gb': 15.25, 'ram_available_gb': 6.34, 'ram_used_pct': 58.4, 'cpu_physical': 8, 'cpu_logical': 16}
+2026-09-26 01:01:25 WARNING ONLY 6.34 GB RAM FREE (< 7 GB). Close other programs, or re-run with --allow-low-ram to proceed anyway.
+2026-09-26 01:04:05 INFO machine: {'ram_total_gb': 15.25, 'ram_available_gb': 6.84, 'ram_used_pct': 55.1, 'cpu_physical': 8, 'cpu_logical': 16}
+2026-09-26 01:04:05 WARNING ONLY 6.84 GB RAM FREE (< 7 GB). Close other programs, or re-run with --allow-low-ram to proceed anyway.
+2026-09-26 01:05:42 INFO machine: {'ram_total_gb': 15.25, 'ram_available_gb': 6.83, 'ram_used_pct': 55.2, 'cpu_physical': 8, 'cpu_logical': 16}
+2026-09-26 01:05:42 WARNING ONLY 6.83 GB RAM FREE (< 7 GB). Close other programs, or re-run with --allow-low-ram to proceed anyway.
+2026-09-26 01:06:13 INFO machine: {'ram_total_gb': 15.25, 'ram_available_gb': 6.79, 'ram_used_pct': 55.5, 'cpu_physical': 8, 'cpu_logical': 16}
+2026-09-26 01:06:13 WARNING ONLY 6.79 GB RAM FREE (< 7 GB). Close other programs, or re-run with --allow-low-ram to proceed anyway.
+2026-09-26 01:06:14 INFO [bench_India] start (rss 318 MB)

@@ -18,6 +18,7 @@ from anyascii import anyascii
 # matched as whole-token sequences anywhere in the name, longest phrase first).
 LEGAL_FORMS = {
     "PRIVATE_LIMITED": ["private limited", "private ltd", "pvt limited", "pvt ltd", "pvt", "private"],
+    "PUBLIC_LIMITED": ["public limited", "public ltd", "pub ltd"],
     "LIMITED": ["limited", "ltd"],
     "LLC": ["llc"],
     "INC": ["inc", "incorporated"],
@@ -68,6 +69,12 @@ TRANSLIT_WORDS = {
 # Multi-token transliterations: 'pra li' is the Devanagari abbreviation of Pvt. Ltd. (134,723).
 TRANSLIT_PHRASES = {("pra", "li"): ["private", "limited"]}
 
+# A code is dropped when a more specific code is also present ('(Pvt) Ltd' -> PRIVATE_LIMITED only).
+LEGAL_SUBSUMED_BY = {"LIMITED": {"PRIVATE_LIMITED", "PUBLIC_LIMITED"}}
+
+# Courtesy prefixes stripped from the start of a name ('M/s', 'M/s.', 'M S', 'Messrs').
+RE_NAME_PREFIX = re.compile(r"^[^a-z0-9]*(?:m\s*/\s*s|m\s+s|messrs)\b\.?\s*")
+
 # Words dropped from name_core (after legal forms are removed).
 NAME_FILLER = {"the", "and", "of", "et"}
 # Titles dropped when they are the first token of a name.
@@ -83,8 +90,10 @@ ADDRESS_ABBREVIATIONS = {
     "pl": "place",
     "imp": "impasse",
     "all": "allee",
-    "che": "chemin", "ch": "chemin",
 }
+# 'ch' / 'che' -> 'chemin' only when followed by one of RUE_FOLLOWERS (see _expand_address_tokens);
+# unconditionally it broke Indian addresses such as 'CH.SAMBHAJI NAGAR'.
+CHEMIN_ABBREVIATIONS = {"ch", "che"}
 # Tokens that, following 'st'/'dr', mean the abbreviation is a street type.
 STREET_TYPE_FOLLOWERS = {"n", "s", "e", "w", "ne", "nw", "se", "sw", "north", "south", "east", "west",
                          "apt", "apartment", "ste", "suite", "unit", "fl", "floor", "bldg", "building",
@@ -211,6 +220,20 @@ def map_transliterated(tokens: list) -> list:
     return out
 
 
+def legal_form_code(codes: list) -> str:
+    """Join legal-form codes into the canonical 'A|B' string, dropping subsumed codes."""
+    found = set(codes)
+    return "|".join(sorted(c for c in found if not (LEGAL_SUBSUMED_BY.get(c, set()) & found)))
+
+
+def bracket_legal_codes(s: str) -> list:
+    """Return legal-form codes found inside bracketed tags of ``s`` ('[Limited]', '(Pvt)')."""
+    codes = []
+    for m in RE_BRACKET_ALPHA.finditer(s):
+        codes.extend(extract_legal(RE_NAME_TOKEN.findall(m.group()))[0])
+    return codes
+
+
 def extract_legal(tokens: list) -> tuple:
     """Split tokens into (legal-form codes found, remaining tokens) by longest whole-token match."""
     codes, rest, i, n = [], [], 0, len(tokens)
@@ -242,7 +265,9 @@ def normalize_name(raw: str) -> tuple:
         stem = re.sub(r"[^a-z0-9]", "", m.group(1))
         s = f"{s[:m.start()]} {stem} {s[m.end():]}"
 
+    s = RE_NAME_PREFIX.sub("", s)
     s = common_clean(s)
+    bracket_codes = bracket_legal_codes(s)
     s = RE_BRACKET_ALPHA.sub(" ", s)
     s = RE_BRACKET_CHARS.sub(" ", s)
     s = RE_HASH_NUM.sub(" ", s)
@@ -267,7 +292,7 @@ def normalize_name(raw: str) -> tuple:
             fallback = bool(toks)
             core = toks
     core = dedupe_consecutive(core)
-    return (name_clean, "|".join(sorted(set(codes))), " ".join(core), "".join(core),
+    return (name_clean, legal_form_code(codes + bracket_codes), " ".join(core), "".join(core),
             "".join(t[0] for t in core), stem is not None, nonlatin, fallback)
 
 
@@ -288,6 +313,9 @@ def _expand_address_tokens(toks: list) -> list:
             prv = toks[i - 1] if i > 0 else None
             if nxt is not None and (nxt in RUE_FOLLOWERS or (prv is not None and prv.isdigit() and nxt.isalpha())):
                 t = "rue"
+        elif t in CHEMIN_ABBREVIATIONS:
+            if nxt in RUE_FOLLOWERS:
+                t = "chemin"
         else:
             t = ADDRESS_ABBREVIATIONS.get(t, t)
         out.append(t)

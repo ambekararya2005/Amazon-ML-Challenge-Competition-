@@ -63,6 +63,29 @@ class TestNames(unittest.TestCase):
         self.assertEqual((r["core"], r["legal"]), ("al tek", "PRIVATE_LIMITED"))
         self.assertEqual(name("अल टेक प्रा. लि.")["legal"], "PRIVATE_LIMITED")
 
+    def test_courtesy_prefix_stripped(self):
+        """'M/s', 'M/s.', 'M S', 'Messrs' at the start of a name are removed."""
+        for raw in ("M/s Special India Traders", "M/S. Special India Traders", "M S Special India Traders",
+                    "Messrs Special India Traders", "*** m/s Special India Traders"):
+            self.assertEqual(name(raw)["core"], "special india traders", raw)
+        self.assertEqual(name("M Sharma Traders")["core"], "m sharma traders")
+
+    def test_public_limited(self):
+        """'Public Limited' / 'Public Ltd' / 'Pub Ltd' -> PUBLIC_LIMITED; lone 'public' stays in the core."""
+        for raw in ("Hotel Constructions Public Limited", "Hotel Constructions Public Ltd", "Hotel Constructions Pub Ltd"):
+            r = name(raw)
+            self.assertEqual((r["core"], r["legal"]), ("hotel constructions", "PUBLIC_LIMITED"), raw)
+        self.assertEqual(name("Public Health Care Ltd")["core"], "public health care")
+
+    def test_legal_form_inside_brackets(self):
+        """Legal forms inside bracket tags are recorded before the tag is removed; other tags just go."""
+        r = name("Kaverin Trading [Limited]")
+        self.assertEqual((r["core"], r["legal"]), ("kaverin trading", "LIMITED"))
+        r = name("Sharma Foods (Pvt) Ltd")
+        self.assertEqual((r["core"], r["legal"]), ("sharma foods", "PRIVATE_LIMITED"))
+        r = name("Heritage Semiconductor Union (Holdings)")
+        self.assertEqual((r["core"], r["legal"]), ("heritage semiconductor union", ""))
+
     def test_accents_not_nonlatin(self):
         """Accented Latin is folded but is not flagged as non-Latin."""
         r = name("Engages Àrt Pharmacie SCI")
@@ -118,6 +141,12 @@ class TestAddresses(unittest.TestCase):
         r = addr("5 bis Rue Pierre Dignac")
         self.assertEqual((r["clean"], r["numbers"]), ("5 rue pierre dignac", "5"))
         self.assertEqual(addr("(41) Rue Des Thuyas")["numbers"], "41")
+
+    def test_chemin_only_before_articles(self):
+        """'ch'/'che' -> 'chemin' only before de/du/des/d/la/le; 'CH.SAMBHAJI' is left alone."""
+        self.assertEqual(addr("12 CH DE LA FORET, NANTES")["clean"], "12 chemin de la foret, nantes")
+        self.assertEqual(addr("3 che du moulin")["clean"], "3 chemin du moulin")
+        self.assertEqual(addr("CH.SAMBHAJI NAGAR, AURANGABAD")["clean"], "ch sambhaji nagar, aurangabad")
 
     def test_empty(self):
         """An empty or placeholder-only address is flagged empty."""

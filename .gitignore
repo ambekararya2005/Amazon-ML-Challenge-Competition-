@@ -18,3 +18,7 @@ __pycache__/
 __MACOSX/
 .DS_Store
 Thumbs.db
+
+# Kaggle: built code bundle and downloaded kernel outputs
+/kaggle/code_bundle/*.zip
+/kaggle/runs/

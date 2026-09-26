@@ -23,12 +23,11 @@ import re
 import time
 from collections import Counter
 
-import psutil
 import pyarrow as pa
 import pyarrow.compute as pc
 import pyarrow.parquet as pq
 
-from .config import CACHE_DIR, LOG_DIR, SEED, SOURCES, SPLITS, set_seeds
+from .config import CACHE_DIR, LOG_DIR, SEED, SOURCES, SPLITS, add_path_args, cpu_count, env_int, set_seeds
 from .io_utils import list_countries, raw_parquet_path, read_parquet
 from .logging_utils import StageTimer, get_logger
 from .text_norm import ADDR_FIELDS, NAME_FIELDS, normalize_batch
@@ -49,8 +48,8 @@ def norm_path(split: str, source: int):
 
 
 def default_workers() -> int:
-    """Return the default worker count: physical cores minus two, at least one."""
-    return max(1, (psutil.cpu_count(logical=False) or 2) - 2)
+    """Return the default worker count: env N_WORKERS, else usable CPUs minus one (main process writes), at least one."""
+    return env_int("N_WORKERS", max(1, cpu_count() - 1))
 
 
 # ------------------------------------------------------------------ normalise stage
@@ -268,6 +267,7 @@ def main() -> None:
     ap.add_argument("--stage", choices=["normalize", "examples", "nonlatin_tokens"], default="normalize")
     ap.add_argument("--force", action="store_true", help="rebuild cached outputs")
     ap.add_argument("--workers", type=int, default=default_workers(), help="worker processes (1 = in-process)")
+    add_path_args(ap)
     args = ap.parse_args()
     set_seeds()
     logger = get_logger("normalize")

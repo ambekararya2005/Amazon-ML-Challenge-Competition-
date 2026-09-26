@@ -20,13 +20,13 @@
           "pct_filler_numbers": 0.0,
           "pct_name_nonlatin": 0.0,
           "pct_is_domain": 0.0,
-          "pct_has_legal_form": 56.903,
+          "pct_has_legal_form": 56.905,
           "pct_name_core_fallback": 0.0,
           "pct_addr_empty": 0.0
         }
       },
       "rows": 2206821,
-      "rows_per_s": 69146
+      "rows_per_s": 120223
     },
     "train_s2": {
       "by_country": {
@@ -37,7 +37,7 @@
           "pct_filler_numbers": 0.015,
           "pct_name_nonlatin": 23.508,
           "pct_is_domain": 3.395,
-          "pct_has_legal_form": 77.324,
+          "pct_has_legal_form": 78.971,
           "pct_name_core_fallback": 0.002,
           "pct_addr_empty": 2.867
         },
@@ -48,13 +48,13 @@
           "pct_filler_numbers": 3.33,
           "pct_name_nonlatin": 0.0,
           "pct_is_domain": 4.395,
-          "pct_has_legal_form": 47.552,
+          "pct_has_legal_form": 50.563,
           "pct_name_core_fallback": 0.003,
           "pct_addr_empty": 3.683
         }
       },
       "rows": 5034616,
-      "rows_per_s": 70159
+      "rows_per_s": 122689
     },
     "train_s3": {
       "by_country": {
@@ -65,7 +65,7 @@
           "pct_filler_numbers": 0.014,
           "pct_name_nonlatin": 13.166,
           "pct_is_domain": 3.643,
-          "pct_has_legal_form": 74.408,
+          "pct_has_legal_form": 76.148,
           "pct_name_core_fallback": 0.01,
           "pct_addr_empty": 3.07
         },
@@ -76,13 +76,13 @@
           "pct_filler_numbers": 3.148,
           "pct_name_nonlatin": 0.0,
           "pct_is_domain": 4.218,
-          "pct_has_legal_form": 46.681,
+          "pct_has_legal_form": 49.758,
           "pct_name_core_fallback": 0.005,
           "pct_addr_empty": 3.501
         }
       },
       "rows": 5285603,
-      "rows_per_s": 69119
+      "rows_per_s": 118372
     },
     "test_s1": {
       "by_country": {
@@ -115,13 +115,13 @@
           "pct_filler_numbers": 0.0,
           "pct_name_nonlatin": 0.0,
           "pct_is_domain": 0.0,
-          "pct_has_legal_form": 56.841,
+          "pct_has_legal_form": 56.843,
           "pct_name_core_fallback": 0.0,
           "pct_addr_empty": 0.0
         }
       },
       "rows": 1732544,
-      "rows_per_s": 57265
+      "rows_per_s": 97593
     },
     "test_s2": {
       "by_country": {
@@ -132,7 +132,7 @@
           "pct_filler_numbers": 0.0,
           "pct_name_nonlatin": 0.0,
           "pct_is_domain": 3.492,
-          "pct_has_legal_form": 60.477,
+          "pct_has_legal_form": 62.312,
           "pct_name_core_fallback": 0.071,
           "pct_addr_empty": 3.062
         },
@@ -143,7 +143,7 @@
           "pct_filler_numbers": 0.014,
           "pct_name_nonlatin": 23.636,
           "pct_is_domain": 2.747,
-          "pct_has_legal_form": 78.7,
+          "pct_has_legal_form": 80.322,
           "pct_name_core_fallback": 0.001,
           "pct_addr_empty": 2.282
         },
@@ -154,13 +154,13 @@
           "pct_filler_numbers": 3.362,
           "pct_name_nonlatin": 0.0,
           "pct_is_domain": 3.624,
-          "pct_has_legal_form": 49.424,
+          "pct_has_legal_form": 52.362,
           "pct_name_core_fallback": 0.003,
           "pct_addr_empty": 2.945
         }
       },
       "rows": 4887273,
-      "rows_per_s": 60946
+      "rows_per_s": 101244
     },
     "test_s3": {
       "by_country": {
@@ -171,7 +171,7 @@
           "pct_filler_numbers": 0.0,
           "pct_name_nonlatin": 0.0,
           "pct_is_domain": 3.431,
-          "pct_has_legal_form": 59.466,
+          "pct_has_legal_form": 61.231,
           "pct_name_core_fallback": 0.084,
           "pct_addr_empty": 2.944
         },
@@ -182,7 +182,7 @@
           "pct_filler_numbers": 0.013,
           "pct_name_nonlatin": 13.332,
           "pct_is_domain": 2.954,
-          "pct_has_legal_form": 76.236,
+          "pct_has_legal_form": 77.96,
           "pct_name_core_fallback": 0.007,
           "pct_addr_empty": 2.463
         },
@@ -193,19 +193,19 @@
           "pct_filler_numbers": 3.213,
           "pct_name_nonlatin": 0.0,
           "pct_is_domain": 3.48,
-          "pct_has_legal_form": 48.593,
+          "pct_has_legal_form": 51.638,
           "pct_name_core_fallback": 0.003,
           "pct_addr_empty": 2.843
         }
       },
       "rows": 5082316,
-      "rows_per_s": 64624
+      "rows_per_s": 107199
     }
   },
   "last_run": {
     "rows": 24229173,
     "workers": 6,
-    "rows_per_s": 65601
+    "rows_per_s": 111369
   },
   "by_country": {
     "test|France": {
@@ -215,7 +215,7 @@
       "pct_filler_numbers": 0.0,
       "pct_name_nonlatin": 0.0,
       "pct_is_domain": 2.931,
-      "pct_has_legal_form": 61.246,
+      "pct_has_legal_form": 62.769,
       "pct_name_core_fallback": 0.069,
       "pct_addr_empty": 2.542
     },
@@ -226,7 +226,7 @@
       "pct_filler_numbers": 0.014,
       "pct_name_nonlatin": 15.689,
       "pct_is_domain": 2.435,
-      "pct_has_legal_form": 78.442,
+      "pct_has_legal_form": 79.871,
       "pct_name_core_fallback": 0.004,
       "pct_addr_empty": 2.026
     },
@@ -237,7 +237,7 @@
       "pct_filler_numbers": 2.8,
       "pct_name_nonlatin": 0.0,
       "pct_is_domain": 3.025,
-      "pct_has_legal_form": 50.161,
+      "pct_has_legal_form": 52.711,
       "pct_name_core_fallback": 0.003,
       "pct_addr_empty": 2.465
     },
@@ -248,7 +248,7 @@
       "pct_filler_numbers": 0.015,
       "pct_name_nonlatin": 15.008,
       "pct_is_domain": 2.902,
-      "pct_has_legal_form": 77.321,
+      "pct_has_legal_form": 78.717,
       "pct_name_core_fallback": 0.005,
       "pct_addr_empty": 2.448
     },
@@ -259,7 +259,7 @@
       "pct_filler_numbers": 2.666,
       "pct_name_nonlatin": 0.0,
       "pct_is_domain": 3.546,
-      "pct_has_legal_form": 48.832,
+      "pct_has_legal_form": 51.341,
       "pct_name_core_fallback": 0.003,
       "pct_addr_empty": 2.957
     }

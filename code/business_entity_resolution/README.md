@@ -39,7 +39,11 @@ Tests: `python -m unittest -v`
 
 _Later stages (normalise → blocking → matching → output) are added here as they are built._
 
-Directory overrides: `BER_DATA_DIR`, `BER_CACHE_DIR`, `BER_OUTPUT_DIR`, `BER_LOG_DIR`.
+Directory overrides (every stage): CLI `--data-root/--cache-root/--output-root/--log-root`, else env
+`DATA_ROOT/CACHE_ROOT/OUTPUT_ROOT/LOG_ROOT` (legacy `BER_*_DIR` still accepted), else the local defaults above.
+On Kaggle the data folder is auto-detected under `/kaggle/input`. Threads: `N_THREADS` (default `os.cpu_count()`);
+normalise workers: `--workers` / `N_WORKERS` (default CPUs − 1); blocking RAM gate: `--min-free-gb` / `MIN_FREE_GB` (7).
+Heavy stages run on Kaggle: see `kaggle/README_kaggle.md`.
 
 ## Layout
 

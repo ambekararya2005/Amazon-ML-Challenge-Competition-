@@ -14,7 +14,7 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-from .config import CACHE_DIR, SEED, set_seeds
+from .config import CACHE_DIR, SEED, add_path_args, set_seeds
 from .io_utils import raw_parquet_path, read_parquet, write_parquet
 from .logging_utils import StageTimer, get_logger
 
@@ -84,6 +84,7 @@ def main() -> None:
     """Build (or load) the split, print the sanity table and check train/val balance."""
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--force", action="store_true", help="rebuild even if cache/split.parquet exists")
+    add_path_args(ap)
     args = ap.parse_args()
     set_seeds()
     logger = get_logger("split")

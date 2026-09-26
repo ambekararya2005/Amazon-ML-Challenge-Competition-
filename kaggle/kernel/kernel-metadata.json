@@ -1,0 +1,18 @@
+{
+  "id": "aryaambekar/amlc2026-pipeline",
+  "title": "amlc2026-pipeline",
+  "code_file": "run_pipeline_kaggle.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [
+    "aryaambekar/amlc2026-data",
+    "aryaambekar/amlc2026-code"
+  ],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

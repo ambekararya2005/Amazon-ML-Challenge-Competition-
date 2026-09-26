@@ -19,7 +19,7 @@ import json
 import pandas as pd
 import pyarrow.parquet as pq
 
-from .config import LOG_DIR, SOURCES, SPLITS, TEXT_COLS, set_seeds
+from .config import DATA_DIR, LOG_DIR, SOURCES, SPLITS, TEXT_COLS, add_path_args, set_seeds
 from .io_utils import (ground_truth_tsv_path, raw_parquet_path, read_ground_truth_tsv,
                        read_parquet, read_source_tsv, source_tsv_path, write_parquet)
 from .logging_utils import MB, StageTimer, get_logger, machine_info
@@ -144,12 +144,14 @@ def main() -> None:
     """Parse CLI flags, log machine info, convert every table and write logs/data_summary.json."""
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--force", action="store_true", help="rebuild Parquet even if cached")
+    add_path_args(ap)
     args = ap.parse_args()
 
     set_seeds()
     logger = get_logger("prepare_data")
     machine = machine_info()
     logger.info("machine: %s", machine)
+    logger.info("data root: %s", DATA_DIR)
 
     summary_path = LOG_DIR / SUMMARY_FILE
     summary = json.loads(summary_path.read_text(encoding="utf-8")) if summary_path.exists() else {}

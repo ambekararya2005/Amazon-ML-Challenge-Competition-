@@ -23,14 +23,21 @@ FORBIDDEN_ID_CHARS = ("\t", ",", "\r", "\n")
 
 
 # ---------------------------------------------------------------- paths
+def data_file(split: str, name: str) -> Path:
+    """Return DATA_DIR/<split>/<name> (organiser layout), or DATA_DIR/<name> if only the flat layout exists."""
+    nested = DATA_DIR / split / name
+    flat = DATA_DIR / name
+    return flat if not nested.exists() and flat.exists() else nested
+
+
 def source_tsv_path(split: str, source: int) -> Path:
     """Return the raw TSV path for one split ("train"/"test") and source (1/2/3)."""
-    return DATA_DIR / split / f"{split}_source{source}.tsv"
+    return data_file(split, f"{split}_source{source}.tsv")
 
 
 def ground_truth_tsv_path(split: str = "train") -> Path:
     """Return the raw ground-truth TSV path (only exists for train)."""
-    return DATA_DIR / split / f"{split}_ground_truth.tsv"
+    return data_file(split, f"{split}_ground_truth.tsv")
 
 
 def raw_parquet_path(split: str, name: str) -> Path:

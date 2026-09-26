@@ -36,3 +36,26 @@
   only PMB/PO Box/box are filler (0% in S1). Empty `numbers` fell 11.3->7.7% (train US), 12.7->9.2% (train India), 8.5->5.8% (test France).
 - Final per (split|country) %: empty name_core 0.00 everywhere; empty numbers France 5.76, test India 7.73, test US 6.47,
   train India 9.23, train US 7.70; name_nonlatin India 15.0-15.7, US/France 0.
+
+## 2026-09-26 — Kaggle runner setup (path-agnostic pipeline)
+- `src/config.py`: every root resolved as CLI flag (`--data-root/--cache-root/--output-root/--log-root`, accepted by every stage)
+  > env (`DATA_ROOT/CACHE_ROOT/OUTPUT_ROOT/LOG_ROOT`, legacy `BER_*`) > local default (unchanged). Data folder auto-detected
+  under `/kaggle/input` (search for `train_source1.tsv`; nested or flat layout). `N_THREADS` = `os.cpu_count()`-based (affinity-aware).
+- `normalize.py` workers default = CPUs − 1 (env `N_WORKERS`); `blocking.py` uses `config.N_THREADS`; RAM gate configurable
+  (`--min-free-gb` / env `MIN_FREE_GB`, default 7). New `tests/test_config.py`; 43 tests pass.
+- `kaggle/`: `build_bundle.py` (zip 43 KB, 16 files + BUNDLE_INFO.json), `code_bundle/dataset-metadata.json`,
+  `kernel/run_pipeline_kaggle.py` + `kernel-metadata.json`, `README_kaggle.md`. Kernel script smoke-tested locally on a fake
+  /kaggle tree (bundle install, pin check, stage run, results collection, previous-cache reuse).
+- Kaggle run not started yet: `KAGGLE_API_TOKEN` not found in the User/Machine environment.
+
+## 2026-09-26 — Kaggle run v1: load, normalize, split, block_benchmark (kernel aryaambekar/amlc2026-pipeline v1)
+- Machine: 4 vCPU (2 physical, Xeon 2.20 GHz), 31.35 GB RAM, Python 3.12.13. Code commit d75b6e83 +dirty. Pinned
+  packages installed over the image (pandas 3.0.6, numpy 2.4.6, sklearn 1.9.1, ...); pip conflicts only in unused preinstalled packages.
+- Reproducibility: row counts, train_pairs 7,638,365, split (train 1,875,797 / val 331,024, same singleton rates) and
+  every per-country normalisation statistic identical to the local run.
+- Stages: load 4.4 min (peak RSS 3.34 GB), normalize 14.5 min (3 workers, 2.48 GB), split 0.3 min (1.14 GB),
+  block_benchmark 34.5 min (3.58 GB). Whole kernel ~55 min; peak system RAM used 4.4 GB of 31 GB.
+- Benchmark (100k train S2 queries, 4 threads): pass A index 10 s, 2.1-3.5 s / 100k queries, 6.5-8.4 cands/query;
+  pass C fit 100-108 s (vocab ~190-200k, nnz ~123M), **1661 s (India) / 1922 s (US) per 100k queries** = 99.8% of query time.
+- Projection: train recall run 442 min (India 163, US 280), peak 4.9 GB; test 2996 min (~50 h: France 461, India 1310,
+  US 1225), peak 3.1 GB. Test exceeds the 90-min gate and the 12 h Kaggle limit -> pass C must be sped up before blocking.
