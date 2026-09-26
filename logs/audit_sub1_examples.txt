@@ -1,0 +1,316 @@
+
+========== France: 15 random test S1 ==========
+
+S1 S1-98534030: Application Union SARL | 9 Rue Jean Forton, Bordeaux, Nouvelle-Aquitaine
+    -> S3-751103362 [name 93 / addr 92]: Application Uifn SARL | N° 9 R. Jean Forton, Bordeaux
+    -> S3-522219545 [name 84 / addr 94]: Application Sportive SARL | 14 R Jean Forton, Bordeaux, Nouvelle-Aquitaine
+    -> S3-828915223 [name 100 / addr 94]: Application Union Développement SARL | 14 R Jean Forton, Bordeaux, Nouvelle-Aquitaine
+
+S1 S1-514697826: Lycée du Activites | 163 Rue d'Iéna, Lille, Hauts-de-France
+    -> S2-31146376 [name 100 / addr 94]: Lycée Du Activites | 163 R. D'IENA, LILLE, Hauts-de-France
+    -> S3-383536251 [name 100 / addr 97]: Lycée du Activites | 163 Rue D'iena, Lille, Hauts-de-France
+    -> S3-466251692 [name 100 / addr 97]: Lycée du Activites SASU | 163 Rue D'iena, Lille, Hauts-de-France
+    -> S2-92768002 [name 100 / addr 78]: Lycée du Activites SASU | 184 RUE D'IÉNA, LILLE, Nord
+
+S1 S1-783292948: Cerballiance Amicale SASU | 32 Rue des Lièges, Bordeaux, Nouvelle-Aquitaine
+    -> S3-475343435 [name 100 / addr 83]: Cerballiance Amicale | No 32 Rue Des Lièges, Bordeaux, Gironde
+    -> S3-937854496 [name 94 / addr 78]: Cerballiance Amicale S.A.S.U. | No 32 R Des Lièges, Bordeaux, Gironde
+    -> S3-290476835 [name 96 / addr 78]: Cerballiance Amciale [SASU] | No 32 R Des Lièges, Bordeaux, Gironde
+    -> S2-636326641 [name 100 / addr 94]: Cerballiance Amicale Sasu | RUE DES LEIGES, BORDEAUX, Nouvelle-Aquitaine
+    -> S3-361153847 [name 100 / addr 98]: [SASU] Cerballiance Amicale Holding | 37 Rue Des Lièges, Bordeaux, Nouvelle-Aquitaine
+    -> S2-245932572 [name 81 / addr 90]: Cerballiance Àmicale Participations SASU | Nº 37 RUE DES LIEEGS, BORDEAUX, Nouvelle-Aquitaine
+
+S1 S1-254899427: Centre Médical Marie | 9 Rue Belair, Bordeaux, Nouvelle-Aquitaine
+    -> S3-796910030 [name 100 / addr 94]: Centre Médical  Marie | 9 R. Belair, Bordeaux
+    -> S3-678178805 [name 95 / addr 100]: Centre Médical Mârie | 9 Rue Belair, Bordeaux
+    -> S3-774439524 [name 59 / addr 100]: Amicale Marie SAS | 9 Rue Belair, Bordeaux
+    -> S2-735799383 [name 100 / addr 68]: CENTRE MÉDICAL MARIE | 9 RUE BELAR, BORDEAUX, Gironde
+
+S1 S1-189832466: Prive Centre | 49 Rue de la Potente, Tourcoing, Hauts-de-France
+    -> S2-928423488 [name 100 / addr 100]: Prive Centre EURL | 49 RUE DE LA POTENTE, TOURCOING
+    -> S2-719361355 [name 100 / addr 100]: prive centre | 49 RUE DE LA POTENTE, TOURCOING
+    -> S3-279176276 [name 100 / addr 95]: prive centre | No. 49 Rue De La Potente, Tourcoing
+
+S1 S1-343257233: École primaire de Notre | Bordeaux, Nouvelle-Aquitaine, 200 Rue Fernand Audeguil
+    -> S3-888609417 [name 85 / addr 100]: École de Notre & Fils | Nouvelle-Aquitaine, 200 Rue Fernand Audeguil, Bordeaux
+    -> S2-673932284 [name 100 / addr 85]: École primaire de Notre | 200 R. FERNAND AUDEGUIL, BORDEAUX, Gironde
+    -> S3-715369263 [name 80 / addr 98]: École de Notre Groupe | 200 Rue Fernand Audeguli, Bordeaux, Nouvelle-Aquitaine
+    -> S3-844182120 [name 100 / addr 75]: École primaire de Notre EURL | 205 Rue Fernand Audgeuil, Bordeaux
+
+S1 S1-481977976: Chorale Auto SARL | 85 Rue de la Source, Pornic, Pays de la Loire
+    -> S2-428787409 [name 100 / addr 100]: Chorale Auto | 85 RUE DE LA SOURCE, PORNIC
+    -> S2-730746263 [name 94 / addr 100]: Chorale Àuto SARL | 85 RUE DE LA SOURCE, PORNIC
+    -> S3-461792389 [name 83 / addr 96]: Chorale Auto S.A.R.L. | 85 R De La Source, Pornic
+    -> S2-384150301 [name 100 / addr 100]: Chorale Auto | PORNIC, 85 RUE DE LA SOURCE
+    -> S3-891457981 [name 94 / addr 86]: Chorale Àuto SARL | 85 Rue De La Surce, Pornic
+    -> S2-134669805 [name 83 / addr 77]: Chorale Auto S.A.R.L. | 85 R DE LA SOCRCE, PORNIC
+    -> S3-611614038 [name 94 / addr 100]: Chorale Acto  SARL | 85 Rue De La Source, Pornic
+    -> S2-783650857 [name 88 / addr 88]: Chorale Auto  SASU | 98 R DE LA SOURCE, PORNIC
+    -> S2-552077821 [name 65 / addr 88]: Chorale Amis S.A.R.L. | 98 R. DE LA SOURCE, PORNIC
+    -> S3-95275825 [name 100 / addr 94]: Chorale Auto International SARL | 98 - R. De La Source, Pornic, Pays de la Loire
+
+S1 S1-541483089: Aead (France) Federation SCI | Nouvelle-Aquitaine, 6 Chemin de l’Oustalet, La Teste-de-Buch
+    -> S2-727730770 [name 100 / addr 100]: Aead (France) Federation SCI | 6 CHEMIN DE L’OUSTALET, LA TESTE-DE-BUCH
+    -> S2-901700419 [name 100 / addr 100]: aead (france) federation sci | 6 CHEMIN DE L’OUSTALET, LA TESTE-DE-BUCH
+    -> S3-445107705 [name 96 / addr 91]: Aead (Frànce) Federation SCI | No. 6 Ch De L’oustalet, La Teste-de-buch
+    -> S3-305794993 [name 100 / addr 96]: Aead (France) Federation SCI | No. 6 Chemin De L’oustalet, La Teste De Buch
+    -> S3-652436508 [name 100 / addr 96]: Aead (France) Federation SCI | La Teste-de-buch, No. 6 Chemin De L’oustalet
+    -> S2-550189981 [name 85 / addr 95]: Aead Federation SCI Services | 6 CH DE L’OUSTALET, LA TESTE-DE-BUCH
+    -> S3-186365875 [name 100 / addr 96]: (Federation) Aead (France) SCI | No. 6 Chemin De L’oustalet, La Teste-de-Buch
+    -> S3-356001688 [name 92 / addr 91]: Aead (France) Federation International | No. 10 Ch De L’ousnalet, La Teste-de-buch, Nouvelle-Aquitaine
+
+S1 S1-182755130: Pedales Parents SAS | 17 Boulevard Thiers, Pornic, Pays de la Loire
+    -> S2-159046751 [name 100 / addr 96]: Pedales Parents SAS | 17 BD. THIERS, PORNIC, Pays de la Loire
+    -> S2-938993566 [name 100 / addr 99]: PEDALES  PARENTS SAS | 17 BULEVARD THIERS, PORNIC, Pays de la Loire
+    -> S3-905477721 [name 100 / addr 90]: Pedales Parents | Bd Thiers, Pornic
+    -> S3-54525009 [name 74 / addr 94]: Pedales Amicale SAS | 30 Boulevard Thiers, Pornic
+    -> S2-716403477 [name 55 / addr 98]: pedalesparentssas.com | Pays de la Loire, 17 BOULEVARD THIRES, PORNIC
+
+S1 S1-51925503: Dunkerque Club EURL | 52 Rue Jean Bart, Dunkerque, Hauts-de-France
+    -> S2-995435005 [name 100 / addr 84]: Dunkerque Club | 0052 R. JEAN BART, DUNKERQUE
+    -> S2-637239092 [name 100 / addr 90]: Dunkerque Club EURL | 0052 RUE JEAN BART, DUNKERQUE
+    -> S2-270291206 [name 88 / addr 80]: Dunkerque Club Sci | 52 PLACE JEAN BART, DUNKERQUE, Nord
+
+S1 S1-434873823: Tam Musique SARL | 6 Cité Dasvin de Boismarin, Bordeaux, Nouvelle-Aquitaine
+    -> S2-762391397 [name 100 / addr 82]: Tam Musique | 6 CITE DASVIN DE BOISMARIN, BORDEAUX, Gironde
+    -> S3-469835135 [name 100 / addr 82]: Tam Musique Sarl | 6 Cilé Dasvin De Boismarin, Bordeaux, Gironde
+    -> S3-313130592 [name 65 / addr 90]: Tammusiquesarl.Com | 6 Cité Dasvin De Boismarin, Bordeaux, Gironde
+    -> S3-791335782 [name 94 / addr 83]: Tam Mùsique SARL | 6 Cie Dasvin De Boismarin, Bordeaux, Gironde
+
+S1 S1-79585669: Bordeaux Foyer SAS | 27 Rue Monthyon, Bordeaux, Nouvelle-Aquitaine
+    -> S2-456545058 [name 100 / addr 100]: Bordeaux Foyer SAS | 27 RUE MONTHYON, BORDEAUX, Nouvelle-Aquitaine
+    -> S2-46385053 [name 100 / addr 98]: Bordeaux Foyer SAS | Nouvelle-Aquitaine, BORDEAUX, 27 R MONTHYON
+    -> S3-685471988 [name 83 / addr 100]: Bordeaux SAS & Fils | 27 Rue Monthyon, Bordeaux
+    -> S2-81640678 [name 94 / addr 98]: BORDEAUX FÔYER SAS | 27 RUE MONTHOYN, BORDEAUX, Nouvelle-Aquitaine
+    -> S3-671781400 [name 100 / addr 67]: Bordeaux  Foyer SAS | Bordeaux, 27 R. Monrhyon
+    -> S2-670563916 [name 62 / addr 98]: Bordeaux Federation EURL | 25 RUE MONTHYON, BORDEAUX, Nouvelle-Aquitaine
+
+S1 S1-992299552: Ets Sm EURL | 12 Rue du Faubourg d'Arras, Lille, Hauts-de-France
+    -> S2-222653361 [name 100 / addr 100]: Ets Sm EURL | 12 RUE DU FAUBOURG D'ARRAS, LILLE
+    -> S2-36664575 [name 100 / addr 97]: Ets Sm | 12 R. DU FAUBOURG D'ARRAS, LILLE
+    -> S3-17997808 [name 100 / addr 100]: ETS SM EURL | 12 Rue Du Faubourg D'arras, Lille, Hauts-de-France
+    -> S3-629113845 [name 100 / addr 98]: Ets Sm EURL | 12 R Du Faubourg D'arras, Lille, Hauts-de-France
+    -> S3-781132475 [name 72 / addr 99]: Ets  Sm E.U.R.L. | 12 Rue Du Fauboug D'arras, Lille, Hauts-de-France
+    -> S3-743880741 [name 100 / addr 96]: Ets Sm EURL Cie | 12 R. Du Faubourg D'arrsa, Lille, Hauts-de-France
+    -> S3-661686294 [name 100 / addr 85]: Ets Sm Développement EURL | 0013 Rue Du Faubourg D'arras, Lille, Nord
+    -> S3-573967252 [name 71 / addr 81]: Ets Sm International E.U.R.L. | 0013 R Du Faubourg D'arras, Lille, Nord
+
+S1 S1-879208228: Vortex Comite SARL | 16 Rue du Transformateur, Pessac, Nouvelle-Aquitaine
+    -> S2-8378117 [name 100 / addr 100]: VORTEX COMITE SARL | PESSAC, RUE DU TRANSFORMATEUR, Nouvelle-Aquitaine
+    -> S2-923525725 [name 100 / addr 100]: Vortex Comite | RUE DU TRANSFORMATEUR, PESSAC, Nouvelle-Aquitaine
+    -> S2-859273333 [name 100 / addr 97]: SARL Vortex Comite Holding | 37 RUE DU TRANSFORMATEUR, Pessac, Nouvelle-Aquitaine
+
+S1 S1-823812557: Coeur Club | 2 Place Saint-Julien, Bordeaux, Nouvelle-Aquitaine
+    -> S2-187776390 [name 90 / addr 100]: Coeur Çlub | 2 PLACE SAINT-JULIEN, BORDEAUX, Nouvelle-Aquitaine
+    -> S2-144636339 [name 100 / addr 97]: COEUR CLUB  SARL | 2 PL. SAINT-JULIEN, BORDEAUX, Nouvelle-Aquitaine
+    -> S3-562733547 [name 100 / addr 97]: coeur club | 2 Pl. Saint-julien, Bordeaux, Nouvelle-Aquitaine
+    -> S3-624421643 [name 90 / addr 100]: Coeur Çlub | 2 Place Saint-julien, Bordeaux, Nouvelle-Aquitaine
+    -> S2-298971239 [name 100 / addr 97]: Coeur Club | Nouvelle-Aquitaine, BORDEAUX, 2 PL. SAINT-JULIEN
+    -> S3-661865161 [name 100 / addr 88]: Coeur Club Groupe  SA | Bordeaux, 15 Pl Saint-julien
+    -> S2-406156541 [name 70 / addr 91]: Coeur Amicale | NO. 15 PL. SAINT-JULIEN, BORDEAUX, Nouvelle-Aquitaine
+    -> S3-978315287 [name 67 / addr 95]: Coeur SCI & Associés | Bordeaux, 15 Place Saint-julien
+
+========== India: 15 random test S1 ==========
+
+S1 S1-519655940: United Super Logistics | Shankardada Tenament, Nr Mandakini, Opp Tejad-2, Ghatlodia, 08, Gujarat, Ahmedabad
+    -> S3-948428944 [name 93 / addr 98]: United Spae Logistics | Ahmedabad, Shankardada Tenament, Nr Mandakini, Opp Tejad-2, Ghatlodia, 08, GJ, Ahmedabad
+    -> S3-649435116 [name 100 / addr 92]: United Super Logistics Steel | Shankardada Tenament, Nr Mandakini, Opp Tejad-2, Ghatlodia, Ahmedabad, ગુજરાત, Plot 290 12, Ahmedabad
+
+S1 S1-34901346: Shivam Training Private Limited | 32, Industrial Estate Pologround, Indore (M.P.), Indore, Madhya Pradesh
+    -> S3-786458566 [name 100 / addr 97]: Shivam Training  Private [Limited] | 32, Industrial Estate Pologround, Indore (M.P.), Indore, MP
+    -> S2-386936993 [name 100 / addr 84]: Shivam Training Infratech Private Limited | मध्य प्रदेश, 45, INDUSTRIAL ESTATE POLOGROUND, INDORE (M.P.), INDORE
+    -> S3-212839052 [name 100 / addr 81]: Shri SHIVAM TRAINING EXPORTS PRIVATE LIMITED | 45, Industrial Estate Pologround, Indore (M.P.), Indore Region, Indore, मध्य प्रदेश
+    -> S3-90036110 [name 70 / addr 44]: Karuna Training | MP, Indore, N/A, Shop No. G-8, Indore
+    -> S3-810287851 [name 85 / addr 48]: Smt Shivam Training  Ventures Private | 45, Indore Region, Indore, MP
+
+S1 S1-311907208: Arihant Impex Private Limited | 5-A, Wali Mohammed Building, Dsp Road, Dadar East, Mumbai, Maharashtra
+    -> S3-838009863 [name 100 / addr 91]: Arihant Impex Limited Private | 5-A, MH, Wali Mohammed Building, Dsp Road, Dadar East, Greater Mumbai
+    -> S2-977650938 [name 11 / addr 79]: अरिहंत इम्पेक्स प्राइवेट लिमिटेड | HN 737 5-A, <NULL>, MUMBAI, Maharashtra
+
+S1 S1-982211780: Kj Education Corporation | 19-59/2, Alampur, Sy No 36/2, Plot No 497, Gadwal, Telangana
+    -> S2-16119320 [name 100 / addr 99]: Kj Corporation  Education | 019-59/2, ALAMPUR, SY NO 36/2, PLOT NO 497, GADWAL, Telangana
+    -> S2-610259437 [name 96 / addr 99]: KJ EDUCATION CÓRPORATION | 019-59/2, ALAMPUR, SY NO 36/2, PLOT NO 497, GADWAL, Telangana
+    -> S2-642325296 [name 100 / addr 99]: Kj Education  Corporation | 019-59/2, ALAMPUR, SY NO 36/2, PLOT NO 497, GADWAL, Telangana
+    -> S2-369956343 [name 89 / addr 99]: Dr Kj Education | 019-59/2, ALAMPUR, SY NO 36/2, PLOT NO 497, GADWAL, Telangana
+    -> S3-658156855 [name 96 / addr 89]: KJ EDUCATI0N CORPORATION | 644 19-59/2, Alampur, Sy No 36/2, Plot No 497, Gadwal, తెలంగాణ
+    -> S3-974849876 [name 100 / addr 89]: kj education ventures corporation (ID: 96081) | Plot 355 19-59/23, Alampur, Sy No 36/2, Plot No 497, Gadwal, TG
+
+S1 S1-200072534: Premier Energy Private Limited | Mumbai, Pangalihughes Road, Maharashtra, 55-A Surya Kiran
+    -> S3-275555772 [name 100 / addr 82]: M/s Premier Energy Automobiles Private Limited | 59-A Surya Kiran, Pangalihughes Road, N/A, महाराष्ट्र
+
+S1 S1-262241327: Rasi Mills (India) Limited | 225 Shivam Complexdr Yagnik Road, Rajkot, Gujarat
+    -> S2-816288470 [name 100 / addr 100]: Rasi Mills (India)  Limited | #225  SHIVAM COMPLEXDR YAGNIK ROAD, RAJKOT, Gujarat
+    -> S3-370649244 [name 100 / addr 91]: Shri Rasi Mills (India)  Limited | GJ, Rajkot, H.no 5-225 Shivam Complexdr Yagnik Road, Rajkot
+    -> S3-289364059 [name 100 / addr 85]: Rasi Mills (India) Holdings Limited | Door No 232 Shivam Complexdr Yagnik Road, Rajkot, Jamnagar, GJ
+    -> S3-329623706 [name 67 / addr 88]: Rasi Management (Índia) Limited | #232 Shivam Complexdr Yagnik Road, Rajkot, Jamnagar, GJ
+    -> S2-349424176 [name 69 / addr 96]: Rasi Consumer (India) | DOOR NO 232 SHIVAM COMPLEXDR YAGNIK ROAD, RAJKOT, Gujarat
+
+S1 S1-274919405: Taqwa Developers Private Limited | 6/2020-21-22, Office No305, 3Rd Floor, Panchratna Apt Bhojabhai Ni Sheri Naka, Hat Faliya, Mah, Idharpura, Surat, Gujarat
+    -> S2-618652936 [name 93 / addr 100]: Taqwa Developers Private Ltd | C-6/2020-21-22, OFFICE NO305, 3RD FLOOR, PANCHRATNA APT BHOJABHAI NI SHERI NAKA, HAT FALIYA, MAH, IDHARPURA, SURAT, Gujarat
+    -> S3-25085979 [name 88 / addr 99]: M/s Taqwa Developers Private (Ltd) | 6/2020-21-22, Office No305, 3Rd Floor, Panchratna Apt Bhojabhai Ni Sheri Naka, Hat Faliya, Mah, Idharpura, Surat, GJ
+    -> S2-786811544 [name 84 / addr 100]: Taqwa Private Limited Service | C-6/2020-21-22, OFFICE NO305, 3RD FLOOR, PANCHRATNA APT BHOJABHAI NI SHERI NAKA, HAT FALIYA, MAH, IDHARPURA, SURAT, Gujarat
+    -> S3-998565007 [name 87 / addr 97]: Taqwa Developers Public Limited | 6/2020-21-31, Office No305, 3Rd Floor, Panchratna Apt Bhojabhai Ni Sheri Naka, Hat Faliya, Mah, Idharpura, Surat, GJ
+    -> S3-847989013 [name 100 / addr 92]: Taqwa Developers Private Limited | 6/2020-21-22, Surat, GJ
+    -> S3-164113592 [name 100 / addr 83]: TAQWA DEVELOPERS INDUSTRIES PRIVATE LIMITED | 6/2020-21-31, Surat, GJ
+
+S1 S1-934996274: Kolkata Projects Private Limited | 171, C R Aveue, Kolkata, Kolkata, Howrah, West Bengal
+    -> S2-153778678 [name 88 / addr 100]: KOLKATA PROJECTS LIMITED SERVICE | 171, C R AVEUE, KOLKATA, KOLKATA, West Bengal
+
+S1 S1-965462637: Chakrapani Components Private Limited | # 7/7, Ii Floor, Svk Tower, 7Th Cross, Wilson Garden, Bangalore, Karnataka
+    -> S3-750958758 [name 100 / addr 100]: Chakrapani Components | # 7/7, Ii Floor, Svk Tower, 7Th Cross, Karnataka, Wilson Garden, Bangalore
+    -> S2-426969809 [name 100 / addr 93]: CHAKRAPANI  COMPONENTS OVERSEAS PRIVATE LIMITED | H.NO 7/20 , II FLOOR, SVK TOWER, 7TH CROSS, WILSON GARDEN, Karnataka
+    -> S2-156945895 [name 85 / addr 100]: Chakrapani Private Limited Services | #7/7 , II FLOOR, SVK TOWER, 7TH CROSS, WILSON GARDEN, Karnataka
+    -> S3-1892508 [name 94 / addr 97]: Chakrapani Commpnts Private Limited | # 7/7, Bangalore, Ii Floor, Svk Tower, 7Th Cross, KA, Wilson Garden
+    -> S3-120743309 [name 94 / addr 93]: Chakrapani Copnonts Private Limited | # 7/7, Bangalore, ಕರ್ನಾಟಕ, Ii Floor, Svk Tower, 7Th Cross, Wilson Garden
+    -> S3-640637215 [name 88 / addr 81]: Limited Chakrapani Components Enterprises Service | # /20, Wilson Garden, Bangalore, ಕರ್ನಾಟಕ
+
+S1 S1-479227766: Gaurav Consultants Private Limited | 37Kshir Sagar Colony Ujjain, M.P., Ujjain, Madhya Pradesh
+    -> S3-935320252 [name 94 / addr 95]: Gaurav Consultants Private Ltd | 37Kshir Sagar Colony Ujjain, M.p., Ujjain, MP
+    -> S2-836361769 [name 100 / addr 100]: Dr GAURAV CONSULTANTS PRIVATE [LIMITED] | Madhya Pradesh, #37KSHIR SAGAR COLONY UJJAIN, M.P.
+    -> S2-877372883 [name 89 / addr 84]: Shri Gaurav Consultants Privet Limited | मध्य प्रदेश, #37KSHIR SAGAR COLONY UJJAIN, M.P.
+    -> S3-252266152 [name 100 / addr 81]: Gaurav Consultants Holdings Private Limited | #58Kshir Sagar Colony Ujjain, M.p., Ujjain, MP
+    -> S3-262952457 [name 88 / addr 81]: Public Gaurav Consultants Limited | #58Kshir Sagar Colony Ujjain, M.p., Ujjain, MP
+    -> S2-535261270 [name 12 / addr 96]: ड्रीम कंसल्टेंट्स | #40KSHIR SAGAR COLONY UJJAIN, M.P., UJJAIN, Madhya Pradesh
+
+S1 S1-820445512: Sant Ravi Das Nagar Wellness Private Limited | Kallan Sha Takia Bhadohi, Sant Ravi Das Nagar, Uttar Pradesh
+    -> S3-212002820 [name 93 / addr 94]: Sant Ravi  Das Nagar-Wellness LLP | #30 Kallan Sha Takia Bhadohi, Sant Ravi Das Nagar, UP
+    -> S2-264373308 [name 100 / addr 87]: Sant Ravi Das Nagar Wellness Private Limited | KALLAN SHA TAKIA BHADOHI, SANT RAVI DAS NAGAR, उत्तर प्रदेश
+    -> S3-23693056 [name 100 / addr 87]: sant ravi das nagar wellness private limited | Kallan Sha Takia Bhadohi, Sant Ravi Das Nagar, उत्तर प्रदेश
+
+S1 S1-336433547: One Power Pvt Ltd | Shop No-7, Kataria Market Near Takshila Heights, Sector-37C, Gurugram, Gurgaon, Haryana
+    -> S2-269277728 [name 21 / addr 100]: वन पावर प्रा. लि. | GURUGRAM, KATARIA MARKET NEAR TAKSHILA HEIGHTS, SECTOR-37C, SHOP NO-7, GURGAON, Haryana
+    -> S3-195823572 [name 33 / addr 100]: Xylonoviumbra | Shop No-7, Kataria Market Near Takshila Heights, Sector-37C, Gurugram, Gurgaon, Haryana
+    -> S2-152406675 [name 94 / addr 94]: One P0wer Pvt Ltd | SHOP NO-7, KATARIA MARKET NEAR TKASHILA HEIGHTS, SECTOR-37C, GURUGRAM, Haryana
+    -> S2-308637005 [name 79 / addr 98]: One Investment Pvt  Ltd (ID: 68191) | SHOP NO-12, KATARIA MARKET NEAR TAKSHILA HEIGHTS, SECTOR-37C, GURUGRAM, Haryana
+    -> S3-910141251 [name 100 / addr 95]: Shri One Power Pvt Ltd | Shop No-7, Gurgaon, Gurugram, HR
+
+S1 S1-488117255: Dakshin (India) Skills Private Limited | B-50 Balram Nagar, Loni, Ghaziabad, Uttar Pradesh
+    -> S3-765136703 [name 93 / addr 96]: Dakshin (India)-Skills Prrmvtea Limited | B-#50 Balram Nagar, Loni, Ghaziabad, UP
+    -> S3-458878469 [name 100 / addr 95]: Dakshin Private Skills (India) Limited | B-#50 Balram Nagar, Ghaziabad, UP
+    -> S2-662440350 [name 92 / addr 98]: Private Dakshin (hdnr) Skills Limited | B-50 BATRAM NAGAR, LONI, GHAZIABAD, Uttar Pradesh
+    -> S3-526866735 [name 88 / addr 81]: M/s Dakshin (India) Skills Enterprises Private Ltd | B-53 Balram Ngar, Loni, Ghaziabad, UP
+
+S1 S1-296866386: Anand Infra Private Limited | C/O Vijai Pal, Jain Sabha, Rewari, Haryana
+    -> S2-851348238 [name 100 / addr 100]: ANAND INFRA PRIVATE LIMITED | C/O VIJAI PAL, JAIN SABHA, REWARI, Haryana
+    -> S3-258321642 [name 100 / addr 89]: Anand Infra Private | C/o Vijai Pal, Jain Sabha, Rewari District, Rewari, हरियाणा
+    -> S3-996245425 [name 12 / addr 89]: आनंद इंफ्रा प्राइवेट लिमिटेड | C/o Vijai Pal, Jain Sabha, Rewari District, Rewari, HR
+    -> S3-790942605 [name 12 / addr 89]: आनंद इंफ्रा प्राइवेट लिमिटेड | Rewari District, Rewari, Jain Sabha, HR, C/o Vijai Pal
+    -> S2-378150214 [name 12 / addr 100]: आनंद इंफ्रा प्राइवेट लिमिटेड | C/O VIJAI PAL, REWARI, Haryana
+    -> S2-288340869 [name 12 / addr 95]: आनंद सॉल्यूशंस प्राइवेट लिमिटेड | #92 C/O VIJAI PAL, REWARI, Haryana
+
+S1 S1-743119728: Silver It Private Limited | 10 Palla, Tilpat Road, Faridabad, Haryana
+    -> S3-555708098 [name 100 / addr 88]: Silver It Private | 10 Palla, Faridabad, HR, Ncr Delhi, Tilpat Road
+    -> S3-718463327 [name 63 / addr 83]: SE Reddy Limited | Plot No 0010, Near Baba Surdas Colony Palla-tilpat Road, Palla, Faridabad, हरियाणा
+    -> S2-983422406 [name 12 / addr 81]: सिल्वर आईटी प्राइवेट लिमिटेड | FARIDABAD, DIVREPORTINGCIRCLE, Haryana, 10 PALLA
+
+========== US: 15 random test S1 ==========
+
+S1 S1-150980618: Pediatric Dental Specialists PLLC | 1136 Washington Street, Unit UNIT 103, Falls Church City, VA
+    -> S2-599846304 [name 100 / addr 96]: Pediatric Dental Specialists | 1136 WASHINGTON ST, FALLS CHURCH CITY, VA
+    -> S2-788177310 [name 92 / addr 84]: Pediatric Dental Specialists P.L.L.C. | 1136 WASHINATON ST, FALLS CHURCH CITY, VA
+    -> S3-548570901 [name 100 / addr 86]: Pediatric  Dental Specialists PLLC | 1136c Washington St, Unit UNIT 103, Falls Church, Virginia
+    -> S3-586524564 [name 90 / addr 90]: Pediatric Dgbt1 Specialists  PLLC | 1136c Washington St, Unit UNIT 103, Falls Church City, Virginia
+    -> S2-814516680 [name 100 / addr 96]: Pediatric  Dental | 1136 WASHINGTON ST, FALLS CHURCH CITY, VA
+    -> S3-197929090 [name 100 / addr 82]: Pediatric Dental Specialists Pllc | 1136C Washington St, Falls Church City, Virginia
+    -> S2-912163207 [name 88 / addr 95]: PEDIATRIC SPECIALISTS PLLC SÉRVICES | 1136 WASHINGTON ST, FALLS CHURCH, VA
+    -> S2-739253569 [name 95 / addr 93]: pediatric dental specialists co | VA, 1143 WASHINGTON STREET, FALLS CHURCH
+
+S1 S1-203042535: Dental Trusted Health LLC | Alexandria, AL, 55 Koko Avenue
+    -> S2-752528680 [name 67 / addr 94]: Dental Trústed | 55 KOKO AVE, ALEXANDRIA, AL
+    -> S3-650438075 [name 100 / addr 100]: Ectoonyxx DBA: Dental Trusted Health LLC | 55 Koko Avenue, Alexandria, AL
+    -> S3-648234586 [name 100 / addr 84]: Dental Dental Trusted-Health LLC | 55- Koko Avenue, Alexaandria CITY, Alabama
+    -> S3-604848049 [name 100 / addr 78]: Dental Trusted Health LLC Federation | 55- Koko Ave, Alexaandria CITY, Alabama
+    -> S3-456851772 [name 91 / addr 67]: Dental  Trusted Health Corp | 62-64 Koko Ave, Alexandri Township, Alabama
+    -> S3-835749887 [name 83 / addr 69]: Dental Trústed Health Greater LLC | Alexandri Township, Alabama, 62-64 Koko Avenue
+
+S1 S1-626409626: Fernande Elam, CPA | 2412 264th Court, Camas, WA
+    -> S2-868020189 [name 87 / addr 100]: Fernande Elam, Services | www.fernandee.com | 2412 264TH COURT, CAMAS, WA
+    -> S3-449550075 [name 100 / addr 94]: Fernande Elam, CPA Inc | 2412 264th Court, N/A, Camas, Washington
+    -> S3-989083908 [name 100 / addr 78]: Fernande Elam, Cpa | 2412 264th Ct, N/A, Camas, Washington
+    -> S3-83759413 [name 100 / addr 94]: Fernande Elam, | 2412 264th Court, N/A, Camas, Washington
+    -> S2-840936089 [name 100 / addr 94]: ELAM,, FERNANDE CPA | 2412 264TH CT, CAMAS, WA
+    -> S3-310433251 [name 100 / addr 63]: Elam,, Fernande CPA Ltd | 2417 264th Ct, PO Box 6011, Camas, Washington
+    -> S3-309024906 [name 97 / addr 63]: Elam,, Fernande CPAN | 2417 264th Ct, PO Box 6011, Camas, Washington
+    -> S2-410838724 [name 83 / addr 83]: Fernande  Edfam, CPA Summit | 02417 264ST CT, CAMAS, WA
+
+S1 S1-144854402: Trusted Avalanche Care | 1304 Kane Street, City Of La Crosse, WI
+    -> S2-117553729 [name 82 / addr 94]: Trusted Ávalanche | 1304 KANE ST, LA CROSSE, WI
+    -> S2-796546302 [name 100 / addr 94]: Trusted Avalanche | 1304 KANE ST, LA CROSSE, WI
+    -> S3-297022570 [name 100 / addr 75]: Trusted  Avalanche Care Co | 1304 Kane St, La Crosse, Wisconsin
+    -> S3-453665019 [name 100 / addr 84]: Trusted Avalanche | 1304 Kane Street, La Crosse, Wisconsin
+    -> S3-330450403 [name 100 / addr 88]: Trusted Avalanche Care L.L.C. | 01317 Kane Street, PO Box 4772, City Of La Crosse, Wisconsin
+    -> S2-271290668 [name 100 / addr 77]: Trusted Avalanche Care | 1304 KNE ST, LA CRSSE, WI
+    -> S3-494249502 [name 100 / addr 79]: trusted avalanche care partners | 01317 Kane St, City Of La Crosse, Wisconsin
+    -> S3-148423334 [name 100 / addr 66]: Trusted Avalanche Care Central  Ltd | 01317 Kane St, La Crosse, Wisconsin
+
+S1 S1-695656125: Snyder Holding Company LLC | 4210 Gables Street, Amarillo, TX
+    -> S2-717696717 [name 100 / addr 91]: The Snyder Holding Company LLC | 210 GABLES ST, AMARILLO, TX
+    -> S3-293936387 [name 88 / addr 85]: Snyder Hólding Company Ltd | 4231 Gables St, Amarillo, Texas
+    -> S2-833587821 [name 92 / addr 79]: Snyder Holding Company  Inc | 4231 GABLES SAINT, AMARILLO ITY, TX
+    -> S3-3732326 [name 92 / addr 92]: Snyder Holding Company Holdings | Texas, 4231 Gables Street, Amarillo
+
+S1 S1-599839541: Bilinon Holdings Group LLC | 1317 Camp Avenue, Rockford, IL
+    -> S2-654329176 [name 96 / addr 100]: Bilin0n Holdings Group LLC | 1317 CAMP AVENUE, ROCKFORD, IL
+    -> S3-549163965 [name 96 / addr 94]: Bilinon Holdings Gróup LLC | 1317 Camp Avenue, Rockford, Illinois
+    -> S3-884028056 [name 100 / addr 85]: Bilinon Holdings  Group | 1317 Camp Ave, Rockford, Illinois
+    -> S3-293193967 [name 100 / addr 81]: Bilinon Holdings | 1317 Capm Ave, Rockford, Illinois
+    -> S3-713566638 [name 100 / addr 78]: Bilinon Holdings Group West LLC | 1324 Camp Ave, Rockford, Illinois
+
+S1 S1-955460572: Surgical Care Associates LLC | 362 Northland Avenue, Fl Floor 1, Buffalo, NY
+    -> S3-187540673 [name 100 / addr 92]: Surgical Care Associates Llc | 362. Northland Ave, Fl Floor 1, Buffalo, New York
+    -> S3-333569639 [name 100 / addr 100]: Nexrizadova doing business as Surgical Care Associates LLC | 362 Northland Avenue, Fl Floor 1, NY, Buffalo
+    -> S2-160466338 [name 100 / addr 87]: SURGICAL CARE ASSOCIATES LLC | 362 NORTHLAND AVENUE, BUFALO, NY
+    -> S3-62117400 [name 28 / addr 92]: Rizacalo | 362. Northland Ave, Fl Floor 1, Buffalo, New York
+    -> S3-176945911 [name 92 / addr 90]: Surgical Care Associates Holdings | 366 Northland Ave, Fl Floor 1, Buffalo, New York
+    -> S2-904742805 [name 95 / addr 83]: Surgical Care Associates Co. | 366 NORTHLAND AVE, BUFFALO, NY
+    -> S2-835344989 [name 92 / addr 83]: SURGICAL CARE ASSOCIATES DOWNTOWN | BUFFALO, 366 Northland Ave, NY
+
+S1 S1-810682005: Children's Program | 81 Apple Barn Lane, Waldoboro, ME
+    -> S2-53079671 [name 100 / addr 97]: CHILDREN'S PROGRAM INC | 81- APPLE BARN LN, WALDOBORO, ME
+    -> S3-764140385 [name 100 / addr 91]: Children's Program | 0081 Apple Barn Lane, Walddoboro, Maine
+    -> S3-456321033 [name 100 / addr 91]: Children's  Program | 0081 Apple Barn Lane, Walddoboro, Maine
+    -> S2-705610101 [name 100 / addr 95]: Children's Program (Greater) | ME, WALDOBORO, 94 APPLE BARN LANE
+    -> S3-209359587 [name 100 / addr 84]: Children's  Program Metro Corp | 94 1/2 Apple Barn Ln, Waldoboro, Maine
+    -> S3-916337255 [name 71 / addr 84]: Children's Paboarm Group | 94 1/2 Apple Barn Ln, Waldoboro, Maine
+
+S1 S1-139398812: Sharyl Abdi Finance LLC | 702 Weinbach Avenue, Evansville, IN
+    -> S2-208376647 [name 90 / addr 97]: Sharyl Abdi  Finance Partners | 723 WEINBACH AVENUE, IN, EVANSVILLE
+    -> S3-952392844 [name 65 / addr 84]: Sharyl Abdi Corp [Service] | 723 Weinbach Ave, Indiana, Evaansville
+
+S1 S1-817717494: Cozy Ice Cream | 148 Kayla Court, Houma, LA
+    -> S3-135412788 [name 83 / addr 73]: Cozy Íce Cream LLC | 153 Kayla Ct, Houma, Louisiana
+    -> S2-66964155 [name 100 / addr 75]: Cozy Ice Cream Partners | LA, HOUMA CITTY, 153 KAYLA CT
+
+S1 S1-132011708: Plumbers Local Union 466 | 2911 Deer Hollow Way, Unit STE 323, Fairfax County, VA
+    -> S3-690264314 [name 100 / addr 83]: Plumbers Local Union | 911 Deer Hollow Way, # STE 323, Fairfax, Virginia
+    -> S3-706664479 [name 100 / addr 87]: Plumbers Local Union 466 Inc. | Deer Hollow Way, # STE 323, Fairfax, Virginia
+    -> S3-656861086 [name 100 / addr 89]: Plumbers Local Union 466 Uptown | 2916 Deer Hollow Way, # STE 323, Fairfax County, Virginia
+    -> S2-23117457 [name 100 / addr 100]: Plumbers Local Union 466 LLC | 2911 Deer Hollow Way, FAIRFAX, VA
+    -> S2-279367903 [name 100 / addr 100]: Plumbers Local Union | 2911 DEER HOLLOW WAY, FAIRFAX, VA
+    -> S3-693209916 [name 86 / addr 81]: Plumbers Lcaf Union 466 Corp | 2916 Deer Hollow Way, Fairfax County, Virginia
+
+S1 S1-787911428: Cottier, Curry and Brown Fannie | 201 Packard Drive, Unit 7-0304, Tempe, AZ
+    -> S2-635243270 [name 97 / addr 100]: COTTIER, CURRY AND BRÓWN FANNIE | 201 Packard Drive, TEMPE, AZ
+    -> S3-389830698 [name 87 / addr 76]: Cottier, Curry and Brown Petroleum | 222 Packard Dr, # 7-0304, Temmpe, Arizona
+    -> S3-104345087 [name 80 / addr 81]: Cottier, Curry and Brówn Landscaping | 222 Pcakard Dr, Unit 7-0304, Temmpe, Arizona
+
+S1 S1-783713364: Cayce Products Corp | 601 Summit Avenue, Sioux Falls, SD
+    -> S2-182000619 [name 95 / addr 100]: CAYCE PRÓDUCTS CORP | SD, SIOUX FALLS, 601 SUMMIT AVENUE
+    -> S3-377097643 [name 95 / addr 81]: >> Cayce Pr0ducts Corp | 601 Summit Ave, Sioux Falls, South Dakota
+    -> S3-198637899 [name 85 / addr 81]: Cayce Products Corporation | 601 Summit Ave, Sioux Falls, South Dakota
+    -> S2-693685639 [name 88 / addr 86]: Cayce Products Inc. | 603 1/2 SUMMIT AVE, SD, SIOUX FALLS
+    -> S3-385530711 [name 81 / addr 76]: Hernandez Products Corp | 603 Summit Ave, Sioux Falls, South Dakota
+    -> S3-774746172 [name 69 / addr 76]: Cayce Posuscst Northside Corp | 603 Summit Ave, Sioux Falls, South Dakota
+
+S1 S1-292919989: P X Mann Charlton Center | 840 Liberty Street, Hamilton, OH
+    -> S3-178042503 [name 100 / addr 97]: P X Mann Charlton Center | 840 Liberty Street, Hamilton, Ohio
+    -> S3-71370947 [name 96 / addr 90]: P X Mann Charlton Cénter | 840 Liberty St, Hamilton, Ohio
+    -> S2-13382006 [name 90 / addr 92]: P X Mann Charlton Centre Co | 853 LIBERTY STREET, HAMILTN, OH
+    -> S3-304590560 [name 96 / addr 77]: P Mann Charlton Center Corp Services | 853 Liberty St, Hamiltonc DP, Ohio
+    -> S3-975411226 [name 57 / addr 90]: Lema LLC Center | 840 Liberty St, Hamilton, Ohio
+
+S1 S1-115681714: Main Street Hypnosis Associates | 710 Plata Drive, Rio Rancho, NM
+    -> S2-999615775 [name 100 / addr 93]: Main Street Hypnosis | 710 Plata Dr, RI RANCHO, NM
+    -> S3-64094380 [name 97 / addr 75]: >> Main Stréet Hypnosis Associates | Plata Dr, Rio Rancho, New Mexico
+    -> S3-275743961 [name 100 / addr 76]: Main Street Hypnosis Associates Ltd | New Mexico, Rio Rancho, 723 Plata Dr
+    -> S2-296262399 [name 100 / addr 93]: Main Street Hypnosis Downtown Associates | 723 PLATA DRIVE, RIO RANCHO, NM

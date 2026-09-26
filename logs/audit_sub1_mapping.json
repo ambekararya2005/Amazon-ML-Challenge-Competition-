@@ -1,0 +1,110 @@
+{
+  "hashes": {
+    "amlc2026-test-france": {
+      "lookup_s1.parquet": "cf1a8b0166",
+      "queries.parquet": "aba440343c"
+    },
+    "amlc2026-test-india-1": {
+      "lookup_s1.parquet": "cf1a8b0166",
+      "queries.parquet": "aba440343c"
+    },
+    "amlc2026-test-india-2": {
+      "lookup_s1.parquet": "cf1a8b0166",
+      "queries.parquet": "aba440343c"
+    },
+    "amlc2026-test-us": {
+      "lookup_s1.parquet": "cf1a8b0166",
+      "queries.parquet": "aba440343c"
+    }
+  },
+  "parts": {
+    "amlc2026-test-france:France/union_s2_part_0000.parquet": {
+      "rows_checked": 2000,
+      "query_map_ok": 1.0,
+      "query_raw_text_ok": 1.0,
+      "s1_map_ok": 1.0,
+      "s1_raw_text_ok": 1.0,
+      "same_country_q_s1": 1.0,
+      "country_is_folder": 1.0,
+      "s1_in_train_ids": 0,
+      "shard": "-"
+    },
+    "amlc2026-test-france:France/union_s3_part_0003.parquet": {
+      "rows_checked": 2000,
+      "query_map_ok": 1.0,
+      "query_raw_text_ok": 1.0,
+      "s1_map_ok": 1.0,
+      "s1_raw_text_ok": 1.0,
+      "same_country_q_s1": 1.0,
+      "country_is_folder": 1.0,
+      "s1_in_train_ids": 0,
+      "shard": "-"
+    },
+    "amlc2026-test-india-1:India/union_s2_sh1of2_part_0000.parquet": {
+      "rows_checked": 2000,
+      "query_map_ok": 1.0,
+      "query_raw_text_ok": 1.0,
+      "s1_map_ok": 1.0,
+      "s1_raw_text_ok": 1.0,
+      "same_country_q_s1": 1.0,
+      "country_is_folder": 1.0,
+      "s1_in_train_ids": 0,
+      "shard": "sh1of2"
+    },
+    "amlc2026-test-india-1:India/union_s3_sh1of2_part_0011.parquet": {
+      "rows_checked": 2000,
+      "query_map_ok": 1.0,
+      "query_raw_text_ok": 1.0,
+      "s1_map_ok": 1.0,
+      "s1_raw_text_ok": 1.0,
+      "same_country_q_s1": 1.0,
+      "country_is_folder": 1.0,
+      "s1_in_train_ids": 0,
+      "shard": "sh1of2"
+    },
+    "amlc2026-test-india-2:India/union_s2_sh2of2_part_0000.parquet": {
+      "rows_checked": 2000,
+      "query_map_ok": 1.0,
+      "query_raw_text_ok": 1.0,
+      "s1_map_ok": 1.0,
+      "s1_raw_text_ok": 1.0,
+      "same_country_q_s1": 1.0,
+      "country_is_folder": 1.0,
+      "s1_in_train_ids": 0,
+      "shard": "sh2of2"
+    },
+    "amlc2026-test-india-2:India/union_s3_sh2of2_part_0011.parquet": {
+      "rows_checked": 2000,
+      "query_map_ok": 1.0,
+      "query_raw_text_ok": 1.0,
+      "s1_map_ok": 1.0,
+      "s1_raw_text_ok": 1.0,
+      "same_country_q_s1": 1.0,
+      "country_is_folder": 1.0,
+      "s1_in_train_ids": 0,
+      "shard": "sh2of2"
+    },
+    "amlc2026-test-us:US/union_s2_part_0000.parquet": {
+      "rows_checked": 2000,
+      "query_map_ok": 1.0,
+      "query_raw_text_ok": 1.0,
+      "s1_map_ok": 1.0,
+      "s1_raw_text_ok": 1.0,
+      "same_country_q_s1": 1.0,
+      "country_is_folder": 1.0,
+      "s1_in_train_ids": 0,
+      "shard": "-"
+    },
+    "amlc2026-test-us:US/union_s3_part_0015.parquet": {
+      "rows_checked": 2000,
+      "query_map_ok": 1.0,
+      "query_raw_text_ok": 1.0,
+      "s1_map_ok": 1.0,
+      "s1_raw_text_ok": 1.0,
+      "same_country_q_s1": 1.0,
+      "country_is_folder": 1.0,
+      "s1_in_train_ids": 0,
+      "shard": "-"
+    }
+  }
+}

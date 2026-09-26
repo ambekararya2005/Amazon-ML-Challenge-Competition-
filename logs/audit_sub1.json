@@ -1,0 +1,138 @@
+{
+  "pairs_total": 8995975,
+  "pairs_other_id_not_in_test_S2S3": 0,
+  "pct_country_differs": 0.0,
+  "pct_country_differs_by_s1_country": {
+    "France": 0.0,
+    "India": 0.0,
+    "US": 0.0
+  },
+  "duplicate_other_ids_across_s1": 0,
+  "coverage_pct_s2s3_assigned": {
+    "France": 90.03,
+    "India": 88.97,
+    "US": 91.87
+  },
+  "coverage_all": 90.23,
+  "empty_pred_by_country": {
+    "France": {
+      "s1": 259452,
+      "empty": 1338,
+      "pct_empty": 0.52
+    },
+    "India": {
+      "s1": 809986,
+      "empty": 2508,
+      "pct_empty": 0.31
+    },
+    "US": {
+      "s1": 663106,
+      "empty": 274,
+      "pct_empty": 0.04
+    }
+  },
+  "pred_per_s1_dist_pct": {
+    "France": {
+      "0": 0.52,
+      "1": 2.83,
+      "2": 6.99,
+      "3": 13.31,
+      "4": 19.76,
+      "5": 20.89,
+      "6": 16.38,
+      "7": 10.24,
+      "8-9": 7.33,
+      "10-11": 1.21,
+      "12+": 0.54
+    },
+    "India": {
+      "0": 0.31,
+      "1": 2.08,
+      "2": 5.73,
+      "3": 11.59,
+      "4": 17.95,
+      "5": 20.97,
+      "6": 17.99,
+      "7": 12.02,
+      "8-9": 9.37,
+      "10-11": 1.54,
+      "12+": 0.46
+    },
+    "US": {
+      "0": 0.04,
+      "1": 1.15,
+      "2": 4.11,
+      "3": 10.09,
+      "4": 18.04,
+      "5": 22.71,
+      "6": 19.87,
+      "7": 13.17,
+      "8-9": 9.61,
+      "10-11": 1.14,
+      "12+": 0.07
+    }
+  },
+  "train_gt_per_s1_dist_pct": {
+    "0": 5.58,
+    "1": 5.4,
+    "2": 17.0,
+    "3": 24.05,
+    "4": 21.94,
+    "5": 14.59,
+    "6": 7.47,
+    "7": 2.9,
+    "8-9": 1.04,
+    "10-11": 0.03,
+    "12+": 0.0
+  },
+  "mean_pred_per_s1": {
+    "France": 4.979,
+    "India": 5.182,
+    "US": 5.288
+  },
+  "train_gt_mean_per_s1": 3.461,
+  "test_pred_pairs_similarity": {
+    "France": {
+      "pairs": 100000,
+      "median_name_sim": 100.0,
+      "median_addr_sim": 93.33333587646484,
+      "pct_share_number": 64.22,
+      "pct_clearly_wrong": 0.0,
+      "pct_name_lt_60": 6.09
+    },
+    "India": {
+      "pairs": 100000,
+      "median_name_sim": 90.90908813476562,
+      "median_addr_sim": 94.91525268554688,
+      "pct_share_number": 75.01,
+      "pct_clearly_wrong": 0.0,
+      "pct_name_lt_60": 21.46
+    },
+    "US": {
+      "pairs": 100000,
+      "median_name_sim": 100.0,
+      "median_addr_sim": 89.6551742553711,
+      "pct_share_number": 60.72,
+      "pct_clearly_wrong": 0.0,
+      "pct_name_lt_60": 4.02
+    }
+  },
+  "train_true_pairs_similarity": {
+    "India": {
+      "pairs": 80075,
+      "median_name_sim": 94.11764526367188,
+      "median_addr_sim": 95.65217590332031,
+      "pct_share_number": 83.67,
+      "pct_clearly_wrong": 0.04,
+      "pct_name_lt_60": 22.77
+    },
+    "US": {
+      "pairs": 119925,
+      "median_name_sim": 100.0,
+      "median_addr_sim": 92.0,
+      "pct_share_number": 81.73,
+      "pct_clearly_wrong": 0.0,
+      "pct_name_lt_60": 5.08
+    }
+  }
+}

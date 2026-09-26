@@ -92,3 +92,17 @@
   empty predictions vs a 5.6% singleton rate -> expect test F0.5 well below 0.964.
 - Test: France 0.52% empty / 4.98 predicted / 27.7 candidates per S1; India 0.31% / 5.18 / 29.1; US 0.04% / 5.29 / 28.8.
 - Files: output/matching_results.tsv (131 MB), output/candidate_pairs.tsv (633 MB); validator PASS (Kaggle with --check-ids, local).
+
+## 2026-09-26 — Audit of submission #1 (public LB 0.636 vs local 0.964)
+- Independent audit (entity_id strings + raw data only; script in the session scratchpad, results in logs/audit_sub1*.{json,txt}).
+- No mapping bug: 0% cross-country pairs; 16,000 sampled candidate rows (France, India shard 1, India shard 2, US; s2 + s3)
+  round-trip query_id / s1_id -> entity_id -> raw text 100%; all 4 kernels used identical TEST lookup/query tables
+  (md5 equal, 0 train ids); no duplicate or unknown ids in the submission.
+- Predicted pairs look like true pairs on name/address (median name 91-100, addr 90-95, 0% clearly wrong), but share a
+  number less often (61-75% vs 82-84% for true train pairs).
+- Real cause: hard-negative siblings in test (same name + extra word such as Holding/International/Exports, or same
+  street with a different house number). The scorer accepts them: token_set_ratio ignores extra words, num weight 0.1.
+  Coverage: 90.2% of test S2/S3 assigned (France 90.0 / India 89.0 / US 91.9) vs ~74% expected; 5.2 predictions per S1
+  vs 3.46 in train GT; only 0.04-0.52% empty predictions vs 5.6% singletons.
+- Why validation missed it: the validation query set held only 300k random distractors of ~2.6M unmatched train records,
+  so most siblings were absent.
