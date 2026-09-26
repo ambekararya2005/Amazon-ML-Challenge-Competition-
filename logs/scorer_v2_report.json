@@ -1,0 +1,373 @@
+{
+  "recall_at5_bench": {
+    "India": 0.9438,
+    "US": 0.9841,
+    "ALL": 0.9698
+  },
+  "decoy_table_folds1_4": {
+    "true_pairs": {
+      "pairs": 1376080,
+      "num_equal": 75.76,
+      "num_compatible": 79.66,
+      "num_conflict": 9.27,
+      "extra_tokens_gt0": 39.66,
+      "both_conflict_or_extra": 45.17
+    },
+    "decoys_accepted_by_baseline": {
+      "pairs": 551079,
+      "num_equal": 12.56,
+      "num_compatible": 15.31,
+      "num_conflict": 82.95,
+      "extra_tokens_gt0": 73.87,
+      "both_conflict_or_extra": 97.17
+    }
+  },
+  "extra_words_true": [
+    [
+      "center",
+      1007
+    ],
+    [
+      "services",
+      696
+    ],
+    [
+      "partners",
+      420
+    ],
+    [
+      "service",
+      293
+    ],
+    [
+      "a",
+      253
+    ],
+    [
+      "group",
+      237
+    ],
+    [
+      "care",
+      191
+    ],
+    [
+      "associates",
+      170
+    ],
+    [
+      "dba",
+      162
+    ],
+    [
+      "sri",
+      160
+    ],
+    [
+      "smt",
+      141
+    ],
+    [
+      "formerly",
+      123
+    ],
+    [
+      "trading",
+      122
+    ],
+    [
+      "k",
+      118
+    ],
+    [
+      "shri",
+      114
+    ],
+    [
+      "clinic",
+      111
+    ],
+    [
+      "mr",
+      104
+    ],
+    [
+      "as",
+      104
+    ],
+    [
+      "solutions",
+      84
+    ],
+    [
+      "global",
+      84
+    ],
+    [
+      "business",
+      80
+    ],
+    [
+      "international",
+      79
+    ],
+    [
+      "health",
+      77
+    ],
+    [
+      "tech",
+      75
+    ],
+    [
+      "technology",
+      75
+    ],
+    [
+      "consultants",
+      74
+    ],
+    [
+      "f",
+      73
+    ],
+    [
+      "industries",
+      69
+    ],
+    [
+      "ventures",
+      68
+    ],
+    [
+      "systems",
+      66
+    ]
+  ],
+  "extra_words_decoy": [
+    [
+      "group",
+      1995
+    ],
+    [
+      "holdings",
+      1831
+    ],
+    [
+      "partners",
+      1617
+    ],
+    [
+      "center",
+      700
+    ],
+    [
+      "industries",
+      628
+    ],
+    [
+      "services",
+      609
+    ],
+    [
+      "enterprises",
+      564
+    ],
+    [
+      "exports",
+      528
+    ],
+    [
+      "ventures",
+      523
+    ],
+    [
+      "overseas",
+      433
+    ],
+    [
+      "infratech",
+      420
+    ],
+    [
+      "downtown",
+      282
+    ],
+    [
+      "west",
+      268
+    ],
+    [
+      "summit",
+      266
+    ],
+    [
+      "south",
+      263
+    ],
+    [
+      "southside",
+      254
+    ],
+    [
+      "east",
+      253
+    ],
+    [
+      "westgate",
+      253
+    ],
+    [
+      "coastal",
+      251
+    ],
+    [
+      "metro",
+      249
+    ],
+    [
+      "northside",
+      244
+    ],
+    [
+      "uptown",
+      242
+    ],
+    [
+      "north",
+      242
+    ],
+    [
+      "riverside",
+      241
+    ],
+    [
+      "lakeside",
+      239
+    ],
+    [
+      "valley",
+      239
+    ],
+    [
+      "greater",
+      237
+    ],
+    [
+      "central",
+      237
+    ],
+    [
+      "highland",
+      233
+    ],
+    [
+      "midtown",
+      233
+    ]
+  ],
+  "baseline": {
+    "fold0": {
+      "macro_f05": 0.7259389084374334,
+      "mean_precision": 0.7046679535893907,
+      "mean_recall": 0.9252444129781687,
+      "pred_per_s1": 4.2777144936478555,
+      "pct_empty": 0.3385700950844052,
+      "singleton_share": 0.056069739111174396,
+      "f05_singletons": 0.03301354401805869,
+      "f05_non_singletons": 0.7670988818129302,
+      "n_entities": 126414
+    },
+    "folds1_4": {
+      "macro_f05": 0.7306360078654347,
+      "mean_precision": 0.7073423082346944,
+      "mean_recall": 0.93405143870235,
+      "pred_per_s1": 4.278183453325317,
+      "pct_empty": 0.2712649745597443,
+      "singleton_share": 0.055829264358714936,
+      "f05_singletons": 0.029415627051871306,
+      "f05_non_singletons": 0.7720995022699392,
+      "n_entities": 409194
+    },
+    "fold0|India": {
+      "macro_f05": 0.7190745333367763,
+      "mean_precision": 0.704133970861443,
+      "mean_recall": 0.9006172099111267,
+      "pred_per_s1": 4.2441904555549534,
+      "pct_empty": 0.5850170629976708,
+      "singleton_share": 0.055287723669718146,
+      "f05_singletons": 0.05845852384062704,
+      "f05_non_singletons": 0.7577359928095921,
+      "n_entities": 55383
+    },
+    "fold0|US": {
+      "macro_f05": 0.7312910741988572,
+      "mean_precision": 0.7050843008943972,
+      "mean_recall": 0.9444462880392264,
+      "pred_per_s1": 4.30385324717377,
+      "pct_empty": 0.146414945587138,
+      "singleton_share": 0.05667947797440554,
+      "f05_singletons": 0.01366120218579235,
+      "f05_non_singletons": 0.7744099140574437,
+      "n_entities": 71031
+    }
+  },
+  "stop_benchmark_lacks_decoys": false,
+  "v2_config": {
+    "w_name": 0.3,
+    "w_addr": 0.5,
+    "w_num": 0.2,
+    "w_extra": 0.1,
+    "veto": true,
+    "t_accept": 0.64,
+    "t_keep": 0.64,
+    "major_pen": 0.0
+  },
+  "v2": {
+    "fold0": {
+      "macro_f05": 0.8229690598056709,
+      "mean_precision": 0.87985399892162,
+      "mean_recall": 0.8210162671604838,
+      "pred_per_s1": 3.2510560539180786,
+      "pct_empty": 6.957299033334915,
+      "singleton_share": 0.056069739111174396,
+      "f05_singletons": 0.6790349887133182,
+      "f05_non_singletons": 0.8315187865701865,
+      "n_entities": 126414
+    },
+    "folds1_4": {
+      "macro_f05": 0.8450732622342589,
+      "mean_precision": 0.9065468515906066,
+      "mean_recall": 0.826322578614951,
+      "pred_per_s1": 3.194778027048295,
+      "pct_empty": 7.378896073744971,
+      "singleton_share": 0.055829264358714936,
+      "f05_singletons": 0.7475596410593127,
+      "f05_non_singletons": 0.8508392890021337,
+      "n_entities": 409194
+    },
+    "fold0|India": {
+      "macro_f05": 0.7112908172758187,
+      "mean_precision": 0.7954317706276276,
+      "mean_recall": 0.7283410200654662,
+      "pred_per_s1": 3.2180091363775887,
+      "pct_empty": 7.926620081974613,
+      "singleton_share": 0.055287723669718146,
+      "f05_singletons": 0.47942521227955587,
+      "f05_non_singletons": 0.7248603683642643,
+      "n_entities": 55383
+    },
+    "fold0|US": {
+      "macro_f05": 0.9100447887976718,
+      "mean_precision": 0.945678163998927,
+      "mean_recall": 0.893275326020184,
+      "pred_per_s1": 3.276822795680759,
+      "pct_empty": 6.201517647224451,
+      "singleton_share": 0.05667947797440554,
+      "f05_singletons": 0.830849478390462,
+      "f05_non_singletons": 0.9148032444308248,
+      "n_entities": 71031
+    }
+  },
+  "v2_minus_baseline_fold0": 0.09703015136823756
+}

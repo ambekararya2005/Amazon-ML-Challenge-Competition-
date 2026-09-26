@@ -1,0 +1,79 @@
+baseline score 0.744
+  S1 S1-644140164: Sapphire | IA, Crescent, 1335 Copper Mountain Dr
+  S3 S3-309885622 (matches nobody): Corp Sdppfrie | 1356 Copper Mountain Dr, Crescent, Iowa
+
+baseline score 0.843
+  S1 S1-9442077: Autism Assistance Coalition | 2 Jobson Way, Stony Point, NY
+  S3 S3-968800309 (matches nobody): Autism Assistance Coalition Partners Co | 11. Jobson Way, Stony Point, New York
+
+baseline score 0.719
+  S1 S1-977706767: Urology Specialists Inc | 7 Matthew Lane, Cheektowaga, NY
+  S2 S2-301477699 (matches nobody): Urology Group Center | NY, 16 MATTHEW LANE, CHEEKTOWAGA
+
+baseline score 0.833
+  S1 S1-812845509: Ketaex Homes LLC | 14 Paine Street, Wellesley, MA
+  S3 S3-927798940 (matches nobody): Ketaex Homes Downtown Llc | 17 Paine Street, Wellesley, Massachusetts
+
+baseline score 0.795
+  S1 S1-99794627: Auth Gaming LLC | 1821 7th Avenue, Fargo, ND
+  S3 S3-118314072 (matches nobody): Auth Gaming Highland | ##1823 7st Ave, Fargo, North Dakota
+
+baseline score 0.697
+  S1 S1-624485655: C 5 N Pimco Inc. | IN, Fort Wayne, 3610 Fritcha Avenue
+  S3 S3-100243070 (matches nobody): Center C 5 N LLC | 3611 Fritcha Avenue, Ft Wayne, Indiana
+
+baseline score 0.682
+  S1 S1-802090545: Chinglepet Consultants Pvt Ltd | No.1, Old Mamallapuram Road, Via Kelambakkam, Padur, Chinglepet, Kanchipuram, Tamil Nadu
+  S2 S2-939180766 (matches nobody): சில்வர் ஃபைனான்ஸ் ஃபர்னிச்சர் | 28, CHINGLEPET, KANCHIPURAM, Tamil Nadu
+
+baseline score 0.664
+  S1 S1-872943971: Future Infrastructure Private Limited | 5-6-137/6/1C, Dayarguda Kukatpally, Hyderabad, Telangana
+  S2 S2-377388890 (matches nobody): Sitala Ridnatos Pvt Ltd | HNO.558/8, G1, DAYARGUDA BHANU ARCADE SANGEETH NAGAR, KUKATPALLY, HYDERABAD, Telangana
+
+baseline score 0.869
+  S1 S1-342383378: Bengal Mills Private Limited | 10-93, New Gaddiannaram, Dilsukhnagar, Hyderabad, Telangana
+  S3 S3-533408016 (matches nobody): Bengal Mills Exports Prívate Ltd | 10-96, New Gaddiannaram, Dilsukhnagar, Hyderabad, Andhra Pradesh
+
+baseline score 0.935
+  S1 S1-81036455: Gandhinagar Medicals | 2Nd Floor, (Old No. 1A), New No. 101 H. D. Raja Nagar, Eldams Road, Chennai, Tamil Nadu
+  S3 S3-955168604 (matches nobody): Gandhinagar Medicals Group | 4Nd Floor, (Old No. 1A), New No. 101 H. D. Raja Nagar, Eldams Road, Chennai, TN
+
+baseline score 0.883
+  S1 S1-382264816: Coffey, Levine and Mares Inc | 9 Liberty Street, Highland Falls, NY
+  S2 S2-6917558 (matches nobody): Co Coffey, Levine and Mares | 22 LIBERTY STREET, HIGHLAND FALLS, NY
+
+baseline score 0.927
+  S1 S1-888277616: Sree Global Limited | New No .218 Old No.225, Thambu Chetty Street, Mannady, Tondiarpet Fort St George, Chennai, Tamil Nadu
+  S2 S2-831850694 (matches nobody): Sree Global Ventures Ltd | NEW NO .G-218 OLD NO.246, THAMBU CHETTY STREET, MANNADY, TONDIARPET FORT ST GEORGE, Tamil Nadu
+
+baseline score 0.667
+  S1 S1-285775965: Atlas | 62 Vincent Drive, Middletown, NY
+  S2 S2-523919010 (matches nobody): Santella's Ltd [Spa] | 62 LEXINGTON WAY, MIDDLETOWN CDP, NY
+
+baseline score 0.688
+  S1 S1-295028453: Dermatology Colonial Specialists LLC | 2207 Teall Avenue, Salina, NY
+  S3 S3-991845538 (matches nobody): Dermatology Colonial Specialists Ltd | 2212-C Teall Avenue, Syracuse, New York
+
+baseline score 0.924
+  S1 S1-910397071: Am Agro Pvt Ltd | 9/67B, 34, Jeeva Complex, 2Nd Floor, Trichy Main Road, Salem, Tamil Nadu
+  S2 S2-288123275 (matches nobody): PVT AM AGRO EXPORTS (LIMITED) | 9/72B, 34, JEEVA COMPLEX, 2ND FLOOR, TRICHY MAIN ROAD, SALEM, தமிழ்நாடு
+
+baseline score 0.814
+  S1 S1-824450791: L 3 Rapid Perfect LLC | 262 Long Island Avenue, Brookhaven, NY
+  S3 S3-942625307 (matches nobody): L 3 Rapid Prfbec [Holdings] | 263 Long Island Avenue, Brookhaven, New York
+
+baseline score 0.872
+  S1 S1-738832178: Rodriguez & Dickerson LLC | 1009 1st Avenue, Great Falls, MT
+  S3 S3-371038330 (matches nobody): Partners Rodriguez Dickerson Group | 1022 1st Avenue, Great Falls, Montana
+
+baseline score 0.800
+  S1 S1-545779030: DI Top, LLC | 136 Foundry Street, Dublin, IN
+  S2 S2-544479429 (matches nobody): Corp DI Ta,o | 145. FOUNDRY STREET, DUBLIN, IN
+
+baseline score 0.815
+  S1 S1-288009456: Luu Algonquin of Ardmore | 801 11th Avenue, Ardmore, OK
+  S3 S3-700205467 (matches nobody): Luu Algonquin  Of Ardmore Riverside Corp | 805 11rd Ave, Oklahoma, Ardmore
+
+baseline score 0.873
+  S1 S1-395514104: Shaikpet Investment Private Limited | Telangana, 533 & 534 Uptown Cyberabad, 3Rd Floor, Block B, 100 Feet Road Ayyapa Society, Hyderabad, Shaikpet, Plot No. 532
+  S3 S3-649031116 (matches nobody): Shaikpet Industries Private Limited Center | Plot No. 539, 533 & 534 Uptown Cyberabad, 3Rd Floor, Block B, 100 Feet Road Ayyapa Society, Shaikpet, Hyderabad, TG

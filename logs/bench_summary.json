@@ -1,0 +1,120 @@
+{
+  "regions_sampled": {
+    "India": [
+      "gujarat",
+      "orissa",
+      "tamil nadu",
+      "telangana"
+    ],
+    "US": [
+      "ak",
+      "ct",
+      "ia",
+      "in",
+      "ma",
+      "mt",
+      "nd",
+      "ny",
+      "ok",
+      "pa",
+      "ut",
+      "wv",
+      "wy"
+    ]
+  },
+  "fold_of_region": {
+    "India|telangana": 0,
+    "India|orissa": 1,
+    "India|tamil nadu": 2,
+    "India|gujarat": 3,
+    "US|in": 0,
+    "US|ut": 1,
+    "US|ak": 2,
+    "US|ia": 3,
+    "US|wy": 4,
+    "US|pa": 0,
+    "US|wv": 1,
+    "US|ma": 2,
+    "US|nd": 3,
+    "US|ok": 4,
+    "US|mt": 0,
+    "US|ct": 1,
+    "US|ny": 2
+  },
+  "s1_total": 2206821,
+  "s1_bench": 535608,
+  "queries_bench": 2883225,
+  "share_s1_sampled": {
+    "India": 0.2151,
+    "US": 0.2611
+  },
+  "queries_without_region_pct": 4.8,
+  "true_pairs_of_bench_s1": 1852953,
+  "true_pairs_split_pct": 0.176,
+  "true_pairs_wrong_region_pct": 0.176,
+  "by_country": {
+    "India": {
+      "s1": 189975,
+      "queries": 988061,
+      "queries_per_s1": 5.201,
+      "pct_queries_unmatched_in_bench": 33.68,
+      "pct_queries_unmatched_globally": 23.7
+    },
+    "US": {
+      "s1": 345633,
+      "queries": 1895164,
+      "queries_per_s1": 5.483,
+      "pct_queries_unmatched_in_bench": 36.98,
+      "pct_queries_unmatched_globally": 24.04
+    }
+  },
+  "by_fold": {
+    "0": {
+      "s1": 126414,
+      "regions": [
+        "India|telangana",
+        "US|in",
+        "US|mt",
+        "US|pa"
+      ]
+    },
+    "1": {
+      "s1": 71014,
+      "regions": [
+        "India|orissa",
+        "US|ct",
+        "US|ut",
+        "US|wv"
+      ]
+    },
+    "2": {
+      "s1": 226084,
+      "regions": [
+        "India|tamil nadu",
+        "US|ak",
+        "US|ma",
+        "US|ny"
+      ]
+    },
+    "3": {
+      "s1": 86540,
+      "regions": [
+        "India|gujarat",
+        "US|ia",
+        "US|nd"
+      ]
+    },
+    "4": {
+      "s1": 25556,
+      "regions": [
+        "US|ok",
+        "US|wy"
+      ]
+    }
+  },
+  "full_train_reference": {
+    "queries_per_s1": 4.677,
+    "pct_s2s3_unmatched": 25.99,
+    "test_queries_per_s1": 5.754
+  }
+}

@@ -48,6 +48,12 @@ STAGE_COMMANDS = {
     "combine_train": ["-m", "src.blocking", "--stage", "combine", "--split", "train"],
     "combine_test": ["-m", "src.blocking", "--stage", "combine", "--split", "test"],
     "finalize": ["-m", "src.finalize"],
+    "pair_table_test": ["-m", "src.pair_table", "--split", "test"],
+    "bench_build": ["-m", "src.benchmark", "--stage", "build"],
+    "bench_block": ["-m", "src.benchmark", "--stage", "block"],
+    "pair_table_bench": ["-m", "src.pair_table", "--split", "bench"],
+    "scorer_eval": ["-m", "src.scorer_v2", "--stage", "eval"],
+    "submit_v2": ["-m", "src.scorer_v2", "--stage", "submit"],
     "tests": ["-m", "unittest"],
 }
 COUNTRY_STAGES = ("block_train", "block_test")
@@ -67,7 +73,10 @@ DATA_MARKER = "train_source1.tsv"
 RESULT_FILES = ["blocking_bench.json", "blocking_recall.json", "blocking_misses.txt", "stage_metrics.jsonl",
                 "data_summary.json", "normalize_summary.json", "prepare_data.log", "normalize.log",
                 "split.log", "blocking.log", "combine_check.json", "stage1_reduction.json",
-                "baseline_report.json", "baseline_report.md", "validate_submission.txt", "finalize.log"]
+                "baseline_report.json", "baseline_report.md", "validate_submission.txt", "finalize.log",
+                "pair_table.log", "scorer_v2.log", "submit_v2_report.json",
+                "benchmark.log", "bench_summary.json", "scorer_v2_report.json", "scorer_v2_config.json",
+                "decoy_examples.txt"]
 GB = 1024 ** 3
 
 

@@ -1,0 +1,10 @@
+{
+  "w_name": 0.3,
+  "w_addr": 0.5,
+  "w_num": 0.2,
+  "w_extra": 0.1,
+  "veto": true,
+  "t_accept": 0.64,
+  "t_keep": 0.64,
+  "major_pen": 0.0
+}

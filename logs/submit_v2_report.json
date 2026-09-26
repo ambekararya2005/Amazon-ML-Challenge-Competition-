@@ -1,0 +1,42 @@
+{
+  "config": {
+    "w_name": 0.3,
+    "w_addr": 0.5,
+    "w_num": 0.2,
+    "w_extra": 0.1,
+    "veto": true,
+    "t_accept": 0.64,
+    "t_keep": 0.64,
+    "major_pen": 0.0
+  },
+  "rows_candidate": 1732544,
+  "rows_matching": 1732544,
+  "validator": [
+    "  candidate_pairs.tsv: 1732544 rows (243 empty, 1732301 non-empty).",
+    "",
+    "PASS \u2014 no blocking issues found. Safe to submit."
+  ],
+  "by_country": {
+    "France": {
+      "s1": 259452,
+      "pred_per_s1": 3.48,
+      "pct_empty": 5.14,
+      "pct_s2s3_assigned": 62.92,
+      "cands_per_s1": 27.65
+    },
+    "India": {
+      "s1": 809986,
+      "pred_per_s1": 3.118,
+      "pct_empty": 9.47,
+      "pct_s2s3_assigned": 53.54,
+      "cands_per_s1": 29.121
+    },
+    "US": {
+      "s1": 663106,
+      "pred_per_s1": 3.225,
+      "pct_empty": 6.64,
+      "pct_s2s3_assigned": 56.03,
+      "cands_per_s1": 28.781
+    }
+  }
+}

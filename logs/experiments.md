@@ -106,3 +106,28 @@
   vs 3.46 in train GT; only 0.04-0.52% empty predictions vs 5.6% singletons.
 - Why validation missed it: the validation query set held only 300k random distractors of ~2.6M unmatched train records,
   so most siblings were absent.
+
+## 2026-09-26 — Geo-dense benchmark + decoy-aware rule scorer v2
+- City-level units split 21.8% of true pairs (S2/S3 drop / change / misspell the city) -> coarser unit = (country, region):
+  S1 regions found data-driven (src/geo_units.py), S2/S3 region learned from true-pair co-occurrence (src/benchmark.py);
+  records with no region (4.8%, mostly empty addresses) are added to the benchmark as extra distractors.
+  Sample: 4 India + 13 US regions = 535,608 S1 (21.5% / 26.1%), 2,883,225 queries; 5 folds by region (fold 0 = 126,414 S1).
+  True pairs split: 0.18%. Queries per S1: India 5.20 / US 5.48 (test 5.75). Unmatched queries in bench 33.7% / 37.0%
+  (26.0% full train; higher because no-region records whose S1 lies outside the sample count as unmatched).
+- Blocking + stage-1 top-5 on the benchmark (Kaggle K8): recall@5 India 0.9438 / US 0.9841 / all 0.9698.
+- Baseline (submission #1 config) on fold 0: F0.5 0.7259 (India 0.7191 / US 0.7313), precision 0.705, recall 0.925,
+  4.28 predictions/S1, 0.34% empty, singleton part 0.033. LB was 0.636 -> the benchmark now sees the decoy problem.
+- Folds 1-4, true pairs vs decoys accepted by the baseline: num_conflict 9.3% vs 83.0%; num_compatible 79.7% vs 15.3%;
+  extra name tokens 39.7% vs 73.9%; conflict or extra 45.2% vs 97.2%. Decoy extra words: group, holdings, partners,
+  center, industries, services, enterprises, exports, ventures, overseas, infratech, downtown, west, south, metro ...
+  ('holdings' is not a legal form here, so it already counts as an extra word.) True-pair extras: center, services, dba,
+  sri / smt / shri, formerly, ...
+- Rule scorer v2 (src/scorer_v2.py, features src/decoy_features.py): 0.3 name_tsort + 0.5 addr_tsort + 0.2 num_compatible
+  - 0.1 extra-token penalty, num_conflict veto (beat penalties 0.1-0.5 in the grid), one-to-one, t_accept = t_keep = 0.64.
+  Fold 0: F0.5 0.8230 (+0.0970 vs baseline); US 0.9100 (+0.179), India 0.7113 (-0.008); precision 0.880, recall 0.821,
+  3.25 predictions/S1, 6.96% empty, singleton part 0.679. Folds 1-4: 0.8451.
+- Pair-feature tables: benchmark (5 folds, labelled) = K8 output cache/bench/pairs.parquet; test = K7a output
+  output/features/test_pairs.parquet (49,846,318 pairs x 38 columns). Both on Kaggle (not downloaded).
+- Submission #2 files (Kaggle K7b, 6.7 min): validator PASS (Kaggle --check-ids, local). Test per country: France 3.48 pred/S1,
+  5.14% empty, 62.9% of S2/S3 assigned; India 3.12 / 9.47% / 53.5%; US 3.23 / 6.64% / 56.0% (target ~74% assigned: v2 now
+  under-assigns, consistent with benchmark recall 0.82). France sits between US and India on every statistic.

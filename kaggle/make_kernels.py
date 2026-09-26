@@ -2,6 +2,9 @@
 
     python kaggle/make_kernels.py blocking     # K1-K5: test blocking (France, India x2 shards, US) + train candidates
     python kaggle/make_kernels.py finalize     # K6: combine + stage-1 reduction + baseline + submission files
+    python kaggle/make_kernels.py test_features  # K7a: test pair-feature table (stage-1 top-5 + all features)
+    python kaggle/make_kernels.py submit_v2      # K7b: apply rule scorer v2 to the K7a table -> submission files
+    python kaggle/make_kernels.py bench          # K8: geo-dense benchmark + pair table + scorer v2 eval
 
 Writes kaggle/kernels/<slug>/{run_pipeline_kaggle.py, kernel-metadata.json}. Each kernel gets its own
 STAGES and reuse settings and kernel_sources. Push each with:  kaggle kernels push -p kaggle/kernels/<slug>
@@ -32,7 +35,23 @@ FINALIZE = {
     "amlc2026-finalize": dict(STAGES=["combine_test", "finalize"], REUSE_CACHE_SUBDIRS=None, REUSE_MODE="symlink",
                               CACHE_IN_TMP=True, sources=[f"{USERNAME}/{k}" for k in BLOCKING]),
 }
-PLANS = {"blocking": BLOCKING, "finalize": FINALIZE}
+TEST_KERNELS = [f"{USERNAME}/{k}" for k in BLOCKING if k.startswith("amlc2026-test-")]
+TEST_FEATURES = {
+    "amlc2026-test-features": dict(STAGES=["combine_test", "pair_table_test"], REUSE_CACHE_SUBDIRS=None,
+                                   REUSE_MODE="symlink", CACHE_IN_TMP=True, sources=TEST_KERNELS),
+}
+SUBMIT_V2 = {
+    "amlc2026-submit-v2": dict(STAGES=["submit_v2"], REUSE_CACHE_SUBDIRS=None, REUSE_MODE="symlink",
+                               CACHE_IN_TMP=True,
+                               sources=[f"{USERNAME}/amlc2026-test-features", f"{USERNAME}/amlc2026-test-france",
+                                        f"{USERNAME}/amlc2026-bench"]),
+}
+BENCH = {
+    "amlc2026-bench": dict(STAGES=["bench_build", "bench_block", "pair_table_bench", "scorer_eval"],
+                           REUSE_CACHE_SUBDIRS=TRAIN_NEEDS, sources=[V1]),
+}
+PLANS = {"blocking": BLOCKING, "finalize": FINALIZE, "test_features": TEST_FEATURES, "submit_v2": SUBMIT_V2,
+         "bench": BENCH}
 
 
 def substitute(script: str, name: str, value) -> str:

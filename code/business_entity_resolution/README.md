@@ -34,6 +34,9 @@ skips work if the cache exists; add `--force` to recompute.
 | 3a | `python -m src.blocking --stage block --split test` (or per country: `--country France`, `--country India --shard 1/2`, ...; then `--stage combine --split test`) | `cache/cand/test/<country>/*_part_*.parquet`, `cache/cand/test_{passA,passC,union}.parquet` | Kaggle 4 CPU: France 5 min, India 2 x 113-142 min, US 106 min / 2.3 GB |
 | 3b | `python -m src.blocking --stage block --split train` then `--stage recall` | `cache/cand/train_*.parquet`, `logs/blocking_recall.json`, `logs/blocking_misses.txt` | Kaggle 113 min / 2.3 GB |
 | 4 | `python -m src.finalize` | `output/candidate_pairs.tsv`, `output/matching_results.tsv`, `logs/baseline_report.{md,json}`, `logs/stage1_reduction.json`, `logs/combine_check.json` | Kaggle 38 min / 20 GB |
+| 5 | `python -m src.benchmark --stage build` then `--stage block` | `cache/bench/{s1,queries,union}.parquet`, `logs/bench_summary.json` (geo-dense validation benchmark, region units, 5 folds) | Kaggle 6 + 24 min / 5.4 GB |
+| 6 | `python -m src.pair_table --split bench` / `--split test` | `cache/bench/pairs.parquet` (labelled, all features) / `<output>/features/test_pairs.parquet` | Kaggle 6 / 14 min / 19-26 GB |
+| 7 | `python -m src.scorer_v2 --stage eval` then `--stage submit` | `logs/scorer_v2_{report,config}.json`, `logs/decoy_examples.txt`; `output/*.tsv`, `logs/submit_v2_report.json` | Kaggle 22 / 7 min |
 
 Optional reports: `python -m src.normalize --stage examples` (→ `logs/normalize_examples.md`),
 `python -m src.normalize --stage nonlatin_tokens`.
