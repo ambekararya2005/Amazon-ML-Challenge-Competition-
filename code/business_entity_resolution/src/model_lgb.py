@@ -3,6 +3,13 @@
     python -m src.model_lgb --stage train    # <output>/features_v3/bench/*.parquet -> <output>/models_v3/,
                                              #   logs/model_v3_report.{json,md}, logs/model_v3_errors.txt
     python -m src.model_lgb --stage submit   # models + <output>/features_v3/test/*.parquet -> output/*.tsv
+    python -m src.model_lgb --stage train_full   # MODEL_FULL=1: one model per stage on ALL 5 bench folds
+    python -m src.model_lgb --stage assemble     # per-country parts (SUBMIT_PARTS=1) -> output/final/*.tsv
+
+Env: MODEL_FULL=1 uses <output>/models_<tag>full (rounds = 1.1 x mean CV best iteration, calibration / decoder
+settings copied from the CV artefacts); SUBMIT_COUNTRY=<c> scores one country only; SUBMIT_PARTS=1 writes
+<output>/submit_parts_<model>/<country>.parquet (one row per S1: entity id, candidate list, match list) instead
+of the TSVs; assemble reads every such part (local output or PARTS_DIR) and writes + validates the TSVs.
 
 Training uses benchmark folds 1-4 only (fold 0 = the gate): leave-one-fold-out CV (the folds are groups of regions)
 gives out-of-fold (OOF) predictions for folds 1-4; fold 0 and test use the mean of the 4 fold models.
@@ -19,6 +26,7 @@ No country feature: country only partitions the work.
 import argparse
 import gc
 import json
+import os
 from pathlib import Path
 
 import lightgbm as lgb
@@ -39,7 +47,14 @@ from .normalize import norm_path
 from .scorer_v2 import BASELINE, CONFIG_FILE, find_file, score_baseline
 
 TAG = "v3" if FEATURE_VARIANT == "v1" else FEATURE_VARIANT       # v1 candidates + v3 features = "v3"
-MODEL_DIR = OUTPUT_DIR / f"models_{TAG}"
+FULL = os.environ.get("MODEL_FULL", "0") == "1"
+MODEL_NAME = TAG + ("full" if FULL else "")
+CV_MODEL_DIR = OUTPUT_DIR / f"models_{TAG}"      # leave-one-fold-out models (folds 1-4) + OOF artefacts
+MODEL_DIR = OUTPUT_DIR / f"models_{MODEL_NAME}"
+SUBMIT_COUNTRY = os.environ.get("SUBMIT_COUNTRY", "")
+SUBMIT_PARTS = os.environ.get("SUBMIT_PARTS", "0") == "1"
+PARTS_DIR = OUTPUT_DIR / f"submit_parts_{MODEL_NAME}"
+FULL_ROUND_MULT = 1.1
 TRAIN_FOLDS = (1, 2, 3, 4)
 NON_FEATURES = {"query_id", "s1_id", "label", "q_true_s1", "fold", "xq", "xs", "n_xq", "n_xs", "country"}
 TE_M = 20.0                       # smoothing strength (pseudo-count) of the extra-word target encoding
@@ -482,6 +497,85 @@ def run_train(logger) -> dict:
     return rep
 
 
+# ------------------------------------------------------------------ full retrain (all 5 bench folds)
+def _fit_full(X: np.ndarray, y: np.ndarray, feats: list, params: dict, rounds: int, tag: str, logger):
+    """Train one LightGBM model on every row for a fixed number of rounds and save it as <tag>_fall.txt."""
+    with StageTimer(f"full_{tag}", logger, rows=len(y), features=len(feats), rounds=rounds):
+        ds = lgb.Dataset(X, label=y, feature_name=feats, params={"max_bin": params["max_bin"], "verbose": -1})
+        m = lgb.train(params, ds, num_boost_round=rounds)
+    m.save_model(str(MODEL_DIR / f"{tag}_fall.txt"))
+    return m
+
+
+def run_train_full(logger) -> dict:
+    """Retrain stage 1, stage 2 and has-match once on ALL 5 bench folds (rounds = 1.1 x mean CV best iteration).
+
+    Stage-2 and has-match inputs are the CV run's out-of-fold p1 / p2 (bench_preds.parquet: OOF on folds 1-4, mean
+    of the fold models on fold 0), i.e. the same kind of inputs the CV models saw. Calibration maps and decoder
+    settings are copied from the CV artefacts (fitted on OOF predictions). The extra-word vocabulary for test is
+    refitted on all 5 folds. Ends with an in-sample fold-0 pass through the submit scorer (a bug check only: the
+    full models have seen fold 0, so this is not a gate)."""
+    MODEL_DIR.mkdir(parents=True, exist_ok=True)
+    art = json.loads(find_file("artifacts.json", CV_MODEL_DIR, "/kaggle/input").read_text(encoding="utf-8"))
+    rounds = {}
+    for prefix in ("stage1", "stage2", "hasmatch"):
+        its = [load_models(prefix, [k], CV_MODEL_DIR)[0].current_iteration() for k in art["folds"]]
+        rounds[prefix] = int(round(FULL_ROUND_MULT * float(np.mean(its))))
+        logger.info("%s CV best iterations %s -> full rounds %d", prefix, its, rounds[prefix])
+    df, bs1 = load_bench_tables(logger)
+    y, fold = df["label"].to_numpy().astype(np.float32), df["fold"].to_numpy()
+    qid, s1 = df["query_id"].to_numpy(), df["s1_id"].to_numpy()
+    with StageTimer("full_te", logger):
+        add_te_bench(df, logger)                  # out-of-fold encodings for every training row (fold 0: fit on 1-4)
+        fit_rows = np.flatnonzero(df["base_score"].to_numpy() >= CLAIM_MIN)
+        for side in ("xq", "xs"):
+            v = te_fit(df[side], df["label"].to_numpy(), fit_rows)
+            write_parquet(v.assign(prior=v.attrs["prior"]), MODEL_DIR / f"te_vocab_{side}.parquet")
+    X = matrix(df, art["stage1_features"])
+    m1 = _fit_full(X, y, art["stage1_features"], LGB_PARAMS, rounds["stage1"], "stage1", logger)
+    del X
+    gc.collect()
+    bp = pd.read_parquet(find_file("bench_preds.parquet", CV_MODEL_DIR, "/kaggle/input"),
+                         columns=["query_id", "s1_id", "p1", "p2", "kept2"])
+    if not (len(bp) == len(df) and np.array_equal(bp["query_id"].to_numpy(), qid)
+            and np.array_equal(bp["s1_id"].to_numpy(), s1)):
+        bp = df[["query_id", "s1_id"]].merge(bp, on=["query_id", "s1_id"], how="left", validate="one_to_one")
+        if bp["p1"].isna().any():
+            raise ValueError(f"bench_preds misses {int(bp['p1'].isna().sum())} bench pairs")
+    p1_aggregates(df, bp["p1"].to_numpy(np.float32))
+    X = matrix(df, art["stage2_features"])
+    m2 = _fit_full(X, y, art["stage2_features"], LGB_PARAMS, rounds["stage2"], "stage2", logger)
+    del X
+    gc.collect()
+    stats = s1_text_stats("train")
+    hm = hasmatch_table(df, bp["p2"].to_numpy(np.float32), bp["kept2"].to_numpy(bool), bs1["s1_id"].to_numpy(), stats)
+    hm_y = (bs1["n_true"].to_numpy() > 0).astype(np.float32)
+    mh = _fit_full(hm[HM_FEATURES].to_numpy(np.float32), hm_y, HM_FEATURES, HM_PARAMS, rounds["hasmatch"],
+                   "hasmatch", logger)
+    art_full = dict(art, folds=["all"], full_rounds=rounds, cv_fold0_chosen=art["fold0_chosen"])
+    with open(MODEL_DIR / "artifacts.json", "w", encoding="utf-8", newline="") as f:
+        json.dump(art_full, f)
+    rep = {"rounds": rounds, "cv_fold0_chosen": art["fold0_chosen"],
+           "importance_stage1": importance([m1], art["stage1_features"]),
+           "importance_stage2": importance([m2], art["stage2_features"])}
+    # in-sample fold-0 check through the submit scorer (catches wiring bugs; expect >= the CV fold-0 score)
+    keep_cols = [c for c in df.columns if c not in AGG1 and not c.startswith("te_")]
+    d0 = df.loc[fold == 0, keep_cols].reset_index(drop=True)
+    del df
+    gc.collect()
+    vocab = {s: pd.read_parquet(MODEL_DIR / f"te_vocab_{s}.parquet") for s in ("xq", "xs")}
+    s1_0 = np.sort(bs1.loc[bs1["fold"] == 0, "s1_id"].to_numpy())
+    r = score_partition(d0, art_full, ([m1], [m2], [mh]), vocab, stats, s1_0)
+    rep["fold0_in_sample"] = {c: v.metrics(r["keep"]) for c, v in views_for(d0, bs1, [0]).items()}
+    logger.info("full models: rounds %s; fold-0 IN-SAMPLE (bug check, not a gate): %s; CV fold 0: %s", rounds,
+                {c: round(m["macro_f05"], 4) for c, m in rep["fold0_in_sample"].items()},
+                round(art["fold0_chosen"]["macro_f05"], 4))
+    with open(LOG_DIR / f"model_{MODEL_NAME}_report.json", "w", encoding="utf-8", newline="") as f:
+        json.dump(rep, f, indent=1, default=float)
+        f.write("\n")
+    return rep
+
+
 def _thr_pred(s1, p, kept, cfg) -> np.ndarray:
     """Return the threshold-decoder mask over all pairs (entity = S1 id)."""
     ent = np.where(kept, pd.factorize(s1)[0], -1)
@@ -561,9 +655,10 @@ def report_md(rep: dict) -> str:
 
 
 # ------------------------------------------------------------------ submit stage
-def load_models(prefix: str, folds) -> list:
-    """Return the saved LightGBM fold models."""
-    return [lgb.Booster(model_file=str(find_file(f"{prefix}_f{k}.txt", MODEL_DIR, "/kaggle/input"))) for k in folds]
+def load_models(prefix: str, folds, model_dir: Path = None) -> list:
+    """Return the saved LightGBM fold models (fold "all" = the full-data model)."""
+    model_dir = MODEL_DIR if model_dir is None else model_dir
+    return [lgb.Booster(model_file=str(find_file(f"{prefix}_f{k}.txt", model_dir, "/kaggle/input"))) for k in folds]
 
 
 CHOSEN_KEY = {"stage1+threshold": "stage1_threshold", "stage2+threshold": "stage2_threshold",
@@ -620,16 +715,23 @@ def run_submit(logger) -> dict:
     tq = pd.read_parquet(find_file("queries.parquet", CAND_DIR / "test", "/kaggle/input"),
                          columns=["query_id", "entity_id", "country"])
     files = sorted(feature_dir("test").glob("pairs_*.parquet"))
+    if SUBMIT_COUNTRY:
+        files = [p for p in files if p.stem == f"pairs_{SUBMIT_COUNTRY}"]
+        if not files:
+            raise FileNotFoundError(f"no test pair table for SUBMIT_COUNTRY={SUBMIT_COUNTRY!r}")
     stats = s1_text_stats("test")
     chosen = art["chosen"]
-    logger.info("test partitions %s; chosen decoder %s", [p.name for p in files], chosen)
-    all_q, all_s, all_keep, all_cheap = [], [], [], []
-    rep = {"chosen": chosen, "by_country": {}, "p2_hist_fold0": art["p2_hist_fold0"],
+    logger.info("model %s (folds %s); test partitions %s; chosen decoder %s; parts %s", MODEL_NAME, folds,
+                [p.name for p in files], chosen, SUBMIT_PARTS)
+    q_ent = pd.Series(tq["entity_id"].to_numpy(), index=tq["query_id"])
+    s1_ent = lk["entity_id"].to_numpy()
+    cands, matches = {}, {}
+    rep = {"model": MODEL_NAME, "chosen": chosen, "by_country": {}, "p2_hist_fold0": art["p2_hist_fold0"],
            "p2_hist_fold0_kept": art["p2_hist_fold0_kept"]}
     for path in files:
         df = pd.read_parquet(path)
         country = lk["country"].iat[int(df["s1_id"].iat[0])]
-        with StageTimer(f"submit_{TAG}_{country}", logger, pairs=len(df)):
+        with StageTimer(f"submit_{MODEL_NAME}_{country}", logger, pairs=len(df)):
             s1_all = np.flatnonzero((lk["country"] == country).to_numpy())
             r = score_partition(df, art, (m1, m2, mh), vocab, stats, s1_all)
             p2, kept, keep, h_of = r["p2"], r["kept"], r["keep"], r["h_of"]
@@ -645,16 +747,34 @@ def run_submit(logger) -> dict:
             if h_of is not None:
                 rep["by_country"][country]["mean_h"] = round(float(h_of.mean()), 4)
             logger.info("[%s] %s", country, rep["by_country"][country])
-            all_q.append(qid), all_s.append(s1), all_keep.append(keep), all_cheap.append(df["cheap"].to_numpy())
-        del df
+            te = pd.DataFrame({"query_id": qid, "s1_id": s1, "cheap": df["cheap"].to_numpy()})
+            del df, r
+            gc.collect()
+            c_cands = id_lists(te, np.ones(len(te), dtype=bool), s1_ent, q_ent)
+            c_matches = id_lists(te, keep, s1_ent, q_ent)
+            del te
+            if SUBMIT_PARTS:
+                ents = s1_ent[s1_all]
+                part = pd.DataFrame({"entity_id": ents, "country": country,
+                                     "candidates": [",".join(c_cands.get(e, ())) for e in ents],
+                                     "matches": [",".join(c_matches.get(e, ())) for e in ents]})
+                write_parquet(part, PARTS_DIR / f"{country}.parquet")
+                with open(PARTS_DIR / f"{country}_report.json", "w", encoding="utf-8", newline="") as f:
+                    json.dump(rep["by_country"][country], f, indent=1, default=float)
+                    f.write("\n")
+                del part
+            else:
+                cands.update(c_cands)
+                matches.update(c_matches)
+            del c_cands, c_matches
         gc.collect()
-    te = pd.DataFrame({"query_id": np.concatenate(all_q), "s1_id": np.concatenate(all_s),
-                       "cheap": np.concatenate(all_cheap)})
-    keep = np.concatenate(all_keep)
-    q_ent = pd.Series(tq["entity_id"].to_numpy(), index=tq["query_id"])
-    s1_ent = lk["entity_id"].to_numpy()
-    cands = id_lists(te, np.ones(len(te), dtype=bool), s1_ent, q_ent)
-    matches = id_lists(te, keep, s1_ent, q_ent)
+    if SUBMIT_PARTS:
+        with open(LOG_DIR / f"submit_{MODEL_NAME}_{SUBMIT_COUNTRY or 'all'}_report.json", "w", encoding="utf-8",
+                  newline="") as f:
+            json.dump(rep, f, indent=1, default=float)
+            f.write("\n")
+        logger.info("parts written to %s: %s", PARTS_DIR, sorted(p.name for p in PARTS_DIR.glob("*")))
+        return rep
     order = test_s1_order()
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     cand_path, match_path = OUTPUT_DIR / "candidate_pairs.tsv", OUTPUT_DIR / "matching_results.tsv"
@@ -670,16 +790,60 @@ def run_submit(logger) -> dict:
     return rep
 
 
+def run_assemble(logger) -> dict:
+    """Merge the per-country parts into <output>/<FINAL_SUBDIR or final>/*.tsv, check them and run the validator."""
+    from .finalize import run_validator, test_s1_order
+    from .io_utils import assert_no_cr_file, write_candidate_pairs, write_matching_results
+    root = Path(os.environ["PARTS_DIR"]) if os.environ.get("PARTS_DIR") else PARTS_DIR
+    files = sorted(root.rglob("*.parquet"))
+    parts = pd.concat([pd.read_parquet(p) for p in files], ignore_index=True)
+    logger.info("assemble: %d parts from %s (%s): %d S1 rows", len(files), root, [p.name for p in files], len(parts))
+    if not parts["entity_id"].is_unique:
+        raise ValueError("an S1 entity appears in more than one part")
+    order = test_s1_order()
+    missing = set(order) - set(parts["entity_id"])
+    if missing:
+        raise ValueError(f"{len(missing)} test S1 missing from the parts, e.g. {sorted(missing)[:5]}")
+    split = lambda s: s.split(",") if s else []                                   # noqa: E731
+    cands = dict(zip(parts["entity_id"], map(split, parts["candidates"])))
+    matches = dict(zip(parts["entity_id"], map(split, parts["matches"])))
+    not_sub = sum(1 for e, m in matches.items() if not set(m) <= set(cands[e]))
+    if not_sub:
+        raise ValueError(f"{not_sub} S1 have matches outside their candidates")
+    n_match = parts["matches"].map(lambda s: len(split(s)))
+    rep = {"parts": [p.name for p in files], "by_country": {}}
+    for c, g in n_match.groupby(parts["country"]):
+        rep["by_country"][c] = {"s1": int(len(g)), "pred_per_s1": round(float(g.mean()), 3),
+                                "pct_empty": round(100 * float((g == 0).mean()), 2)}
+    for p in root.rglob("*_report.json"):
+        rep["by_country"].setdefault(p.stem.replace("_report", ""), {})["kernel"] = json.loads(p.read_text("utf-8"))
+    out = OUTPUT_DIR / os.environ.get("FINAL_SUBDIR", "final")
+    if out.exists() and any(out.iterdir()):
+        raise FileExistsError(f"{out} is not empty (never overwrite a finished submission; set FINAL_SUBDIR)")
+    cand_path, match_path = out / "candidate_pairs.tsv", out / "matching_results.tsv"
+    rep["rows_candidate"] = write_candidate_pairs(cand_path, order, cands)
+    rep["rows_matching"] = write_matching_results(match_path, order, matches)
+    for p in (cand_path, match_path):
+        assert_no_cr_file(p)
+    rep["validator"] = run_validator(match_path, cand_path, logger).strip().splitlines()[-3:]
+    with open(out / "assemble_report.json", "w", encoding="utf-8", newline="") as f:
+        json.dump(rep, f, indent=1, default=float)
+        f.write("\n")
+    logger.info("assembled %s: %s", out, json.dumps({k: v for k, v in rep.items() if k != "by_country"}))
+    return rep
+
+
 def main() -> None:
     """Parse flags and run the requested stage."""
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--stage", choices=["train", "submit"], required=True)
+    ap.add_argument("--stage", choices=["train", "submit", "train_full", "assemble"], required=True)
     add_path_args(ap)
     args = ap.parse_args()
     set_seeds()
     logger = get_logger("model_lgb")
+    run = {"train": run_train, "submit": run_submit, "train_full": run_train_full, "assemble": run_assemble}
     with StageTimer(f"model_lgb_{args.stage}", logger, threads=N_THREADS):
-        run_train(logger) if args.stage == "train" else run_submit(logger)
+        run[args.stage](logger)
 
 
 if __name__ == "__main__":

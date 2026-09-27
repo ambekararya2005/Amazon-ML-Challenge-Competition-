@@ -60,6 +60,7 @@ STAGE_COMMANDS = {
     "features_v3_test": ["-m", "src.features_v3", "--split", "test"],
     "model_train": ["-m", "src.model_lgb", "--stage", "train"],
     "model_submit": ["-m", "src.model_lgb", "--stage", "submit"],
+    "model_train_full": ["-m", "src.model_lgb", "--stage", "train_full"],
     "blocking_v4_bench": ["-m", "src.blocking_v4", "--split", "bench"],
     "blocking_v4_test": ["-m", "src.blocking_v4", "--split", "test"],
     "tests": ["-m", "unittest"],

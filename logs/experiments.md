@@ -174,3 +174,26 @@
   legal form ("... Public Limited"; legal forms are stripped from name_core -> add a legal-form mismatch feature);
   sibling sub-numbers (12-1-331/C/8 vs /C/1).
 - Test v4 candidates: France 8.48M / India 27.78M / US 21.35M pairs (5.59-5.91 per query, 5.9-7.7% from pass D only).
+
+## 2026-09-27 (afternoon) — final-day plan: state, error budget, v4 final run
+- Submission #3 (v3, v1 candidates): public LB **0.941** vs fold-0 0.9652 (-0.024). Files kept in output/best/sub3_v3_fold0.965/.
+- State in #3: stage-2 group aggregates YES (p1 max / second / sum / cnt>0.5 / rank / p1-max within S1; other-S1 max,
+  margin, rank within the query); S1 has-match model YES; expected-F0.5 decoder with EMPTY YES; blocking v4 (pass D,
+  cross-script dictionary, adaptive top-k) NO -> exists as v4 (fold 0 0.9719, +0.0067), test features READY (K13).
+- Error budget fold 0 (points lost; all / US / India): #3 singleton 0.0024/0.0016/0.0034, decoy FP 0.0036/0.0020/0.0055,
+  other FP 0.0025/0.0025/0.0024, FN blocking 0.0145/0.0055/0.0260, FN scoring 0.0119/0.0102/0.0141 (total 0.0348);
+  v4: 0.0024, 0.0037, 0.0028, 0.0073, 0.0119 (total 0.0281).
+- Step 1 (stage 2) and Step 3 (has-match + decoder) already exist. Step 3 re-tune on v4 OOF (T x miss x h-temperature,
+  27 configs, logs/decoder_retune_v4.json): OOF surface flat (0.96881-0.96897); best (T 1.0, miss 0.1, hT 0.7) fold 0
+  0.9718 vs 0.9719 -> DROP. Singleton part before/after has-match (v4 fold 0): 0.943 -> 0.957.
+- Step 2 (cross-source sibling agreement): the text part already exists as the twin features (top-8 claimants: max
+  name/addr sim, number / extra-word better/worse, v2 diff, same source); the p1-of-sibling part would need new
+  bench + test features and a full test rescoring before 19:00 -> DROPPED (time).
+- Step 4: v4 kept (+0.0067 on fold 0).
+- Step 5 (lr 0.03, num_leaves 255, 3 seeds): each needs a stage-1 retrain (CV 162 min on Kaggle at lr 0.05) -> DROPPED (time).
+- Final run: src/model_lgb.py gained --stage train_full (MODEL_FULL=1: one model per stage on all 5 bench folds,
+  rounds = 1.1 x mean CV best iteration; stage-2 / has-match inputs = CV OOF p1 / p2; calibration + decoder from CV),
+  per-country scoring (SUBMIT_COUNTRY, SUBMIT_PARTS=1 -> submit_parts_<model>/<country>.parquet; avoids the end-of-run
+  OOM that killed K11) and --stage assemble (parts -> TSVs, matches within candidates, validator). Assemble round-trip
+  of #3 reproduces its files byte for byte (md5). Kaggle 14:29: K14a-c amlc2026-submit-v4-{france,india,us} (CV
+  models, safe v4) and K15 amlc2026-full-v4 (full retrain + test parts).

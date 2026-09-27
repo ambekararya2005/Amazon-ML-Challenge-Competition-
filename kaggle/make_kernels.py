@@ -12,6 +12,8 @@
     python kaggle/make_kernels.py bench_v4       # K12d: blocking v4 bench + pair table + v3 features + model (v4)
     python kaggle/make_kernels.py test_features_v4   # K13: v4 test pair tables + v3 features
     python kaggle/make_kernels.py submit_v4      # K14: v4 models + v4 test features -> submission files
+    python kaggle/make_kernels.py submit_v4_parts  # K14a-c: same, one kernel per country -> per-country parts
+    python kaggle/make_kernels.py full_v4        # K15: v4 retrained on all 5 bench folds -> test parts
 
 Writes kaggle/kernels/<slug>/{run_pipeline_kaggle.py, kernel-metadata.json}. Each kernel gets its own
 STAGES and reuse settings and kernel_sources. Push each with:  kaggle kernels push -p kaggle/kernels/<slug>
@@ -93,10 +95,24 @@ SUBMIT_V4 = {
                                sources=[f"{USERNAME}/amlc2026-bench-v4", f"{USERNAME}/amlc2026-test-features-v4",
                                         K_FRANCE, K8]),
 }
+K_BENCH_V4, K_TEST_V4 = f"{USERNAME}/amlc2026-bench-v4", f"{USERNAME}/amlc2026-test-features-v4"
+SUBMIT_V4_PARTS = {                  # K14a-c: CV (fold 1-4) v4 models, one kernel per country -> per-country parts
+    f"amlc2026-submit-v4-{c.lower()}": dict(STAGES=["model_submit"], REUSE_CACHE_SUBDIRS=None, REUSE_MODE="symlink",
+                                             CACHE_IN_TMP=True,
+                                             EXTRA_ENV={**V4, "SUBMIT_COUNTRY": c, "SUBMIT_PARTS": "1"},
+                                             sources=[K_BENCH_V4, K_TEST_V4, K_FRANCE, K8])
+    for c in ("France", "India", "US")
+}
+FULL_V4 = {                          # K15: retrain on all 5 bench folds, then score every country -> parts
+    "amlc2026-full-v4": dict(STAGES=["model_train_full", "model_submit"], REUSE_CACHE_SUBDIRS=None,
+                             REUSE_MODE="symlink", CACHE_IN_TMP=True,
+                             EXTRA_ENV={**V4, "MODEL_FULL": "1", "SUBMIT_PARTS": "1"},
+                             sources=[K_BENCH_V4, K_TEST_V4, K_FRANCE, K8]),
+}
 PLANS = {"blocking": BLOCKING, "finalize": FINALIZE, "test_features": TEST_FEATURES, "submit_v2": SUBMIT_V2,
          "bench": BENCH, "test_features_v3": TEST_FEATURES_V3, "model_v3": MODEL_V3, "submit_v3": SUBMIT_V3,
          "blocking_v4": BLOCKING_V4, "bench_v4": BENCH_V4, "test_features_v4": TEST_FEATURES_V4,
-         "submit_v4": SUBMIT_V4}
+         "submit_v4": SUBMIT_V4, "submit_v4_parts": SUBMIT_V4_PARTS, "full_v4": FULL_V4}
 
 
 def substitute(script: str, name: str, value) -> str:
