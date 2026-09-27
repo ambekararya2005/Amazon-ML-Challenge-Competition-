@@ -9,7 +9,8 @@
 Env: MODEL_FULL=1 uses <output>/models_<tag>full (rounds = 1.1 x mean CV best iteration, calibration / decoder
 settings copied from the CV artefacts); SUBMIT_COUNTRY=<c> scores one country only; SUBMIT_PARTS=1 writes
 <output>/submit_parts_<model>/<country>.parquet (one row per S1: entity id, candidate list, match list) instead
-of the TSVs; assemble reads every such part (local output or PARTS_DIR) and writes + validates the TSVs.
+of the TSVs; SAVE_PAIRS=1 also writes <output>/test_pairs_<model>/pairs_<country>.parquet (query_id, s1_id, p2,
+kept = query argmax, keep = selected, xq for unselected argmax pairs) + h_<country>.parquet; assemble reads every such part (local output or PARTS_DIR) and writes + validates the TSVs.
 
 Training uses benchmark folds 1-4 only (fold 0 = the gate): leave-one-fold-out CV (the folds are groups of regions)
 gives out-of-fold (OOF) predictions for folds 1-4; fold 0 and test use the mean of the 4 fold models.
@@ -54,6 +55,8 @@ MODEL_DIR = OUTPUT_DIR / f"models_{MODEL_NAME}"
 SUBMIT_COUNTRY = os.environ.get("SUBMIT_COUNTRY", "")
 SUBMIT_PARTS = os.environ.get("SUBMIT_PARTS", "0") == "1"
 PARTS_DIR = OUTPUT_DIR / f"submit_parts_{MODEL_NAME}"
+SAVE_PAIRS = os.environ.get("SAVE_PAIRS", "0") == "1"          # also write per-pair test p2 / masks
+PAIRS_DIR = OUTPUT_DIR / f"test_pairs_{MODEL_NAME}"
 FULL_ROUND_MULT = 1.1
 TRAIN_FOLDS = (1, 2, 3, 4)
 NON_FEATURES = {"query_id", "s1_id", "label", "q_true_s1", "fold", "xq", "xs", "n_xq", "n_xs", "country"}
@@ -747,6 +750,13 @@ def run_submit(logger) -> dict:
             if h_of is not None:
                 rep["by_country"][country]["mean_h"] = round(float(h_of.mean()), 4)
             logger.info("[%s] %s", country, rep["by_country"][country])
+            if SAVE_PAIRS:          # per-pair test probabilities for post-processing / diagnostics
+                xq = np.where(kept & ~keep, df["xq"].to_numpy(), "")
+                write_parquet(pd.DataFrame({"query_id": qid, "s1_id": s1, "p2": p2, "kept": kept, "keep": keep,
+                                            "xq": xq}), PAIRS_DIR / f"pairs_{country}.parquet")
+                if h_of is not None:
+                    write_parquet(pd.DataFrame({"s1_id": h_of.index.to_numpy(), "h": h_of.to_numpy(np.float32)}),
+                                  PAIRS_DIR / f"h_{country}.parquet")
             te = pd.DataFrame({"query_id": qid, "s1_id": s1, "cheap": df["cheap"].to_numpy()})
             del df, r
             gc.collect()

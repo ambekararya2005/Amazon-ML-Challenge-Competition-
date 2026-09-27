@@ -59,3 +59,4 @@
 {"time": "2026-09-26T22:40:24", "stage": "v4_dictionary", "status": "ok", "seconds": 135.4, "start_rss_mb": 1470, "peak_rss_mb": 7945, "end_rss_mb": 6526, "pairs": 7638365}
 {"time": "2026-09-26T22:47:41", "stage": "v4_test_France", "status": "ok", "seconds": 412.35, "start_rss_mb": 1133, "peak_rss_mb": 3109, "end_rss_mb": 986, "s1": 259452}
 {"time": "2026-09-26T22:47:46", "stage": "blocking_v4_test", "status": "ok", "seconds": 599.0, "start_rss_mb": 154, "peak_rss_mb": 7945, "end_rss_mb": 558, "threads": 16}
+{"time": "2026-09-27T17:24:08", "stage": "model_lgb_assemble", "status": "ok", "seconds": 251.51, "start_rss_mb": 155, "peak_rss_mb": 5838, "end_rss_mb": 25, "threads": 16}

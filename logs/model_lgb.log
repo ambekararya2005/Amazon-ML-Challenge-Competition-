@@ -99,3 +99,17 @@ Tuned: {"stage1_threshold": {"oof_f05": 0.96128, "t_accept": 0.7, "t_keep": 0.7}
 
 
 2026-09-26 21:46:33 INFO [model_lgb_train] ok in 205.8s | peak rss 8236 MB | end rss 1722 MB
+2026-09-27 17:19:56 INFO [model_lgb_assemble] start (rss 155 MB)
+2026-09-27 17:19:59 INFO assemble: 3 parts from ..\..\kaggle\runs\k14-parts (['France.parquet', 'India.parquet', 'US.parquet']): 1732544 S1 rows
+2026-09-27 17:23:54 INFO validator (rc 0):
+ML Challenge 2026 — submission validator
+  test dir: C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\student_resource\dataset\test
+  required S1 entities: 1732544
+  valid S2/S3 match IDs: 9969589
+  matching_results.tsv: 1732544 rows (99703 empty, 1632841 non-empty).
+  candidate_pairs.tsv: 1732544 rows (183 empty, 1732361 non-empty).
+
+PASS — no blocking issues found. Safe to submit.
+
+2026-09-27 17:23:54 INFO assembled C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\output\final_v4safe: {"parts": ["France.parquet", "India.parquet", "US.parquet"], "rows_candidate": 1732544, "rows_matching": 1732544, "validator": ["  candidate_pairs.tsv: 1732544 rows (183 empty, 1732361 non-empty).", "", "PASS \u2014 no blocking issues found. Safe to submit."]}
+2026-09-27 17:24:08 INFO [model_lgb_assemble] ok in 251.5s | peak rss 5838 MB | end rss 25 MB

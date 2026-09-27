@@ -197,3 +197,31 @@
   OOM that killed K11) and --stage assemble (parts -> TSVs, matches within candidates, validator). Assemble round-trip
   of #3 reproduces its files byte for byte (md5). Kaggle 14:29: K14a-c amlc2026-submit-v4-{france,india,us} (CV
   models, safe v4) and K15 amlc2026-full-v4 (full retrain + test parts).
+
+## 2026-09-27 (evening) — FN split, sibling rescue, test-gap diagnostic, v4-safe files
+Saved OOF / fold-0 / test probabilities only (no retraining, no re-blocking). Scripts: tools/pp_common.py,
+tools/fn_buckets_v4.py, tools/sibling_rescue_v4.py, tools/test_gap_v4.py; results logs/fn_buckets_v4.json,
+logs/sibling_rescue_v4.json, logs/test_gap_v4.json, logs/test_gap_france_examples.txt.
+- FN "scoring/decoder" 0.0119 on fold 0 (v4; reproduced F0.5 0.9719), split by missed true pairs present in the
+  candidates: (a) query argmax = true S1, decoder did not select it: **0.0096** (13,717 pairs; India 0.0114 / US 0.0081;
+  p2 median 0.53, 71% of them in 0.3-0.8, none >= 0.8); (b) argmax = another S1: 0.0023 (b1 that S1 selected the query:
+  0.0001, 59 pairs; b2 nobody selected it: 0.0023, 3,083 pairs, p2 median 0.06); (c) other: 0.
+  -> second-choice rescue not tried (bucket b < 0.003).
+- Sibling rescue (for bucket a): add an unselected argmax claimant if p2 >= a, best compatible-number similarity to a
+  selected match of the S1 >= b (min or mean of name/address token_sort), max extra-word TE score < d. Grid a 0.2-0.6,
+  b 85/90/95, d 0.5/0.7/off, 2 sim modes (90 configs) on OOF folds 1-4: every config <= baseline (best 0.96891 vs
+  0.96895; a 0.6, b 95, min, d 0.7). Fold 0: 0.97184 vs 0.97189 (-0.00005; US -0.00002, India -0.00009), singleton
+  part unchanged 0.957; adds 256 pairs = 162 TP + 94 FP. Decoys are near-copies of the true siblings, so text
+  similarity to a selected sibling does not separate them. **DROPPED** -> no post-processed submission.
+- Decoder re-tune (T x miss x h-temperature) earlier: flat, dropped.
+- Test gap (report only). Share of queries whose best p is in 0.3-0.7: fold 0 US 2.5% / India 3.3%;
+  test US 3.9% / India 3.3% / France 5.0%. S1 best p (France test vs fold 0 US / India): median 1.0 everywhere,
+  share < 0.3: 4.9% vs 5.6 / 5.2, share 0.3-0.7: 0.8% vs 0.6 / 1.0. Pred/S1, % empty, mean h: fold 0 US 3.30 / 5.93 /
+  0.944, India 3.27 / 5.84 / 0.948; test France 3.40 / 5.39 / 0.950, India 3.33 / 5.95 / 0.946, US 3.49 / 5.66 / 0.946.
+  France is the most uncertain at query level (2x fold-0 US) and test US is also above fold-0 US, so part of the
+  0.024 LB gap is likely test-wide (harder or denser decoys than the benchmark regions), with France adding to it.
+  France examples (15 random S1): French legal forms (SARL, SASU, EI, SCI, S.A.R.L.) handled; decoys with a different
+  house number or an extra word (International, Distribution, Developpement, Ecole) rejected; one likely FP ("Maison
+  de Agriculteurs & Fils" selected at p 1.0); a few 0.4-0.6 rejects that share the full address but have another name.
+- v4-safe (CV fold 1-4 models) test files: output/final_v4safe/ (validator PASS). K14a-c runtimes France 36 min,
+  India 115 min, US 80 min. K16 (France, SAVE_PAIRS=1) reproduces the France part byte for byte.

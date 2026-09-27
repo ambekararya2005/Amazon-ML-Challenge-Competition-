@@ -1,8 +1,8 @@
 ML Challenge 2026 — submission validator
-  test dir: /kaggle/input/datasets/aryaambekar/amlc2026-data/student_resource/dataset/test
+  test dir: C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\student_resource\dataset\test
   required S1 entities: 1732544
   valid S2/S3 match IDs: 9969589
-  matching_results.tsv: 1732544 rows (4120 empty, 1728424 non-empty).
-  candidate_pairs.tsv: 1732544 rows (243 empty, 1732301 non-empty).
+  matching_results.tsv: 1732544 rows (99703 empty, 1632841 non-empty).
+  candidate_pairs.tsv: 1732544 rows (183 empty, 1732361 non-empty).
 
 PASS — no blocking issues found. Safe to submit.

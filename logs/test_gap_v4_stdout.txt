@@ -1,0 +1,224 @@
+{
+ "fold0": {
+  "India": {
+   "s1": 55383,
+   "pred_per_s1": 3.267,
+   "pct_empty": 5.84,
+   "pct_queries_assigned": 64.42,
+   "query_best_p_0.3_0.7": 0.0327,
+   "p2_hist_kept": [
+    82672,
+    4041,
+    2968,
+    2001,
+    2121,
+    1948,
+    3126,
+    3985,
+    6004,
+    171985
+   ],
+   "s1_best_p": {
+    "q10": 0.986,
+    "median": 1.0,
+    "share_lt_0.3": 0.0521,
+    "share_0.3_0.7": 0.0098,
+    "share_ge_0.9": 0.9277
+   },
+   "mean_h": 0.9476
+  },
+  "US": {
+   "s1": 71031,
+   "pred_per_s1": 3.302,
+   "pct_empty": 5.93,
+   "pct_queries_assigned": 70.91,
+   "query_best_p_0.3_0.7": 0.025,
+   "p2_hist_kept": [
+    80032,
+    3562,
+    3303,
+    1898,
+    1821,
+    1790,
+    2760,
+    3471,
+    4282,
+    227910
+   ],
+   "s1_best_p": {
+    "q10": 0.999,
+    "median": 1.0,
+    "share_lt_0.3": 0.0555,
+    "share_0.3_0.7": 0.0057,
+    "share_ge_0.9": 0.9341
+   },
+   "mean_h": 0.9436
+  }
+ },
+ "test": {
+  "France": {
+   "s1": 259452,
+   "pred_per_s1": 3.399,
+   "pct_empty": 5.39,
+   "pct_s2s3_assigned": 61.45,
+   "query_best_p_0.3_0.7": 0.0497,
+   "p2_hist_kept": [
+    420950,
+    30974,
+    23233,
+    18967,
+    18640,
+    14569,
+    19189,
+    21362,
+    26240,
+    840707
+   ],
+   "mean_h": 0.9504,
+   "s1_best_p": {
+    "q10": 0.999,
+    "median": 1.0,
+    "share_lt_0.3": 0.0488,
+    "share_0.3_0.7": 0.0082,
+    "share_ge_0.9": 0.9379
+   }
+  },
+  "India": {
+   "s1": 809986,
+   "pred_per_s1": 3.329,
+   "pct_empty": 5.95,
+   "pct_s2s3_assigned": 57.16,
+   "query_best_p_0.3_0.7": 0.033,
+   "p2_hist_kept": [
+    1733756,
+    66471,
+    49746,
+    38328,
+    38060,
+    32405,
+    46870,
+    54854,
+    80079,
+    2576833
+   ],
+   "mean_h": 0.9455
+  },
+  "US": {
+   "s1": 663106,
+   "pred_per_s1": 3.494,
+   "pct_empty": 5.66,
+   "pct_s2s3_assigned": 60.71,
+   "query_best_p_0.3_0.7": 0.0391,
+   "p2_hist_kept": [
+    1239303,
+    49072,
+    42340,
+    34998,
+    36180,
+    32174,
+    46012,
+    53860,
+    60850,
+    2222200
+   ],
+   "mean_h": 0.946
+  }
+ }
+}
+S1 S1-353319663: Pharmacie de Creas | Bordeaux, Nouvelle-Aquitaine, 78 Rue de Pessac
+   SEL p=1.000 S3-518290681: PHARMACIE DE CREAS | 78 Rue De Pessac, Bordeaux, Nouvelle-Aquitaine
+   SEL p=1.000 S3-213541923: creaspharmaciecom | 78 Rue De Pessac, Bordeaux, Nouvelle-Aquitaine
+   SEL p=0.999 S2-860921007: Pharmacie de Creas France | BORDEAUX, Nouvelle-Aquitaine, 78 RUE DE PESSAC
+   rej p=0.455 S3-129707933: Amicale Creas De | 78 Rue De Pessac, Bordeaux, Nouvelle-Aquitaine
+   rej p=0.000 S2-272399953: Pharmacie de Creas Distribution | 85 R DE PESSAC, BORDEAUX
+
+S1 S1-240602140: Hype Union SARL | 12 Avenue des Chardons bleus, La Baule-Escoublac, Pays de la Loire
+   SEL p=0.999 S3-452998153: Hype Union SARL | 12 Avenue Des Chardons Bleus, La Baule-escoublac, Loire-Atlantique
+   rej p=0.006 S3-891233835: Hype Ecole SARL | La Baule-escoublac, Pays de la Loire, 25 Avenue Des Chardons Bleus
+   rej p=0.000 S2-457588740: Hype Unïon International SARL | 25 AV. DES CHARDONS BLEUS, LA BAULE-ESCOUBLAC, Pays de la Loire
+
+S1 S1-576327292: Bowling Pharmacie SAS | 603 Rue de la République, Dunkerque, Hauts-de-France
+   SEL p=1.000 S3-979556194: Bowling Pharmacie S.A.S. | 603 R De La République, Dunkerque, Hauts-de-France
+   rej p=0.028 S3-477448120: Bowling Pharmacie | 141 Rte Du Cap Ferret, Lège-cap-ferret
+   rej p=0.000 S3-504375690: Bowling Pharmacie International SAS | Dunkerque, 607 Rue De La Republique
+
+S1 S1-24497895: Centre Médical Robert | Nouvelle-Aquitaine, 9 Allée François Dandreau, La Teste-de-Buch
+   SEL p=1.000 S2-188019602: Centre Médical Robert (SASU) | 9 ALL. FRANÇOIS DANDREAU, LA TESTE-DE-BUCH
+   SEL p=1.000 S2-139390650: centre médical robert | 9 ALL FRANÇOIS DANDRAU, LA TESTE-DE-BUCH
+   SEL p=0.999 S3-210171751: Centre Médical Robert SASU | Allée François Dandreau, La Teste-de-buch, Gironde
+   rej p=0.532 S3-188106151: Compagnie  Robert | 9 Allée François Dandreau, La Teste De Buch, Gironde
+   rej p=0.010 S3-886392681: Centre Médïcal Robert France | La Teste-de-buch, Nouvelle-Aquitaine, 13 Allée François Dandreau
+
+S1 S1-926754731: Personnel Club EI | 29 Rue Victor Capart, Tourcoing, Hauts-de-France
+   SEL p=1.000 S3-263478871: personnel club ei | 29 R. Victor Capart, Tourcoing, Hauts-de-France
+   SEL p=1.000 S2-117666894: Personnel-Club | Nord, TOURCOING, NO 29 RUE VICTOR CPAART
+   rej p=0.479 S2-345787101: Personnel Ecole EI | TOURCOING, 31 R VICTOR CAPART
+   rej p=0.443 S3-217315075: Personnel Club SARL | 31 R Victor Capart, Tourcoing, Nord
+   rej p=0.002 S2-203441248: personnel club ei | 196 RUE DE L'ALMA, ROUBAIX
+   rej p=0.001 S2-668316637: Personnel (France)  Club EI | 54 RUE ALFRED DE MUSSET, LILLE
+
+S1 S1-941337524: Maison de Santé Agriculteurs | 1 B Avenue Monrabeau, Bordeaux, Nouvelle-Aquitaine
+   SEL p=1.000 S2-800268143: MAISON DE SANTÉ ÀGRICULTEURS | Nouvelle-Aquitaine, BORDEAUX, 1 B AVE MONRABEAU
+   SEL p=1.000 S3-724979085: Maison de Santé Agriculteurs | 1 B Avenue Monrabeau, Bordeaux, Nouvelle-Aquitaine
+   SEL p=1.000 S3-376062301: Maison de Agriculteurs & Fils | 1 B Av. Monrabeau, Bordeaux, Nouvelle-Aquitaine
+   rej p=0.593 S3-339683021: Maison de Santé Agriculteurs Développement | 12 B Av. Monrabeau, Bordeaux, Nouvelle-Aquitaine
+   rej p=0.244 S3-654647876: Maison de Santé Agriculteurs SNC | Nouvelle-Aquitaine, Bordeaux, 12B Ave Monraebau
+   rej p=0.000 S3-358441410: Fédération du Agriculteurs France | 136b R. De Chantilly, Calais
+
+S1 S1-601506791: Pessac Élémentaire SARL | 2 Rue Jean d'Ormesson, Pessac, Nouvelle-Aquitaine
+   SEL p=1.000 S2-833228894: Pessac Élémentaire | # 2 RUE JEAN D'ORMESSON, PESSAC
+   SEL p=1.000 S3-121767074: Pessac Éléméntaire SARL | 2 R Jean D'ormesson, Pessac, Nouvelle-Aquitaine
+   SEL p=1.000 S3-249350212: Pessac Élémentaire S.A.R.L. | 2 R. Jean D'ormesson, Pessac, Nouvelle-Aquitaine
+   rej p=0.436 S3-578857602: Jaxnex | Nouvelle-Aquitaine, 2 Rue Jean d'Ormesson, Pessac
+   rej p=0.000 S3-4270553: Pessac Élémentaire International | Nº 3 Rue Jean D'ormesson, Pessac
+
+S1 S1-76897866: Amicale de Racing | 6 RUE du Sablonat, Bordeaux, Nouvelle-Aquitaine
+   SEL p=1.000 S3-557487618: Amicale DE Racing | Bordeaux, 6 Rue Du Sablonat
+   SEL p=1.000 S3-619273177: Amicale de Racing SCI | 6 R. Du Sablonat, Bordeaux
+   SEL p=1.000 S2-215890114: Amicale de Racing | 6 RUE DU SABLONAT, BORDEAUX, Nouvelle-Aquitaine
+   rej p=0.003 S2-74482328: Amicale de Racing SASU | N° 11 RUE DU SABLDNAT, BORDEAUX
+   rej p=0.000 S2-805889558: Amicale De Racing Distribution | N° 11 R DU SABLONAT, BORDEAUX
+
+S1 S1-984353615: Art Ecole SARL | 80 Rue de Bonn, Dunkerque, Hauts-de-France
+   SEL p=0.999 S3-514002976: Artecolesarl.Com | Nº 80 R. De Bonn, Dunkerque, Hauts-de-France
+   rej p=0.071 S2-155876260: Art Ecole S.A.R.L. | 
+   rej p=0.064 S3-921486870: Art Ecole | 39 Rue De Coeqtuelfen, Nantes
+   rej p=0.060 S3-804161156: Art Ecole EURL | 
+   rej p=0.024 S3-983814797: Art Ecole SASU | 82 R. De Bonn, Dunkerque, Hauts-de-France
+
+S1 S1-976865929: Renaissance Logistique SARL | 67 Rue Marcel Pagnol, Calais, Hauts-de-France
+   SEL p=1.000 S2-664166666: Renaissance Lôgistique SARL | CALAIS, 67 RUE MARCEL PAGNOL, Hauts-de-France
+   SEL p=1.000 S2-21757681: renaissance logistique sarl | 67 R MARCEL PAGNOL, CALAIS, Hauts-de-France
+   SEL p=1.000 S3-711227642: renaissancelogistique.com | 67 Rue Marcel Pagnol, Calais
+   SEL p=1.000 S3-377725813: renaissance logistique sarl | 67 Rue Marcel Pagnol, Calais
+
+S1 S1-744321004: Prefecture Anciens SAS | 11 Rue du Docteur Huart, Lille, Hauts-de-France
+   SEL p=1.000 S2-164163262: PREFECTURE ANCIENS SAS | # 11 RUE DU DOCTEUR HUART, LILLE, Nord
+   SEL p=1.000 S2-366276092: Prefecture Anciens SAS | # 11 RUE DU DOCTEUR HUART, LILLE, Nord
+   SEL p=1.000 S3-730326151: S.A.S Prefecture Anciens | Lille, Rue Du Docteur Huart, Hauts-de-France
+   SEL p=1.000 S3-504128206: Prefecture Anciens S.A.S | Rue Du Docteur Huart, Lille, Hauts-de-France
+   SEL p=0.996 S3-63384677: Prefecture SAS Cie | Rue Du Docteur Huart, Lille, Hauts-de-France
+   rej p=0.000 S3-73677633: Prefecture College SAS | No 12 R. Du Docteur Huart, Lille, Nord
+
+S1 S1-973871022: Loye Auto SAS | 34 Boulevard de la Libération, Saint-Nazaire, Pays de la Loire
+   SEL p=1.000 S2-843723717: loye auto sas | 34 BOULEVARD DE LA LIBÉRATION, SAINT-NAZAIRE, Loire-Atlantique
+   SEL p=1.000 S3-464181138: SAS Loye Àuto | Saint-Nazaire, N° 34 Bd De La Libération
+   rej p=0.114 S3-625368455: Loye Auto SAS France | Pays de la Loire, No. 37 Boulevard De La Libération, Saint-nazaire
+   rej p=0.073 S3-986731370: Loye Auto Sarl | No. 37 Blvd De La Liberation, St.-nazaire, Pays de la Loire
+
+S1 S1-637743006: Science Amis SAS | 16 Rue Ronsard, Dunkerque, Hauts-de-France
+   SEL p=1.000 S2-171703765: SCIENCE (AMIS) | 16 RUE RONSARD, DUNKERQUE
+   SEL p=1.000 S3-703194320: Science SAS (Amis) | 16 R. Ronsard, Dunkerque, Hauts-de-France
+   SEL p=1.000 S2-271860960: Science Amis S.A.S | 16 R RONSARD, DUNKERQUE
+   SEL p=1.000 S3-376832636: Science Amis | 16 Rue Ronsard, Dunkerque, Hauts-de-France
+   SEL p=0.997 S2-756563497: Science Federation SAS | 16 RUE RONSARD, DUNKERQUE
+
+S1 S1-224936007: Loguivy Anciens (France) SAS | 59 Bis BD Pierre de Coubertin, Nantes, Pays de la Loire
+   SEL p=1.000 S3-101751981: Loguivy Anciens (France) SAS | 59 Bis Bd Pierre De Coubertin, Nantes
+   rej p=0.020 S2-613021444: eurl loguivy anciens (france) | 62B BD PIERRE DE CUBERTIN, Nantes, Loire-Atlantique
+   rej p=0.015 S2-846111981: Loguivy Maternelle (France) S.A.S | Loire-Atlantique, 62 BIS BD PIERRE DE COUBERTIN, NANTES
+
+S1 S1-855898983: Syndicat Parents (France) SAS | 19 Rue Désirée Tartoué, Saint-Nazaire, Pays de la Loire
+   SEL p=1.000 S3-205849800: syndicatparentsfrance.com | 19 R Désirée Tatoué, Loire-Atlantique, Saint-nazaire
+   SEL p=0.999 S2-695130880: SYNDICATPARENTSFRANCE.COM | 19 R. DÉSIRÉE TARTOUÉ, SAINT-NAZAIRE, Pays de la Loire
+   rej p=0.024 S3-128581815: Syndicat Parents (France) Sasu | 22 Rue Désirée Tartoué, Loire-Atlantique, Saint-nazaire
