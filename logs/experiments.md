@@ -233,3 +233,18 @@ logs/sibling_rescue_v4.json, logs/test_gap_v4.json, logs/test_gap_france_example
   +0.38%; argmax-p2 decile shares max |diff| 0.34 / 0.43 / 0.20 pp -> SANE. Files output/final_full/ (validator PASS).
 - Documentation_template.md filled (submission table, v4 error budget, FN bucket split, test-gap table, next steps);
   README updated (per-country submit parts, assemble, train_full, kernel plan).
+
+## 2026-09-27 (night) — final compliance pass, ENIGMA_submission.zip
+- #5 (full retrain) public LB 0.944 < #4 0.945 -> final = #4 v4-safe (output/final_chosen/ = output/final_v4safe/).
+- Self-contained package: new src/run_pipeline.py (all stages in order, --smoke), src/make_sample.py (deterministic
+  hash sample), src/check_submission.py (explicit rule checks + md5), src/validate_submission.py (unchanged organiser
+  validator; finalize.run_validator falls back to it), src/kaggle_runner/ (kernel script, kernel generator, code bundler;
+  paths now package-relative; regenerated kernels identical to the ones that ran). No secrets (grep for credential
+  names / key-like strings: none). README rewritten (exact ordered commands, validation, smoke test, Kaggle section);
+  Documentation_template.md: team ENIGMA, licences section, what did not work, #5 LB.
+- check_submission on output/final_chosen/: all checks PASS, md5 41b9f157... == output/final_v4safe/.
+- Smoke test (3% train S1, 1% test): all 13 stages in ~7 min locally, organiser validator PASS (17,254 test S1 rows).
+- dist/ENIGMA_submission.zip: 35 files, 823.7 MB -> 348.6 MB (365,562,715 bytes), make_final_zip --validate PASS;
+  unzipped copy: check_submission PASS (md5 == v4-safe), organiser validator --check-ids PASS, README smoke test run
+  from the unzipped code folder (see below).
+- Unzipped README smoke test: 18 stage runs all rc 0 in 373 s, organiser validator PASS, check_submission ALL CHECKS PASSED.

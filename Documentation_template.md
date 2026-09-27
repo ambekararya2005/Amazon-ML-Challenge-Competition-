@@ -1,7 +1,7 @@
 # ML Challenge 2026: Business Entity Resolution Solution Template
 
-**Team Name:** TODO
-**Team Members:** TODO
+**Team Name:** ENIGMA
+**Team Members:** Arya Ambekar, Ishan Ambekar, Arnav Sirse, Mervin Jude
 **Submission Date:** 27 September 2026
 
 ---
@@ -80,7 +80,7 @@ Calibration of fold 0 against the public leaderboard:
 | 2 | Decoy-aware rule scorer v2 | 0.8230 / 0.7113 / 0.9100 | **0.829** |
 | 3 | LightGBM two-stage + has-match + expected-F0.5 decoder, v1 candidates, v3 features | 0.9652 / 0.9486 / 0.9781 | **0.941** |
 | 4 | Same model on blocking-v4 candidates (mean of the 4 CV fold models) | 0.9719 / 0.9638 / 0.9782 | **0.945** |
-| 5 | #4 retrained on all 5 folds (one model per stage, rounds = 1.1 × mean CV best iteration) | 0.9719 (CV estimate; the retrain sees fold 0) | not reported at packaging time |
+| 5 | #4 retrained on all 5 folds (one model per stage, rounds = 1.1 × mean CV best iteration) | 0.9719 (CV estimate; the retrain sees fold 0) | 0.944 |
 | FINAL | #4, v4 (blocking v4, stage 1 + stage 2 + has-match + expected-F0.5 decoder, 4 CV fold models) | 0.9719 / 0.9638 / 0.9782 | **0.945** |
 
 The benchmark was built after submission #1 and still over-rated that decoy-blind model (0.726 vs 0.636). From
@@ -267,6 +267,13 @@ benchmark tracks the leaderboard, and features aimed at decoys (number compatibi
 features) combined with an S1 has-match model and an exact expected-F0.5 decoder raised fold 0 from 0.726 to 0.972.
 The pipeline uses only the provided data, small MIT-licensed tree models, and treats country only as a partition key.
 
+**What did not work.**
+- A random 15% hold-out (0.964 locally vs 0.636 on the leaderboard): it contained almost no decoys.
+- `token_set_ratio`-style name similarity, which ignores extra words, and a low weight on house numbers.
+- Name-only TF-IDF blocking (−4 to −10 recall points).
+- Post-processing on top of the decoder: a sibling-rescue rule (−0.00005 on fold 0) and re-tuning the decoder (±0.0001).
+- Refitting on all 5 folds (#5, one model per stage): LB 0.944 vs 0.945 for the average of the 4 CV fold models (#4).
+
 **Limitations.**
 - *India, non-Latin scripts*: anyascii transliteration and the mined dictionary cover the common tokens, but rare
   words in Indic scripts still lose recall. India remains about 1.4 points below the US on fold 0.
@@ -306,7 +313,10 @@ The pipeline uses only the provided data, small MIT-licensed tree models, and tr
    `model_lgb --stage assemble` writes `output/matching_results.tsv` and `output/candidate_pairs.tsv` through
    `io_utils` (`\n` line endings, validator-compatible)
 
-Set `FEATURE_VARIANT=v4` for steps 5–8. Supporting modules: `text_norm`, `geo_units`, `decoy_features`, `decoder`,
+Set `FEATURE_VARIANT=v4` for steps 5–8. `python -m src.run_pipeline --data-root <data> --work <dir>` runs every
+stage in this order (`--smoke` on a small hash sample made by `src.make_sample`); `src.check_submission` asserts the
+submission rules one by one; `src/kaggle_runner/` holds the Kaggle kernel runner, the kernel generator and the code
+bundler used for the heavy stages. Supporting modules: `text_norm`, `geo_units`, `decoy_features`, `decoder`,
 `metric` (official macro F0.5), `config`, `logging_utils`. Unit tests: `python -m unittest`.
 
 ### B. Additional Results
@@ -335,3 +345,32 @@ Model ladder on fold 0 (all countries):
 
 Stage-2 gain is dominated by p1 (67%) and p1_q_margin (26%). The has-match model relies mainly on the maximum claimant
 p2.
+
+### C. Licences, data and fair play
+
+- **Models:** LightGBM gradient-boosted trees (MIT). No pretrained models, no neural networks, no LLMs; every model is
+  trained from scratch on the provided training files and is far below the 8B-parameter limit.
+- **Data:** only the organiser files. No external data, APIs, geocoders or downloaded dictionaries. The cross-script
+  dictionary, gazetteer (region keys), legal-form tables and extra-word encodings are all mined from the training data.
+- **Country** is never a model feature and is never hard-coded; it is an open set of strings used only to partition the
+  work. France (no training labels) runs through exactly the same code path.
+- **Dependencies** (pinned in `requirements.txt`, Python 3.11.9; Kaggle runs used Python 3.12.13 with the same pins):
+
+  | Package | Version | Licence | Use |
+  |---|---|---|---|
+  | lightgbm | 4.7.0 | MIT | stage 1 / stage 2 / has-match models |
+  | pandas | 3.0.6 | BSD-3-Clause | tables |
+  | numpy | 2.4.6 | BSD-3-Clause | arrays |
+  | pyarrow | 25.0.1 | Apache-2.0 | Parquet I/O |
+  | scipy | 1.17.1 | BSD-3-Clause | sparse matrices |
+  | scikit-learn | 1.9.1 | BSD-3-Clause | TF-IDF vectoriser (blocking pass C) |
+  | sparse_dot_topn | 1.2.0 | Apache-2.0 | sparse top-k cosine (blocking pass C) |
+  | rapidfuzz | 3.14.6 | MIT | string similarities |
+  | anyascii | 0.3.3 | ISC | transliteration (instead of the GPL unidecode) |
+  | psutil | 7.2.2 | BSD-3-Clause | memory logging |
+  | joblib 1.6.0, threadpoolctl 3.7.0 | | BSD-3-Clause | scikit-learn runtime |
+  | narwhals 2.26.0, six 1.17.0 | | MIT | pandas / dateutil runtime |
+  | python-dateutil 2.9.0.post0 | | Apache-2.0 / BSD-3-Clause | pandas runtime |
+  | tzdata 2026.4 | | Apache-2.0 | pandas runtime |
+
+  No GPL / copyleft dependency. `src/validate_submission.py` is an unchanged copy of the organiser validator.

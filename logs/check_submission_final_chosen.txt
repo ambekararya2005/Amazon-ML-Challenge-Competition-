@@ -1,0 +1,28 @@
+matching:  ..\..\output\final_chosen\matching_results.tsv
+candidate: ..\..\output\final_chosen\candidate_pairs.tsv
+test dir:  ..\..\student_resource\dataset\test
+  [PASS] matching: '\n' line endings only (no b'\r')
+  [PASS] matching: final newline present
+  [PASS] matching: header is exactly 'source1_entity_id\tmatched_entity_ids'
+  [PASS] matching: tab-separated, exactly 2 fields in all 1,732,544 rows
+  [PASS] matching: no duplicate S1 rows
+  [PASS] candidate: '\n' line endings only (no b'\r')
+  [PASS] candidate: final newline present
+  [PASS] candidate: header is exactly 'source1_entity_id\tcandidate_entity_ids'
+  [PASS] candidate: tab-separated, exactly 2 fields in all 1,732,544 rows
+  [PASS] candidate: no duplicate S1 rows
+  [PASS] test S1 ids are unique (1,732,544)
+  [PASS] matching: every test S1 id appears exactly once (missing 0, unknown 0)
+  [PASS] candidate: every test S1 id appears exactly once (missing 0, unknown 0)
+  [PASS] matching: all 5,895,704 matched ids are S2-/S3- ids
+  [PASS] matching: no S1 id among the matches (no self-matches)
+  [PASS] matching: every matched id exists in test_source2/3
+  [PASS] matching: no duplicate id within any list
+  [PASS] candidate: no duplicate id within any list
+  [PASS] candidate: every candidate id exists in test_source2/3
+  [PASS] every S1's matches are a subset of its candidate_pairs row (0 violations)
+  [PASS] summary: 1,732,544 S1 rows, 5,895,704 matches, 99,703 empty
+  md5 matching  = 41b9f1573bb02f56cc1e0830b369bb3d
+  md5 candidate = 9e8bfb9acfc9333204950d512335c387
+  [PASS] md5 equals the reference ..\..\output\final_v4safe\matching_results.tsv (41b9f1573bb02f56cc1e0830b369bb3d)
+ALL CHECKS PASSED

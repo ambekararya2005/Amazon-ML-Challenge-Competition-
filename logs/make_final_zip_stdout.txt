@@ -1,5 +1,4 @@
 Outputs: C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\output\final_chosen
-  WARNING: Documentation_template.md still contains 2 'TODO' marker(s)
   structure: OK
   line endings: '\n' only, final newline present (both files)
   matching_results.tsv: 1,732,544 S1 rows, 5,895,704 matched ids, 99,703 empty (5.75%)
@@ -11,16 +10,17 @@ Outputs: C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\output\
   validator> WARNING: ID-existence check is OFF (the default) — not checking that matched/candidate IDs exist in the test set. Every other rule is still checked. Re-run with --check-ids to enable it (needs test_source2/3.tsv; uses more memory). A nonexistent ID only lowers your score, never rejects your submission.
   validator> PASS — no blocking issues found. Safe to submit.
 
-Zip: C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\dist\team_submission.zip
+Zip: C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\dist\ENIGMA_submission.zip
   code/
       business_entity_resolution/
-          README.md                           11.5 KB  (5.0 KB zipped)
+          README.md                           14.8 KB  (6.0 KB zipped)
           requirements.txt                     1.1 KB  (626 B zipped)
           src/
               __init__.py                            76 B  (75 B zipped)
               benchmark.py                        10.8 KB  (3.7 KB zipped)
               blocking.py                         34.6 KB  (10.6 KB zipped)
               blocking_v4.py                      18.8 KB  (6.2 KB zipped)
+              check_submission.py                  4.9 KB  (1.9 KB zipped)
               config.py                            5.5 KB  (2.3 KB zipped)
               data_checks.py                       8.1 KB  (2.9 KB zipped)
               decoder.py                           8.7 KB  (3.2 KB zipped)
@@ -29,20 +29,27 @@ Zip: C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\dist\team_s
               finalize.py                         27.2 KB  (9.0 KB zipped)
               geo_units.py                         5.3 KB  (2.0 KB zipped)
               io_utils.py                          7.9 KB  (2.7 KB zipped)
+              kaggle_runner/
+                  build_bundle.py                      3.5 KB  (1.6 KB zipped)
+                  make_kernels.py                     10.5 KB  (2.9 KB zipped)
+                  run_pipeline_kaggle.py              18.4 KB  (6.3 KB zipped)
               logging_utils.py                     3.9 KB  (1.6 KB zipped)
+              make_sample.py                       3.2 KB  (1.3 KB zipped)
               metric.py                            4.0 KB  (1.5 KB zipped)
               model_lgb.py                        48.4 KB  (14.4 KB zipped)
               normalize.py                        13.7 KB  (4.7 KB zipped)
               pair_table.py                        8.1 KB  (3.0 KB zipped)
               prepare_data.py                      8.0 KB  (2.8 KB zipped)
+              run_pipeline.py                      5.4 KB  (2.1 KB zipped)
               scorer_v2.py                        17.0 KB  (5.7 KB zipped)
               split.py                             5.3 KB  (2.1 KB zipped)
               text_norm.py                        14.8 KB  (5.6 KB zipped)
               tune_pass_c.py                      15.8 KB  (5.6 KB zipped)
               tune_pass_c_report.py                5.3 KB  (2.1 KB zipped)
+              validate_submission.py              13.4 KB  (4.5 KB zipped)
   output/
       candidate_pairs.tsv                729.4 MB  (308.0 MB zipped)
       matching_results.tsv                93.9 MB  (40.5 MB zipped)
-  Documentation_template.md           20.5 KB  (8.7 KB zipped)
+  Documentation_template.md           23.2 KB  (9.8 KB zipped)
 
-  28 files, 823.6 MB uncompressed -> zip size 348.6 MB (365,538,329 bytes)
+  35 files, 823.7 MB uncompressed -> zip size 348.6 MB (365,562,715 bytes)

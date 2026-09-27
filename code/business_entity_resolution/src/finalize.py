@@ -383,9 +383,8 @@ def id_lists(red: pd.DataFrame, mask: np.ndarray, s1_ent: np.ndarray, q_ent: pd.
 def run_validator(matching: Path, candidate: Path, logger) -> str:
     """Run the organiser validator (stdlib only); raise unless it prints PASS and exits 0."""
     validator = DATA_DIR.parent / "utils" / "validate_submission.py"
-    if not validator.exists():
-        found = list(DATA_DIR.parent.rglob("validate_submission.py"))
-        validator = found[0] if found else validator
+    if not validator.exists():                  # packaged copy of the organiser validator (unchanged)
+        validator = Path(__file__).resolve().parent / "validate_submission.py"
     r = subprocess.run([sys.executable, str(validator), "--matching", str(matching), "--candidate", str(candidate),
                         "--test-dir", str(DATA_DIR / "test"), "--check-ids"], capture_output=True,
                        env={**os.environ, "PYTHONUTF8": "1", "PYTHONIOENCODING": "utf-8"})
