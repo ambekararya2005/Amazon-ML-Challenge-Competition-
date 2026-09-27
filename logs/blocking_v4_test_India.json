@@ -1,0 +1,8 @@
+{
+ "country": "India",
+ "dictionary_size": 3739,
+ "pairs": 27777324,
+ "queries": 4717402,
+ "cands_per_query": 5.888,
+ "pct_pairs_from_passD_only": 7.72
+}

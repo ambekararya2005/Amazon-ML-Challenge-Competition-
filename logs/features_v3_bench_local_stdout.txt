@@ -1,0 +1,15 @@
+2026-09-26 21:33:30 INFO [features_v3_bench] start (rss 153 MB)
+2026-09-26 21:33:31 INFO postal-like digit lengths learned from S1 addresses: none
+2026-09-26 21:33:37 INFO [features_v3_bench_India] start (rss 4394 MB)
+2026-09-26 21:33:43 INFO partition: 4939499 pairs, 987935 queries, 189909 S1
+2026-09-26 21:33:57 INFO tagged numbers: queries with street / floor / postal = 83.3 / 13.1 / 0.00 %
+2026-09-26 21:34:50 INFO twin: 3485701 focus pairs, 1063715 claimants, 23717071 combos
+2026-09-26 21:35:50 INFO [features_v3_bench_India] ok in 133.1s | peak rss 5239 MB | end rss 2097 MB
+2026-09-26 21:35:50 INFO [India] wrote C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\output\features_v3\bench\pairs_India.parquet: {'pairs': 4939499, 'columns': 85, 'pct_twin_defined': 70.48, 'pct_floor_conflict': 2.284, 'pct_postal_conflict': 0.0, 'pct_st_conflict_gt0': 57.15}
+2026-09-26 21:36:00 INFO [features_v3_bench_US] start (rss 4469 MB)
+2026-09-26 21:36:10 INFO partition: 9475423 pairs, 1895096 queries, 345611 S1
+2026-09-26 21:36:26 INFO tagged numbers: queries with street / floor / postal = 82.8 / 5.9 / 0.00 %
+2026-09-26 21:38:02 INFO twin: 7141668 focus pairs, 2063858 claimants, 50503409 combos
+2026-09-26 21:40:05 INFO [features_v3_bench_US] ok in 245.6s | peak rss 6475 MB | end rss 3418 MB
+2026-09-26 21:40:05 INFO [US] wrote C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\output\features_v3\bench\pairs_US.parquet: {'pairs': 9475423, 'columns': 85, 'pct_twin_defined': 75.34, 'pct_floor_conflict': 0.511, 'pct_postal_conflict': 0.0, 'pct_st_conflict_gt0': 67.32}
+2026-09-26 21:40:08 INFO [features_v3_bench] ok in 397.8s | peak rss 6475 MB | end rss 485 MB

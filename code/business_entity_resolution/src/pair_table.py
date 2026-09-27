@@ -2,6 +2,8 @@
 
     python -m src.pair_table --split bench     # cache/bench/union.parquet -> cache/bench/pairs.parquet (with label, fold)
     python -m src.pair_table --split test      # cache/cand/test_union.parquet -> <output>/features/test_pairs.parquet
+With FEATURE_VARIANT=v4: bench cache/bench_v4/union.parquet (adaptive top-k) -> cache/bench_v4/pairs.parquet;
+test <output>/cand_v4/test/topk_<country>.parquet -> <output>/features_v4/test/pairs_<country>.parquet.
 
 Feature computation is chunked and spread over a process pool (N_WORKERS); the per-pair Python loops
 (numbers, extra name tokens) dominate. Stage 1 = finalize.top_k (cosine_C + W_A x shared_keys_A).
@@ -17,7 +19,7 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 
 from .blocking import CAND_DIR, QUERY_ID_MULT, QUERY_SOURCES
-from .config import OUTPUT_DIR, add_path_args, cpu_count, env_int, set_seeds
+from .config import FEATURE_VARIANT, OUTPUT_DIR, add_path_args, cpu_count, env_int, set_seeds
 from .decoy_features import context_features, main_number, pair_features
 from .finalize import TOP_K, load_union, num_match, top_k
 from .io_utils import write_parquet
@@ -57,9 +59,9 @@ def chunk_features(args: tuple) -> dict:
     return f
 
 
-def build_table(split: str, union: pd.DataFrame, logger, workers: int) -> pd.DataFrame:
-    """Return the stage-1 top-K pair table with all features (and main query numbers for context)."""
-    red = top_k(union, W_A)
+def build_table(split: str, union: pd.DataFrame, logger, workers: int, reduced: bool = False) -> pd.DataFrame:
+    """Return the stage-1 top-K pair table with all features (``reduced``: ``union`` is already the top-k table)."""
+    red = union if reduced else top_k(union, W_A)
     del union
     gc.collect()
     red = red.sort_values(["query_id", "s1_rank"], kind="stable").reset_index(drop=True)
@@ -109,6 +111,31 @@ def label_bench(red: pd.DataFrame) -> pd.DataFrame:
     return red
 
 
+def run_v4(split: str, logger, workers: int) -> None:
+    """Build the v4 pair tables (blocking v4 candidates) for the benchmark or the test countries."""
+    from .blocking import country_slug
+    from .blocking_v4 import MARGIN, TEST_V4_DIR, V4_BENCH_DIR, adaptive_top_k
+    if split == "bench":
+        union = pd.read_parquet(V4_BENCH_DIR / "union.parquet")
+        red = adaptive_top_k(union, MARGIN)
+        del union
+        red = label_bench(build_table("bench", red, logger, workers, reduced=True))
+        write_parquet(red, V4_BENCH_DIR / "pairs.parquet")
+        logger.info("wrote bench v4 pairs: %d x %d", len(red), red.shape[1])
+        return
+    from pathlib import Path
+    files = sorted(TEST_V4_DIR.glob("topk_*.parquet")) or sorted(Path("/kaggle/input").rglob("topk_*.parquet"))
+    for f in files:
+        out = OUTPUT_DIR / "features_v4" / "test" / f"pairs_{f.stem[len('topk_'):]}.parquet"
+        if out.exists():
+            continue
+        red = build_table("test", pd.read_parquet(f), logger, workers, reduced=True)
+        write_parquet(red, out)
+        logger.info("wrote %s: %d pairs x %d columns", out, len(red), red.shape[1])
+        del red
+        gc.collect()
+
+
 def main() -> None:
     """Build the pair table for the benchmark or test candidates."""
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -118,7 +145,10 @@ def main() -> None:
     args = ap.parse_args()
     set_seeds()
     logger = get_logger("pair_table")
-    with StageTimer(f"pair_table_{args.split}", logger, workers=args.workers):
+    with StageTimer(f"pair_table_{args.split}_{FEATURE_VARIANT}", logger, workers=args.workers):
+        if FEATURE_VARIANT == "v4":
+            run_v4(args.split, logger, args.workers)
+            return
         if args.split == "bench":
             from .benchmark import BENCH_DIR
             union = pd.read_parquet(BENCH_DIR / "union.parquet", columns=["query_id", "s1_id", "scoreA", "scoreC"])

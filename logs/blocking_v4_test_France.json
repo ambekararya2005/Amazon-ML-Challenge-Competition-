@@ -1,0 +1,8 @@
+{
+ "country": "France",
+ "dictionary_size": 3739,
+ "pairs": 8481365,
+ "queries": 1434831,
+ "cands_per_query": 5.911,
+ "pct_pairs_from_passD_only": 6.35
+}

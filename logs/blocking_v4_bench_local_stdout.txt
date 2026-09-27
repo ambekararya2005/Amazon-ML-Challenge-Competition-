@@ -1,0 +1,25 @@
+2026-09-26 22:04:52 INFO [blocking_v4_bench] start (rss 153 MB)
+2026-09-26 22:05:20 INFO [v4_dictionary] start (rss 1718 MB)
+2026-09-26 22:07:20 INFO dictionary: 876907 cross-script pairs used, 57360 candidate tokens, 3047 kept; examples [('mharastr', 'maharashtra'), ('prdes', 'pradesh'), ('dilli', 'delhi'), ('uttr', 'uttar'), ('krnatk', 'karnataka'), ('hriyana', 'haryana'), ('rajsthan', 'rajasthan'), ('kerlm', 'kerala'), ('mdhy', 'madhya'), ('dl', 'delhi'), ('tek', 'tech'), ('globl', 'global'), ('pmjab', 'punjab'), ('imtrnesnl', 'international'), ('aiti', 'it'), ('impeks', 'impex'), ('eksports', 'exports'), ('phuds', 'foods'), ('phud', 'food'), ('tredimg', 'trading'), ('prodkts', 'products'), ('prodyusr', 'producer'), ('estet', 'estate'), ('midiya', 'media'), ('enrji', 'energy')]
+2026-09-26 22:07:22 INFO [v4_dictionary] ok in 121.6s | peak rss 8108 MB | end rss 1311 MB
+2026-09-26 22:07:24 INFO [v4_passC_India] start (rss 1985 MB)
+2026-09-26 22:12:19 INFO [v4_passC_India] ok in 295.2s | peak rss 3600 MB | end rss 626 MB
+2026-09-26 22:12:51 INFO [India] pass C 9878008, pass D 1160158 (480723 queries), union 15376966
+2026-09-26 22:12:51 INFO [v4_passC_US] start (rss 2639 MB)
+2026-09-26 22:26:29 INFO [v4_passC_US] ok in 817.6s | peak rss 3821 MB | end rss 1435 MB
+2026-09-26 22:27:01 INFO [US] pass C 18950339, pass D 1676578 (713662 queries), union 27177776
+2026-09-26 22:32:58 INFO recall v1_union               {'India': 0.9625, 'US': 0.9915, 'ALL': 0.9812, 'cands_per_query': 14.39, 'pairs': 41486250}
+2026-09-26 22:32:58 INFO recall v1_top5                {'India': 0.9468, 'US': 0.9851, 'ALL': 0.9715, 'cands_per_query': 5.0, 'pairs': 14414922}
+2026-09-26 22:32:58 INFO recall v4_union               {'India': 0.9763, 'US': 0.9915, 'ALL': 0.9861, 'cands_per_query': 14.761, 'pairs': 42554742}
+2026-09-26 22:32:58 INFO recall v4_top5_no_passD       {'India': 0.9631, 'US': 0.9849, 'ALL': 0.9772, 'cands_per_query': 5.0, 'pairs': 14414596}
+2026-09-26 22:32:58 INFO recall v4_adaptive_m0.0       {'India': 0.9646, 'US': 0.9852, 'ALL': 0.9779, 'cands_per_query': 5.433, 'pairs': 15663351}
+2026-09-26 22:32:58 INFO recall v1_adaptive_m0.0       {'India': 0.9468, 'US': 0.9851, 'ALL': 0.9715, 'cands_per_query': 5.0, 'pairs': 14414922}
+2026-09-26 22:32:58 INFO recall v4_adaptive_m0.02      {'India': 0.9651, 'US': 0.9854, 'ALL': 0.9782, 'cands_per_query': 5.482, 'pairs': 15804882}
+2026-09-26 22:32:58 INFO recall v1_adaptive_m0.02      {'India': 0.9475, 'US': 0.9853, 'ALL': 0.9719, 'cands_per_query': 5.057, 'pairs': 14578199}
+2026-09-26 22:32:58 INFO recall v4_adaptive_m0.05      {'India': 0.9665, 'US': 0.9863, 'ALL': 0.9793, 'cands_per_query': 5.67, 'pairs': 16346744}
+2026-09-26 22:32:58 INFO recall v1_adaptive_m0.05      {'India': 0.9493, 'US': 0.9862, 'ALL': 0.9731, 'cands_per_query': 5.254, 'pairs': 15147597}
+2026-09-26 22:32:58 INFO recall v4_adaptive_m0.1       {'India': 0.9691, 'US': 0.987, 'ALL': 0.9806, 'cands_per_query': 5.873, 'pairs': 16930407}
+2026-09-26 22:32:58 INFO recall v1_adaptive_m0.1       {'India': 0.9518, 'US': 0.9869, 'ALL': 0.9745, 'cands_per_query': 5.459, 'pairs': 15739069}
+2026-09-26 22:32:58 INFO recall v4_adaptive_m0.2       {'India': 0.971, 'US': 0.9872, 'ALL': 0.9815, 'cands_per_query': 6.093, 'pairs': 17564717}
+2026-09-26 22:32:58 INFO recall v1_adaptive_m0.2       {'India': 0.9535, 'US': 0.9872, 'ALL': 0.9752, 'cands_per_query': 5.679, 'pairs': 16372586}
+2026-09-26 22:32:58 INFO [blocking_v4_bench] ok in 1686.2s | peak rss 8108 MB | end rss 892 MB

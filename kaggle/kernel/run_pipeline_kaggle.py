@@ -35,6 +35,7 @@ REUSE_CACHE_SUBDIRS = None      # None = the whole previous cache; e.g. ["norm"]
 REUSE_MODE = "copy"             # "copy" (output is self-contained) or "symlink" (fast, no disk; not reusable)
 CACHE_IN_TMP = False            # True: cache in /tmp (not saved as kernel output; avoids the 20 GB limit)
 MIN_FREE_GB = 7.0               # blocking RAM gate (free GB required before blocking starts)
+EXTRA_ENV = {}                  # extra environment for every stage, e.g. {"FEATURE_VARIANT": "v4"}
 # ==========================================================================
 
 STAGE_COMMANDS = {
@@ -54,9 +55,16 @@ STAGE_COMMANDS = {
     "pair_table_bench": ["-m", "src.pair_table", "--split", "bench"],
     "scorer_eval": ["-m", "src.scorer_v2", "--stage", "eval"],
     "submit_v2": ["-m", "src.scorer_v2", "--stage", "submit"],
+    "data_checks": ["-m", "src.data_checks"],
+    "features_v3_bench": ["-m", "src.features_v3", "--split", "bench"],
+    "features_v3_test": ["-m", "src.features_v3", "--split", "test"],
+    "model_train": ["-m", "src.model_lgb", "--stage", "train"],
+    "model_submit": ["-m", "src.model_lgb", "--stage", "submit"],
+    "blocking_v4_bench": ["-m", "src.blocking_v4", "--split", "bench"],
+    "blocking_v4_test": ["-m", "src.blocking_v4", "--split", "test"],
     "tests": ["-m", "unittest"],
 }
-COUNTRY_STAGES = ("block_train", "block_test")
+COUNTRY_STAGES = ("block_train", "block_test", "blocking_v4_test")
 
 INPUT = Path("/kaggle/input")
 WORK = Path("/kaggle/working")
@@ -77,6 +85,7 @@ RESULT_FILES = ["blocking_bench.json", "blocking_recall.json", "blocking_misses.
                 "pair_table.log", "scorer_v2.log", "submit_v2_report.json",
                 "benchmark.log", "bench_summary.json", "scorer_v2_report.json", "scorer_v2_config.json",
                 "decoy_examples.txt"]
+SMALL_LOG_BYTES = 2 * 1024 ** 2   # every other log file up to this size is copied to results/ as well
 GB = 1024 ** 3
 
 
@@ -257,6 +266,7 @@ def stage_env(data_root: Path) -> dict:
     env.update(DATA_ROOT=str(data_root), CACHE_ROOT=str(CACHE_DIR), OUTPUT_ROOT=str(OUTPUT_DIR),
                LOG_ROOT=str(LOG_DIR), N_THREADS=str(usable_cpus()), MIN_FREE_GB=str(MIN_FREE_GB),
                PYTHONUNBUFFERED="1", PYTHONHASHSEED="42")
+    env.update({k: str(v) for k, v in EXTRA_ENV.items()})
     return env
 
 
@@ -313,6 +323,9 @@ def collect_results(env: dict, bundle: dict, records: list, reused: dict, reqs: 
     for name in RESULT_FILES:
         if (LOG_DIR / name).exists():
             shutil.copy2(LOG_DIR / name, RESULTS_DIR / name)
+    for f in LOG_DIR.glob("*"):
+        if f.is_file() and f.stat().st_size <= SMALL_LOG_BYTES and not (RESULTS_DIR / f.name).exists():
+            shutil.copy2(f, RESULTS_DIR / f.name)
     summary = {"environment": env, "bundle": {k: v for k, v in bundle.items() if k != "files"},
                "requirements": reqs, "reused_previous": reused, "stages_requested": STAGES,
                "stages": records, "finished_utc": now()}

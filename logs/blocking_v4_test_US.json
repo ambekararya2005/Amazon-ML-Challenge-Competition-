@@ -1,0 +1,8 @@
+{
+ "country": "US",
+ "dictionary_size": 3739,
+ "pairs": 21352666,
+ "queries": 3816989,
+ "cands_per_query": 5.594,
+ "pct_pairs_from_passD_only": 5.94
+}

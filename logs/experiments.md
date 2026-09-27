@@ -131,3 +131,46 @@
 - Submission #2 files (Kaggle K7b, 6.7 min): validator PASS (Kaggle --check-ids, local). Test per country: France 3.48 pred/S1,
   5.14% empty, 62.9% of S2/S3 assigned; India 3.12 / 9.47% / 53.5%; US 3.23 / 6.64% / 56.0% (target ~74% assigned: v2 now
   under-assigns, consistent with benchmark recall 0.82). France sits between US and India on every statistic.
+
+## 2026-09-26 — Step 0 checks, v3 features, blocking v4 (overnight)
+- LB calibration: submission #2 scored 0.829 vs fold-0 0.823 -> fold 0 of the geo-dense benchmark is now the gate.
+- Step 0 (src/data_checks.py, logs/data_checks.json): (a) no per-source cap - S2 matches per S1 0-5, S3 0-6, mode 1,
+  identical US / India distributions. (b) v2 accepted 1.72M pairs: 1.51M true, 92.8k decoys (query matches nobody),
+  114.9k wrong-entity (query belongs to another S1). Decoys are mutated copies of the entity, not of one sibling:
+  median name/addr sim decoy<->closest sibling 0.78/0.88 vs decoy<->S1 0.79/0.87; closer to the sibling only 48%;
+  main number equals the S1's 65.9% vs the sibling's 56.3%; 0.14% identical copies. (c) same source as the closest
+  sibling 70% (S2, 49% expected) / 61% (S3, 52% expected) - mild.
+- v3 features (src/features_v3.py, src/decoy_features.py): tagged address numbers (street / floor+ordinal / postal -
+  the learned postal rule finds no postal-like length in any country, so postal features are 0), street-number
+  compatible / conflicting counts + Jaccard, floor conflict, extra-word lists (target-encoded at model time), group
+  ranks within the S1's claimants, near-twin features vs the S1's top-8 claimants. Bench 14.4M pairs (local 6.6 min),
+  test 49.8M pairs (Kaggle K9, 18 min, peak tree RSS 30.4 GB).
+- Blocking v4 (src/blocking_v4.py): cross-script dictionary mined from train true pairs (bench eval: 3,047 tokens from
+  877k cross-script pairs, excluding benchmark S1; test: 3,739 tokens) e.g. mharastr->maharashtra, dilli->delhi,
+  eksports->exports, tredimg->trading; pass C on mapped texts; pass D (rarest name token, S1 df <= 50, top-3 by
+  token_sort); adaptive top-k (8 when cheap(1st) - cheap(5th) < 0.1). Benchmark recall (bench true pairs):
+  v1 top-5 India 0.9468 / US 0.9851 / all 0.9715 (5.00 cands/query); v4 union India 0.9763 (v1 union 0.9625);
+  v4 top-5 without pass D India 0.9631; v4 adaptive m=0.1 India **0.9691** / US 0.9870 / all 0.9806 (5.87 cands/query,
+  +17% pairs). Test: France smoke run locally 5.91 cands/query, 6.35% pairs from pass D only.
+  Overnight Kaggle: blocking-v4-{france,india,us} (test candidates -> output/cand_v4/test) and bench-v4 (v4 bench
+  pairs + features + model, FEATURE_VARIANT=v4; v1 tables untouched).
+
+## 2026-09-27 — LightGBM pair model v3 / v4 (Kaggle K10, K12d), fold 0 = gate
+- Two-stage LightGBM (leave-one-fold-out over bench folds 1-4, num_leaves 127, lr 0.05, ff 0.8, early stop 50),
+  extra-word target encoding (OOF), isotonic (own PAV; sklearn's DLL is blocked locally), S1 has-match model, exact
+  expected-F0.5 decoder. K10 model_train 170 min, K12d 216 min (4 CPUs).
+- Fold 0 F0.5 all / India / US (precision, recall, pred/S1, % empty, singleton F0.5 on "all"):
+  baseline 0.7259 / 0.7191 / 0.7313; v2 0.8230 / 0.7113 / 0.9100 (0.880, 0.821, 3.25, 6.96, 0.679);
+  v3 stage1+thr 0.9617; stage2+thr 0.9638; stage1+decoder 0.9618; stage2+decoder 0.9649;
+  **v3 stage2+decoder+hasmatch 0.9652 / 0.9486 / 0.9781** (0.990, 0.930, 3.22, 6.15, 0.957);
+  **v4 (blocking v4 candidates) stage2+decoder+hasmatch 0.9719 / 0.9638 / 0.9782** (0.990, 0.946, 3.29, 5.89, 0.957).
+  Chosen on OOF folds 1-4 (v3 0.96738, v4 0.96895): stage2+decoder+hasmatch, T = 1.0, miss = 0.0.
+- Has-match: singleton F0.5 0.943 -> 0.957 (v3 and v4). Decoder vs best threshold: +0.0011 (v3) / +0.0013 (v4).
+- Error budget v4 fold 0 (points): singleton non-empty 0.0024, FP decoy 0.0037, FP other 0.0028, FN blocking 0.0073,
+  FN scoring 0.0119 (total 0.0281); v3: blocking 0.0145 (India 0.0260 -> v4 0.0103). v2 total was 0.1770.
+- Importance: stage 1 s1_rank 48%, b_num_match 20% (v4) / cheap 13% (v3), then q_gap_to_best, tw_v2_diff, te_q_max,
+  v2_score, st_jaccard; stage 2 p1 + p1_q_margin ~92%.
+- Remaining errors (logs/model_v4_errors.txt): mostly name-only queries (empty address); decoys differing only by a
+  legal form ("... Public Limited"; legal forms are stripped from name_core -> add a legal-form mismatch feature);
+  sibling sub-numbers (12-1-331/C/8 vs /C/1).
+- Test v4 candidates: France 8.48M / India 27.78M / US 21.35M pairs (5.59-5.91 per query, 5.9-7.7% from pass D only).

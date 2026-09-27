@@ -1,0 +1,82 @@
+2026-09-26 21:26:03 INFO [data_checks] start (rss 155 MB)
+2026-09-26 21:26:32 INFO decoys 30000 with 100694 (decoy, sibling) combos; 2509 decoys have no sibling
+2026-09-26 21:26:40 INFO data checks: {
+ "a_matches_per_s1_per_source": {
+  "bench": {
+   "S2": {
+    "0": 70655,
+    "1": 191360,
+    "2": 158151,
+    "3": 80851,
+    "4": 28838,
+    "5": 5753
+   },
+   "S2_max": 5,
+   "S3": {
+    "0": 65388,
+    "1": 174196,
+    "2": 161423,
+    "3": 90089,
+    "4": 35204,
+    "5": 8616,
+    "6": 692
+   },
+   "S3_max": 6
+  },
+  "train_s1_with_matches": {
+   "S2": {
+    "0": 164498,
+    "1": 789108,
+    "2": 652779,
+    "3": 333957,
+    "4": 119078,
+    "5": 24154
+   },
+   "S3": {
+    "0": 143029,
+    "1": 716417,
+    "2": 668375,
+    "3": 372443,
+    "4": 145116,
+    "5": 35378,
+    "6": 2816
+   }
+  }
+ },
+ "b_c_decoys_v2": {
+  "accepted": 1718263,
+  "accepted_true": 1510655,
+  "accepted_false_matches_nobody": 92751,
+  "accepted_false_other_s1": 114857,
+  "decoys_sampled": 30000,
+  "decoys_with_sibling": 27491,
+  "median_name_decoy_sibling": 0.7805,
+  "median_addr_decoy_sibling": 0.8829,
+  "median_name_decoy_s1": 0.7907,
+  "median_addr_decoy_s1": 0.8696,
+  "median_name_sibling_s1": 1.0,
+  "median_addr_sibling_s1": 0.9118,
+  "mean_name_decoy_sibling": 0.7628,
+  "mean_name_decoy_s1": 0.7701,
+  "mean_addr_decoy_sibling": 0.7955,
+  "mean_addr_decoy_s1": 0.7879,
+  "pct_closer_to_sibling_than_s1": 48.18,
+  "pct_main_number_equal_sibling": 56.26,
+  "pct_main_number_equal_s1": 65.85,
+  "pct_identical_text_to_sibling": 0.14,
+  "same_source_as_sibling": {
+   "decoy_S2": {
+    "decoys": 14520,
+    "pct_same_source": 69.87,
+    "pct_expected_if_random": 48.65
+   },
+   "decoy_S3": {
+    "decoys": 12971,
+    "pct_same_source": 60.64,
+    "pct_expected_if_random": 51.64
+   },
+   "all": 65.51
+  }
+ }
+}
+2026-09-26 21:26:40 INFO [data_checks] ok in 37.0s | peak rss 7135 MB | end rss 2399 MB

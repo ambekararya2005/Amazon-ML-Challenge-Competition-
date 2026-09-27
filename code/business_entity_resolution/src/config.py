@@ -114,6 +114,11 @@ def env_float(name: str, default: float) -> float:
     return float(value) if value else default
 
 
+# Candidate / feature variant: "v1" (blocking v1, top-5) or "v4" (blocking v4: cross-script dictionary, pass D,
+# adaptive top-k). v4 tables live in their own folders (cache/bench_v4, output/features_v4, output/features_v3_v4,
+# output/models_v4); v1 tables are never overwritten.
+FEATURE_VARIANT = os.environ.get("FEATURE_VARIANT", "v1")
+
 # Thread count for libraries with their own threading (sparse_dot_topn, rapidfuzz, lightgbm).
 N_THREADS = env_int("N_THREADS", cpu_count())
 

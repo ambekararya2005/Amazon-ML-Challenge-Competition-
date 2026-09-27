@@ -1,0 +1,10 @@
+2026-09-26 22:37:47 INFO [blocking_v4_test] start (rss 154 MB)
+2026-09-26 22:38:09 INFO [v4_dictionary] start (rss 1470 MB)
+2026-09-26 22:40:24 INFO dictionary: 1108761 cross-script pairs used, 70567 candidate tokens, 3739 kept; examples [('mharastr', 'maharashtra'), ('prdes', 'pradesh'), ('dilli', 'delhi'), ('uttr', 'uttar'), ('krnatk', 'karnataka'), ('gujrat', 'gujarat'), ('telmgan', 'telangana'), ('hriyana', 'haryana'), ('rajsthan', 'rajasthan'), ('kerlm', 'kerala'), ('mdhy', 'madhya'), ('tek', 'tech'), ('dl', 'delhi'), ('globl', 'global'), ('aiti', 'it'), ('imtrnesnl', 'international'), ('impeks', 'impex'), ('eksports', 'exports'), ('estet', 'estate'), ('enrji', 'energy'), ('pmjab', 'punjab'), ('phuds', 'foods'), ('phud', 'food'), ('prodkts', 'products'), ('prodyusr', 'producer')]
+2026-09-26 22:40:24 INFO [v4_dictionary] ok in 135.4s | peak rss 7945 MB | end rss 6526 MB
+2026-09-26 22:40:49 INFO [v4_test_France] start (rss 1133 MB)
+2026-09-26 22:44:08 INFO [France] source 2: 703378 queries
+2026-09-26 22:47:41 INFO [France] source 3: 731615 queries
+2026-09-26 22:47:41 INFO [v4_test_France] ok in 412.3s | peak rss 3109 MB | end rss 986 MB
+2026-09-26 22:47:46 INFO [France] {'country': 'France', 'dictionary_size': 3739, 'pairs': 8481365, 'queries': 1434831, 'cands_per_query': 5.911, 'pct_pairs_from_passD_only': 6.35}
+2026-09-26 22:47:46 INFO [blocking_v4_test] ok in 599.0s | peak rss 7945 MB | end rss 558 MB

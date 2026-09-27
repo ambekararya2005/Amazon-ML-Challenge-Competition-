@@ -1,0 +1,149 @@
+FP [decoy] p2=0.831
+  S1: Pioneer Fortune Ventures Private Limited | 1-7-391/4, Shop No-33, Prasanth Towers, Musheerabad, Hyderabad, Telangana
+  S2: Pioneer Fortune Ventures Public Limited | 631 1-7-391/13, SHOP NO-33, PRASANTH TOWERS, MUSHEERABAD, Telangana
+  drivers: p1=0.663 (+8.03), p1_q_margin=0.663 (+0.88), p1_minus_s1max=-0.331 (+0.77), p1_s1_sum=2.94 (+0.22), p1_s1_rank=3 (+0.14), n_street_q=6 (-0.11)
+
+FP [other S1] p2=0.846
+  S1: Agd & Brothers Limited | 3-4-19, Dr. Bhomannah Lane Kachiguda, Hyderabad, Telangana
+  S2: AGD &  BROTHERS PVT | 
+  drivers: p1=0.857 (+8.48), p1_q_margin=0.857 (+1.12), p1_minus_s1max=-0.141 (+0.74), p1_s1_rank=2 (+0.11), p1_s1_sum=2.62 (+0.08), p1_q_other_max=7.82e-06 (+0.07)
+
+FP [decoy] p2=0.812
+  S1: Spero Appliances Private Limited | 11-1/57/10K/1, First Floor, Opp Srirama Gardens, Above Bedbath Kitchen & More, Nizamabad, Telangana
+  S3: Spero  Appliances LLP | C-11-1/57/10k/12, Nizamabad, TG
+  drivers: p1=0.904 (+8.45), p1_q_margin=0.904 (+1.18), p1_minus_s1max=-0.0937 (+0.77), p1_s1_second=0.904 (+0.19), p1_s1_rank=2 (+0.15), s1_claims=3 (-0.15)
+
+FP [decoy] p2=0.784
+  S1: Raviva Freight LLP | H.No: 16.2.Vs/26, Viswambhar Sparkle, Manjeera Pipe Line Road, Hydernagar, Hyderabad, Telangana, Hyderabad
+  S3: Ravivayn Freight | H.no: 16.2.Vs/26, Hyderabad, Andhra Pradesh
+  drivers: p1=0.845 (+8.34), p1_q_margin=0.845 (+1.13), p1_minus_s1max=-0.154 (+0.73), s1_claims=3 (-0.23), p1_s1_rank=3 (+0.13), st_jaccard=1 (+0.11)
+
+FP [decoy] p2=0.996
+  S1: Seven Properties Private Limited | Hyderabad, Telangana, 10-3-5/1 Part Of, Asifnagar, Iv Floor Asif Nagar
+  S2: సెవెన్ ప్రాపర్టీస్ లిమిటెడ్ | 10-3-5/5 PART OF, ASIFNAGAR, తెలంగాణ
+  drivers: p1=0.995 (+11.02), p1_q_margin=0.995 (+2.32), p1_minus_s1max=-0.00436 (+0.92), p1_s1_rank=4 (+0.11), p1_s1_max=1 (+0.07), p1_q_other_max=1.91e-06 (+0.05)
+
+FP [decoy] p2=0.903
+  S1: Baba Developers | 1-8-304 To 307 Maa Kruti Police Lines Pattigadda Road Begumpet, Secunderabad, Hyderabad, Telangana
+  S3: బాబా డెవలపర్స్ ప్రైవేట్ లిమిటెడ్ | 1-8-307 To 307 Maa Kruti Police Lines Pattigadda Road Begumpet, Hyderabad, Secunderabad, TG
+  drivers: p1=0.918 (+8.64), p1_q_margin=0.918 (+1.58), p1_minus_s1max=-0.0819 (+0.77), p1_s1_rank=2 (+0.26), p1_s1_second=0.918 (+0.25), s1_claims=3 (-0.22)
+
+FP [decoy] p2=1.000
+  S1: Jai Speciality Private Limited | 12-2-718/1/1/A Rethi Bowli, Hyderabad, Telangana
+  S2: Jai Speciality Limited | 12-2-718/1/2/A RETHI BOWLI, HYDERABAD, Telangana
+  drivers: p1=1 (+12.87), p1_q_margin=1 (+2.60), p1_minus_s1max=-5.42e-05 (+1.05), p1_s1_rank=2 (+0.10), st_jaccard=1 (+0.04), q_best=1 (-0.03)
+
+FP [other S1] p2=0.872
+  S1: Dheer Medical Centre Ltd | Hyderabad, 1-8-661, Pbr Estates, Nallakunta, Telangana, Ag6, Hyderabad
+  S3: Haloumbra | #1-8-661, New Nallakunta, TG
+  drivers: p1=0.684 (+8.15), p1_q_margin=0.681 (+0.96), p1_minus_s1max=-0.314 (+0.68), q_gap_to_best=0.178 (+0.24), p1_q_other_max=0.00315 (+0.17), name_tset=0.207 (+0.11)
+
+FP [decoy] p2=0.963
+  S1: WC Angel P.C. | 2212 Harbour Place, Kokomo, IN
+  S2: KC Asnghl P.C. | 2212 HARBOUR PL, KOKOMO, IN
+  drivers: p1=0.922 (+8.95), p1_q_margin=0.922 (+1.81), p1_minus_s1max=0 (+0.89), te_q_sum=1.72 (+0.17), p1_s1_rank=1 (+0.14), p1_s1_other_max=7.81e-06 (-0.09)
+
+FP [decoy] p2=0.938
+  S1: Brightent Metro Care | 9332 Bauhaus Way, Indianapolis, IN
+  S3: The Brightont Metro Care | 9332 Bauhaus Way, Indianapolis, Indiana
+  drivers: p1=0.986 (+9.83), p1_q_margin=0.986 (+1.89), p1_minus_s1max=-0.0135 (+0.78), s1_claims=4 (-0.46), p1_s1_sum=4.01 (-0.14), p1_s1_rank=4 (+0.08)
+
+FP [decoy] p2=0.990
+  S1: Housing Association III | 907 Orchard Drive, North Manchester, IN
+  S2: Housing Association TIII | 907. ORCHARD DRIVE, NORTH MANCHESTER, IN
+  drivers: p1=0.994 (+10.48), p1_q_margin=0.994 (+2.12), p1_minus_s1max=-0.00609 (+0.90), p1_s1_sum=7.99 (-0.21), p1_s1_max=1 (+0.07), p1_s1_rank=8 (+0.06)
+
+FP [decoy] p2=0.954
+  S1: Niwara India Private Limited | 309Everest Block Aditya Enclave, Ameerpet, Hyderabad, Telangana
+  S3: Niwara India Limited | 616Everest Block Aditya Enclave, Ameerpet, Hyderabad, TG
+  drivers: p1=0.949 (+8.84), p1_q_margin=0.949 (+1.71), p1_minus_s1max=-0.0508 (+0.86), p1_s1_rank=3 (+0.24), p1_s1_max=1 (+0.08), g_size=4 (-0.08)
+
+FP [decoy] p2=0.866
+  S1: Consulting Bhide Solutions Private Limited | Flat No.206 Siddahareddy Complex, Lingaiah Nagar, Sa, Nath Nagar, 7-1-282/C/1/80 And 81, Telangana, Hyderabad
+  S3: Consulting Bhide Ghee Private Limited | 7-1-282/C/1/84 And 81, null, Hyderabad, తెలంగాణ
+  drivers: p1=0.768 (+8.18), p1_q_margin=0.768 (+1.25), p1_minus_s1max=-0.224 (+0.71), p1_s1_second=0.781 (+0.17), p1_s1_rank=3 (+0.12), s1_claims=3 (-0.11)
+
+FP [other S1] p2=0.807
+  S1: Balaji Apparels Pvt Ltd | 5-13, Hyderguda, Rajendranagar, Hyderabad, Telangana
+  S3: Balaji Apparels Pvt | 
+  drivers: p1=0.763 (+8.00), p1_q_margin=0.763 (+1.14), p1_minus_s1max=-0.237 (+0.74), p1_s1_rank=5 (+0.11), p1_q_other_max=1.4e-06 (+0.08), p1_s1_max=1 (+0.07)
+
+FP [other S1] p2=0.809
+  S1: National Diamond Citizens | 849 62nd Place, Merrillville, IN
+  S3: national diamond citizens, llc | 
+  drivers: p1=0.774 (+8.01), p1_q_margin=0.774 (+1.15), p1_minus_s1max=-0.226 (+0.74), p1_s1_rank=5 (+0.12), p1_q_other_max=1.07e-05 (+0.08), p1_s1_max=1 (+0.07)
+
+FN [true] p2=0.655
+  S1: Dst India Private Limited | Hyderabad, Plot No.122/3, Malathinivas Narsingi, Narsingi Muncp, Gandipet Manda, Flat No.105, Telangana, Rangareddy
+  S3: Private Dst India Ltd | TG, Plot No.122/3, Malathinivas Narsingi, Narsingi Muncp, Gandipet Manda, Manikonda, H.no 05, Hyderabad
+  drivers: p1=0.53 (+7.83), p1_minus_s1max=-0.452 (+0.69), p1_s1_sum=1.84 (+0.34), p1_q_margin=0.53 (+0.22), p1_s1_second=0.53 (+0.17), p1_s1_rank=2 (+0.16)
+
+FN [true] p2=0.333
+  S1: Alpha Ventures Private Limited | 3Rd Floor, D.No. 2-93/8 & 2-93/9, Three Cube Towers, White Fields Kondapur Hyderabad, Serilingampally, K.V.Rangareddy, Telangana
+  S2: ఆల్ఫా వెంచర్స్ ప్రైవేట్ లిమిటెడ్ | K.V.RANGAREDDY, RANGAREDDY, Telangana, B3/3RD FLOOR
+  drivers: p1=0.0573 (+6.48), p1_minus_s1max=-0.534 (+0.51), p1_q_other_max=0.00429 (+0.13), p1_s1_rank=2 (+0.13), p1_s1_second=0.0573 (+0.12), q_gap_to_best=0.0433 (+0.12)
+
+FN [true] p2=0.279
+  S1: Bay Silver Pharmaceutical | 1123 Edmondson Avenue, Unit APT C17, Indianapolis, IN
+  S2: spbay.com | 1123 EDMONDSON AVE, INDIANAPOLIS, IN
+  drivers: p1=0.018 (+5.74), p1_minus_s1max=-0.982 (+0.56), p1_q_margin=-0.003 (-0.54), q_gap_to_best=0.196 (+0.27), p1_s1_rank=5 (+0.21), name_tset=0.2 (+0.16)
+
+FN [true] p2=0.169
+  S1: Dyann Wiles Choice Creative PC | 214 Providence Lane, Upper Gwynedd Township, PA
+  S2: DYANN WILES CHOICE | 
+  drivers: p1=0.138 (+6.62), p1_q_margin=-0.104 (-0.69), p1_minus_s1max=-0.862 (+0.66), p1_q_other_max=0.242 (+0.18), p1_s1_rank=4 (+0.15), q_margin=0 (+0.08)
+
+FN [true] p2=0.577
+  S1: Joyal Chile Group | 303 Longfield Road, Springfield Township, PA
+  S3: Joyal Chile (LLC) | 
+  drivers: p1=0.529 (+7.74), p1_minus_s1max=-0.471 (+0.70), p1_q_other_max=7.77e-05 (+0.23), p1_q_margin=0.529 (+0.18), p1_s1_rank=3 (+0.14), p1_s1_sum=2.53 (+0.14)
+
+FN [true] p2=0.731
+  S1: Economic Development Blue Guild | 1224 S Fork Pass, Fort Wayne, IN
+  S3: Economic Development Blue  Guild | 
+  drivers: p1=0.67 (+7.92), p1_q_margin=0.67 (+0.81), p1_minus_s1max=-0.33 (+0.73), p1_s1_rank=4 (+0.11), p1_q_other_max=8.92e-05 (+0.10), p1_s1_max=1 (+0.07)
+
+FN [true] p2=0.609
+  S1: Human Rights Initiative | 520 21st Street, Anderson, IN
+  S2: Human Rights Initiative Association | 52 TWENTY FIRST STREET, ANDERSON, IN
+  drivers: p1=0.426 (+7.69), p1_minus_s1max=-0.573 (+0.62), p1_q_margin=0.426 (+0.17), p1_q_other_max=3.86e-06 (+0.15), te_q_max=0.85 (+0.12), p1_s1_rank=4 (+0.11)
+
+FN [true] p2=0.738
+  S1: Stewart Regional Business Co | IN, Franklin, 648 Yandes Street
+  S2: Stewart Regional Bsiness Co | 
+  drivers: p1=0.741 (+7.91), p1_q_margin=0.741 (+0.83), p1_minus_s1max=-0.259 (+0.74), p1_s1_rank=6 (+0.11), p1_q_other_max=3.71e-06 (+0.10), p1_s1_max=1 (+0.07)
+
+FN [true] p2=0.697
+  S1: Trendz & Brothers Private Limited | Westfield Center, Plot No.8-1-400/61 Deluxe Colony Tolichowki Main Road, Hyderabad, Telangana
+  S2: Trendz & Brothers Prívate Ltd | WESTFIELD CENTER, PLOT NO.8-1-400/6 DELUXE COLONY TOLICHOWKI MAIN ROAD, HYDERABAD, Telangana
+  drivers: p1=0.598 (+7.66), p1_minus_s1max=-0.402 (+0.74), p1_q_margin=0.598 (+0.72), p1_s1_rank=5 (+0.12), s1_claims=6 (+0.12), p1_q_other_max=6e-08 (+0.11)
+
+FN [true] p2=0.582
+  S1: Secunderabad Immigration Private Limited | H. No. 8-1-142, Flat No.104, Sri Tirumala Homes, Block-Ii, Marri Ram Reddy Colony, Old Bo, Wenpally, Secunderabad, Hyderabad, Telangana
+  S2: Secunderabad lmmigration (Private) | Telangana, H. NO. -1-142 , FLAT NO.104, SRI TIRUMALA HOMES, BLOCK-II, MARRI RAM REDDY COLONY, OLD BO, WENPALLY, SECUNDERABAD
+  drivers: p1=0.217 (+7.22), p1_minus_s1max=-0.783 (+0.54), p1_s1_sum=2.25 (+0.33), p1_q_margin=0.217 (+0.20), p1_s1_rank=3 (+0.18), p1_s1_second=0.929 (+0.15)
+
+FN [true] p2=0.040
+  S1: Certified Wealth International Inc | Helena, MT, 3283 12, Unit #11
+  S3: Certified International Inc Services | 
+  drivers: p1=0.0457 (+5.73), p1_q_margin=0.0116 (-0.61), p1_minus_s1max=-0.953 (+0.41), p1_s1_rank=5 (+0.10), p1_q_other_max=0.0341 (-0.06), te_q_max=0.457 (+0.05)
+
+FN [true] p2=0.541
+  S1: First Lakshmi Developers Private Limited | 8-2-293/82/L/106A, Mla Colony, Banjara Hills, Khairatabad, Hyderabad, Telangana
+  S3: Ldfirst.C0m | 8-2-293/82/L/106A, Mla Colony, Banjara Hills, Khairatabad, Hyderabad, TG
+  drivers: p1=0.429 (+7.69), p1_minus_s1max=-0.571 (+0.60), p1_q_margin=0.429 (+0.17), st_jaccard=1 (+0.14), p1_q_other_max=9.06e-06 (+0.13), p1_s1_rank=5 (+0.13)
+
+FN [true] p2=0.651
+  S1: Apex Verde LLC | Lafayette, 1118 5th Street, IN
+  S3: Apex Verde  LLC | 
+  drivers: p1=0.621 (+7.67), p1_q_margin=0.62 (+0.72), p1_minus_s1max=-0.379 (+0.71), p1_s1_rank=4 (+0.12), p1_q_other_max=0.00104 (+0.11), p1_s1_max=1 (+0.08)
+
+FN [true] p2=0.059
+  S1: Champaran (India) Fuels Company | Hyderabad, Telangana, P.No.5, 6, 7, Flat-.301, Supriya Estates, Navkhals(V) Prashanth Hils, Raidurgam, Gachibowli, Rangareddy
+  S3: Champaran (India) Fueas Company | TG, H.no B3/924 P.no.5, Ranga Reddy
+  drivers: p1=0.00969 (+4.87), p1_minus_s1max=-0.746 (+0.64), p1_q_margin=0.00964 (-0.21), p1_s1_sum=1.18 (+0.11), p1_q_other_max=4.85e-05 (+0.11), p1_s1_rank=7 (+0.10)
+
+FN [true] p2=0.374
+  S1: Guerrero, Auguste, L.C.S.W., DDS PC | 14327 Brafferton Parkway, Fort Wayne, IN
+  S2: galcsw.com | BRAFFERTON PARKWAY, FT WAYNE, IN
+  drivers: p1=0.381 (+7.81), p1_q_margin=-0.197 (-1.05), p1_minus_s1max=-0.618 (+0.72), p1_s1_rank=4 (+0.21), s1_rank=2 (+0.10), p1_s1_max=1 (+0.10)

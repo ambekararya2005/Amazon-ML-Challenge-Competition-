@@ -1,0 +1,37 @@
+2026-09-26 21:58:29 INFO [blocking_v4_bench] start (rss 153 MB)
+2026-09-26 21:59:02 INFO [v4_dictionary] start (rss 1722 MB)
+2026-09-26 22:04:52 INFO [blocking_v4_bench] start (rss 153 MB)
+2026-09-26 22:05:20 INFO [v4_dictionary] start (rss 1718 MB)
+2026-09-26 22:07:20 INFO dictionary: 876907 cross-script pairs used, 57360 candidate tokens, 3047 kept; examples [('mharastr', 'maharashtra'), ('prdes', 'pradesh'), ('dilli', 'delhi'), ('uttr', 'uttar'), ('krnatk', 'karnataka'), ('hriyana', 'haryana'), ('rajsthan', 'rajasthan'), ('kerlm', 'kerala'), ('mdhy', 'madhya'), ('dl', 'delhi'), ('tek', 'tech'), ('globl', 'global'), ('pmjab', 'punjab'), ('imtrnesnl', 'international'), ('aiti', 'it'), ('impeks', 'impex'), ('eksports', 'exports'), ('phuds', 'foods'), ('phud', 'food'), ('tredimg', 'trading'), ('prodkts', 'products'), ('prodyusr', 'producer'), ('estet', 'estate'), ('midiya', 'media'), ('enrji', 'energy')]
+2026-09-26 22:07:22 INFO [v4_dictionary] ok in 121.6s | peak rss 8108 MB | end rss 1311 MB
+2026-09-26 22:07:24 INFO [v4_passC_India] start (rss 1985 MB)
+2026-09-26 22:12:19 INFO [v4_passC_India] ok in 295.2s | peak rss 3600 MB | end rss 626 MB
+2026-09-26 22:12:51 INFO [India] pass C 9878008, pass D 1160158 (480723 queries), union 15376966
+2026-09-26 22:12:51 INFO [v4_passC_US] start (rss 2639 MB)
+2026-09-26 22:26:29 INFO [v4_passC_US] ok in 817.6s | peak rss 3821 MB | end rss 1435 MB
+2026-09-26 22:27:01 INFO [US] pass C 18950339, pass D 1676578 (713662 queries), union 27177776
+2026-09-26 22:32:58 INFO recall v1_union               {'India': 0.9625, 'US': 0.9915, 'ALL': 0.9812, 'cands_per_query': 14.39, 'pairs': 41486250}
+2026-09-26 22:32:58 INFO recall v1_top5                {'India': 0.9468, 'US': 0.9851, 'ALL': 0.9715, 'cands_per_query': 5.0, 'pairs': 14414922}
+2026-09-26 22:32:58 INFO recall v4_union               {'India': 0.9763, 'US': 0.9915, 'ALL': 0.9861, 'cands_per_query': 14.761, 'pairs': 42554742}
+2026-09-26 22:32:58 INFO recall v4_top5_no_passD       {'India': 0.9631, 'US': 0.9849, 'ALL': 0.9772, 'cands_per_query': 5.0, 'pairs': 14414596}
+2026-09-26 22:32:58 INFO recall v4_adaptive_m0.0       {'India': 0.9646, 'US': 0.9852, 'ALL': 0.9779, 'cands_per_query': 5.433, 'pairs': 15663351}
+2026-09-26 22:32:58 INFO recall v1_adaptive_m0.0       {'India': 0.9468, 'US': 0.9851, 'ALL': 0.9715, 'cands_per_query': 5.0, 'pairs': 14414922}
+2026-09-26 22:32:58 INFO recall v4_adaptive_m0.02      {'India': 0.9651, 'US': 0.9854, 'ALL': 0.9782, 'cands_per_query': 5.482, 'pairs': 15804882}
+2026-09-26 22:32:58 INFO recall v1_adaptive_m0.02      {'India': 0.9475, 'US': 0.9853, 'ALL': 0.9719, 'cands_per_query': 5.057, 'pairs': 14578199}
+2026-09-26 22:32:58 INFO recall v4_adaptive_m0.05      {'India': 0.9665, 'US': 0.9863, 'ALL': 0.9793, 'cands_per_query': 5.67, 'pairs': 16346744}
+2026-09-26 22:32:58 INFO recall v1_adaptive_m0.05      {'India': 0.9493, 'US': 0.9862, 'ALL': 0.9731, 'cands_per_query': 5.254, 'pairs': 15147597}
+2026-09-26 22:32:58 INFO recall v4_adaptive_m0.1       {'India': 0.9691, 'US': 0.987, 'ALL': 0.9806, 'cands_per_query': 5.873, 'pairs': 16930407}
+2026-09-26 22:32:58 INFO recall v1_adaptive_m0.1       {'India': 0.9518, 'US': 0.9869, 'ALL': 0.9745, 'cands_per_query': 5.459, 'pairs': 15739069}
+2026-09-26 22:32:58 INFO recall v4_adaptive_m0.2       {'India': 0.971, 'US': 0.9872, 'ALL': 0.9815, 'cands_per_query': 6.093, 'pairs': 17564717}
+2026-09-26 22:32:58 INFO recall v1_adaptive_m0.2       {'India': 0.9535, 'US': 0.9872, 'ALL': 0.9752, 'cands_per_query': 5.679, 'pairs': 16372586}
+2026-09-26 22:32:58 INFO [blocking_v4_bench] ok in 1686.2s | peak rss 8108 MB | end rss 892 MB
+2026-09-26 22:37:47 INFO [blocking_v4_test] start (rss 154 MB)
+2026-09-26 22:38:09 INFO [v4_dictionary] start (rss 1470 MB)
+2026-09-26 22:40:24 INFO dictionary: 1108761 cross-script pairs used, 70567 candidate tokens, 3739 kept; examples [('mharastr', 'maharashtra'), ('prdes', 'pradesh'), ('dilli', 'delhi'), ('uttr', 'uttar'), ('krnatk', 'karnataka'), ('gujrat', 'gujarat'), ('telmgan', 'telangana'), ('hriyana', 'haryana'), ('rajsthan', 'rajasthan'), ('kerlm', 'kerala'), ('mdhy', 'madhya'), ('tek', 'tech'), ('dl', 'delhi'), ('globl', 'global'), ('aiti', 'it'), ('imtrnesnl', 'international'), ('impeks', 'impex'), ('eksports', 'exports'), ('estet', 'estate'), ('enrji', 'energy'), ('pmjab', 'punjab'), ('phuds', 'foods'), ('phud', 'food'), ('prodkts', 'products'), ('prodyusr', 'producer')]
+2026-09-26 22:40:24 INFO [v4_dictionary] ok in 135.4s | peak rss 7945 MB | end rss 6526 MB
+2026-09-26 22:40:49 INFO [v4_test_France] start (rss 1133 MB)
+2026-09-26 22:44:08 INFO [France] source 2: 703378 queries
+2026-09-26 22:47:41 INFO [France] source 3: 731615 queries
+2026-09-26 22:47:41 INFO [v4_test_France] ok in 412.3s | peak rss 3109 MB | end rss 986 MB
+2026-09-26 22:47:46 INFO [France] {'country': 'France', 'dictionary_size': 3739, 'pairs': 8481365, 'queries': 1434831, 'cands_per_query': 5.911, 'pct_pairs_from_passD_only': 6.35}
+2026-09-26 22:47:46 INFO [blocking_v4_test] ok in 599.0s | peak rss 7945 MB | end rss 558 MB

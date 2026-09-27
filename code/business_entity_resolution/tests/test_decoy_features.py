@@ -77,5 +77,49 @@ class TestPairAndContext(unittest.TestCase):
         self.assertEqual(df["extra_vs_min"].tolist(), [0.0, 0.0, 1.0])
 
 
+class TestTaggedNumbers(unittest.TestCase):
+    """v3 number tagging: street / floor (ordinals, floor words) / postal (learned lengths)."""
+
+    def test_tags(self):
+        """Ordinals and floor-adjacent numbers are floors; digit runs inside tokens are street numbers."""
+        st, fl, po = dfe.tag_numbers("908, 9th floor mercantile house, 15 kg marg, delhi")
+        self.assertEqual((st, fl, po), (("908", "15"), ("9",), ()))
+        st, fl, _ = dfe.tag_numbers("431 millwood avenue, fl 0, wichita, ks")
+        self.assertEqual((st, fl), (("431",), ("0",)))
+        st, fl, _ = dfe.tag_numbers("f 27, first floor, savitri market sector 018, noida")
+        self.assertEqual((st, fl), (("27", "18"), ("1",)))
+        st, fl, _ = dfe.tag_numbers("8 2 293 82 a 646a, road no 36")
+        self.assertEqual(st, ("8", "2", "293", "82", "646", "36"))
+        self.assertEqual(dfe.tag_numbers(""), ((), (), ()))
+
+    def test_postal_learned(self):
+        """A trailing 5-digit token is postal only if that length is common in last position."""
+        addrs = ["12 rue x, 75001 paris, 75001", "3 main st, 90210", "4 elm st, springfield", ""]
+        lengths = dfe.learn_postal_lengths(addrs, min_share=0.5)
+        self.assertEqual(lengths, frozenset({5}))
+        self.assertEqual(dfe.tag_numbers("3 main st, 90210", lengths), (("3",), (), ("90210",)))
+        self.assertEqual(dfe.learn_postal_lengths(addrs, min_share=0.9), frozenset())
+        self.assertEqual(dfe.tag_numbers("3 main st, 90210"), (("3", "90210"), (), ()))
+
+    def test_tagged_features(self):
+        """Compatible / conflicting counts, Jaccard, floor conflict and missing-number flags."""
+        q = [dfe.tag_numbers(a) for a in ("2007 oak st, 3rd floor", "37 elm st", "", "12 99 x")]
+        s = [dfe.tag_numbers(a) for a in ("007 oak st, 4th floor", "32 elm st", "5 x", "99 12 x")]
+        f = dfe.tagged_number_features(q, s)
+        np.testing.assert_array_equal(f["st_compat"], [1, 0, 0, 2])
+        np.testing.assert_array_equal(f["st_conflict"], [0, 1, 0, 0])
+        np.testing.assert_array_equal(f["floor_conflict"], [1, 0, 0, 0])
+        np.testing.assert_array_equal(f["q_no_number"], [0, 0, 1, 0])
+        np.testing.assert_array_equal(f["st_main_conflict"], [0, 1, 0, 1])
+        self.assertEqual(f["st_jaccard"][3], 1.0)
+        self.assertTrue(np.isnan(f["st_jaccard"][2]))
+
+    def test_extra_lists(self):
+        """Extra words are returned as strings on each side."""
+        xq, xs = dfe.extra_token_lists(["acme holdings", "acme"], ["acme", "acme exports"])
+        self.assertEqual(list(xq), ["holdings", ""])
+        self.assertEqual(list(xs), ["", "exports"])
+
+
 if __name__ == "__main__":
     unittest.main()

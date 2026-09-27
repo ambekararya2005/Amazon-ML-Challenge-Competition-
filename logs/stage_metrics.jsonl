@@ -43,3 +43,19 @@
 {"time": "2026-09-26T12:56:38", "stage": "tune_pass_c_India", "status": "ok", "seconds": 714.68, "start_rss_mb": 641, "peak_rss_mb": 3072, "end_rss_mb": 1030, "country": "India", "threads": 4}
 {"time": "2026-09-26T13:40:27", "stage": "blockA_test_France", "status": "ok", "seconds": 1.83, "start_rss_mb": 1021, "peak_rss_mb": 1180, "end_rss_mb": 1126, "split": "test", "country": "France", "passname": "A", "queries": 3000, "n_chunks": 2}
 {"time": "2026-09-26T13:40:38", "stage": "blockC_test_France", "status": "ok", "seconds": 11.34, "start_rss_mb": 1126, "peak_rss_mb": 1414, "end_rss_mb": 1245, "split": "test", "country": "France", "passname": "C", "queries": 3000, "n_chunks": 2, "fit_s": 10.4}
+{"time": "2026-09-26T21:26:40", "stage": "data_checks", "status": "ok", "seconds": 36.99, "start_rss_mb": 155, "peak_rss_mb": 7135, "end_rss_mb": 2399}
+{"time": "2026-09-26T21:35:50", "stage": "features_v3_bench_India", "status": "ok", "seconds": 133.12, "start_rss_mb": 4394, "peak_rss_mb": 5239, "end_rss_mb": 2097, "pairs": 4939499}
+{"time": "2026-09-26T21:40:05", "stage": "features_v3_bench_US", "status": "ok", "seconds": 245.61, "start_rss_mb": 4469, "peak_rss_mb": 6475, "end_rss_mb": 3418, "pairs": 9475423}
+{"time": "2026-09-26T21:40:08", "stage": "features_v3_bench", "status": "ok", "seconds": 397.82, "start_rss_mb": 153, "peak_rss_mb": 6475, "end_rss_mb": 485, "workers": 6}
+{"time": "2026-09-26T21:43:26", "stage": "model_te", "status": "ok", "seconds": 1.84, "start_rss_mb": 751, "peak_rss_mb": 859, "end_rss_mb": 698}
+{"time": "2026-09-26T21:45:01", "stage": "model_stage1", "status": "ok", "seconds": 93.8, "start_rss_mb": 1159, "peak_rss_mb": 1897, "end_rss_mb": 1198, "rows": 1430950, "features": 84}
+{"time": "2026-09-26T21:45:43", "stage": "model_stage2", "status": "ok", "seconds": 39.59, "start_rss_mb": 1388, "peak_rss_mb": 2190, "end_rss_mb": 1400, "rows": 1430950, "features": 95}
+{"time": "2026-09-26T21:45:47", "stage": "model_hasmatch", "status": "ok", "seconds": 0.54, "start_rss_mb": 1751, "peak_rss_mb": 1754, "end_rss_mb": 1737, "rows": 53709}
+{"time": "2026-09-26T21:46:33", "stage": "model_lgb_train", "status": "ok", "seconds": 205.77, "start_rss_mb": 155, "peak_rss_mb": 8236, "end_rss_mb": 1722, "threads": 16}
+{"time": "2026-09-26T22:07:22", "stage": "v4_dictionary", "status": "ok", "seconds": 121.61, "start_rss_mb": 1718, "peak_rss_mb": 8108, "end_rss_mb": 1311, "pairs": 5785412}
+{"time": "2026-09-26T22:12:19", "stage": "v4_passC_India", "status": "ok", "seconds": 295.18, "start_rss_mb": 1985, "peak_rss_mb": 3600, "end_rss_mb": 626, "s1": 189975}
+{"time": "2026-09-26T22:26:29", "stage": "v4_passC_US", "status": "ok", "seconds": 817.59, "start_rss_mb": 2639, "peak_rss_mb": 3821, "end_rss_mb": 1435, "s1": 345633}
+{"time": "2026-09-26T22:32:58", "stage": "blocking_v4_bench", "status": "ok", "seconds": 1686.22, "start_rss_mb": 153, "peak_rss_mb": 8108, "end_rss_mb": 892, "threads": 16}
+{"time": "2026-09-26T22:40:24", "stage": "v4_dictionary", "status": "ok", "seconds": 135.4, "start_rss_mb": 1470, "peak_rss_mb": 7945, "end_rss_mb": 6526, "pairs": 7638365}
+{"time": "2026-09-26T22:47:41", "stage": "v4_test_France", "status": "ok", "seconds": 412.35, "start_rss_mb": 1133, "peak_rss_mb": 3109, "end_rss_mb": 986, "s1": 259452}
+{"time": "2026-09-26T22:47:46", "stage": "blocking_v4_test", "status": "ok", "seconds": 599.0, "start_rss_mb": 154, "peak_rss_mb": 7945, "end_rss_mb": 558, "threads": 16}

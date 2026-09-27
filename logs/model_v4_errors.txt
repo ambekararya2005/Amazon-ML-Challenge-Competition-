@@ -1,0 +1,149 @@
+FP [other S1] p2=0.759
+  S1: Devsons India Limited | Hyderabad, Telangana, Hyderabad, S.Y.No.56 5Th Floor, Vivekananda Nagar Colony, Kuk, Atpally, Plot No.264
+  S2: Devsons India Services | 
+  drivers: p1=0.677 (+8.50), p1_q_margin=0.677 (+0.95), p1_minus_s1max=-0.308 (+0.80), p1_q_other_max=3.54e-05 (+0.23), p1_s1_rank=4 (+0.22), g_other_max_v2=0.38 (+0.15)
+
+FP [decoy] p2=0.973
+  S1: Tirumalagiri Developers Care | Pt-223, Yellammabanda, Shamshiguda, Telangana, H No-2-1-95/1, Hyderabad, Tirumalagiri
+  S2: Tirumalagiri Developers Care Public Limited | H NO-#2-1-95/22, PT-223, YELLAMMABANDA, SHAMSHIGUDA, TIRUMALAGIRI, Telangana
+  drivers: p1=0.967 (+10.33), p1_q_margin=0.967 (+2.03), p1_minus_s1max=-0.0327 (+0.80), p1_s1_rank=4 (+0.23), s1_claims=6 (+0.15), n_street_q=5 (-0.11)
+
+FP [decoy] p2=0.999
+  S1: Pioneer New Finance | 2-2-642/1/1, Amberpet, Hyderabad, Telangana
+  S3: Pioneer New Finance Public Limited | 2-2-642/1/1, Sangareddy Ap, తెలంగాణ
+  drivers: p1=0.998 (+12.96), p1_q_margin=0.998 (+2.75), p1_minus_s1max=0 (+1.00), p1_s1_rank=1 (+0.18), p1_q_other_max=9.44e-07 (+0.08), p1_s1_max=0.998 (+0.08)
+
+FP [other S1] p2=0.823
+  S1: HW Agro Ltd | Plot No. 102, H.No:21-1382/102, 1St Floor Samatha Nagar Colony, Old Safilguda, Road, No.3, Hyderabad, Rangareddy, Telangana
+  S3: Hw Agro (Índia) Pvt Ltd | 
+  drivers: p1=0.801 (+8.67), p1_q_margin=0.801 (+1.21), p1_minus_s1max=-0.199 (+0.92), p1_q_other_max=0.000323 (+0.19), p1_s1_rank=5 (+0.19), p1_s1_max=1 (+0.08)
+
+FP [decoy] p2=0.893
+  S1: First Solutions Private Limited | 12-1-331/C/1, Dattatreya Colony Asif Nagar, Hyderabad, Telangana
+  S2: ఫస్ట్ సొల్యూషన్స్ లిమిటెడ్ | #12-1-331/C/8, DATTATREYA COLONY ASIF NAGAR, HYDERABAD, Telangana
+  drivers: p1=0.837 (+9.40), p1_q_margin=0.837 (+1.23), p1_minus_s1max=-0.163 (+0.88), p1_s1_rank=4 (+0.21), p1_q_other_max=0.000258 (+0.12), p1_s1_max=1 (+0.08)
+
+FP [decoy] p2=0.747
+  S1: Femina Ferroalloys Limited | Pno 5, 7-1-455/243/5, 6, 7, F-401 Mahindra Residency, Secunderabad, Hyderabad, Telangana
+  S3: Femina Services  Limited | Pno G-16, 7-1-455/243/5, 6, 7, F-401 Mahindra Residency, Secunderabad, Aliabad, TG
+  drivers: p1=0.785 (+8.63), p1_q_margin=0.784 (+1.31), p1_minus_s1max=0 (+0.90), p1_s1_rank=1 (+0.24), p1_q_other_max=0.00152 (+0.18), n_street_q=8 (-0.17)
+
+FP [other S1] p2=0.799
+  S1: Toshniwal Interiors Private Limited | Fl.No.101, Happy Homes Imperial, Upper Pally, Hyderabad, Telangana
+  S2: Toshniwal Ínteriors Ltd | 
+  drivers: p1=0.742 (+8.63), p1_q_margin=0.741 (+1.14), p1_minus_s1max=-0.258 (+0.85), p1_q_other_max=0.000183 (+0.20), p1_s1_rank=4 (+0.19), p1_s1_max=1 (+0.08)
+
+FP [other S1] p2=0.748
+  S1: Devaya Infrastructures Company | B/42, F-4, 457. Vijayanagar Colony, Hyderabad, Telangana
+  S3: DEVAYA DEVAYA INFRASTRUCTURES CO | 
+  drivers: p1=0.753 (+8.58), p1_q_margin=0.753 (+1.11), p1_minus_s1max=-0.246 (+0.84), p1_q_other_max=0.000102 (+0.19), p1_s1_rank=3 (+0.18), p1_s1_max=0.999 (+0.08)
+
+FP [decoy] p2=0.796
+  S1: Tetanet Worldwide PLLC | 4999 Anna Maria Drive, Columbus, IN
+  S2: Tetanet Worldwide Corp | 
+  drivers: p1=0.726 (+8.61), p1_q_margin=0.725 (+1.15), p1_minus_s1max=-0.274 (+0.84), p1_q_other_max=0.000606 (+0.19), p1_s1_rank=5 (+0.18), p1_s1_max=1 (+0.09)
+
+FP [other S1] p2=0.845
+  S1: 977-978 West Owners Corp Inc | Marion, 400 200, IN
+  S3: 977-978 West Owners Corp | 
+  drivers: p1=0.822 (+9.12), p1_q_margin=0.822 (+1.14), p1_minus_s1max=-0.178 (+0.85), p1_s1_rank=4 (+0.20), p1_q_other_max=1.18e-05 (+0.16), p1_s1_max=1 (+0.11)
+
+FP [decoy] p2=0.792
+  S1: Iveneon Columbia PLLC | 644 Stevenson Station Road, Chandler, IN
+  S2: IVENEAN COLUMBIA PLLC | 00644 STEVENSON STATION RD, CHANDLER, IN
+  drivers: p1=0.718 (+8.63), p1_q_margin=0.718 (+1.16), p1_minus_s1max=-0.282 (+0.88), p1_s1_rank=4 (+0.23), p1_s1_sum=3.72 (+0.09), p1_s1_second=1 (-0.09)
+
+FP [decoy] p2=0.890
+  S1: Galaxy Enterprises Private Limited | H No 5-5-593, Abhyudaya Nagar, Hyderabad, Telangana
+  S3: GALAXY ENTERPRISES PRIVATE LIMITED | H No 5-3-257, Hyderabad, TG
+  drivers: p1=0.71 (+8.83), p1_q_margin=0.71 (+1.22), p1_minus_s1max=-0.29 (+0.89), p1_q_other_max=5.63e-06 (+0.21), p1_s1_rank=4 (+0.19), p1_s1_second=0.976 (+0.10)
+
+FP [other S1] p2=0.791
+  S1: Galaxy Pumps Private Limited | Survey No.18, Vaishnavi Cynosure, Block A&B Second Floor, Cyber Hills, Gachibowli, Hyderabad, Telangana
+  S3: Galaxy  Pumps | 
+  drivers: p1=0.781 (+8.60), p1_q_margin=0.781 (+1.14), p1_minus_s1max=-0.219 (+0.84), p1_q_other_max=9.05e-05 (+0.19), p1_s1_rank=4 (+0.19), p1_s1_max=1 (+0.09)
+
+FP [decoy] p2=0.895
+  S1: Sei Centre Private Limited | 7 E/172/1, Street No 13, Satyanarayana Puram, Parvathapur, Medipally, Perzadiguda, Hyderabad, Telangana
+  S3: Sei Services Private Límited | 3-28 E/172/1, Hyderabad, TG
+  drivers: p1=0.936 (+9.30), p1_q_margin=0.723 (+1.25), p1_minus_s1max=-0.0539 (+0.91), p1_s1_rank=3 (+0.22), p1_s1_sum=2.92 (+0.10), s1_rank=2 (+0.09)
+
+FP [other S1] p2=0.749
+  S1: WZ Fresenius | 508 Polk Street, Newburgh, IN
+  S3: WZ Inc Fresenius | 
+  drivers: p1=0.768 (+8.58), p1_q_margin=0.768 (+1.13), p1_minus_s1max=-0.232 (+0.82), p1_q_other_max=7.8e-05 (+0.18), p1_s1_rank=5 (+0.18), p1_s1_max=1 (+0.08)
+
+FN [true] p2=0.763
+  S1: Redox (India) Productions Private Limited | 201, Modern Estates, Bhaskara Enclave, Opp: Silico Hitech City Road, Kondapur, Hyderabad, Telangana
+  S3: Redox (India) Productions Private | 199, Modern Estates, Bhaskara Enclave, Opp: Silico Hitech City Road, Kondapur, Hyderabad, TG
+  drivers: p1=0.543 (+8.12), p1_minus_s1max=-0.457 (+1.00), p1_q_margin=0.543 (+0.86), p1_s1_rank=4 (+0.24), p1_s1_sum=3.55 (+0.23), p1_q_other_max=4.86e-06 (+0.18)
+
+FN [true] p2=0.689
+  S1: Residency Hire Limited | Flat No. 407, Block 15, Malaysian Township, Tirumalagiri, Hyderabad, Telangana
+  S2: RESIDENCY HHICORE-LIMITED | 
+  drivers: p1=0.676 (+8.47), p1_q_margin=0.674 (+0.88), p1_minus_s1max=-0.308 (+0.78), p1_s1_rank=3 (+0.20), p1_q_other_max=0.00132 (+0.20), p1_s1_sum=2.5 (+0.11)
+
+FN [true] p2=0.383
+  S1: Chase Elite Xrp LLC | 615 400, Shelbyville, IN
+  S2: Chase Elite LLC (Service) | 
+  drivers: p1=0.333 (+7.67), p1_q_margin=0.333 (+0.63), p1_minus_s1max=-0.667 (+0.59), p1_q_other_max=5.85e-05 (+0.24), p1_s1_rank=5 (+0.19), p1_s1_max=1 (+0.08)
+
+FN [true] p2=0.074
+  S1: Custom United Independence Partners | 1438 Woodscliff Drive, IN, Anderson
+  S2: Custom United  Independence | 
+  drivers: p1=0.0463 (+6.26), p1_minus_s1max=-0.954 (+0.79), p1_q_margin=-0.302 (-0.34), p1_s1_rank=3 (+0.27), p1_q_other_max=0.348 (+0.17), p1_s1_max=1 (+0.10)
+
+FN [true] p2=0.020
+  S1: Heartland Alliance | 423 Hill Road, Avilla, IN
+  S3: Heartland Alliance LP | 
+  drivers: p1=0.0196 (+5.18), p1_minus_s1max=-0.98 (+0.73), p1_q_margin=-0.0184 (-0.25), p1_s1_rank=6 (+0.15), p1_q_other_max=0.038 (+0.13), p1_s1_max=1 (+0.08)
+
+FN [true] p2=0.122
+  S1: Hernandez Enhanced LLC | 1496 250, Logansport, IN
+  S3: Hernandez  Ehnarnced LLC | 
+  drivers: p1=0.0705 (+6.34), p1_minus_s1max=-0.929 (+0.85), p1_q_other_max=0.222 (+0.34), p1_q_margin=-0.151 (-0.22), p1_s1_rank=4 (+0.19), tw_addr_max=0 (+0.09)
+
+FN [true] p2=0.512
+  S1: Inscoe Dave LLC | 1209 Manoa Road, Lower Merion Township, PA
+  S2: Inscoe Dave - 7240770832 | 
+  drivers: p1=0.596 (+8.20), p1_minus_s1max=-0.402 (+0.80), p1_q_margin=0.596 (+0.73), p1_q_other_max=4.56e-05 (+0.20), p1_s1_rank=4 (+0.18), s1_claims=4 (-0.13)
+
+FN [true] p2=0.233
+  S1: Noller & Cote Inc | 426 Carlson Drive, Knox, IN
+  S2: NOLLER & COTE | 
+  drivers: p1=0.213 (+7.21), p1_minus_s1max=-0.787 (+0.94), p1_q_margin=-0.0431 (-0.43), p1_q_other_max=0.256 (+0.27), tw_addr_max=0 (+0.13), p1_s1_max=1 (+0.13)
+
+FN [true] p2=0.438
+  S1: Vijay Software Private Limited | Rajendranagar, Hyderabad, Puppalaguda, Rajendranagar, Sy No.24B/P, Telangana
+  S2: విజయ్ సాఫ్ట్‌వేర్ ప్రైవేట్ లిమిటెడ్ | H.NO ##914 SY NO.2FB/P, HYDERABAD, RAJENDRANAGAR, Telangana
+  drivers: p1=0.33 (+7.78), p1_q_margin=0.33 (+0.66), p1_minus_s1max=-0.67 (+0.60), p1_q_other_max=0.000745 (+0.22), p1_s1_rank=4 (+0.17), p1_s1_max=1 (+0.10)
+
+FN [true] p2=0.456
+  S1: Thermax & Co | Fno.102, 1St Floor, Dwarakamai Residency Aparna Hill Park Rd, Chandanagar, Hyderabad, Rangareddy, Telangana
+  S2: Shri THERMAX & COMPANY | 
+  drivers: p1=0.475 (+7.81), p1_minus_s1max=-0.525 (+0.75), p1_q_margin=0.459 (+0.66), p1_s1_rank=2 (+0.23), p1_s1_sum=1.7 (+0.18), te_q_max=0.602 (+0.08)
+
+FN [true] p2=0.226
+  S1: Caceres Allied Chadwick Inc | 1221 9th Street, Bedford, IN
+  S3: CACERES ALLIED CHADWICK INC | 
+  drivers: p1=0.205 (+7.20), p1_minus_s1max=-0.794 (+0.95), p1_q_margin=-0.0205 (-0.45), p1_q_other_max=0.226 (+0.27), p1_s1_rank=7 (+0.14), tw_addr_max=0 (+0.12)
+
+FN [true] p2=0.557
+  S1: Primo Medical Centre | Hyderabad, Telangana, Plot No 91, Kakateeya Hills, Madhapur Serlingampally, Kv Rangareddy, Hyderabad, 1-65-24/2/A
+  S3: Primo Medical | 
+  drivers: p1=0.572 (+8.27), p1_q_margin=0.571 (+0.77), p1_minus_s1max=-0.428 (+0.75), p1_q_other_max=2.88e-05 (+0.20), p1_s1_rank=4 (+0.19), s1_claims=4 (-0.12)
+
+FN [true] p2=0.444
+  S1: Metro Canada LLC | 17120 Mayflower Drive, Lowell, IN
+  S3: Metro-Canada LLC | 
+  drivers: p1=0.447 (+7.75), p1_minus_s1max=-0.553 (+0.70), p1_q_margin=0.447 (+0.69), p1_q_other_max=1.75e-05 (+0.21), p1_s1_rank=5 (+0.16), p1_s1_max=1 (+0.09)
+
+FN [true] p2=0.187
+  S1: Vb Information Pvt Ltd | Plot No.21, 3Rd Floor, Dwaraka Buildings, Road No.71 Opp:Bharathiya Vidya Bhavan, Jubilee Hil, Ls, Hyderabad, Telangana
+  S3: Vb Information-Pvt Ltd | Door No 8-21, 3Rd Floor, Dwaraka Buildings, Road No.71 Opp:bharathiya Vidya Bhavan, Jubilee Hil, Ls, Hyderabad, TG
+  drivers: p1=0.209 (+7.22), p1_minus_s1max=-0.79 (+0.81), s1_claims=2 (-0.36), p1_s1_second=0.665 (+0.24), p1_s1_sum=1.87 (+0.23), p1_s1_rank=3 (+0.22)
+
+FN [true] p2=0.683
+  S1: Atlantic Network | 4315 25th Street, Anderson, IN
+  S2: ATLANTIC NETWORK | 4313-C 25TH STREET, ANDERSON, IN
+  drivers: p1=0.453 (+8.11), p1_q_margin=0.453 (+0.87), p1_minus_s1max=-0.547 (+0.78), p1_s1_rank=2 (+0.21), p1_s1_sum=1.63 (+0.19), p1_q_other_max=5.47e-07 (+0.17)
