@@ -78,12 +78,14 @@ Calibration of fold 0 against the public leaderboard:
 |---|---|---|---|
 | 1 | Rule baseline (blocking v1, weights 0.3 name / 0.6 addr / 0.1 number, threshold 0.64, one-to-one) | 0.7259 / 0.7191 / 0.7313 | **0.636** |
 | 2 | Decoy-aware rule scorer v2 | 0.8230 / 0.7113 / 0.9100 | **0.829** |
-| 3 | LightGBM two-stage + has-match + expected-F0.5 decoder, v1 candidates, v3 features | 0.9652 / 0.9486 / 0.9781 | TODO |
-| 4 | Same model on blocking-v4 candidates | 0.9719 / 0.9638 / 0.9782 | TODO |
-| FINAL | TODO | TODO | TODO |
+| 3 | LightGBM two-stage + has-match + expected-F0.5 decoder, v1 candidates, v3 features | 0.9652 / 0.9486 / 0.9781 | **0.941** |
+| 4 | Same model on blocking-v4 candidates (mean of the 4 CV fold models) | 0.9719 / 0.9638 / 0.9782 | **0.945** |
+| 5 | #4 retrained on all 5 folds (one model per stage, rounds = 1.1 × mean CV best iteration) | 0.9719 (CV estimate; the retrain sees fold 0) | not reported at packaging time |
+| FINAL | #4, v4 (blocking v4, stage 1 + stage 2 + has-match + expected-F0.5 decoder, 4 CV fold models) | 0.9719 / 0.9638 / 0.9782 | **0.945** |
 
 The benchmark was built after submission #1 and still over-rated that decoy-blind model (0.726 vs 0.636). From
-submission #2 on, fold 0 tracks the leaderboard closely (0.823 vs 0.829).
+submission #2 on, fold 0 ranks every version in the same order as the leaderboard. For the LightGBM versions it is
+optimistic by 0.024–0.027 (#3 0.9652 vs 0.941, #4 0.9719 vs 0.945); see the test-gap diagnostic in Section 5.
 
 ---
 
@@ -178,7 +180,7 @@ On fold 0 the decoder beat the best global threshold by +0.0011 to +0.0013.
 - **F_0.5 Score (macro):** fold 0 of the geo-dense benchmark (model v4) **0.9719**: India 0.9638, US 0.9782.
   Precision 0.990, recall 0.946, 3.29 predictions per S1, 5.89% empty, singleton F0.5 0.957. Out-of-fold folds 1–4:
   0.9690.
-  FINAL MODEL: fold 0 = TODO, public LB = TODO.
+  FINAL MODEL (#4, v4 with the 4 CV fold models): fold 0 = 0.9719, public LB = 0.945.
 
 | Version (fold 0) | All | India | US | Precision | Recall |
 |---|---|---|---|---|---|
@@ -187,7 +189,7 @@ On fold 0 the decoder beat the best global threshold by +0.0011 to +0.0013.
 | v3 stage 1 + threshold | 0.9617 | — | — | — | — |
 | v3 stage 2 + decoder + has-match (#3) | 0.9652 | 0.9486 | 0.9781 | 0.990 | 0.930 |
 | v4 stage 2 + decoder + has-match | 0.9719 | 0.9638 | 0.9782 | 0.990 | 0.946 |
-| **FINAL MODEL** | TODO | TODO | TODO | TODO | TODO |
+| **FINAL MODEL** (#4, v4 (blocking v4, stage 1 + stage 2 + has-match + expected-F0.5 decoder, 4 CV fold models)) | **0.9719** | **0.9638** | **0.9782** | 0.990 | 0.946 |
 
 Error budget, v4 fold 0 (F0.5 points lost; total 0.0281, vs 0.1770 for the v2 rule scorer):
 
@@ -199,17 +201,50 @@ Error budget, v4 fold 0 (F0.5 points lost; total 0.0281, vs 0.1770 for the v2 ru
 | False negative, missed by blocking | 0.0073 | 0.0103 | 0.0049 |
 | False negative, missed by scoring | 0.0119 | 0.0136 | 0.0105 |
 
-Test-set statistics per country (submission #3; France has no labels, so these are the only checks available):
+Test-set statistics per country (final model; France has no labels, so these are the only checks available):
 
 | Country | Predictions / S1 | % S1 empty | % S2/S3 assigned |
 |---|---|---|---|
-| France | 3.37 | 5.45 | 61.0 |
-| India | 3.26 | 6.26 | 56.0 |
-| US | 3.49 | 5.63 | 60.6 |
-| FINAL MODEL (all) | TODO | TODO | TODO |
+| France | 3.40 | 5.39 | 61.5 |
+| India | 3.33 | 5.95 | 57.2 |
+| US | 3.49 | 5.66 | 60.7 |
+| FINAL MODEL (all) | 3.40 | 5.76 | 59.1 |
 
-These are in line with train (3.46 matches per S1, 5.6% singletons). France sits between US and India on every
+The full retrain (#5) agrees with #4 on 97.8% (France), 98.3% (India) and 98.5% (US) of the predicted pairs (both /
+union), and every statistic above differs by less than 1% relative.
+
+These are in line with train (3.46 matches per S1, 5.6% singletons; at the test density of 5.76 queries per S1,
+3.46 matches per S1 means about 60% of S2/S3 assigned). France sits between US and India on every
 statistic, which suggests the country-agnostic pipeline transfers.
+
+**Split of the 0.0119 "missed by scoring"** (v4 fold 0; true pair present in the candidates but not predicted):
+
+| Bucket | F0.5 points (all / India / US) | Missed pairs | p2 of the missed pairs |
+|---|---|---|---|
+| (a) the query's argmax is the true S1, the decoder did not select it | 0.0096 / 0.0114 / 0.0081 | 13,717 | median 0.53; 71% in 0.3–0.8 |
+| (b1) argmax is another S1, which selected the query | 0.0001 | 59 | median 0.12 |
+| (b2) argmax is another S1, which did not select it | 0.0023 | 3,083 | median 0.06 |
+| (c) other | 0 | 0 | – |
+
+Bucket (a) consists of genuinely uncertain pairs. A "sibling rescue" rule tried to recover them: add an unselected
+argmax claimant when p2 ≥ a and it is near-identical (similarity ≥ b, compatible number, no decoy-type extra word) to
+a selected match of the same S1. It was tuned over 90 settings on folds 1–4 and never beat the baseline. On fold 0 it
+added 162 true pairs and 94 false ones (−0.00005), because decoys are near-copies of the true siblings. The decoder
+settings (temperature, miss prior, has-match sharpness) are equally flat (±0.0001).
+
+**Test-gap diagnostic** (the LB is 0.024–0.027 below fold 0):
+
+| | Fold 0 US | Fold 0 India | Test US | Test India | Test France |
+|---|---|---|---|---|---|
+| Uncertain queries (best p2 in 0.3–0.7) | 2.5% | 3.3% | 3.9% | 3.3% | 5.0% |
+| Predictions / S1 | 3.30 | 3.27 | 3.49 | 3.33 | 3.40 |
+| % S1 empty | 5.93 | 5.84 | 5.66 | 5.95 | 5.39 |
+| Mean has-match h | 0.944 | 0.948 | 0.946 | 0.946 | 0.950 |
+
+France is the most uncertain country (about 2× fold-0 US), and test US is also above fold-0 US. The gap therefore looks
+partly test-wide (harder decoys than in the benchmark regions), with the unlabelled France adding to it. A manual
+review of 15 random French S1 shows that French legal forms (SARL, SASU, EI, SCI) are handled and that decoys with
+another house number or an extra word (International, Distribution, Développement) are rejected.
 
 - **Common false positives (wrong merges):**
   - decoys that differ from the entity only in the legal form (`… Public Limited` vs `… Limited`; legal forms are
@@ -241,6 +276,14 @@ The pipeline uses only the provided data, small MIT-licensed tree models, and tr
   to the "unseen word" count.
 - The heavy stages need about 30 GB of RAM (feature tables, 4-fold model training) and were run on Kaggle CPU kernels.
 
+**What we would do next.**
+- *Sibling-p1 stage-2 features*: for each claimant, the p1 of its most similar claimant from the other source and
+  whether it agrees with the highest-p1 sibling on the street number and extra words. The text-only version already
+  exists (twin features); adding the siblings' model scores targets bucket (a) above (0.0096 points).
+- *Higher blocking recall for non-Latin names* (0.0103 points lost in India): a larger or character-level
+  transliteration dictionary, and a phonetic key for Indic-script names.
+- *3-seed averaging* of stage 1 and stage 2, together with a lower learning rate (0.03) and more rounds.
+
 ---
 
 ## Appendix
@@ -257,8 +300,10 @@ The pipeline uses only the provided data, small MIT-licensed tree models, and tr
 4. `blocking` (`--split test`, test lookups) and `blocking_v4` (`--split bench|test`) — candidate generation
 5. `pair_table` — pair-feature tables
 6. `features_v3` — v3 features
-7. `model_lgb --stage train` — fits the models on the benchmark
-8. `model_lgb --stage submit` — writes `output/matching_results.tsv` and `output/candidate_pairs.tsv` through
+7. `model_lgb --stage train` — fits the models on the benchmark (leave-one-fold-out over folds 1–4, fold-0 report);
+   `--stage train_full` with `MODEL_FULL=1` refits one model per stage on all 5 folds (submission #5)
+8. `model_lgb --stage submit` — scores test (`SUBMIT_COUNTRY=<c>`, `SUBMIT_PARTS=1`: one part per country), then
+   `model_lgb --stage assemble` writes `output/matching_results.tsv` and `output/candidate_pairs.tsv` through
    `io_utils` (`\n` line endings, validator-compatible)
 
 Set `FEATURE_VARIANT=v4` for steps 5–8. Supporting modules: `text_norm`, `geo_units`, `decoy_features`, `decoder`,

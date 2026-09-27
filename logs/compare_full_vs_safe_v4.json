@@ -1,0 +1,149 @@
+{
+ "France": {
+  "s1_rows": 259452,
+  "pairs_a": 881781,
+  "pairs_b": 888384,
+  "agree_of_a": 99.23,
+  "agree_of_b": 98.5,
+  "agree_of_union": 97.75,
+  "a": {
+   "pred_per_s1": 3.399,
+   "pct_empty": 5.39,
+   "pct_s2s3_assigned": 61.45
+  },
+  "b": {
+   "pred_per_s1": 3.424,
+   "pct_empty": 5.36,
+   "pct_s2s3_assigned": 61.91
+  },
+  "rel_diff_pct": {
+   "pred_per_s1": 0.74,
+   "pct_empty": -0.56,
+   "pct_s2s3_assigned": 0.75
+  },
+  "p2_kept_decile_share_a": [
+   0.2934,
+   0.0216,
+   0.0162,
+   0.0132,
+   0.013,
+   0.0102,
+   0.0134,
+   0.0149,
+   0.0183,
+   0.5859
+  ],
+  "p2_kept_decile_share_b": [
+   0.29,
+   0.0235,
+   0.0163,
+   0.0125,
+   0.012,
+   0.0093,
+   0.0126,
+   0.0144,
+   0.0204,
+   0.5892
+  ],
+  "p2_kept_abs_diff_max_pp": 0.342,
+  "sane": true
+ },
+ "India": {
+  "s1_rows": 809986,
+  "pairs_a": 2696704,
+  "pairs_b": 2702435,
+  "agree_of_a": 99.23,
+  "agree_of_b": 99.02,
+  "agree_of_union": 98.27,
+  "a": {
+   "pred_per_s1": 3.329,
+   "pct_empty": 5.95,
+   "pct_s2s3_assigned": 57.16
+  },
+  "b": {
+   "pred_per_s1": 3.336,
+   "pct_empty": 5.95,
+   "pct_s2s3_assigned": 57.28
+  },
+  "rel_diff_pct": {
+   "pred_per_s1": 0.21,
+   "pct_empty": 0.0,
+   "pct_s2s3_assigned": 0.21
+  },
+  "p2_kept_decile_share_a": [
+   0.3675,
+   0.0141,
+   0.0105,
+   0.0081,
+   0.0081,
+   0.0069,
+   0.0099,
+   0.0116,
+   0.017,
+   0.5462
+  ],
+  "p2_kept_decile_share_b": [
+   0.3718,
+   0.0133,
+   0.0093,
+   0.0071,
+   0.0074,
+   0.0061,
+   0.0092,
+   0.0104,
+   0.0159,
+   0.5496
+  ],
+  "p2_kept_abs_diff_max_pp": 0.426,
+  "sane": true
+ },
+ "US": {
+  "s1_rows": 663106,
+  "pairs_a": 2317219,
+  "pairs_b": 2326061,
+  "agree_of_a": 99.45,
+  "agree_of_b": 99.07,
+  "agree_of_union": 98.53,
+  "a": {
+   "pred_per_s1": 3.494,
+   "pct_empty": 5.66,
+   "pct_s2s3_assigned": 60.71
+  },
+  "b": {
+   "pred_per_s1": 3.508,
+   "pct_empty": 5.69,
+   "pct_s2s3_assigned": 60.94
+  },
+  "rel_diff_pct": {
+   "pred_per_s1": 0.4,
+   "pct_empty": 0.53,
+   "pct_s2s3_assigned": 0.38
+  },
+  "p2_kept_decile_share_a": [
+   0.3247,
+   0.0129,
+   0.0111,
+   0.0092,
+   0.0095,
+   0.0084,
+   0.0121,
+   0.0141,
+   0.0159,
+   0.5822
+  ],
+  "p2_kept_decile_share_b": [
+   0.3241,
+   0.0135,
+   0.0107,
+   0.0086,
+   0.0091,
+   0.008,
+   0.0121,
+   0.0128,
+   0.017,
+   0.5842
+  ],
+  "p2_kept_abs_diff_max_pp": 0.2,
+  "sane": true
+ }
+}

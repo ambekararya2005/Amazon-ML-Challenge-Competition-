@@ -113,3 +113,17 @@ PASS — no blocking issues found. Safe to submit.
 
 2026-09-27 17:23:54 INFO assembled C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\output\final_v4safe: {"parts": ["France.parquet", "India.parquet", "US.parquet"], "rows_candidate": 1732544, "rows_matching": 1732544, "validator": ["  candidate_pairs.tsv: 1732544 rows (183 empty, 1732361 non-empty).", "", "PASS \u2014 no blocking issues found. Safe to submit."]}
 2026-09-27 17:24:08 INFO [model_lgb_assemble] ok in 251.5s | peak rss 5838 MB | end rss 25 MB
+2026-09-27 17:37:25 INFO [model_lgb_assemble] start (rss 155 MB)
+2026-09-27 17:37:27 INFO assemble: 3 parts from ..\..\kaggle\runs\k15-full\output\submit_parts_v4full (['France.parquet', 'India.parquet', 'US.parquet']): 1732544 S1 rows
+2026-09-27 17:43:46 INFO validator (rc 0):
+ML Challenge 2026 — submission validator
+  test dir: C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\student_resource\dataset\test
+  required S1 entities: 1732544
+  valid S2/S3 match IDs: 9969589
+  matching_results.tsv: 1732544 rows (99777 empty, 1632767 non-empty).
+  candidate_pairs.tsv: 1732544 rows (183 empty, 1732361 non-empty).
+
+PASS — no blocking issues found. Safe to submit.
+
+2026-09-27 17:43:46 INFO assembled C:\Users\Arya Ambekar\Downloads\Amazon Ml Challenge Competition\output\final: {"parts": ["France.parquet", "India.parquet", "US.parquet"], "rows_candidate": 1732544, "rows_matching": 1732544, "validator": ["  candidate_pairs.tsv: 1732544 rows (183 empty, 1732361 non-empty).", "", "PASS \u2014 no blocking issues found. Safe to submit."]}
+2026-09-27 17:44:03 INFO [model_lgb_assemble] ok in 398.2s | peak rss 6001 MB | end rss 27 MB

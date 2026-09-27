@@ -23,3 +23,6 @@ Thumbs.db
 /kaggle/code_bundle/*.zip
 /kaggle/runs/
 /kaggle/kernels/
+
+# Final submission zips (hundreds of MB; upload to the competition, never to git)
+/dist/

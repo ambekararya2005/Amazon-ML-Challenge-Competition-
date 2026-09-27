@@ -70,7 +70,14 @@ cached; add `--force` to recompute. The final model uses the v4 candidates, so s
 | 5 | `python -m src.blocking_v4 --split bench` | `cache/bench_v4/{union,dictionary}.parquet`, `logs/blocking_v4_report.json` | 39 min / 8.4 GB |
 | 6 | `python -m src.pair_table --split bench` → `python -m src.features_v3 --split bench` → `python -m src.model_lgb --stage train` | `cache/bench_v4/pairs.parquet`, `<output>/features_v3_v4/bench/`, models in `<output>/models_v4/`, `logs/model_v4_report.{json,md}` | 7 + 8 + 216 min / 32 GB |
 | 7 | `python -m src.blocking --stage block --split test --country France` (writes the test lookups `cache/cand/test/{lookup_s1,queries}.parquet`), then `python -m src.blocking_v4 --split test --country <C>` for every test country | `<output>/cand_v4/test/topk_<C>.parquet` | France 12 min, India 244 min, US 110 min / 10 GB |
-| 8 | `python -m src.pair_table --split test` → `python -m src.features_v3 --split test` → `python -m src.model_lgb --stage submit` | `output/matching_results.tsv`, `output/candidate_pairs.tsv` | 23 + 34 min + submit / 22–30 GB |
+| 8 | `python -m src.pair_table --split test` → `python -m src.features_v3 --split test` | `<output>/features_v3_v4/test/pairs_<C>.parquet` | 23 + 34 min / 22 GB |
+| 9 | for every test country: `SUBMIT_COUNTRY=<C> SUBMIT_PARTS=1 python -m src.model_lgb --stage submit` | `<output>/submit_parts_v4/<C>.parquet` + `<C>_report.json` | France 36, India 115, US 80 min / 9–25 GB |
+| 10 | `python -m src.model_lgb --stage assemble` (`FINAL_SUBDIR=<dir>`, default `final`; `PARTS_DIR` if the parts are elsewhere) | `output/<dir>/{matching_results,candidate_pairs}.tsv`, validator run | 5 min / 6 GB |
+
+Step 9 without `SUBMIT_PARTS` scores every country in one process and writes the two TSVs directly (needs ~30 GB).
+Optional (submission #5): `MODEL_FULL=1 python -m src.model_lgb --stage train_full` refits one model per stage on all
+5 benchmark folds (rounds = 1.1 × mean CV best iteration; 87 min / 19 GB), then steps 9–10 with `MODEL_FULL=1`
+(parts in `submit_parts_v4full/`).
 
 Runtimes are Kaggle 4-vCPU wall clock. Steps 6 and 8 need roughly 30 GB of RAM, so run them on Kaggle or on a
 machine of that size. Then validate:
@@ -102,7 +109,9 @@ dataset, and `make_kernels.py <plan>` writes the kernel folders. Kernel plan use
 | K12a–c blocking-v4-{france,india,us} | blocking_v4 test, one country each (in parallel) |
 | K12d bench-v4 | blocking_v4 bench, pair_table bench, features_v3 bench, model_lgb train |
 | K13 test-features-v4 | pair_table test, features_v3 test |
-| K14 submit-v4 | model_lgb submit → both TSVs |
+| K14a–c submit-v4-{france,india,us} | model_lgb submit, one country each → parts (submission #4) |
+| K15 full-v4 | model_lgb train_full + submit → parts (submission #5) |
+| local | model_lgb assemble → both TSVs + validator |
 
 ## Constraints respected
 
@@ -140,7 +149,7 @@ src/
   scorer_v2.py       decoy-aware rule scorer (submission #2)
   data_checks.py     step-0 data checks
   features_v3.py     tagged numbers, extra-word lists, group / twin features
-  model_lgb.py       two-stage LightGBM + has-match model + submission
+  model_lgb.py       two-stage LightGBM + has-match model; train / train_full / submit / assemble
   decoder.py         threshold / exact expected-F0.5 decoders, error budget
   tune_pass_c*.py    pass-C speed / recall tuning
 README.md            this file

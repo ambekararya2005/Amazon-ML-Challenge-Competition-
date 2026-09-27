@@ -225,3 +225,11 @@ logs/sibling_rescue_v4.json, logs/test_gap_v4.json, logs/test_gap_france_example
   de Agriculteurs & Fils" selected at p 1.0); a few 0.4-0.6 rejects that share the full address but have another name.
 - v4-safe (CV fold 1-4 models) test files: output/final_v4safe/ (validator PASS). K14a-c runtimes France 36 min,
   India 115 min, US 80 min. K16 (France, SAVE_PAIRS=1) reproduces the France part byte for byte.
+- #4 (v4-safe) public LB **0.945** (fold 0 0.9719, gap -0.027). Copied to output/final_chosen/ as the default.
+- Full retrain K15 (amlc2026-full-v4): train_full 87 min (stage 1 1323 rounds 63 min, stage 2 294 rounds 15 min,
+  peak 18.7 GB) + submit 90 min (one model per stage). In-sample fold 0 0.978 (India 0.974 / US 0.981; bug check).
+  Cross-check vs v4-safe (tools/compare_parts.py, logs/compare_full_vs_safe_v4.json): agreement both/union France 97.75,
+  India 98.27, US 98.53%; pred/S1 +0.74 / +0.21 / +0.40% rel, % empty -0.56 / 0.00 / +0.53%, % assigned +0.75 / +0.21 /
+  +0.38%; argmax-p2 decile shares max |diff| 0.34 / 0.43 / 0.20 pp -> SANE. Files output/final_full/ (validator PASS).
+- Documentation_template.md filled (submission table, v4 error budget, FN bucket split, test-gap table, next steps);
+  README updated (per-country submit parts, assemble, train_full, kernel plan).
